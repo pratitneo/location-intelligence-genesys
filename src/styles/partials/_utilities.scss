@@ -1,0 +1,24 @@
+@use '../../styles/partials/variables' as *;
+
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-between-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+%flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.lip-profile__tab--active {
+    background: $white !important;
+    border: 1px solid $text-violet !important;
+}

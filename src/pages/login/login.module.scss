@@ -1,0 +1,60 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-login {
+    &__wrap {
+        min-height: 100vh;
+        @extend %flex-end;
+        background: linear-gradient(to right, #320A55, #6B07C1);
+    }
+
+    &__box {
+        width: 100%;
+        min-height: 768px;
+        padding: 40px;
+        max-width: 460px;
+        margin-right: 70px;
+        border-radius: $radius-login;
+        background: $white;
+    }
+
+    &__head {
+        margin-top: 18px;
+        text-transform: uppercase;
+    }
+
+    &__subHead {
+        margin-bottom: 18px;
+        text-transform: capitalize;
+    }
+
+    &__checkbox__forgot {
+        @extend %flex-between-center
+    }
+
+    &__forgot {
+        color: $label-active;
+        text-transform: capitalize;
+    }
+
+    &__new__signup {
+        @extend %flex-center;
+        gap: 0 5px;
+        margin-top: 20px;
+    }
+
+    &__newUser {
+        text-transform: capitalize;
+    }
+
+    &__signup {
+        text-transform: uppercase;
+        text-decoration: underline;
+        font-weight: 700;
+        color: $separator-text-color;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

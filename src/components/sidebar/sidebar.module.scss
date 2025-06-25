@@ -88,15 +88,15 @@
         height: $sidebar-box;
         @extend %flex-center;
 
-        &:hover {
-            color: $text-violet;
-            background: $white;
-            border-radius: $radius-input;
+        // &:hover {
+        //     color: $text-violet;
+        //     background: $white;
+        //     border-radius: $radius-input;
 
-            svg {
-                color: $text-violet;
-            }
-        }
+        //     svg {
+        //         color: $text-violet;
+        //     }
+        // }
 
         svg {
             color: $white;

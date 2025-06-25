@@ -6,6 +6,7 @@ import Button from '../../components/button/button'
 import Separator from '../../components/separator/separator'
 import { useState } from 'react'
 import type { LoginDataType } from '../../types/types'
+import { Images } from '../../assets/assets'
 
 const Login = () => {
     const [loginData, setLoginData] = useState<LoginDataType>({ userEmail: '', userPassword: '' })
@@ -27,11 +28,11 @@ const Login = () => {
         <div className={`${loginCss['lip-login__wrap']}`}>
             {/* login box */}
             <div className={`${loginCss['lip-login__box']}`}>
-                <img src="/assets/login-logo.svg" alt="" />
+                <img src={Images?.loginLogo} alt="" />
                 <p className={`${loginCss['lip-login__head']} login-head`}>welcome back</p>
                 <p className={`${loginCss['lip-login__subHead']} login-subHead`}>log in to your account</p>
                 <LoginInput inputLabel='email' inputType='email' inputName='userEmail' inputId='email' inputValue={loginData?.userEmail} getInputValue={handleInput} />
-                <LoginInput inputLabel='password' inputType='password' inputName='userPassword' inputId='password' icon='password-eye' customCls='lip-input__password' inputValue={loginData?.userPassword} getInputValue={handleInput} getInputToggle={handleTogglePassword} />
+                <LoginInput inputLabel='password' inputType='password' inputName='userPassword' inputId='password' icon='passwordEye' customCls='lip-input__password' inputValue={loginData?.userPassword} getInputValue={handleInput} getInputToggle={handleTogglePassword} />
                 <div className={`${loginCss['lip-login__checkbox__forgot']}`}>
                     <LoginChecbox inputLabel='remember me' inputType='checkbox' inputName='rememberCheck' inputId='rememberbox' />
                     <Link className={`${loginCss['lip-login__forgot']}`} to={'/forgot-password'}>Forgot password?</Link>

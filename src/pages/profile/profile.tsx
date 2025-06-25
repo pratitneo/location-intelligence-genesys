@@ -6,6 +6,7 @@ import profileCss from './profile.module.scss'
 // import LoginInput from '../../components/loginInput/loginInput'
 import Sidebar from '../../components/sidebar/sidebar'
 import PersonalInfo from '../../components/personalInfo/personalInfo'
+import RightSideBar from '../../components/rightSideBar/rightSideBar'
 
 const Profile = ({ userName, fullName }: ProfileType) => {
     const tabs = [{ id: 1, label: 'profile', active: true }, { id: 2, label: 'categories', active: false }]
@@ -36,6 +37,7 @@ const Profile = ({ userName, fullName }: ProfileType) => {
                     )}
                 </div>
             </div>
+            <RightSideBar />
         </>
     )
 }

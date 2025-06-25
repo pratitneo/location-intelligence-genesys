@@ -8,15 +8,23 @@ import { FaVectorSquare } from "react-icons/fa6";
 import { FaLocationArrow } from "react-icons/fa";
 import { BiShapePolygon } from "react-icons/bi";
 import styles from "./rightSidebar.module.scss";
-import { useState, type JSX } from "react";
+import type { ReactElement } from "react";
 
 type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo";
 
-const RightSideBar = () => {
-  const [activeKey, setActiveKey] = useState<IconKey | null>(null);
+const RightSideBar = ({
+  isPanelOpen,
+  onIconClick,
+  activeKey
+}: {
+  isPanelOpen: boolean;
+  onIconClick: (key: IconKey) => void;
+  activeKey: IconKey | null;
+}) => {
+  // const [activeKey, setActiveKey] = useState<IconKey | null>(null);
   const iconList: {
     id: number;
-    icon: JSX.Element;
+    icon: ReactElement;
     tooltip: string;
     key: IconKey;
   }[] = [
@@ -65,44 +73,51 @@ const RightSideBar = () => {
   //   }
   // };
 
-  const handleIconClick = (key: IconKey) => {
-    setActiveKey((prev) => (prev === key ? null : key));
-    console.log("Clicked icon:", key);
-  };
+  // const handleIconClick = (key: IconKey) => {
+  //   setActiveKey((prev) => (prev === key ? null : key));
+  //   onIconClick(key);
+  // };
+
+  
 
   return (
-    <div className={styles["right-sidebar__wrap"]}>
-      <div className={styles["right-sidebar__icons"]}>
-        {iconList.map((item) => (
-          <div key={item.id} className={styles["right-sidebar__icon-wrap"]}>
-            <div
-              className={styles["right-sidebar__icon"]}
-              onClick={() => handleIconClick(item.key)}
-            >
-              <span className={styles["right-sidebar__tooltip"]}>
-                {item.tooltip}
-              </span>
-              {item.icon}
-            </div>
-
-            {/* ✅ Show red sub-icons if "Draw On Map" is clicked */}
-            {item.key === "draw" && activeKey === "draw" && (
-              <div className={styles["right-sidebar__sub-icons"]}>
-                {subIconList.map((subItem) => (
-                  <div
-                    key={subItem.id}
-                    className={styles["right-sidebar__sub-icon"]}
-                  >
-                    <span className={styles["right-sidebar__tooltip"]}>
-                      {subItem.tooltip}
-                    </span>
-                    {subItem.icon}
-                  </div>
-                ))}
+    <div
+       className={`${styles["right-sidebar__wrap"]} ${
+    isPanelOpen ? styles["right-sidebar__wrap--shifted"] : ""
+  }`}
+    >
+      <div className={styles["right-sidebar__wrap"]}>
+        <div className={styles["right-sidebar__icons"]}>
+          {iconList.map((item) => (
+            <div key={item.id} className={styles["right-sidebar__icon-wrap"]}>
+              <div
+                className={styles["right-sidebar__icon"]}
+                onClick={() => onIconClick(item.key)}
+              >
+                <span className={styles["right-sidebar__tooltip"]}>
+                  {item.tooltip}
+                </span>
+                {item.icon}
               </div>
-            )}
-          </div>
-        ))}
+
+              {item.key === "draw" && activeKey === "draw" && (
+                <div className={styles["right-sidebar__sub-icons"]}>
+                  {subIconList.map((subItem) => (
+                    <div
+                      key={subItem.id}
+                      className={styles["right-sidebar__sub-icon"]}
+                    >
+                      <span className={styles["right-sidebar__tooltip"]}>
+                        {subItem.tooltip}
+                      </span>
+                      {subItem.icon}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,13 +1,50 @@
 import { Outlet } from 'react-router-dom'
 
+import { useState } from 'react'
+import styles from './layout.module.scss'
+import RightSideBar from '../rightSideBar/rightSideBar';
+import SidePanel from '../sidePanel/sidePanel';
+
+type IconKey = '3dmap' | 'legend' | 'charts' | 'draw' | 'maps' | 'geo';
+
 const Layout = () => {
-    return (
-        // <Navbar/>
-        <main>
-            <Outlet />
-        </main>
-        //   <Footer />
-    )
+  const [activePanel, setActivePanel] = useState<IconKey | null>(null);
+
+  const handleIconClick = (key: IconKey) => {
+    setActivePanel(prev => prev === key ? null : key);
+  };
+
+  const getPanelTitle = (key: IconKey) => {
+    switch (key) {
+      case '3dmap': return <div>3D Map Content</div>;
+      case 'charts': return <div>Charts Content</div>;
+      case 'legend': return <div>Legend Content</div>;
+      case 'draw': return <div>Draw on Map Content</div>;
+      case 'maps': return <div>Maps Content</div>;
+      case 'geo': return <div>Geo Analysis Content</div>;
+      default: return <div>No Content</div>;
+    }
+  };
+
+  return (
+    <div className={styles.layout}>
+      {/* Main content */}
+      <Outlet />
+
+      {/* Right Sidebar */}
+      <RightSideBar isPanelOpen={!!activePanel} onIconClick={handleIconClick} activeKey={activePanel} />
+
+      {/* Slide-in Panel */}
+      <SidePanel
+        visible={!!activePanel}
+        onClose={() => setActivePanel(null)}
+        title={activePanel ? getPanelTitle(activePanel) : ""}
+        content={
+          activePanel ? <div>Data for {getPanelTitle(activePanel)}</div> : null
+        }
+      />
+    </div>
+  )
 }
 
 export default Layout

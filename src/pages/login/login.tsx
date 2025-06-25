@@ -18,6 +18,7 @@ const Login = () => {
             [name]: value
         }))
     }
+    // ONLY FOR PASSWORD INPUT
     const handleTogglePassword = (inputEvent: any) => {
         const { type } = inputEvent?.target
         console.log(type, 'type')

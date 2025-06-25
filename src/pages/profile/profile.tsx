@@ -12,6 +12,7 @@ const Profile = ({ userName, fullName }: ProfileType) => {
     const tabs = [{ id: 1, label: 'profile', active: true }, { id: 2, label: 'categories', active: false }]
     const [tabNum, setTabNum] = useState(0)
     const [profileTabs, setProfileTabs] = useState(tabs)
+    const [edit, setEdit] = useState(true)
     console.log(profileTabs, 'profileTabs')
     const handleTabs = (_selectedTab: TabsObj, selectedIndex: number) => {
         const updatedTabs = profileTabs?.map((tab, idx) => ({
@@ -22,6 +23,10 @@ const Profile = ({ userName, fullName }: ProfileType) => {
         setProfileTabs(updatedTabs);
     };
 
+    const handleEditState = () => {
+        setEdit(prevEdit => !prevEdit)
+    }
+
     return (
         <>
             <Sidebar />
@@ -31,8 +36,8 @@ const Profile = ({ userName, fullName }: ProfileType) => {
                     <p className={`${profileCss['lip-profile__name']}`}>{fullName}</p>
                     <Tabs tabsData={profileTabs} customCls='lip-tabs__profile' changeTabs={handleTabs} />
                     {tabNum === 0 ? <ProfileBox head='change password' /> : (
-                        <ProfileBox head='personal information'>
-                            <PersonalInfo />
+                        <ProfileBox head='personal information' getEditFn={handleEditState} getEditState={edit}>
+                            <PersonalInfo getEditState={edit} getSaveAction={handleEditState} />
                         </ProfileBox>
                     )}
                 </div>

@@ -1,13 +1,6 @@
 @use '../../styles/partials/variables' as *;
 
 .lip {
-    &-button {
-        width: 100%;
-        border-radius: $radius-input;
-        transition: 0.3s all;
-        cursor: pointer;
-    }
-
     &-login__btn {
         height: 56px;
         font-weight: 700;
@@ -24,6 +17,36 @@
         &:hover {
             border: 2px solid $primary-violet;
             background: $white;
+        }
+    }
+
+    &-profile__btn {
+        height: 40px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        border: none;
+        border: 1px solid transparent;
+        color: $white;
+        background: $text-violet;
+        transition: 0.3s all;
+        text-transform: uppercase;
+
+        &:hover {
+            border: 1px solid $text-violet;
+            color: $label-active;
+            background: $secondary-violet;
+        }
+    }
+
+    &-button {
+        width: 100%;
+        border-radius: $radius-input;
+        transition: 0.3s all;
+        cursor: pointer;
+
+        &--disable {
+            background: $secondary-violet;
+            pointer-events: none;
         }
     }
 }

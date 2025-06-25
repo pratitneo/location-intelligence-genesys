@@ -3,7 +3,9 @@ import ProfileBox from '../../components/profileBox/profileBox'
 import Tabs from '../../components/tabs/tabs'
 import type { ProfileType, TabsObj } from '../../types/types'
 import profileCss from './profile.module.scss'
-import LoginInput from '../../components/loginInput/loginInput'
+// import LoginInput from '../../components/loginInput/loginInput'
+import Sidebar from '../../components/sidebar/sidebar'
+import PersonalInfo from '../../components/personalInfo/personalInfo'
 
 const Profile = ({ userName, fullName }: ProfileType) => {
     const tabs = [{ id: 1, label: 'profile', active: true }, { id: 2, label: 'categories', active: false }]
@@ -20,16 +22,21 @@ const Profile = ({ userName, fullName }: ProfileType) => {
     };
 
     return (
-        <div className={`${profileCss['lip-profile__wrap']}`}>
-            <p className={`${profileCss['lip-profile__greet']}`}>Hello, {userName}</p>
-            <div className={`${profileCss['lip-profile__main']}`}>
-                <p className={`${profileCss['lip-profile__name']}`}>{fullName}</p>
-                <Tabs tabsData={profileTabs} customCls='lip-tabs__profile' changeTabs={handleTabs} />
-                {tabNum === 0 ? <ProfileBox head='change password' /> : (
-                    <ProfileBox head='personal information' />
-                )}
+        <>
+            <Sidebar />
+            <div className={`${profileCss['lip-profile__wrap']}`}>
+                <p className={`${profileCss['lip-profile__greet']}`}>Hello, {userName}</p>
+                <div className={`${profileCss['lip-profile__main']}`}>
+                    <p className={`${profileCss['lip-profile__name']}`}>{fullName}</p>
+                    <Tabs tabsData={profileTabs} customCls='lip-tabs__profile' changeTabs={handleTabs} />
+                    {tabNum === 0 ? <ProfileBox head='change password' /> : (
+                        <ProfileBox head='personal information'>
+                            <PersonalInfo />
+                        </ProfileBox>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

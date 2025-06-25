@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import ProfileBox from '../../components/profileBox/profileBox'
-import Tabs from '../../components/tabs/tabs'
-import type { ProfileType, TabsObj } from '../../types/types'
-import profileCss from './profile.module.scss'
+import { useState } from "react";
+import ProfileBox from "../../components/profileBox/profileBox";
+import Tabs from "../../components/tabs/tabs";
+import type { ProfileType, TabsObj } from "../../types/types";
+import profileCss from "./profile.module.scss";
 // import LoginInput from '../../components/loginInput/loginInput'
 import Sidebar from '../../components/sidebar/sidebar'
 import PersonalInfo from '../../components/personalInfo/personalInfo'
@@ -54,9 +54,8 @@ const Profile = ({ userName, fullName }: ProfileType) => {
                     )}
                 </div>
             </div>
-            <RightSideBar />
         </>
     )
 }
 
-export default Profile
+export default Profile;

@@ -33,4 +33,11 @@
         border-radius: $radius-input;
         background: $white;
     }
+
+    &__categories {
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0;
+        margin: 20px 0;
+    }
 }

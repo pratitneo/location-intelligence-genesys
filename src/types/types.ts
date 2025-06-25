@@ -41,6 +41,7 @@ export type TabsObj = {
 export type ProfileBoxType = {
     head?: string
     children?: React.ReactNode
+    editBtn?: boolean
     getEditFn?: () => void
     getEditState?: boolean
 }
@@ -57,4 +58,12 @@ export type PersonalDataType = {
 export type PersonalInfoType = {
     getEditState?: boolean
     getSaveAction?: () => void
+}
+export type CategoryType = {
+    location: string
+    attributes: any[]
+    date: string
+}
+export type CategoryBoxType = {
+    savedLocations: CategoryType[]
 }

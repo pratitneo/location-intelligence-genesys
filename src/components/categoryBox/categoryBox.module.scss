@@ -1,0 +1,46 @@
+@use '../../styles/partials/variables' as *;
+
+.lip-category {
+    &__wrap {
+        border: 1px solid $border-active-grey;
+        border-radius: $radius-input;
+        padding: 10px;
+    }
+
+    &__head {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 100%;
+        color: $text-violet;
+        text-transform: capitalize;
+    }
+
+    &__names__date {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    &__names {
+        display: flex;
+        gap: 0 10px;
+    }
+
+    &__name {
+        font-size: 18px;
+        line-height: 22px;
+        padding: 7px 10px;
+        border-radius: $radius-input;
+        color: $text-violet;
+        text-transform: capitalize;
+        background: $secondary-violet;
+    }
+
+    &__date {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: $text-accent;
+    }
+}

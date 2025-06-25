@@ -16,7 +16,9 @@ export type LoginInputType = {
 }
 export type ButtonType = {
     buttonText?: string
+    getBtnState?: boolean
     customCls?: string
+    getBtnAction?: () => void
 }
 export type SeparatorType = {
     separatorText?: string
@@ -39,14 +41,20 @@ export type TabsObj = {
 export type ProfileBoxType = {
     head?: string
     children?: React.ReactNode
+    getEditFn?: () => void
+    getEditState?: boolean
 }
 export type LoginDataType = {
     userEmail: string,
     userPassword: string
 }
-export type PersonalInfoType = {
+export type PersonalDataType = {
     firstName: string
     lastName: string
     userName: string
     userEmail: string
+}
+export type PersonalInfoType = {
+    getEditState?: boolean
+    getSaveAction?: () => void
 }

@@ -10,6 +10,7 @@ export type LoginInputType = {
     icon?: string
     customCls?: string
     inputValue?: string
+    freezeInput?: boolean
     getInputValue?: (inputEvent: any) => void
     getInputToggle?: (inputEvent: any) => void
 }
@@ -42,4 +43,10 @@ export type ProfileBoxType = {
 export type LoginDataType = {
     userEmail: string,
     userPassword: string
+}
+export type PersonalInfoType = {
+    firstName: string
+    lastName: string
+    userName: string
+    userEmail: string
 }

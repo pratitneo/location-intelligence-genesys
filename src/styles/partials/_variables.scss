@@ -10,6 +10,8 @@ $secondary-violet: #FBF0FF;
 $text-violet: #734199;
 $separator-line-color: #e0e0e0;
 $separator-text-color: #212121;
+$sidebar-color1: #410D6E;
+$sidebar-color2: #6B07C1;
 
 // borders
 $input-disable-border: 1px solid $border-disable-grey;
@@ -20,3 +22,8 @@ $radius-input: 10px;
 // position
 $eye-icon: 20px;
 $edit-icon: 30px;
+$sidebar-icon: 24px;
+$sidebar-box: 44px;
+
+// z-index
+$sidebar: 1;

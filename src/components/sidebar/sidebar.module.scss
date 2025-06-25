@@ -1,0 +1,123 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-sidebar {
+    &__wrap {
+        position: fixed;
+        left: 0;
+        z-index: 1;
+        height: 100%;
+        padding: 20px;
+        // width: 100%;
+        width: 80px;
+        border-radius: 0 10px 10px 0;
+        background: linear-gradient(90deg, $sidebar-color1, $sidebar-color2);
+        transition: 0.5s all;
+        overflow: hidden;
+    }
+
+    &__logo {
+        position: relative;
+        display: flex;
+        color: white;
+        align-items: center;
+        margin-bottom: 60px;
+
+        &-text {
+            font-size: 24px;
+            font-weight: 600;
+            opacity: 0;
+            display: none;
+            text-transform: capitalize;
+
+            &--active {
+                opacity: 1;
+                display: flex;
+            }
+        }
+    }
+
+    &__toggle {
+        position: absolute;
+        right: -34.5px;
+        cursor: pointer;
+        transform: rotate(180deg);
+        // transition: 0.3s all;
+    }
+
+    &--active {
+        // width: 100%;
+        width: 240px;
+
+        // .lip-sidebar__text,
+        // .lip-sidebar__logo-text {
+        //     opacity: 1;
+        //     display: inline-flex;
+        // }
+
+        .lip-sidebar__toggle {
+            right: 0;
+            transform: rotate(0deg);
+        }
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 40px 0;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0 10px;
+        // padding: 5px 10px;
+        color: $white;
+        cursor: pointer;
+        transition: 0.3s all;
+
+        // &:hover {
+        //     background: $white;
+        //     border-radius: $radius-input;
+        // }
+    }
+
+    &__icon {
+        width: $sidebar-box;
+        height: $sidebar-box;
+        @extend %flex-center;
+
+        &:hover {
+            color: $text-violet;
+            background: $white;
+            border-radius: $radius-input;
+
+            svg {
+                color: $text-violet;
+            }
+        }
+
+        svg {
+            color: $white;
+            width: $sidebar-icon;
+            height: $sidebar-icon;
+            transition: 0.3s all;
+        }
+    }
+
+    &__text {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 23px;
+        opacity: 0;
+        display: none;
+        text-transform: capitalize;
+        // white-space: nowrap;
+
+        &--active {
+            opacity: 1;
+            display: flex;
+        }
+    }
+}

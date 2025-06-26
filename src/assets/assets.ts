@@ -14,6 +14,7 @@ import Select from './select.svg'
 import SidebarLogo from './sidebar-logo.png'
 import SidebarToggle from './sidebar-toggle.svg'
 import SiteSelection from './site-selection.svg'
+import SavedWork from './saved-work.svg'
 
 const Images = {
     threeDmap: ThreeDMap,
@@ -31,7 +32,8 @@ const Images = {
     select: Select,
     sidebarLogo: SidebarLogo,
     sidebarToggle: SidebarToggle,
-    siteSelect: SiteSelection
+    siteSelect: SiteSelection,
+    savedWork: SavedWork
 }
 
 export { Images }

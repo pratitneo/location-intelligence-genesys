@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./IconWithTooltip.module.scss";
 
 interface IconWithTooltipProps {
-  icon: string; // image path
+  icon: string;
   tooltip: string;
   position?: "top" | "bottom" | "left" | "right";
   className?: string;

@@ -1,5 +1,8 @@
   import { useEffect, useRef, useState } from "react";
   import styles from './searchComponent.module.scss';
+  import { Images } from "../../assets/assets"
+
+
   type SearchComponentProps = {
     onPositionChange: (newPosition: [number, number]) => void;
     onZoomChange: (newZoom: number) => void;
@@ -79,7 +82,7 @@
                   className={`${styles["search-component__input"]} ${isFocused ? styles["search-component__input--focused"] : ''}`}
               />
               <button type="submit" className={styles["search-component__button"]}>
-                  <img src="/assets/Search.svg" alt="Search Icon" />
+                  <img src={Images?.searchIcon} alt="Search Icon" />
               </button>
           </form>
           {error && <div className={styles["search-component__error"]}>{error}</div>}

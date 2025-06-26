@@ -1,0 +1,49 @@
+@use '../../styles/partials/variables' as *;
+
+.lip-saved {
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 20px 20px 20px 100px;
+        background: $secondary-violet;
+    }
+
+    &__greet,
+    &__name {
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 22px;
+        margin-bottom: 40px;
+        color: $text-violet;
+        text-transform: capitalize;
+    }
+
+    &__name {
+        margin-bottom: 0;
+    }
+
+    &__main {
+        flex: 1;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0;
+        border-radius: $radius-input;
+        background: $white;
+    }
+
+    &__categories {
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0;
+        margin: 20px 0;
+    }
+
+    &__pointersWrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}

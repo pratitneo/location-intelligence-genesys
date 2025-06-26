@@ -18,6 +18,7 @@ import SavedWork from './saved-work.svg'
 import SearchIcon from './Search.svg'
 import Chatbot from './Chatbot.svg'
 import Contact from './Contact.svg'
+import PointerHigh from './pointer-high.svg'
 
 
 const Images = {
@@ -40,7 +41,8 @@ const Images = {
     savedWork: SavedWork,
     searchIcon: SearchIcon,
     contact: Contact,
-    chatbot: Chatbot
+    chatbot: Chatbot,
+    pointerHigh: PointerHigh
 }
 
 export { Images }

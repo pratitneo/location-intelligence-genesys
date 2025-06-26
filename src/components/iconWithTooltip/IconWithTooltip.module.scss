@@ -1,0 +1,70 @@
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+
+  &:hover {
+    background-color: #3B0C76;
+    border-color: #3B0C76;
+
+    .iconImage {
+      filter: brightness(0) invert(1);
+    }
+
+    .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.iconImage {
+  width: 24px;
+  height: 24px;
+  transition: 0.3s ease;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: #8E44F7;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 100;
+
+  &.top {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+  }
+
+  &.bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+  }
+
+  &.left {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px);
+  }
+
+  &.right {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+  }
+}

@@ -15,6 +15,10 @@ import SidebarLogo from './sidebar-logo.png'
 import SidebarToggle from './sidebar-toggle.svg'
 import SiteSelection from './site-selection.svg'
 import SavedWork from './saved-work.svg'
+import SearchIcon from './Search.svg'
+import Chatbot from './Chatbot.svg'
+import Contact from './Contact.svg'
+
 
 const Images = {
     threeDmap: ThreeDMap,
@@ -33,7 +37,10 @@ const Images = {
     sidebarLogo: SidebarLogo,
     sidebarToggle: SidebarToggle,
     siteSelect: SiteSelection,
-    savedWork: SavedWork
+    savedWork: SavedWork,
+    searchIcon: SearchIcon,
+    contact: Contact,
+    chatbot: Chatbot
 }
 
 export { Images }

@@ -3,14 +3,12 @@ import ProfileBox from "../../components/profileBox/profileBox";
 import Tabs from "../../components/tabs/tabs";
 import type { ProfileType, TabsObj } from "../../types/types";
 import profileCss from "./profile.module.scss";
-// import LoginInput from '../../components/loginInput/loginInput'
 import Sidebar from '../../components/sidebar/sidebar'
 import PersonalInfo from '../../components/personalInfo/personalInfo'
-import RightSideBar from '../../components/rightSideBar/rightSideBar'
 import CategoryBox from '../../components/categoryBox/categoryBox'
 
 const Profile = ({ userName, fullName }: ProfileType) => {
-    const tabs = [{ id: 1, label: 'profile', active: true }, { id: 2, label: 'categories', active: false }]
+    const tabs = [{ id: 1, label: 'profile', active: true }, { id: 2, label: 'test', active: false }]
     const savedData = [{ location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' },]
     const [tabNum, setTabNum] = useState(0)
     const [profileTabs, setProfileTabs] = useState(tabs)
@@ -46,11 +44,7 @@ const Profile = ({ userName, fullName }: ProfileType) => {
                         </>
 
                     ) : (
-                        <ProfileBox head='saved work'>
-                            <div className={`${profileCss['lip-profile__categories']}`}>
-                                <CategoryBox savedLocations={savedData} />
-                            </div>
-                        </ProfileBox>
+                        ''
                     )}
                 </div>
             </div>

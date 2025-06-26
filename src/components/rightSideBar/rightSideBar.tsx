@@ -1,21 +1,13 @@
-import { LuBox } from "react-icons/lu";
-import { VscGraphLine } from "react-icons/vsc";
-import { BiLogoGraphql } from "react-icons/bi";
-import { SlLayers } from "react-icons/sl";
-import { PiPolygonDuotone } from "react-icons/pi";
-import { RiListCheck3 } from "react-icons/ri";
-import { FaVectorSquare } from "react-icons/fa6";
-import { FaLocationArrow } from "react-icons/fa";
-import { BiShapePolygon } from "react-icons/bi";
 import styles from "./rightSidebar.module.scss";
-import type { ReactElement } from "react";
+import { Images } from "../../assets/assets";
+import IconWithTooltip from "../iconWithTooltip/IconWithTooltip";
 
 type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo";
 
 const RightSideBar = ({
   isPanelOpen,
   onIconClick,
-  activeKey
+  activeKey,
 }: {
   isPanelOpen: boolean;
   onIconClick: (key: IconKey) => void;
@@ -24,27 +16,27 @@ const RightSideBar = ({
   // const [activeKey, setActiveKey] = useState<IconKey | null>(null);
   const iconList: {
     id: number;
-    icon: ReactElement;
+    icon: string;
     tooltip: string;
     key: IconKey;
   }[] = [
-    { id: 1, icon: <LuBox />, tooltip: "3D Map", key: "3dmap" },
-    { id: 2, icon: <RiListCheck3 />, tooltip: "Legend", key: "legend" },
-    { id: 3, icon: <VscGraphLine />, tooltip: "Charts", key: "charts" },
-    { id: 4, icon: <BiLogoGraphql />, tooltip: "Draw On Map", key: "draw" },
-    { id: 5, icon: <SlLayers />, tooltip: "Maps", key: "maps" },
+    { id: 1, icon: Images.threeDmap, tooltip: "3D Map", key: "3dmap" },
+    { id: 2, icon: Images.legend, tooltip: "Legend", key: "legend" },
+    { id: 3, icon: Images.charts, tooltip: "Charts", key: "charts" },
+    { id: 4, icon: Images.drawOnMap, tooltip: "Draw On Map", key: "draw" },
+    { id: 5, icon: Images.mapSwitcher, tooltip: "Maps", key: "maps" },
     {
       id: 6,
-      icon: <PiPolygonDuotone />,
+      icon: Images.geoTool,
       tooltip: "Geo Analysis Tool",
       key: "geo",
     },
   ];
 
   const subIconList = [
-    { id: "select", icon: <FaLocationArrow />, tooltip: "Select" },
-    { id: "rectangle", icon: <FaVectorSquare />, tooltip: "Rectangle" },
-    { id: "polygon", icon: <BiShapePolygon />, tooltip: "Polygon" },
+    { id: "select", icon: Images.select, tooltip: "Select" },
+    { id: "rectangle", icon: Images.rectangle, tooltip: "Rectangle" },
+    { id: "polygon", icon: Images.polygon, tooltip: "Polygon" },
   ];
   // const handleIconClick = (key: string) => {
   //   alert(`Clicked on ${key} icon`);
@@ -78,40 +70,51 @@ const RightSideBar = ({
   //   onIconClick(key);
   // };
 
-  
-
   return (
     <div
-       className={`${styles["right-sidebar__wrap"]} ${
-    isPanelOpen ? styles["right-sidebar__wrap--shifted"] : ""
-  }`}
+      className={`${styles["right-sidebar__wrap"]} ${
+        isPanelOpen ? styles["right-sidebar__wrap--shifted"] : ""
+      }`}
     >
       <div className={styles["right-sidebar__wrap"]}>
         <div className={styles["right-sidebar__icons"]}>
           {iconList.map((item) => (
             <div key={item.id} className={styles["right-sidebar__icon-wrap"]}>
               <div
-                className={styles["right-sidebar__icon"]}
+                key={item.id}
+                className={`${styles["right-sidebar__icon"]} ${
+                  activeKey === item.key
+                    ? styles["right-sidebar__icon--active"]
+                    : ""
+                }`}
                 onClick={() => onIconClick(item.key)}
               >
-                <span className={styles["right-sidebar__tooltip"]}>
-                  {item.tooltip}
-                </span>
-                {item.icon}
+                <IconWithTooltip
+                  icon={item.icon}
+                  tooltip={item.tooltip}
+                  position="left"
+                  onClick={() => onIconClick(item.key)}
+                  className={`
+                ${styles["right-sidebar__icon"]}
+                ${
+                  activeKey === item.key
+                    ? styles["right-sidebar__icon--active"]
+                    : ""
+                }
+              `}
+                />
               </div>
 
               {item.key === "draw" && activeKey === "draw" && (
                 <div className={styles["right-sidebar__sub-icons"]}>
                   {subIconList.map((subItem) => (
-                    <div
+                    <IconWithTooltip
                       key={subItem.id}
+                      icon={subItem.icon}
+                      tooltip={subItem.tooltip}
+                      position="left"
                       className={styles["right-sidebar__sub-icon"]}
-                    >
-                      <span className={styles["right-sidebar__tooltip"]}>
-                        {subItem.tooltip}
-                      </span>
-                      {subItem.icon}
-                    </div>
+                    />
                   ))}
                 </div>
               )}

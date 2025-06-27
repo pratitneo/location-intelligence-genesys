@@ -1,29 +1,20 @@
 import React from "react";
 import styles from "./IconWithTooltip.module.scss";
-
-interface IconWithTooltipProps {
-  icon: string;
-  tooltip: string;
-  position?: "top" | "bottom" | "left" | "right";
-  className?: string;
-  onClick?: () => void;
-}
+import type { IconWithTooltipProps } from "../../types/types";
 
 const IconWithTooltip: React.FC<IconWithTooltipProps> = ({
   icon,
   tooltip,
   position = "right",
   className = "",
-//   onClick,
+  //   onClick,
 }) => {
   return (
     <div
       className={`${styles.iconWrapper} ${className}`}
-    //   onClick={onClick}
+      //   onClick={onClick}
     >
-      <span className={`${styles.tooltip} ${styles[position]}`}>
-        {tooltip}
-      </span>
+      <span className={`${styles.tooltip} ${styles[position]}`}>{tooltip}</span>
       <img src={icon} alt={tooltip} className={styles.iconImage} />
     </div>
   );

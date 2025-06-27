@@ -1,6 +1,7 @@
 @use '../../styles/partials/variables' as *;
 
 .lip-profile {
+    
     &__wrap {
         display: flex;
         flex-direction: column;
@@ -39,5 +40,14 @@
         flex-direction: column;
         gap: 20px 0;
         margin: 20px 0;
+    }
+
+    &__demoStats{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: repeat(2, 1fr);   
+        gap: 8px; 
+        width: 300px;
+        height: 184px;
     }
 }

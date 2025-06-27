@@ -17,6 +17,11 @@ import SiteSelection from './site-selection.svg'
 import SearchIcon from './Search.svg'
 import Chatbot from './Chatbot.svg'
 import Contact from './Contact.svg'
+import TotlePopolation from './total-popolations.svg'
+import HouseHolds from './House_Holds.svg'
+import Male from './male.svg'
+import Female from './female.svg'
+
 
 
 const Images = {
@@ -38,7 +43,11 @@ const Images = {
     siteSelect: SiteSelection,
     searchIcon: SearchIcon,
     contact: Contact,
-    chatbot: Chatbot
+    chatbot: Chatbot, 
+    totalPopulation: TotlePopolation, 
+    households: HouseHolds,
+    male : Male,
+    female: Female
 }
 
 export { Images }

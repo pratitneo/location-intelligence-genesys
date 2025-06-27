@@ -1,13 +1,7 @@
 import React from "react";
 import styles from "./IconWithTooltip.module.scss";
+import type { IconWithTooltipProps } from "../../types/types";
 
-interface IconWithTooltipProps {
-  icon: string; // image path
-  tooltipText?: string;
-  position?: "top" | "bottom" | "left" | "right";
-  className?: string;
-  onClick?: () => void;
-}
 
 const IconWithTooltip: React.FC<IconWithTooltipProps> = ({
   icon,

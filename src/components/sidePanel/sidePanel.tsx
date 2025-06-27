@@ -1,25 +1,18 @@
-import styles from './sidePanel.module.scss';
+import type { SidePanelProps } from "../../types/types";
+import styles from "./sidePanel.module.scss";
 
-const SidePanel = ({
-  visible,
-  onClose,
-  title,
-  content,
-}: {
-  visible: boolean;
-  onClose: () => void;
-  title: React.ReactNode;
-  content: React.ReactNode;
-}) => {
+const SidePanel = ({ visible, onClose, title, content }: SidePanelProps) => {
   return (
-    <div className={`${styles["side-panel"]} ${visible ? styles["side-panel--visible"] : ""}`}>
-      <div className={styles["side-panel__header"]}>
+    <div
+      className={`${styles["lip-side-panel"]} ${
+        visible ? styles["lip-side-panel--visible"] : ""
+      }`}
+    >
+      <div className={styles["lip-side-panel__header"]}>
         <h2>{title}</h2>
         <button onClick={onClose}>✕</button>
       </div>
-      <div className={styles["side-panel__content"]}>
-        {content}
-      </div>
+      <div className={styles["lip-side-panel__content"]}>{content}</div>
     </div>
   );
 };

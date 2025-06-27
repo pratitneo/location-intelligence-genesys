@@ -1,6 +1,7 @@
 import styles from "./rightSidebar.module.scss";
 import { Images } from "../../assets/assets";
 import IconWithTooltip from "../iconWithTooltip/IconWithTooltip";
+import type { IconItem, SubIconItem } from "../../types/types";
 
 type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo";
 
@@ -14,12 +15,7 @@ const RightSideBar = ({
   activeKey: IconKey | null;
 }) => {
   // const [activeKey, setActiveKey] = useState<IconKey | null>(null);
-  const iconList: {
-    id: number;
-    icon: string;
-    tooltip: string;
-    key: IconKey;
-  }[] = [
+  const iconList: IconItem[] = [
     { id: 1, icon: Images.threeDmap, tooltip: "3D Map", key: "3dmap" },
     { id: 2, icon: Images.legend, tooltip: "Legend", key: "legend" },
     { id: 3, icon: Images.charts, tooltip: "Charts", key: "charts" },
@@ -33,7 +29,7 @@ const RightSideBar = ({
     },
   ];
 
-  const subIconList = [
+  const subIconList: SubIconItem[] = [
     { id: "select", icon: Images.select, tooltip: "Select" },
     { id: "rectangle", icon: Images.rectangle, tooltip: "Rectangle" },
     { id: "polygon", icon: Images.polygon, tooltip: "Polygon" },
@@ -72,33 +68,33 @@ const RightSideBar = ({
 
   return (
     <div
-      className={`${styles["right-sidebar__wrap"]} ${
-        isPanelOpen ? styles["right-sidebar__wrap--shifted"] : ""
+      className={`${styles["lip-right-sidebar__wrap"]} ${
+        isPanelOpen ? styles["lip-right-sidebar__wrap--shifted"] : ""
       }`}
     >
-      <div className={styles["right-sidebar__wrap"]}>
-        <div className={styles["right-sidebar__icons"]}>
+      <div className={styles["lip-right-sidebar__wrap"]}>
+        <div className={styles["lip-right-sidebar__icons"]}>
           {iconList.map((item) => (
-            <div key={item.id} className={styles["right-sidebar__icon-wrap"]}>
+            <div key={item.id} className={styles["lip-right-sidebar__icon-wrap"]}>
               <div
                 key={item.id}
-                className={`${styles["right-sidebar__icon"]} ${
+                className={`${styles["lip-right-sidebar__icon"]} ${
                   activeKey === item.key
-                    ? styles["right-sidebar__icon--active"]
+                    ? styles["lip-right-sidebar__icon--active"]
                     : ""
                 }`}
                 onClick={() => onIconClick(item.key)}
               >
                 <IconWithTooltip
                   icon={item.icon}
-                  tooltip={item.tooltip}
+                  tooltipText={item.tooltip}
                   position="left"
                   onClick={() => onIconClick(item.key)}
                   className={`
-                ${styles["right-sidebar__icon"]}
+                ${styles["lip-right-sidebar__icon"]}
                 ${
                   activeKey === item.key
-                    ? styles["right-sidebar__icon--active"]
+                    ? styles["lip-right-sidebar__icon--active"]
                     : ""
                 }
               `}
@@ -106,14 +102,14 @@ const RightSideBar = ({
               </div>
 
               {item.key === "draw" && activeKey === "draw" && (
-                <div className={styles["right-sidebar__sub-icons"]}>
+                <div className={styles["lip-right-sidebar__sub-icons"]}>
                   {subIconList.map((subItem) => (
                     <IconWithTooltip
                       key={subItem.id}
                       icon={subItem.icon}
-                      tooltip={subItem.tooltip}
+                      tooltipText={subItem.tooltip}
                       position="left"
-                      className={styles["right-sidebar__sub-icon"]}
+                      className={styles["lip-right-sidebar__sub-icon"]}
                     />
                   ))}
                 </div>

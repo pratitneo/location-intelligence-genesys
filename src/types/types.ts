@@ -85,3 +85,13 @@ export type ScoreBtnType = {
 export type SiteScoreBtnsType = {
     btnsData: ScoreBtnType[]
 }
+export type SiteDrpDwnItemType = {
+    id: number | string
+    icon?: any,
+    label: string
+}
+export type SiteDrpDwnType = {
+    drpDwnData?: SiteDrpDwnItemType
+    children?: React.ReactNode
+
+}

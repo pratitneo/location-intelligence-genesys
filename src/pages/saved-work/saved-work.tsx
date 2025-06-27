@@ -7,11 +7,13 @@ import SiteScore from "../../components/siteScore/siteScore";
 import SitePointers from "../../components/sitePointers/sitePointers";
 import { Images } from "../../assets/assets";
 import SiteScoreBtns from "../../components/siteScoreBtns/siteScoreBtns";
+import SiteScoreDrpDwn from "../../components/siteScoreDrpDwn/siteScoreDrpDwn";
 
 const SavedWork = ({ userName }: ProfileType) => {
     const savedData = [{ location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' },]
     const pointersData = [{ icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' },]
     const scoreBtns = [{ icon: Images?.demographics }, { icon: Images?.footfall }, { icon: Images?.accessibility }, { icon: Images?.retail },]
+    const drpDwns = [{ id: 1, icon: Images?.demographics, label: 'demographics' }, { id: 1, icon: Images?.footfall, label: 'footfall' }, { id: 1, icon: Images?.accessibility, label: 'accessibility' }, { id: 1, icon: Images?.retail, label: 'retail' },]
     return (
         <>
             <Sidebar />
@@ -29,6 +31,12 @@ const SavedWork = ({ userName }: ProfileType) => {
                         <SitePointers pointersData={pointersData} />
                     </div>
                     <SiteScoreBtns btnsData={scoreBtns} />
+                    <div className={`${savedCss['lip-saved__drpdwnsWrap']}`}>
+                        <SiteScoreDrpDwn drpDwnData={drpDwns[0]} />
+                        <SiteScoreDrpDwn drpDwnData={drpDwns[1]} />
+                        <SiteScoreDrpDwn drpDwnData={drpDwns[2]} />
+                        <SiteScoreDrpDwn drpDwnData={drpDwns[3]} />
+                    </div>
                 </div>
             </div>
         </>

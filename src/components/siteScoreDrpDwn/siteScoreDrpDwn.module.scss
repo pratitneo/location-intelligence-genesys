@@ -1,0 +1,51 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-siteDrpDwn {
+    &__drpDwnContent {
+        box-shadow: $site-score-shadow rgba(0, 0, 0, 0.1);
+        border-radius: $radius-input;
+        padding: 10px;
+        background: $secondary-violet
+    }
+
+    &__wrap {
+        @extend %flex-between-center;
+        padding: 8px;
+        border-radius: $radius-input;
+        background: $white
+    }
+
+    &__name {
+        @extend %flex-center;
+        gap: 0 10px;
+    }
+
+    &__label {
+        font-weight: 600;
+        font-size: 18px;
+        color: $purple;
+        text-transform: capitalize;
+    }
+
+    &__arrow {
+        transform: rotate(180deg);
+        transition: 0.5s all;
+
+        &--open {
+            transform: rotate(0);
+        }
+    }
+
+    &__content {
+        height: 0;
+        background: $secondary-violet;
+        border-radius: $radius-drpdwn;
+        transition: 0.3s all;
+
+        &--show {
+            height: 200px;
+        }
+    }
+
+}

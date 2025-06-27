@@ -9,14 +9,13 @@
     z-index: 1003;
     height: 100vh;
     width: 80px;
-    background-color: $white;
+    background-color: transparent;
     padding: 120px 10px 20px 0px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     transition: right 0.3s ease;
 
-    
     &--shifted {
       right: 50vw;
     }
@@ -42,103 +41,51 @@
     flex-direction: column;
     gap: 8px;
     position: absolute;
-    right: 60px; 
+    right: 60px;
     top: 0;
     z-index: 2;
   }
 
-  &__sub-icon { 
-    position: relative; 
+  &__sub-icon {
+    position: relative;
     width: 32px;
     height: 32px;
     background-color: #fff;
     border: 1px solid #ccc;
-    color: red;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 6px;
-    font-size: 16px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: background-color 0.2s, border-color 0.2s;
+
+    img,
+    svg {
+      width: 16px;
+      height: 16px;
+      transition: filter 0.2s, color 0.2s;
+    }
 
     &:hover {
-      background-color: red;
+      background-color: #ff6f61 !important;
+      border-color: #ff6f61 !important;
 
       svg {
-        color: #e0e0e0;
+        color: #fbf0ff;
+      }
+
+      img {
+        filter: brightness(0) saturate(100%) invert(93%) sepia(5%)
+          saturate(208%) hue-rotate(215deg) brightness(108%) contrast(101%);
       }
 
       .right-sidebar__tooltip {
         opacity: 1;
         visibility: visible;
+        background-color: #ff6f61 !important;
+        color: #fbf0ff;
         transform: translateY(-50%);
       }
-    }
-
-    svg {
-      color: red;
-    }
-  }
-
-  &__icon {
-    position: relative; 
-    width: $sidebar-box;
-    height: $sidebar-box;
-    border: 1px solid #e0e0e0;
-    border-radius: $radius-input;
-    cursor: pointer;
-    @extend %flex-center;
-    transition: 0.3s;
-
-    &:hover {
-      background-color: #734199;
-      border-color: #734199;
-
-      svg {
-        color: #e0e0e0;
-      }
-
-      .right-sidebar__tooltip {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(-50%);
-      }
-    }
-
-    svg {
-      color: #734199;
-      width: $sidebar-icon;
-      height: $sidebar-icon;
-      transition: 0.3s all;
-    }
-  }
-
-  &__tooltip {
-    position: absolute;
-    right: 110%;
-    top: 50%;
-    transform: translateY(-40%);
-    background-color: #734199;
-    color: #ffffff;
-    padding: 4px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-    font-size: 12px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    pointer-events: none;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 100%;
-      transform: translateY(-50%);
-      border-width: 5px;
-      border-style: solid;
-      border-color: transparent transparent transparent #734199;
     }
   }
 }

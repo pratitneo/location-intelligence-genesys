@@ -21,6 +21,7 @@ import TotlePopolation from './total-popolations.svg'
 import HouseHolds from './House_Holds.svg'
 import Male from './male.svg'
 import Female from './female.svg'
+import AffluenceIcon from './affluence-icon.svg'
 
 
 
@@ -47,7 +48,8 @@ const Images = {
     totalPopulation: TotlePopolation, 
     households: HouseHolds,
     male : Male,
-    female: Female
+    female: Female,
+    affluenceIcon: AffluenceIcon
 }
 
 export { Images }

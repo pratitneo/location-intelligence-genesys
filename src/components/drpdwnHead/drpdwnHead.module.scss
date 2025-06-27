@@ -1,0 +1,35 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+.lip-drpdwnHead{
+    &__wrap{
+        display: flex;
+        align-items: center;
+        width: 286px;
+        height: 32px;
+        padding: 4px;
+        gap: 6px;
+        border-radius: 6px;
+        background-color: white;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    }
+
+    &__full{
+        width: 588px;
+    }
+
+    &__icon{
+        width: 14px;
+        height: 14px;
+        color: #21C6B2;
+    }
+
+    &__heading{
+        font-family: 'Urbanist', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0px;
+        color:  #641698;
+    }
+}

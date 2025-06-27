@@ -1,0 +1,47 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-score {
+    &__wrap {
+        display: flex;
+        align-items: center;
+        gap: 0 10px;
+    }
+
+    &__box {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 70px;
+        padding: 16px 12px;
+        line-height: 100%;
+        border-radius: $radius-input;
+        background: $accent-purple;
+        color: $white;
+    }
+
+    &__num {
+        font-weight: 800;
+        font-size: 48px;
+    }
+
+    &__total {
+        font-weight: 700;
+        font-size: 28px;
+    }
+
+    &__name {
+        font-weight: 800;
+        font-size: 32px;
+        text-transform: capitalize;
+        color: $accent-purple;
+    }
+
+    &__location {
+        font-weight: 600;
+        font-size: 18px;
+        text-transform: capitalize;
+        color: $grass-green;
+    }
+}

@@ -37,7 +37,7 @@
           const lon = parseFloat(data[0].lon);
           onPositionChange([lat, lon]);
           onZoomChange(15);
-          setSearch('');
+          // setSearch('');
           setIsFocused(false);
 
         } else {

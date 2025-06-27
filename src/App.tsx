@@ -4,6 +4,7 @@ import Login from "./pages/login/login";
 import Layout from "./components/layout/layout";
 import Profile from "./pages/profile/profile";
 import LandingPage from "./pages/landingPage/landingPage";
+import SavedWork from './pages/saved-work/saved-work'
 import ProtectedRoute from "./routes/protectedRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,6 +23,7 @@ function App() {
                 element={<Profile userName="aditya" fullName="aditya shah" />}
               />
               <Route path="/landingPage" element={<LandingPage />} />
+              <Route path='/saved-work' element={<SavedWork userName='aditya' fullName='aditya shah' />} />
             </Route>
           </Route>
         </Routes>

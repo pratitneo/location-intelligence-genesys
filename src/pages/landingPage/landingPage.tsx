@@ -25,7 +25,6 @@ const LandingPage = () => {
           position={position} 
           zoom={zoom}
         />
-        
     </div>
   )
 }

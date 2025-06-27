@@ -87,7 +87,7 @@ const RightSideBar = ({
               >
                 <IconWithTooltip
                   icon={item.icon}
-                  tooltip={item.tooltip}
+                  tooltipText={item.tooltip}
                   position="left"
                   onClick={() => onIconClick(item.key)}
                   className={`
@@ -107,7 +107,7 @@ const RightSideBar = ({
                     <IconWithTooltip
                       key={subItem.id}
                       icon={subItem.icon}
-                      tooltip={subItem.tooltip}
+                      tooltipText={subItem.tooltip}
                       position="left"
                       className={styles["lip-right-sidebar__sub-icon"]}
                     />

@@ -13,8 +13,8 @@ export type LoginInputType = {
   customCls?: string;
   inputValue?: string;
   freezeInput?: boolean;
-  getInputValue?: (inputEvent: any) => void;
-  getInputToggle?: (inputEvent: any) => void;
+  getInputValue?: (inputEvent: unknown) => void;
+  getInputToggle?: (inputEvent: unknown) => void;
 };
 export type ButtonType = {
   buttonText?: string;
@@ -68,7 +68,7 @@ export type PersonalInfoType = {
 };
 export type CategoryType = {
   location: string;
-  attributes: any[];
+  attributes: unknown[];
   date: string;
 };
 export type CategoryBoxType = {
@@ -76,7 +76,7 @@ export type CategoryBoxType = {
 };
 export type IconWithTooltipProps = {
   icon: string;
-  tooltip: string;
+  tooltipText?: string;
   position?: "top" | "bottom" | "left" | "right";
   className?: string;
   onClick?: () => void;

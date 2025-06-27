@@ -6,6 +6,17 @@ import profileCss from "./profile.module.scss";
 import Sidebar from '../../components/sidebar/sidebar'
 import PersonalInfo from '../../components/personalInfo/personalInfo'
 import CategoryBox from '../../components/categoryBox/categoryBox'
+import DropdownDesc from '../../components/dropdownDesc/dropdownDesc'
+import DemoStats from "../../components/demoStats/demoStats";
+import { Images } from "../../assets/assets";
+import DemoAffluence from "../../components/demoAffluence/demoAffluence";
+
+const demoStatsData = [
+    { icon: Images?.totalPopulation, value: 82400, label: 'total\npopulation' },
+    { icon: Images?.households, value: 18500, label: 'households' },
+    { icon: Images?.male, value: '~42000', label: 'male' },
+    { icon: Images?.female, value: '~40000', label: 'female' }
+]
 
 const Profile = ({ userName, fullName }: ProfileType) => {
     const tabs = [{ id: 1, label: 'profile', active: true }, { id: 2, label: 'test', active: false }]
@@ -46,6 +57,18 @@ const Profile = ({ userName, fullName }: ProfileType) => {
                     ) : (
                         ''
                     )}
+
+                    <DropdownDesc />
+
+                    <div style={{ display: 'flex' }}>
+                        <div className={`${profileCss['lip-profile__demoStats']}`}>
+                            {demoStatsData.map((item, index) => (
+                                <DemoStats key={index} icon={item.icon} value={item.value} label={item.label} />
+                            ))}
+                        </div>
+
+                        <DemoAffluence />
+                    </div>
                 </div>
             </div>
         </>

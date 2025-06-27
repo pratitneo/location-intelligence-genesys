@@ -19,6 +19,11 @@ import SearchIcon from './Search.svg'
 import Chatbot from './Chatbot.svg'
 import Contact from './Contact.svg'
 import PointerHigh from './pointer-high.svg'
+import TotlePopolation from './total-popolations.svg'
+import HouseHolds from './House_Holds.svg'
+import Male from './male.svg'
+import Female from './female.svg'
+
 
 
 const Images = {
@@ -42,7 +47,11 @@ const Images = {
     searchIcon: SearchIcon,
     contact: Contact,
     chatbot: Chatbot,
-    pointerHigh: PointerHigh
+    pointerHigh: PointerHigh,
+    totalPopulation: TotlePopolation,
+    households: HouseHolds,
+    male: Male,
+    female: Female
 }
 
 export { Images }

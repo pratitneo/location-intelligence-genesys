@@ -67,3 +67,21 @@ export type CategoryType = {
 export type CategoryBoxType = {
     savedLocations: CategoryType[]
 }
+export type SiteScoreType = {
+    score?: string | number
+    location?: string
+}
+export type PointerType = {
+    icon?: string
+    value: string
+    label: string
+}
+export type SitePointerType = {
+    pointersData?: PointerType[]
+}
+export type ScoreBtnType = {
+    icon?: any
+}
+export type SiteScoreBtnsType = {
+    btnsData: ScoreBtnType[]
+}

@@ -3,10 +3,8 @@ import ProfileBox from "../../components/profileBox/profileBox";
 import Tabs from "../../components/tabs/tabs";
 import type { ProfileType, TabsObj } from "../../types/types";
 import profileCss from "./profile.module.scss";
-// import LoginInput from '../../components/loginInput/loginInput'
 import Sidebar from '../../components/sidebar/sidebar'
 import PersonalInfo from '../../components/personalInfo/personalInfo'
-import RightSideBar from '../../components/rightSideBar/rightSideBar'
 import CategoryBox from '../../components/categoryBox/categoryBox'
 import DropdownDesc from '../../components/dropdownDesc/dropdownDesc'
 import DemoStats from "../../components/demoStats/demoStats";
@@ -15,15 +13,13 @@ import DemoAffluence from "../../components/demoAffluence/demoAffluence";
 
 const demoStatsData = [
     { icon: Images?.totalPopulation, value: 82400, label: 'total\npopulation' },
-    { icon: Images?.households, value: 18500, label: 'households'    },
+    { icon: Images?.households, value: 18500, label: 'households' },
     { icon: Images?.male, value: '~42000', label: 'male' },
     { icon: Images?.female, value: '~40000', label: 'female' }
 ]
 
 const Profile = ({ userName, fullName }: ProfileType) => {
-                
-
-    const tabs = [{ id: 1, label: 'profile', active: true }, { id: 2, label: 'categories', active: false }]
+    const tabs = [{ id: 1, label: 'profile', active: true }, { id: 2, label: 'test', active: false }]
     const savedData = [{ location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' },]
     const [tabNum, setTabNum] = useState(0)
     const [profileTabs, setProfileTabs] = useState(tabs)
@@ -59,23 +55,19 @@ const Profile = ({ userName, fullName }: ProfileType) => {
                         </>
 
                     ) : (
-                        <ProfileBox head='saved work'>
-                            <div className={`${profileCss['lip-profile__categories']}`}>
-                                <CategoryBox savedLocations={savedData} />
-                            </div>
-                        </ProfileBox>
+                        ''
                     )}
 
                     <DropdownDesc />
-                    
-                    <div style={{display: 'flex'}}>
-                        <div className={`${profileCss['lip-profile__demoStats']}`}>
-                        {demoStatsData.map((item, index) => (
-                            <DemoStats key={index} icon={item.icon} value={item.value} label={item.label} />
-                        ))}
-                    </div>
 
-                    <DemoAffluence />
+                    <div style={{ display: 'flex' }}>
+                        <div className={`${profileCss['lip-profile__demoStats']}`}>
+                            {demoStatsData.map((item, index) => (
+                                <DemoStats key={index} icon={item.icon} value={item.value} label={item.label} />
+                            ))}
+                        </div>
+
+                        <DemoAffluence />
                     </div>
                 </div>
             </div>

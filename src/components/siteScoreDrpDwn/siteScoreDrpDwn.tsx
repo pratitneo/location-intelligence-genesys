@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import scoreDrpDwnCss from './siteScoreDrpDwn.module.scss'
 import { Images } from '../../assets/assets'
-import type { SiteDrpDwnItemType, SiteDrpDwnType } from '../../types/types'
+import type { SiteDrpDwnType } from '../../types/types'
 
 const SiteScoreDrpDwn = ({ drpDwnData, children }: SiteDrpDwnType) => {
     const [drpDwn, setDrpDwn] = useState<number | null>(null)
-    const handleDrpDwn = (index: number) => {
+    const handleDrpDwn = (index: string | number | undefined) => {
         setDrpDwn((prevDrpDwn) => prevDrpDwn === index ? null : index)
     }
     return (

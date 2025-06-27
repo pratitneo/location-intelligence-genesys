@@ -55,7 +55,7 @@ const Login = () => {
     const { name, value } = e.target;
     console.log("name", name);
     console.log("value", value);
-    
+
     setLoginData((prev) => ({
       ...prev,
       [name]: value,
@@ -118,7 +118,7 @@ const Login = () => {
           inputName="userEmail"
           inputId="email"
           inputValue={loginData?.userEmail}
-          getInputValue={handleInput}
+          getInputValue={(e: any) => handleInput}
         />
         {errors.userEmail && (
           <p className={`${loginCss["lip-login__error-text"]}`}>
@@ -133,8 +133,8 @@ const Login = () => {
           icon="passwordEye"
           customCls="lip-input__password"
           inputValue={loginData?.userPassword}
-          getInputValue={handleInput}
-          getInputToggle={handleTogglePassword}
+          getInputValue={(e: any) => handleInput}
+          getInputToggle={(e: any) => handleTogglePassword}
         />
         {errors.userPassword && (
           <p className={`${loginCss["lip-login__error-text"]}`}>

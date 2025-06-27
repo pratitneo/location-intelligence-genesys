@@ -5,11 +5,13 @@ import Sidebar from '../../components/sidebar/sidebar'
 import CategoryBox from '../../components/categoryBox/categoryBox'
 import SiteScore from "../../components/siteScore/siteScore";
 import SitePointers from "../../components/sitePointers/sitePointers";
+import { Images } from "../../assets/assets";
+import SiteScoreBtns from "../../components/siteScoreBtns/siteScoreBtns";
 
 const SavedWork = ({ userName }: ProfileType) => {
     const savedData = [{ location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' },]
     const pointersData = [{ icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' },]
-
+    const scoreBtns = [{ icon: Images?.demographics }, { icon: Images?.footfall }, { icon: Images?.accessibility }, { icon: Images?.retail },]
     return (
         <>
             <Sidebar />
@@ -26,6 +28,7 @@ const SavedWork = ({ userName }: ProfileType) => {
                     <div className={`${savedCss['lip-saved__pointersWrap']}`}>
                         <SitePointers pointersData={pointersData} />
                     </div>
+                    <SiteScoreBtns btnsData={scoreBtns} />
                 </div>
             </div>
         </>

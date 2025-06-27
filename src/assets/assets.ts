@@ -23,6 +23,10 @@ import TotlePopolation from './total-popolations.svg'
 import HouseHolds from './House_Holds.svg'
 import Male from './male.svg'
 import Female from './female.svg'
+import Demographics from './demographics.svg'
+import Footfall from './footfall.svg'
+import Accessibility from './accessibility.svg'
+import Retail from './retail.svg'
 
 
 
@@ -51,7 +55,11 @@ const Images = {
     totalPopulation: TotlePopolation,
     households: HouseHolds,
     male: Male,
-    female: Female
+    female: Female,
+    demographics: Demographics,
+    footfall: Footfall,
+    accessibility: Accessibility,
+    retail: Retail,
 }
 
 export { Images }

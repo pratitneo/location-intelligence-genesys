@@ -79,3 +79,9 @@ export type PointerType = {
 export type SitePointerType = {
     pointersData?: PointerType[]
 }
+export type ScoreBtnType = {
+    icon?: any
+}
+export type SiteScoreBtnsType = {
+    btnsData: ScoreBtnType[]
+}

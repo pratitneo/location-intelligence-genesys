@@ -1,3 +1,4 @@
+import { Fragment } from 'react/jsx-runtime';
 import demoStatsCss from './demostats.module.scss';
 
 type DemoStatsProps = {
@@ -14,7 +15,9 @@ const DemoStats = ({ icon, value, label }: DemoStatsProps) => {
                 <img src={icon} alt="Contact" className={`${demoStatsCss['lip-demoStats__icon']}`}/>
                 <p className={`${demoStatsCss['lip-demoStats__value']}`}>{value}</p>
             </div>
-            <p className={`${demoStatsCss['lip-demoStats__label']}`}>{label}</p>
+            <p className={`${demoStatsCss['lip-demoStats__label']}`}>
+                {label}
+            </p>
         </div>
   )
 }

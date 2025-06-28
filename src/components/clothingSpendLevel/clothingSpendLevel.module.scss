@@ -1,0 +1,61 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+
+.lip-profile {
+    &__customerSpending {
+        width: 177.3333282470703px;
+        height: 57px;
+        border-radius: 8px;
+        padding: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        align-items: center;
+        background-color: #FFFFFF;
+        &--high{
+            border: 1px solid #21C6B2;
+        }
+
+        &--moderate{
+            border: 1px solid #F5B942;
+        }
+
+        &--low{
+            border: 1px solid #FF6F61;
+        }
+    }
+
+    &__label{
+        font-family: 'Urbanist', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0px;
+
+        &--high{
+            color:#21C6B2;
+        }
+
+        &--moderate{
+            color: #F5B942;
+        }
+
+        &--low{
+            color: #FF6F61;
+        }
+    }
+
+
+    &__valueContainer{
+        font-family: 'Urbanist', sans-serif;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 100%; 
+        letter-spacing: 0px;
+        color: #555555;
+        display: flex;
+        gap: 4px;
+    }
+}

@@ -2,15 +2,7 @@
 @use "../../styles/partials/utilities" as *;
 
 .lip-demoStats{
-    // &__wrap{
-    //     display: grid;
-    //     grid-template-columns: repeat(2, 1fr); 
-    //     grid-template-rows: repeat(2, 1fr);   
-    //     gap: 8px; 
-    //     width: 300px;
-    //     height: 184px;
-    // }
-
+    
     &__box{
         display: flex;
         flex-direction: column;

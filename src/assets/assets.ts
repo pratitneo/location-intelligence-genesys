@@ -22,7 +22,10 @@ import HouseHolds from './House_Holds.svg'
 import Male from './male.svg'
 import Female from './female.svg'
 import AffluenceIcon from './affluence-icon.svg'
-
+import WalletMoney from './wallet-money.svg'
+import AgeGroup from './age-group.svg'
+import DistributionMale from './distribution-male.svg'
+import DistributionFemale from './distribution-female.svg'
 
 
 const Images = {
@@ -49,7 +52,11 @@ const Images = {
     households: HouseHolds,
     male : Male,
     female: Female,
-    affluenceIcon: AffluenceIcon
+    affluenceIcon: AffluenceIcon,
+    walletMoney: WalletMoney,
+    ageGroup: AgeGroup,
+    distributionMale: DistributionMale,
+    distributionFemale: DistributionFemale,
 }
 
 export { Images }

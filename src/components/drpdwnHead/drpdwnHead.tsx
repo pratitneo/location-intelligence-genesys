@@ -1,10 +1,7 @@
+import type { DropdownHeadProps } from '../../types/types'
 import DropdownHeadCSS from './drpdwnHead.module.scss'
 
-type DropdownHeadProps = {
-  icon: string;
-  heading: string;
-  isFull?: boolean;
-};
+
 
 const DrpdwnHead = ({ icon, heading, isFull = false }: DropdownHeadProps) => {
   return (

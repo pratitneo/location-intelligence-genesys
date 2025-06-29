@@ -1,17 +1,13 @@
 import ageDistributionCss from "./ageDistribution.module.scss";
 import { Images } from "../../assets/assets";
+import type { AgeDistributionProps } from "../../types/types";
 
 const AgeDistribution = ({
   ageRange,
   total,
   male,
   female,
-}: {
-  ageRange: string;
-  total: string;
-  male: string;
-  female: string;
-}) => {
+}: AgeDistributionProps) => {
   return (
     <div className={`${ageDistributionCss["lip-ageDistribution__wrap"]}`}>
       <div

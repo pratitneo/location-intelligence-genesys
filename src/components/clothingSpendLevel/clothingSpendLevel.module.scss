@@ -13,17 +13,17 @@
         justify-content: center;
         gap: 4px;
         align-items: center;
-        background-color: #FFFFFF;
+        background-color: $white-2;
         &--high{
-            border: 1px solid #21C6B2;
+            border: 1px solid $sky-teal;
         }
 
         &--moderate{
-            border: 1px solid #F5B942;
+            border: 1px solid $amber-gold;
         }
 
         &--low{
-            border: 1px solid #FF6F61;
+            border: 1px solid $soft-coral;
         }
     }
 
@@ -35,15 +35,15 @@
         letter-spacing: 0px;
 
         &--high{
-            color:#21C6B2;
+            color:$sky-teal;
         }
 
         &--moderate{
-            color: #F5B942;
+            color: $amber-gold;
         }
 
         &--low{
-            color: #FF6F61;
+            color: $soft-coral;
         }
     }
 
@@ -54,7 +54,7 @@
         font-size: 12px;
         line-height: 100%; 
         letter-spacing: 0px;
-        color: #555555;
+        color: $text-accent;
         display: flex;
         gap: 4px;
     }

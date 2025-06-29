@@ -6,15 +6,14 @@ import profileCss from "./profile.module.scss";
 // import LoginInput from '../../components/loginInput/loginInput'
 import Sidebar from "../../components/sidebar/sidebar";
 import PersonalInfo from "../../components/personalInfo/personalInfo";
-import RightSideBar from "../../components/rightSideBar/rightSideBar";
 import CategoryBox from "../../components/categoryBox/categoryBox";
 import DropdownDesc from "../../components/dropdownDesc/dropdownDesc";
 import DemoStats from "../../components/demoStats/demoStats";
 import { Images } from "../../assets/assets";
 import DemoAffluence from "../../components/demoAffluence/demoAffluence";
 import DrpdwnHead from "../../components/drpdwnHead/drpdwnHead";
-import ClothingSpendLevel from "../../components/clothingSpendLevel/ClothingSpendLevel";
 import AgeDistribution from "../../components/ageDistribution/ageDistribution";
+import ClothingSpendLevel from "../../components/clothingSpendLevel/clothingSpendLevel";
 
 const demoStatsData = [
   { icon: Images?.totalPopulation, value: 82400, label: "total population" },
@@ -147,7 +146,9 @@ const Profile = ({ userName, fullName }: ProfileType) => {
             </ProfileBox>
           )}
 
-          <DropdownDesc />
+          <DropdownDesc 
+            desc = {"Bandra East scores 7/10 for site suitability, driven by strong youth presence, high footfall, and affluent population pockets"}
+          />
 
           <div className={`${profileCss["lip-profile__statAffluence"]}`}>
             <div className={`${profileCss["lip-profile__demoStats"]}`}>

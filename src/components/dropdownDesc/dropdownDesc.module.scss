@@ -12,9 +12,9 @@
     height: 58px; 
     border: 2px solid transparent;
     background:
-      linear-gradient(90deg, #2F0B62 0%, #590A9E 100%) padding-box,
-      linear-gradient(90deg, #C412FF, #25D7FF, #FF00C8, #FFEA00) border-box;
-    color: #FFFFFF;
+      linear-gradient(90deg, $dark-gradient 0%, $dark-gradient-1 100%) padding-box,
+      linear-gradient(90deg, $bgr-1, $bgr-2, $bgr-3, $bgr-4) border-box;
+    color: $white-2;
   }
 
   &__paraText {
@@ -24,6 +24,6 @@
   font-size: 16px;
   line-height: 100%; /* or 16px */
   letter-spacing: 0px;
-  color: #FFFFFF;
+  color: $white-2;
   }
 }

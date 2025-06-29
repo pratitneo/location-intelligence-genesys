@@ -1,11 +1,5 @@
-import { Fragment } from 'react/jsx-runtime';
 import demoStatsCss from './demostats.module.scss';
-
-type DemoStatsProps = {
-  icon: string;
-  value: number | string;
-  label: string;
-};
+import type { DemoStatsProps } from '../../types/types';
 
 
 const DemoStats = ({ icon, value, label }: DemoStatsProps) => {

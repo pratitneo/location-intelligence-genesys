@@ -1,3 +1,4 @@
+
 // colors
 $purple: #641698;
 $accent-purple: #8E44F7;
@@ -8,7 +9,11 @@ $muted-indigo: #A093D4;
 $text-accent: #555555;
 
 $white: #fff;
+$white-2: #FFFFFF;
+$white-hover: #FCF4FF;
 $black: #000;
+$black1: #000000;
+$dark: #00000033;
 $text-color: #333;
 $label-disable: #bebebe;
 $label-active: #424242;
@@ -21,13 +26,28 @@ $separator-line-color: #e0e0e0;
 $separator-text-color: #212121;
 $sidebar-color1: #410D6E;
 $sidebar-color2: #6B07C1;
-
+$input-color: #000000;
+$search-icon1: #9C07C1;
+$search-icon2: #550973;
+$contact-icon: #45166E;
+$contact-icon1: #852AD4;
+$dot: #00FBAC;  
+$dot-1: #00CCFF;
+$dark-gradient: #2F0B62;
+$dark-gradient-1: #590A9E;
+$bgr-1: #C412FF;
+$bgr-2: #25D7FF;
+$bgr-3: #FF00C8;
+$bgr-4: #FFEA00;
+$icon-full: #16D26B;
 
 // borders
 $input-disable-border: 1px solid $border-disable-grey;
 $input-active-border: 1px solid $border-active-grey;
 $radius-login: 10px 10px 0 0;
 $radius-input: 10px;
+$search: 2px solid $muted-indigo;
+$button-radius: 1px solid $secondary-violet;
 
 // position
 $eye-icon: 20px;

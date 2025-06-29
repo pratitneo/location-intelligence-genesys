@@ -1,9 +1,6 @@
+import type { SpendingSegmentProps } from '../../types/types';
 import cltspndCSS from './ClothingSpendLevel.module.scss'
-type SpendingSegmentProps = {
-  spendLevel: "High" | "Moderate" | "Low";
-  percentage: string;    
-  approxCount: string;    
-};
+
 
 const ClothingSpendLevel = ({spendLevel, percentage, approxCount}: SpendingSegmentProps) => {
     const levelClass = spendLevel.toLowerCase();

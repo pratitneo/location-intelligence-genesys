@@ -67,3 +67,44 @@ export type CategoryType = {
 export type CategoryBoxType = {
     savedLocations: CategoryType[]
 }
+
+export type SearchComponentProps = {
+    onPositionChange: (newPosition: [number, number]) => void;
+    onZoomChange: (newZoom: number) => void;
+};
+
+export type MapComponentProps = {
+  position: [number, number];
+  zoom: number;
+};
+
+
+export type DemoStatsProps = {
+  icon: string;
+  value: number | string;
+  label: string;
+};
+
+export type SalaryBracket = {
+  range: string;  
+  count: string; 
+};
+
+export type DropdownHeadProps = {
+  icon: string;
+  heading: string;
+  isFull?: boolean;
+};
+
+export type SpendingSegmentProps = {
+  spendLevel: "High" | "Moderate" | "Low";
+  percentage: string;    
+  approxCount: string;    
+};
+
+export type AgeDistributionProps = {
+    ageRange: string;
+    total: string;
+    male: string;
+    female: string;
+}

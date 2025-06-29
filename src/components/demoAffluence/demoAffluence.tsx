@@ -2,11 +2,8 @@ import DrpdwnHead from '../drpdwnHead/drpdwnHead';
 import demoAffluenceCSS from './demoAffluence.module.scss';
 import { Images } from '../../assets/assets';
 import AffluenceRange from '../affluenceRange/affluenceRange';
+import type { SalaryBracket } from '../../types/types';
 
-type SalaryBracket = {
-  range: string;  
-  count: string; 
-};
 
 const salaryData: SalaryBracket[] = [
   { range: "< ₹5 LPA", count: "14,000" },

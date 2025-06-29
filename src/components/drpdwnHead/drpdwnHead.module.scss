@@ -21,13 +21,13 @@
     &__icon{
         width: 14px;
         height: 14px;
-        color: #21C6B2;
+        color: $sky-teal;
     }
 
     &__iconFull{
         width: 12px;
         height: 16px;
-        color: #16D26B;
+        color: $icon-full;
     }
 
     &__heading{
@@ -36,6 +36,6 @@
         font-size: 16px;
         line-height: 24px;
         letter-spacing: 0px;
-        color:  #641698;
+        color:  $purple;
     }
 }

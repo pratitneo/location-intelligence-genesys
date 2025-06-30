@@ -8,13 +8,11 @@
     padding: 10px;
     border-radius: 13px;
     gap: 10px;
-    width: 592px;
-    height: 58px;
     border: 2px solid transparent;
     background:
-      linear-gradient(90deg, #2F0B62 0%, #590A9E 100%) padding-box,
-      linear-gradient(90deg, #C412FF, #25D7FF, #FF00C8, #FFEA00) border-box;
-    color: #FFFFFF;
+      linear-gradient(90deg, $drpdwn-gradient-1 0%, $drpdwn-gradient-2 100%) padding-box,
+      linear-gradient(90deg, $drpdwn-border-gradient-1, $drpdwn-border-gradient-2, $drpdwn-border-gradient-3, $drpdwn-border-gradient-4) border-box;
+    color: $white;
   }
 
   &__paraText {
@@ -22,8 +20,8 @@
   font-weight: 600;
   font-style: italic;
   font-size: 16px;
-  line-height: 100%; /* or 16px */
+  line-height: 100%;
   letter-spacing: 0px;
-  color: #FFFFFF;
+  color: $white;
   }
 }

@@ -1,7 +1,7 @@
-import type { SidePanelProps } from "../../types/types";
+import type { SidePanelType } from "../../types/types";
 import styles from "./sidePanel.module.scss";
 
-const SidePanel = ({ visible, onClose, title, content }: SidePanelProps) => {
+const SidePanel = ({ visible, onClose, title, content }: SidePanelType) => {
   return (
     <div
       className={`${styles["lip-side-panel"]} ${

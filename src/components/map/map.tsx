@@ -1,10 +1,11 @@
 import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import styles from './mapComponent.module.scss';
+import mapCss from './map.module.scss';
 
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import type { MapComponentType } from '../../types/types';
 
 const DefaultIcon = L.icon({
   iconUrl,
@@ -20,16 +21,11 @@ function ChangeMapView({ center, zoom }: { center: [number, number]; zoom: numbe
   return null;
 }
 
-type MapComponentProps = {
-  position: [number, number];
-  zoom: number;
-};
 
-
-const MapComponent = ({ position, zoom }: MapComponentProps) => {
+const MapComponent = ({ position, zoom }: MapComponentType) => {
   return (
     <div>
-        <MapContainer center={position} zoom={zoom} className={styles['map-component__wrap']}>
+        <MapContainer center={position} zoom={zoom} className={mapCss['lip-map__wrap']}>
         <ChangeMapView center={position} zoom={zoom} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

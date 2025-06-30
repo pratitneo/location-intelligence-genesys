@@ -1,4 +1,7 @@
-.button-icon {
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-buttonIcon {
     &__wrap {
         position: absolute;
         top: 0;
@@ -17,8 +20,8 @@
         width: 40px;
         top: 10px;
         border-radius: 100%;
-        border: 1px solid #FBF0FF;
-        background: radial-gradient(circle, #45166E 0%, #852AD4 100%);
+        border: $icon-radius;
+        background: radial-gradient(circle, $contact-icon-gradient-1 0%, $contact-icon-gradient-2 100%);
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -29,21 +32,21 @@
         position: absolute;
         width: 8px;
         height: 8px;
-        background-color: #00FBAC;
+        background-color: $profile-active;
         border-radius: 100%;
         top:3px;
         left: 22px;
     }
 
     &__contact {
-        color: #FFFFFF;
+        color: $white;
         width:  13.5px;
         height: 15px;
         
     }
 
     &__chatbot {
-        color: radial-gradient(circle, #00FBAC 0%, #00CCFF 100%);;
+        color: radial-gradient(circle, $profile-active 0%, $chatbot-gradient-1 100%);
         width:  20px;
         height: 20px;
     }

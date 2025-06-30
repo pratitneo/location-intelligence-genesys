@@ -1,0 +1,58 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+
+.lip-ageDist{
+    &__wrap{
+        border-radius: 8px;
+        padding: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__container{
+        border-radius: 6px;
+        padding: 0 4px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;  
+        background-color: $secondary-violet;
+    }
+
+    &__range{
+        font-family: 'Urbanist', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 100%; 
+        letter-spacing: 0px;
+        color: $accent-purple;
+    }
+
+    &__total{
+        font-family: Urbanist;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: $text-accent;
+    }
+
+    &__gender{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-radius: 8px;
+        padding: 2px; 
+    }
+
+    &__value{
+        font-family: Urbanist;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: $black;
+    }
+}

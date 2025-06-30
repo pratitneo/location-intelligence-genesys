@@ -74,6 +74,55 @@ export type CategoryType = {
 export type CategoryBoxType = {
     savedLocations: CategoryType[]
 }
+
+export type SearchComponentType = {
+    onPositionChange: (newPosition: [number, number]) => void;
+    onZoomChange: (newZoom: number) => void;
+};
+
+export type MapComponentType = {
+  position: [number, number];
+  zoom: number;
+};
+
+
+export type DemoStatsType = {
+  icon: string;
+  value: number | string;
+  label: string;
+};
+
+export type SalaryBracket = {
+  range: string;  
+  count: string; 
+};
+
+export type DropdownHeadType = {
+  icon: string;
+  heading: string;
+  isFull?: boolean;
+};
+
+export type SpendingSegmentType = {
+  spendLevel: "High" | "Moderate" | "Low";
+  percentage: string;    
+  approxCount: string;    
+};
+
+export type AgeDistributionType = {
+    ageRange: string;
+    total: string;
+    male: string;
+    female: string;
+};
+
+export type AgeDistributionDataType = {
+    ageRange: string;
+    total: string;
+    male: string;
+    female: string;
+} [];
+
 export type SiteScoreType = {
     score?: string | number
     location?: string
@@ -102,7 +151,7 @@ export type SiteDrpDwnType = {
     children?: React.ReactNode
 
 }
-export type IconWithTooltipProps = {
+export type IconWithTooltipType = {
     icon: string;
     tooltipText?: string;
     position?: "top" | "bottom" | "left" | "right";
@@ -133,9 +182,14 @@ export type SubIconItem = {
     tooltip: string;
 };
 
-export type SidePanelProps = {
-    visible: boolean;
-    onClose: () => void;
-    title: React.ReactNode;
-    content: React.ReactNode;
+export type SidePanelType = {
+  visible: boolean;
+  onClose: () => void;
+  title: React.ReactNode;
+  content: React.ReactNode;
 };
+
+export type SpendingLevel = "High" | "Moderate" | "Low";
+
+export type spendingSegmentType = { spendLevel: SpendingLevel; percentage: string; approxCount: string }[];
+

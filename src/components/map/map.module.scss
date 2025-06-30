@@ -1,6 +1,10 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
 .lip-map{
     &__wrap {
         height: 100vh;
         width: 100vw;
+        z-index: $map-component;
     }
 }

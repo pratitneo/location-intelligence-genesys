@@ -32,6 +32,7 @@ import Demographics from './demographics.svg'
 import Footfall from './footfall.svg'
 import Accessibility from './accessibility.svg'
 import Retail from './retail.svg'
+import DrpDownArrow from './drpdwn-arrow.svg'
 
 
 
@@ -70,6 +71,7 @@ const Images = {
     footfall: Footfall,
     accessibility: Accessibility,
     retail: Retail,
+    drpDwnArr: DrpDownArrow,
 }
 
 export { Images }

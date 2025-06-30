@@ -153,3 +153,6 @@ export type SidePanelProps = {
   title: React.ReactNode;
   content: React.ReactNode;
 };
+
+export type SpendingLevel = "High" | "Moderate" | "Low";
+

@@ -1,15 +1,10 @@
   import { useEffect, useRef, useState } from "react";
-  import styles from './searchComponent.module.scss';
+  import searchCss from "./searchBar.module.scss";
   import { Images } from "../../assets/assets"
+import type { SearchComponentType } from "../../types/types";
 
 
-  type SearchComponentProps = {
-    onPositionChange: (newPosition: [number, number]) => void;
-    onZoomChange: (newZoom: number) => void;
-  };
-
-
-  const SearchComponent = ({onPositionChange, onZoomChange} : SearchComponentProps) => {
+  const SearchBar = ({onPositionChange, onZoomChange} : SearchComponentType) => {
       const [search, setSearch] = useState('');
       const [error, setError] = useState('');
       const [isFocused, setIsFocused] = useState(false);
@@ -69,7 +64,7 @@
       <div>
           <form
               onSubmit={handleSearch}
-              className={`${styles["search-component__form"]} ${isFocused ? styles["search-component__form--focused"] : ''}`}
+              className={`${searchCss["lip-search__form"]} ${isFocused ? searchCss["lip-search__form--focused"] : ''}`}
           >
               <input 
                   ref={inputRef}
@@ -79,15 +74,15 @@
                   onFocus={handleFocus}
                   onBlur={handleBlur}
                   placeholder="Search"
-                  className={`${styles["search-component__input"]} ${isFocused ? styles["search-component__input--focused"] : ''}`}
+                  className={`${searchCss["lip-search__input"]} ${isFocused ? searchCss["lip-search__input--focused"] : ''}`}
               />
-              <button type="submit" className={styles["search-component__button"]}>
+              <button type="submit" className={searchCss["lip-search__button"]}>
                   <img src={Images?.searchIcon} alt="Search Icon" />
               </button>
           </form>
-          {error && <div className={styles["search-component__error"]}>{error}</div>}
+          {error && <div className={searchCss["lip-search__error"]}>{error}</div>}
       </div>
     )
   }
 
-  export default SearchComponent
+  export default SearchBar

@@ -1,20 +1,17 @@
+import type { DemoStatsType } from '../../types/types';
 import demoStatsCss from './demostats.module.scss';
 
-type DemoStatsProps = {
-  icon: string;
-  value: number | string;
-  label: string;
-};
 
-
-const DemoStats = ({ icon, value, label }: DemoStatsProps) => {
+const DemoStats = ({ icon, value, label }: DemoStatsType) => {
   return (
         <div className={`${demoStatsCss['lip-demoStats__box']}`}>
             <div className={`${demoStatsCss['lip-demoStats__icon-value']}`}>
                 <img src={icon} alt="Contact" className={`${demoStatsCss['lip-demoStats__icon']}`}/>
                 <p className={`${demoStatsCss['lip-demoStats__value']}`}>{value}</p>
             </div>
-            <p className={`${demoStatsCss['lip-demoStats__label']}`}>{label}</p>
+            <p className={`${demoStatsCss['lip-demoStats__label']}`}>
+                {label}
+            </p>
         </div>
   )
 }

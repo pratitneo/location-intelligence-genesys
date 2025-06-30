@@ -8,8 +8,10 @@ $muted-indigo: #A093D4;
 $text-accent: #555555;
 $grass-green: #16D26B;
 
-$white: #fff;
-$black: #000;
+$white: #FFFFFF;
+$demostat-box-hover: #FCF4FF;
+$black: #000000;
+$searchbox-shadow: #00000033;
 $text-color: #333;
 $label-disable: #bebebe;
 $label-active: #424242;
@@ -28,12 +30,27 @@ $visitor-blue: #0DC5E5;
 $visitor-green: #00C458;
 $visitor-lilac: #FBF0FF;
 
+$searchbar-color: #000000;
+$search-icon-gradient-1: #9C07C1;
+$search-icon-gradient-2: #550973;
+$contact-icon-gradient-1: #45166E;
+$contact-icon-gradient-2: #852AD4;
+$profile-active: #00FBAC;
+$chatbot-gradient-1: #00CCFF;
+$drpdwn-gradient-1: #2F0B62;
+$drpdwn-gradient-2: #590A9E;
+$drpdwn-border-gradient-1: #C412FF;
+$drpdwn-border-gradient-2: #25D7FF;
+$drpdwn-border-gradient-3: #FF00C8;
+$drpdwn-border-gradient-4: #FFEA00;
 
 // borders
 $input-disable-border: 1px solid $border-disable-grey;
 $input-active-border: 1px solid $border-active-grey;
 $radius-login: 10px 10px 0 0;
 $radius-input: 10px;
+$searchbox-border: 2px solid $muted-indigo;
+$icon-radius: 1px solid $secondary-violet;
 $radius-drpdwn: 0 0 10px 10px;
 
 // position

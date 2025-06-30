@@ -1,0 +1,32 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+.lip-affluence{
+    &__wrap{
+        padding: 0px 4px;
+        border-radius: 6px;
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #FFFFFF;
+    }
+
+    &__range{
+        font-family: 'Urbanist', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: #8E44F7;
+    }
+
+    &__count{
+        font-family: 'Urbanist', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: #555555;
+    }
+}

@@ -23,6 +23,11 @@ import TotlePopolation from './total-popolations.svg'
 import HouseHolds from './House_Holds.svg'
 import Male from './male.svg'
 import Female from './female.svg'
+import AffluenceIcon from './affluence-icon.svg'
+import WalletMoney from './wallet-money.svg'
+import AgeGroup from './age-group.svg'
+import DistributionMale from './distribution-male.svg'
+import DistributionFemale from './distribution-female.svg'
 import Demographics from './demographics.svg'
 import Footfall from './footfall.svg'
 import Accessibility from './accessibility.svg'
@@ -55,8 +60,13 @@ const Images = {
     pointerHigh: PointerHigh,
     totalPopulation: TotlePopolation,
     households: HouseHolds,
-    male: Male,
+    male : Male,
     female: Female,
+    affluenceIcon: AffluenceIcon,
+    walletMoney: WalletMoney,
+    ageGroup: AgeGroup,
+    distributionMale: DistributionMale,
+    distributionFemale: DistributionFemale,
     demographics: Demographics,
     footfall: Footfall,
     accessibility: Accessibility,

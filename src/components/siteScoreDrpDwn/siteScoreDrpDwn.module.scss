@@ -43,9 +43,10 @@
         background: $secondary-violet;
         border-radius: $radius-drpdwn;
         transition: 0.3s all;
-
+        overflow: hidden;
         &--show {
-            height: 200px;
+            // height: 200px;
+            height: auto;
         }
     }
 

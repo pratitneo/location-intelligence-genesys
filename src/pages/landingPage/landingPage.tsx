@@ -1,8 +1,9 @@
-import SearchComponent from "../../components/searchComponent/searchComponent";
-import MapComponent from "../../components/mapComponent/mapComponent";
-import styles from "./landingPage.module.scss";
+import MapComponent from "../../components/map/map";
+import landingCss from "./landingPage.module.scss";
 import { useState } from "react";
 import ButtonIcon from "../../components/buttonIcon/buttonIcon";
+import SearchBar from "../../components/search/searchBar";
+
 import Sidebar from "../../components/sidebar/sidebar";
 const defaultPosition = { lat: 19.0760, lng: 72.8777 };
 
@@ -19,14 +20,14 @@ const LandingPage = () => {
   }
 
   return (
-    <div className={styles["landing-page__wrap"]}>
-      <Sidebar />
-      <SearchComponent onPositionChange={onPositionChange} onZoomChange={onZoomChange} />
-      <ButtonIcon />
-      <MapComponent
-        position={position}
-        zoom={zoom}
-      />
+    <div className={landingCss["lip-landing__wrap"]}>
+        <Sidebar />
+        <SearchBar onPositionChange={onPositionChange} onZoomChange={onZoomChange}/>
+        <ButtonIcon />
+        <MapComponent 
+          position={position} 
+          zoom={zoom}
+        />
     </div>
   )
 }

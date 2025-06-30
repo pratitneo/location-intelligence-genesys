@@ -2,45 +2,29 @@
 @use "../../styles/partials/utilities" as *;
 
 .lip-demoStats{
-    // &__wrap{
-    //     display: grid;
-    //     grid-template-columns: repeat(2, 1fr); 
-    //     grid-template-rows: repeat(2, 1fr);   
-    //     gap: 8px; 
-    //     width: 300px;
-    //     height: 184px;
-    // }
-
+    
     &__box{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 1px solid #A093D4;
+        border: 1px solid $muted-indigo;
         border-radius: 8px;
         gap: 4px;
         padding: 4px 44px;
-        background-color: #FFFFFF;
-        width: 139px;
-        height: 86px;
+        background-color: $white;
     }
 
     &__box:hover{
-        background-color: #FCF4FF;
+        background-color: $demostat-box-hover;
         cursor: pointer;
     }
 
     &__icon-value{
         display: flex;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
         gap: 4px;
-        width: 85px;
-        height: 24px;
-    }
-    &__icon{
-        width: 20px;
-        height: 20px;
     }
 
     &__value{
@@ -49,7 +33,7 @@
         font-size: 20px;
         line-height: 18px;
         letter-spacing: 0px;
-        color: #8E44F7;
+        color: $accent-purple;
     }
 
     &__label{
@@ -59,7 +43,7 @@
         line-height: 18px;
         letter-spacing: 0px;
         text-align: center;
-        color: #555555;
+        color: $text-accent;
         text-transform: capitalize;
     }
 }

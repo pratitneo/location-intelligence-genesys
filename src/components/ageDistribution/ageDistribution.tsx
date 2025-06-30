@@ -1,43 +1,43 @@
-import ageDistributionCss from "./ageDistribution.module.scss";
+import ageCss from "./ageDistribution.module.scss";
 import { Images } from "../../assets/assets";
-import type { AgeDistributionProps } from "../../types/types";
+import type { AgeDistributionType } from "../../types/types";
 
 const AgeDistribution = ({
   ageRange,
   total,
   male,
   female,
-}: AgeDistributionProps) => {
+}: AgeDistributionType) => {
   return (
-    <div className={`${ageDistributionCss["lip-ageDistribution__wrap"]}`}>
+    <div className={`${ageCss["lip-ageDist__wrap"]}`}>
       <div
-        className={`${ageDistributionCss["lip-ageDistribution__container"]}`}
+        className={`${ageCss["lip-ageDist__container"]}`}
       >
-        <p className={`${ageDistributionCss["lip-ageDistribution__range"]}`}>
+        <p className={`${ageCss["lip-ageDist__range"]}`}>
           {ageRange}
         </p>
-        <p className={`${ageDistributionCss["lip-ageDistribution__total"]}`}>
+        <p className={`${ageCss["lip-ageDist__total"]}`}>
           {total}
         </p>
-        <div className={`${ageDistributionCss["lip-ageDistribution__gender"]}`}>
+        <div className={`${ageCss["lip-ageDist__gender"]}`}>
           <img
             src={Images.distributionMale}
             alt="Male Distribution"
           />
           <span
-            className={`${ageDistributionCss["lip-ageDistribution__Value"]}`}
+            className={`${ageCss["lip-ageDist__Value"]}`}
           >
             {male}
           </span>
         </div>
 
-        <div className={`${ageDistributionCss["lip-ageDistribution__gender"]}`}>
+        <div className={`${ageCss["lip-ageDist__gender"]}`}>
           <img
             src={Images?.distributionFemale}
             alt="Female Distribution"
           />
           <span
-            className={`${ageDistributionCss["lip-ageDistribution__Value"]}`}
+            className={`${ageCss["lip-ageDist__Value"]}`}
           >
             {female}
           </span>

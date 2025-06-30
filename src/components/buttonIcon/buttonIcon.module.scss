@@ -20,8 +20,8 @@
         width: 40px;
         top: 10px;
         border-radius: 100%;
-        border: $button-radius;
-        background: radial-gradient(circle, $contact-icon 0%, $contact-icon1 100%);
+        border: $icon-radius;
+        background: radial-gradient(circle, $contact-icon-gradient-1 0%, $contact-icon-gradient-2 100%);
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -32,21 +32,21 @@
         position: absolute;
         width: 8px;
         height: 8px;
-        background-color: $dot;
+        background-color: $profile-active;
         border-radius: 100%;
         top:3px;
         left: 22px;
     }
 
     &__contact {
-        color: $white-2;
+        color: $white;
         width:  13.5px;
         height: 15px;
         
     }
 
     &__chatbot {
-        color: radial-gradient(circle, $dot 0%, $dot-1 100%);
+        color: radial-gradient(circle, $profile-active 0%, $chatbot-gradient-1 100%);
         width:  20px;
         height: 20px;
     }

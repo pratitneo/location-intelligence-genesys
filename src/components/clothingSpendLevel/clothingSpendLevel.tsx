@@ -1,18 +1,18 @@
-import type { SpendingSegmentProps } from '../../types/types';
+import type { SpendingSegmentType } from '../../types/types';
 import cltspndCSS from './ClothingSpendLevel.module.scss'
 
 
-const ClothingSpendLevel = ({spendLevel, percentage, approxCount}: SpendingSegmentProps) => {
+const ClothingSpendLevel = ({spendLevel, percentage, approxCount}: SpendingSegmentType) => {
     const levelClass = spendLevel.toLowerCase();
   return (
     <div className={`
-        ${cltspndCSS['lip-profile__customerSpending']}
-        ${cltspndCSS[`lip-profile__customerSpending--${levelClass}`]} `}>
+        ${cltspndCSS['lip-cltspnd__customerSpending']}
+        ${cltspndCSS[`lip-cltspnd__customerSpending--${levelClass}`]} `}>
         <span className={`
-            ${cltspndCSS['lip-profile__label']}
-            ${cltspndCSS[`lip-profile__label--${levelClass}`]}`}>{spendLevel}</span>
+            ${cltspndCSS['lip-cltspnd__label']}
+            ${cltspndCSS[`lip-cltspnd__label--${levelClass}`]}`}>{spendLevel}</span>
 
-      <div className={`${cltspndCSS['lip-profile__valueContainer']}`}>
+      <div className={`${cltspndCSS['lip-cltspnd__valueContainer']}`}>
         <span>{percentage}</span>
         <span>{`(~${approxCount})`}</span>
       </div>

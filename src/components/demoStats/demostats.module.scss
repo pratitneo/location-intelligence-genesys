@@ -12,27 +12,19 @@
         border-radius: 8px;
         gap: 4px;
         padding: 4px 44px;
-        background-color: $white-2;
-        width: 139px;
-        height: 86px;
+        background-color: $white;
     }
 
     &__box:hover{
-        background-color: $white-hover;
+        background-color: $demostat-box-hover;
         cursor: pointer;
     }
 
     &__icon-value{
         display: flex;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
         gap: 4px;
-        width: 85px;
-        height: 24px;
-    }
-    &__icon{
-        width: 20px;
-        height: 20px;
     }
 
     &__value{

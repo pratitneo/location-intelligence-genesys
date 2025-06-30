@@ -5,29 +5,11 @@
     &__wrap{
         display: flex;
         align-items: center;
-        width: 286px;
-        height: 32px;
         padding: 4px;
         gap: 6px;
         border-radius: 6px;
         background-color: white;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
-    }
-
-    &__wrapFull{
-        width: 588px;
-    }
-
-    &__icon{
-        width: 14px;
-        height: 14px;
-        color: $sky-teal;
-    }
-
-    &__iconFull{
-        width: 12px;
-        height: 16px;
-        color: $icon-full;
     }
 
     &__heading{

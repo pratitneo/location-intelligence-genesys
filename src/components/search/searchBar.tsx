@@ -1,10 +1,10 @@
   import { useEffect, useRef, useState } from "react";
   import searchCss from "./searchBar.module.scss";
   import { Images } from "../../assets/assets"
-  import type { SearchComponentProps } from "../../types/types";
+import type { SearchComponentType } from "../../types/types";
 
 
-  const SearchBar = ({onPositionChange, onZoomChange} : SearchComponentProps) => {
+  const SearchBar = ({onPositionChange, onZoomChange} : SearchComponentType) => {
       const [search, setSearch] = useState('');
       const [error, setError] = useState('');
       const [isFocused, setIsFocused] = useState(false);

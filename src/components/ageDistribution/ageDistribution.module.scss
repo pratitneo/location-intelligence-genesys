@@ -2,10 +2,8 @@
 @use "../../styles/partials/utilities" as *;
 
 
-.lip-ageDistribution{
+.lip-ageDist{
     &__wrap{
-        width: 280px;
-        padding: 4px;
         border-radius: 8px;
         padding: 4px;
         display: flex;
@@ -14,8 +12,6 @@
     }
 
     &__container{
-        width: 272px;
-        height: 24px;
         border-radius: 6px;
         padding: 0 4px;
         display: flex;
@@ -44,7 +40,6 @@
     }
 
     &__gender{
-        width: 60px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -58,6 +53,6 @@
         font-size: 12px;
         line-height: 100%;
         letter-spacing: 0px;
-        color: $black1;
+        color: $black;
     }
 }

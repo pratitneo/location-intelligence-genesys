@@ -1,5 +1,5 @@
 import MapComponent from "../../components/map/map";
-import styles from "./landingPage.module.scss";
+import landingCss from "./landingPage.module.scss";
 import { useState } from "react";
 import ButtonIcon from "../../components/buttonIcon/buttonIcon";
 import SearchBar from "../../components/search/searchBar";
@@ -20,7 +20,7 @@ const LandingPage = () => {
   }
 
   return (
-    <div className={styles["lip-landingPage__wrap"]}>
+    <div className={landingCss["lip-landing__wrap"]}>
         <Sidebar />
         <SearchBar onPositionChange={onPositionChange} onZoomChange={onZoomChange}/>
         <ButtonIcon />

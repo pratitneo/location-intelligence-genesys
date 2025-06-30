@@ -1,13 +1,13 @@
-import type { DropdownHeadProps } from '../../types/types'
-import DropdownHeadCSS from './drpdwnHead.module.scss'
+import type { DropdownHeadType } from '../../types/types'
+import DrpdwnCss from './drpdwnHead.module.scss'
 
 
 
-const DrpdwnHead = ({ icon, heading, isFull = false }: DropdownHeadProps) => {
+const DrpdwnHead = ({ icon, heading }: DropdownHeadType) => {
   return (
-    <div className={`${DropdownHeadCSS['lip-drpdwnHead__wrap']} ${isFull ? DropdownHeadCSS['lip-drpdwnHead__wrapFull'] : ''}`}>
-      <img className={`${DropdownHeadCSS['lip-drpdwnHead__icon']} ${isFull ? DropdownHeadCSS['lip-drpdwnHead__iconFull'] : ''}`} src={icon} alt='DropdownHeadIcon'/>
-      <h2 className={`${DropdownHeadCSS['lip-drpdwnHead__heading']}`}>{heading}</h2>
+    <div className={`${DrpdwnCss['lip-drpdwnHead__wrap']}`}>
+      <img className={`${DrpdwnCss['lip-drpdwnHead__icon']}`} src={icon} alt='DropdownHeadIcon'/>
+      <h2 className={`${DrpdwnCss['lip-drpdwnHead__heading']}`}>{heading}</h2>
     </div>
   )
 }

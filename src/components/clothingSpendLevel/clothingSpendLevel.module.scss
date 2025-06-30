@@ -2,18 +2,16 @@
 @use "../../styles/partials/utilities" as *;
 
 
-.lip-profile {
+.lip-cltspnd {
     &__customerSpending {
-        width: 177.3333282470703px;
-        height: 57px;
         border-radius: 8px;
         padding: 4px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         gap: 4px;
         align-items: center;
-        background-color: $white-2;
+        background-color: $white;
         &--high{
             border: 1px solid $sky-teal;
         }

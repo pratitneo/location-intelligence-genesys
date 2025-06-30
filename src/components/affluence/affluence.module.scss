@@ -1,16 +1,14 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/utilities" as *;
 
-.lip-affluenceRange{
+.lip-affluence{
     &__wrap{
-        width: 278px;
-        height: 23.25px;
         padding: 0px 4px;
         border-radius: 6px;
         display: flex; 
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 10px;
         background-color: #FFFFFF;
     }
 

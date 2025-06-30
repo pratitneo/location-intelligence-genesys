@@ -4,33 +4,28 @@
 
 .lip-demoAffluence{
     &__wrap{
-        width: 298px;
-        height: 184px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         border: 1px solid $muted-indigo;
         padding: 6px;
         border-radius: 10px ;
+        background-color: $white;
     }
 
     &__content{
         border: 0.5px solid $muted-indigo;
-        width: 286px;
-        height: 131px;
         border-radius: 6px;
         background-color: $secondary-violet;
         padding: 4px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         gap: 10px;
         overflow-y: auto;
-        
+
         &::-webkit-scrollbar {
             display: none;
         }
-
         // Hide scrollbar (Firefox)
         scrollbar-width: none;
     }

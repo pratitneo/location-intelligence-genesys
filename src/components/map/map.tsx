@@ -5,7 +5,7 @@ import mapCss from './map.module.scss';
 
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import type { MapComponentProps } from '../../types/types';
+import type { MapComponentType } from '../../types/types';
 
 const DefaultIcon = L.icon({
   iconUrl,
@@ -22,7 +22,7 @@ function ChangeMapView({ center, zoom }: { center: [number, number]; zoom: numbe
 }
 
 
-const MapComponent = ({ position, zoom }: MapComponentProps) => {
+const MapComponent = ({ position, zoom }: MapComponentType) => {
   return (
     <div>
         <MapContainer center={position} zoom={zoom} className={mapCss['lip-map__wrap']}>

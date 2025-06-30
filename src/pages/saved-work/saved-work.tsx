@@ -8,6 +8,7 @@ import SitePointers from "../../components/sitePointers/sitePointers";
 import { Images } from "../../assets/assets";
 import SiteScoreBtns from "../../components/siteScoreBtns/siteScoreBtns";
 import SiteScoreDrpDwn from "../../components/siteScoreDrpDwn/siteScoreDrpDwn";
+import DemoSpectra from "../../components/demoSpectra/demoSpectra";
 
 const SavedWork = ({ userName }: ProfileType) => {
     const savedData = [{ location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' },]
@@ -32,7 +33,7 @@ const SavedWork = ({ userName }: ProfileType) => {
                     </div>
                     <SiteScoreBtns btnsData={scoreBtns} />
                     <div className={`${savedCss['lip-saved__drpdwnsWrap']}`}>
-                        <SiteScoreDrpDwn drpDwnData={drpDwns[0]} />
+                        <SiteScoreDrpDwn drpDwnData={drpDwns[0]} children={<DemoSpectra />}/>
                         <SiteScoreDrpDwn drpDwnData={drpDwns[1]} />
                         <SiteScoreDrpDwn drpDwnData={drpDwns[2]} />
                         <SiteScoreDrpDwn drpDwnData={drpDwns[3]} />

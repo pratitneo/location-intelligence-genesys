@@ -1,8 +1,8 @@
+import type { DemoStatsType } from '../../types/types';
 import demoStatsCss from './demostats.module.scss';
-import type { DemoStatsProps } from '../../types/types';
 
 
-const DemoStats = ({ icon, value, label }: DemoStatsProps) => {
+const DemoStats = ({ icon, value, label }: DemoStatsType) => {
   return (
         <div className={`${demoStatsCss['lip-demoStats__box']}`}>
             <div className={`${demoStatsCss['lip-demoStats__icon-value']}`}>

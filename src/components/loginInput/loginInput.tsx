@@ -22,12 +22,10 @@ const LoginInput = ({
   getInputValue,
 }: LoginInputProps) => {
   const [visible, setVisible] = useState(false);
-  console.log(visible, "visible");
   const updateVisibilityState = () => {
     setVisible((prev) => !prev);
   };
   const currentType = inputName === "userPassword" && visible ? "text" : inputType;
-  console.log(inputValue, 'inputValue')
 
   return (
     <div className={`${inputCss["lip-input__wrap"]} ${inputValue ? inputCss["lip-input--filled"] : ""}`}>

@@ -24,7 +24,6 @@ const Profile = ({ userName, fullName }: ProfileType) => {
     const [tabNum, setTabNum] = useState(0)
     const [profileTabs, setProfileTabs] = useState(tabs)
     const [edit, setEdit] = useState(true)
-    console.log(profileTabs, 'profileTabs')
     const handleTabs = (_selectedTab: TabsObj, selectedIndex: number) => {
         const updatedTabs = profileTabs?.map((tab, idx) => ({
             ...tab,

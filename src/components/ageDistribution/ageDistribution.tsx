@@ -25,7 +25,7 @@ const AgeDistribution = ({
             alt="Male Distribution"
           />
           <span
-            className={`${ageCss["lip-ageDist__Value"]}`}
+            className={`${ageCss["lip-ageDist__value"]}`}
           >
             {male}
           </span>
@@ -37,7 +37,7 @@ const AgeDistribution = ({
             alt="Female Distribution"
           />
           <span
-            className={`${ageCss["lip-ageDist__Value"]}`}
+            className={`${ageCss["lip-ageDist__value"]}`}
           >
             {female}
           </span>

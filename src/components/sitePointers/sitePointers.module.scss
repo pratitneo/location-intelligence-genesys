@@ -1,0 +1,29 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-pointer {
+    &__wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        max-width: 300px;
+        border-radius: $radius-input;
+        border: 1px solid $grass-green;
+    }
+
+    &__value {
+        font-weight: 600;
+        font-size: 24px;
+        color: $grass-green;
+        text-transform: capitalize;
+    }
+
+    &__label {
+        font-size: 18px;
+        font-weight: 600;
+        white-space: wrap;
+        color: $text-accent;
+        text-transform: capitalize;
+    }
+}

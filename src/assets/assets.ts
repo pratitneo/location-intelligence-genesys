@@ -14,9 +14,11 @@ import Select from './select.svg'
 import SidebarLogo from './sidebar-logo.png'
 import SidebarToggle from './sidebar-toggle.svg'
 import SiteSelection from './site-selection.svg'
+import SavedWork from './saved-work.svg'
 import SearchIcon from './Search.svg'
 import Chatbot from './Chatbot.svg'
 import Contact from './Contact.svg'
+import PointerHigh from './pointer-high.svg'
 import TotlePopolation from './total-popolations.svg'
 import HouseHolds from './House_Holds.svg'
 import Male from './male.svg'
@@ -26,6 +28,11 @@ import WalletMoney from './wallet-money.svg'
 import AgeGroup from './age-group.svg'
 import DistributionMale from './distribution-male.svg'
 import DistributionFemale from './distribution-female.svg'
+import Demographics from './demographics.svg'
+import Footfall from './footfall.svg'
+import Accessibility from './accessibility.svg'
+import Retail from './retail.svg'
+
 
 
 const Images = {
@@ -45,10 +52,12 @@ const Images = {
     sidebarLogo: SidebarLogo,
     sidebarToggle: SidebarToggle,
     siteSelect: SiteSelection,
+    savedWork: SavedWork,
     searchIcon: SearchIcon,
     contact: Contact,
-    chatbot: Chatbot, 
-    totalPopulation: TotlePopolation, 
+    chatbot: Chatbot,
+    pointerHigh: PointerHigh,
+    totalPopulation: TotlePopolation,
     households: HouseHolds,
     male : Male,
     female: Female,
@@ -57,6 +66,10 @@ const Images = {
     ageGroup: AgeGroup,
     distributionMale: DistributionMale,
     distributionFemale: DistributionFemale,
+    demographics: Demographics,
+    footfall: Footfall,
+    accessibility: Accessibility,
+    retail: Retail,
 }
 
 export { Images }

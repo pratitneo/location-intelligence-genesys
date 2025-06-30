@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProfileBox from "../../components/profileBox/profileBox";
 import Tabs from "../../components/tabs/tabs";
-import type { ProfileType, TabsObj } from "../../types/types";
+import type { ProfileType, SpendingLevel, TabsObj } from "../../types/types";
 import profileCss from "./profile.module.scss";
 // import LoginInput from '../../components/loginInput/loginInput'
 import Sidebar from "../../components/sidebar/sidebar";
@@ -21,7 +21,6 @@ const demoStatsData = [
   { icon: Images?.male, value: "~42000", label: "Number of males" },
   { icon: Images?.female, value: "~40000", label: "Number of females" },
 ];
-type SpendingLevel = "High" | "Moderate" | "Low";
 
 const spendingSegments: { spendLevel: SpendingLevel; percentage: string; approxCount: string }[] = [
   {

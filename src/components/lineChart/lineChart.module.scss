@@ -1,0 +1,27 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-lineChart {
+    &__wrap {
+        width: 100%;
+        max-width: 600px;
+        border-radius: $radius-input;
+        padding: 16px;
+        color: $white;
+        background: linear-gradient(to bottom, #5C1997, #271736);
+    }
+
+    &__header {
+        @extend %flex-between-center;
+        padding: 8px 10px;
+        margin-bottom: 10px;
+        border-radius: $radius-input;
+        background: $dark-violet;
+    }
+
+    &__head {
+        font-weight: 700;
+        color: $white;
+        text-transform: capitalize;
+    }
+}

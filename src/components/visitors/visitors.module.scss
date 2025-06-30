@@ -1,0 +1,40 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-visit {
+    &__wrap {
+        @extend %flex-column-center;
+        gap: 2px;
+        max-width: 140px;
+        padding: 4px 10px;
+        border-radius: $radius-input;
+        text-align: center;
+        color: $muted-indigo;
+        box-shadow: $visitor-shadow;
+        // background: $visitor-blue;
+    }
+
+    &__time {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 23px;
+        text-transform: uppercase;
+    }
+
+    &__visitors {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px;
+        text-transform: capitalize;
+    }
+
+    &--low {
+        color: $white;
+        background: $visitor-blue;
+    }
+
+    &--high {
+        color: $white;
+        background: $visitor-green;
+    }
+}

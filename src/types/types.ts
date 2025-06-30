@@ -139,3 +139,20 @@ export type SidePanelProps = {
     title: React.ReactNode;
     content: React.ReactNode;
 };
+export type PieType = {
+    pieRadiusSize: string | number
+    colorsArr: string[]
+    pieData: any[]
+    containerWidth: number
+    containerHeight: number
+}
+export type FootfallVisitorType = {
+    peakHourData?: PeakNonPeakType[]
+    nonPeakHourData?: PeakNonPeakType[]
+}
+export type PeakNonPeakType = {
+    time?: string
+    avgVisitor?: string | number
+    status?: string
+    bgClass?: string
+}

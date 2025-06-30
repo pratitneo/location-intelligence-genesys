@@ -17,11 +17,16 @@ $border-disable-grey: #bdbdbd;
 $border-active-grey: #424242;
 $primary-violet: #672C90;
 $secondary-violet: #FBF0FF;
+$dark-violet: #3b0c76;
 $text-violet: #734199;
 $separator-line-color: #e0e0e0;
 $separator-text-color: #212121;
 $sidebar-color1: #410D6E;
 $sidebar-color2: #6B07C1;
+
+$visitor-blue: #0DC5E5;
+$visitor-green: #00C458;
+$visitor-lilac: #FBF0FF;
 
 
 // borders
@@ -44,3 +49,4 @@ $sidebar: 1;
 
 // shadows
 $site-score-shadow: 0 4px 10px 0;
+$visitor-shadow: 0 0 4px 0 rgba(34, 14, 81, 0.1);

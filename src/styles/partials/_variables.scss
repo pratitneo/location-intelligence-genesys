@@ -29,6 +29,7 @@ $input-disable-border: 1px solid $border-disable-grey;
 $input-active-border: 1px solid $border-active-grey;
 $radius-login: 10px 10px 0 0;
 $radius-input: 10px;
+$radius-drpdwn: 0 0 10px 10px;
 
 // position
 $eye-icon: 20px;
@@ -37,4 +38,9 @@ $sidebar-icon: 24px;
 $sidebar-box: 30px;
 
 // z-index
+$map-component: -1;
+$searchBox: 0;
 $sidebar: 1;
+
+// shadows
+$site-score-shadow: 0 4px 10px 0;

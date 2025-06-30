@@ -81,32 +81,32 @@ export type SearchComponentType = {
 };
 
 export type MapComponentType = {
-  position: [number, number];
-  zoom: number;
+    position: [number, number];
+    zoom: number;
 };
 
 
 export type DemoStatsType = {
-  icon: string;
-  value: number | string;
-  label: string;
+    icon: string;
+    value: number | string;
+    label: string;
 };
 
 export type SalaryBracket = {
-  range: string;  
-  count: string; 
+    range: string;
+    count: string;
 };
 
 export type DropdownHeadType = {
-  icon: string;
-  heading: string;
-  isFull?: boolean;
+    icon: string;
+    heading: string;
+    isFull?: boolean;
 };
 
 export type SpendingSegmentType = {
-  spendLevel: "High" | "Moderate" | "Low";
-  percentage: string;    
-  approxCount: string;    
+    spendLevel: "High" | "Moderate" | "Low";
+    percentage: string;
+    approxCount: string;
 };
 
 export type AgeDistributionType = {
@@ -121,7 +121,7 @@ export type AgeDistributionDataType = {
     total: string;
     male: string;
     female: string;
-} [];
+}[];
 
 export type SiteScoreType = {
     score?: string | number
@@ -182,11 +182,34 @@ export type SubIconItem = {
     tooltip: string;
 };
 
+export type SidePanelProps = {
+    visible: boolean;
+    onClose: () => void;
+    title: React.ReactNode;
+    content: React.ReactNode;
+};
+export type PieType = {
+    pieRadiusSize: string | number
+    colorsArr: string[]
+    pieData: any[]
+    containerWidth: number
+    containerHeight: number
+}
+export type FootfallVisitorType = {
+    peakHourData?: PeakNonPeakType[]
+    nonPeakHourData?: PeakNonPeakType[]
+}
+export type PeakNonPeakType = {
+    time?: string
+    avgVisitor?: string | number
+    status?: string
+    bgClass?: string
+}
 export type SidePanelType = {
-  visible: boolean;
-  onClose: () => void;
-  title: React.ReactNode;
-  content: React.ReactNode;
+    visible: boolean;
+    onClose: () => void;
+    title: React.ReactNode;
+    content: React.ReactNode;
 };
 
 export type SpendingLevel = "High" | "Moderate" | "Low";

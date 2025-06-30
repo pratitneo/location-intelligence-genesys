@@ -6,7 +6,8 @@
         box-shadow: $site-score-shadow rgba(0, 0, 0, 0.1);
         border-radius: $radius-input;
         padding: 10px;
-        background: $secondary-violet
+        background: $secondary-violet;
+        cursor: pointer;
     }
 
     &__wrap {

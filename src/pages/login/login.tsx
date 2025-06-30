@@ -13,14 +13,9 @@ import { toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState<LoginDataType>({
-    userEmail: "",
-    userPassword: "",
+    userEmail: "", userPassword: "",
   });
-
-  const [errors, setErrors] = useState<ErrorDataType>({
-    userEmail: "",
-    userPassword: "",
-  });
+  const [errors, setErrors] = useState<ErrorDataType>({ userEmail: "", userPassword: "" });
 
   const validate = (): boolean => {
     let isValid = true;
@@ -49,22 +44,11 @@ const Login = () => {
     setErrors(newErrors);
     return isValid;
   };
-  console.log(loginData, "loginData");
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    console.log("name", name);
-    console.log("value", value);
-
-    setLoginData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    setErrors((prev) => ({
-      ...prev,
-      [name]: "",
-    }));
+    setLoginData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
   // ONLY FOR PASSWORD INPUT
   const handleTogglePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,25 +64,11 @@ const Login = () => {
       userEmail === DEFAULT_USER.username &&
       userPassword === DEFAULT_USER.password
     ) {
-      toast.success("Successfully logged in", {
-        position: "top-right",
-        autoClose: 1000,
-        pauseOnHover: false,
-        theme: "colored",
-      });
-
+      toast.success("Successfully logged in", { position: "top-right", autoClose: 1000, pauseOnHover: false, theme: "colored", });
       sessionStorage.setItem("auth", "true");
-
-      setTimeout(() => {
-        navigate("/landingPage");
-      }, 1000);
+      setTimeout(() => { navigate("/landingPage") }, 1000);
     } else {
-      toast.error("Invalid credentials", {
-        position: "top-right",
-        autoClose: 3000,
-        pauseOnHover: true,
-        theme: "colored",
-      });
+      toast.error("Invalid credentials", { position: "top-right", autoClose: 3000, pauseOnHover: true, theme: "colored" });
     }
   };
   return (
@@ -106,66 +76,29 @@ const Login = () => {
       {/* login box */}
       <form onSubmit={handleSubmit} className={`${loginCss["lip-login__box"]}`}>
         <img src={Images?.loginLogo} alt="" />
-        <p className={`${loginCss["lip-login__head"]} login-head`}>
-          welcome back
-        </p>
-        <p className={`${loginCss["lip-login__subHead"]} login-subHead`}>
-          log in to your account
-        </p>
-        <LoginInput
-          inputLabel="email"
-          inputType="text"
-          inputName="userEmail"
-          inputId="email"
-          inputValue={loginData?.userEmail}
-          getInputValue={(e: any) => handleInput}
-        />
+        <p className={`${loginCss["lip-login__head"]} login-head`}>welcome back</p>
+        <p className={`${loginCss["lip-login__subHead"]} login-subHead`}>log in to your account</p>
+        <LoginInput inputLabel="email" inputType="text" inputName="userEmail" inputId="email" inputValue={loginData?.userEmail} getInputValue={(e: any) => handleInput} />
         {errors.userEmail && (
           <p className={`${loginCss["lip-login__error-text"]}`}>
             {errors.userEmail}
           </p>
         )}
-        <LoginInput
-          inputLabel="password"
-          inputType="password"
-          inputName="userPassword"
-          inputId="password"
-          icon="passwordEye"
-          customCls="lip-input__password"
-          inputValue={loginData?.userPassword}
-          getInputValue={(e: any) => handleInput}
-          getInputToggle={(e: any) => handleTogglePassword}
-        />
+        <LoginInput inputLabel="password" inputType="password" inputName="userPassword" inputId="password" icon="passwordEye" customCls="lip-input__password" inputValue={loginData?.userPassword} getInputValue={(e: any) => handleInput} getInputToggle={(e: any) => handleTogglePassword} />
         {errors.userPassword && (
           <p className={`${loginCss["lip-login__error-text"]}`}>
             {errors.userPassword}
           </p>
         )}
         <div className={`${loginCss["lip-login__checkbox__forgot"]}`}>
-          <LoginChecbox
-            inputLabel="remember me"
-            inputType="checkbox"
-            inputName="rememberCheck"
-            inputId="rememberbox"
-          />
-          <Link
-            className={`${loginCss["lip-login__forgot"]}`}
-            to={"/forgot-password"}
-          >
-            Forgot password?
-          </Link>
+          <LoginChecbox inputLabel="remember me" inputType="checkbox" inputName="rememberCheck" inputId="rememberbox" />
+          <Link className={`${loginCss["lip-login__forgot"]}`} to={"/forgot-password"}>Forgot password?</Link>
         </div>
-        <Button
-          buttonText="get started"
-          customCls="lip-login__btn"
-          type="submit"
-        />
+        <Button buttonText="get started" customCls="lip-login__btn" type="submit" />
         <Separator separatorText="or" />
         <div className={`${loginCss["lip-login__new__signup"]}`}>
           <p className={`${loginCss["lip-login__newUser"]}`}>new user?</p>
-          <Link to={"/sign-up"} className={`${loginCss["lip-login__signup"]}`}>
-            sign up here
-          </Link>
+          <Link to={"/sign-up"} className={`${loginCss["lip-login__signup"]}`}>sign up here</Link>
         </div>
       </form>
     </div>

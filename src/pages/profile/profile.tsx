@@ -10,40 +10,20 @@ import CategoryBox from "../../components/categoryBox/categoryBox";
 
 
 
- 
+
 
 const Profile = ({ userName, fullName }: ProfileType) => {
-  const tabs = [
-    { id: 1, label: "profile", active: true },
-    { id: 2, label: "categories", active: false },
-  ];
-  const savedData = [
-    {
-      location: "bandra east",
-      attributes: ["bandra east", "fashion", "draft"],
-      date: "25-06-2025",
-    },
-    {
-      location: "bandra east",
-      attributes: ["bandra east", "fashion", "draft"],
-      date: "25-06-2025",
-    },
-    {
-      location: "bandra east",
-      attributes: ["bandra east", "fashion", "draft"],
-      date: "25-06-2025",
-    },
-  ];
-  const [tabNum, setTabNum] = useState(0);
-  const [profileTabs, setProfileTabs] = useState(tabs);
-  const [edit, setEdit] = useState(true);
-  console.log(profileTabs, "profileTabs");
+  const tabs = [{ id: 1, label: 'profile', active: true }, { id: 2, label: 'test', active: false }]
+  const savedData = [{ location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' },]
+  const [tabNum, setTabNum] = useState(0)
+  const [profileTabs, setProfileTabs] = useState(tabs)
+  const [edit, setEdit] = useState(true)
   const handleTabs = (_selectedTab: TabsObj, selectedIndex: number) => {
     const updatedTabs = profileTabs?.map((tab, idx) => ({
       ...tab,
       active: idx === selectedIndex,
     }));
-    setTabNum(selectedIndex);
+    setTabNum(selectedIndex)
     setProfileTabs(updatedTabs);
   };
 

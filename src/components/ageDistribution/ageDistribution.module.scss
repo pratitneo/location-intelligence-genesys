@@ -3,56 +3,119 @@
 
 
 .lip-ageDist{
-    &__wrap{
-        border-radius: 8px;
-        padding: 4px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+    // &__wrap{
+    //     border-radius: 8px;
+    //     padding: 4px;
+    //     display: flex;
+    //     flex-direction: column;
+    //     gap: 10px;
+    // }
 
     &__container{
         border-radius: 6px;
-        padding: 0 4px;
+        padding: 0.5rem 1rem;
         display: flex;
         flex-direction: row;
+        // flex: 1;
         align-items: center;
-        gap: 10px;  
+        gap: clamp(8px, 1vw, 16px);
+        justify-content: space-between;
         background-color: $secondary-violet;
+        min-width: 0;
+        width: 100%;
+        // max-width: 100%;
+        box-sizing: border-box;
     }
 
     &__range{
         font-family: 'Urbanist', sans-serif;
         font-weight: 500;
-        font-size: 14px;
+        font-size: clamp(12px, 2vw, 16px);
         line-height: 100%; 
         letter-spacing: 0px;
         color: $accent-purple;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     &__total{
         font-family: Urbanist;
         font-weight: 500;
-        font-size: 12px;
+        font-size: clamp(10px, 1.5vw, 14px);
         line-height: 100%;
         letter-spacing: 0px;
         color: $text-accent;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     &__gender{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        border-radius: 8px;
-        padding: 2px; 
+        align-items: center;
+        padding: 0.25rem; 
+        gap: clamp(2px, 0.5vw, 6px);
+        flex-shrink: 0;
     }
 
     &__value{
         font-family: Urbanist;
         font-weight: 500;
-        font-size: 12px;
+        font-size: clamp(10px, 1.5vw, 14px);
         line-height: 100%;
         letter-spacing: 0px;
         color: $black;
+        white-space: nowrap;
+    }
+
+    // Responsive breakpoints
+    @media (max-width: 768px) {
+        &__container {
+            padding: 0.25rem 0.5rem;
+            gap: 6px;
+        }
+        
+        &__range {
+            font-size: 12px;
+        }
+        
+        &__total {
+            font-size: 10px;
+        }
+        
+        &__value {
+            font-size: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        &__container {
+            padding: 0.25rem;
+            gap: 4px;
+        }
+        
+        &__range {
+            font-size: 11px;
+        }
+        
+        &__total {
+            font-size: 9px;
+        }
+        
+        &__value {
+            font-size: 9px;
+        }
+    }
+
+    @media (max-width: 320px) {
+        &__container {
+            flex-direction: column;
+            gap: 2px;
+            padding: 0.5rem;
+        }
+        
+        &__gender {
+            padding: 0.125rem;
+        }
     }
 }

@@ -11,7 +11,7 @@
         border: 1px solid $muted-indigo;
         border-radius: 8px;
         gap: 4px;
-        padding: 4px 44px;
+        padding: 12px 44px;
         background-color: $white;
     }
 
@@ -37,13 +37,27 @@
     }
 
     &__label{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: $text-accent;
+        text-transform: capitalize;
+    }
+
+    &__label-first{
         font-family: 'Urbanist', sans-serif;
         font-weight: 600;
         font-size: 16px;
         line-height: 18px;
         letter-spacing: 0px;
-        text-align: center;
-        color: $text-accent;
-        text-transform: capitalize;
+    }
+
+    &__label-rest{
+        font-family: 'Urbanist', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: 0px;
     }
 }

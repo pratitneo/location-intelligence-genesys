@@ -9,7 +9,7 @@ const AgeDistribution = ({
   female,
 }: AgeDistributionType) => {
   return (
-    <div className={`${ageCss["lip-ageDist__wrap"]}`}>
+    // <div className={`${ageCss["lip-ageDist__wrap"]}`}>
       <div
         className={`${ageCss["lip-ageDist__container"]}`}
       >
@@ -43,7 +43,7 @@ const AgeDistribution = ({
           </span>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 

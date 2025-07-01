@@ -22,10 +22,10 @@
         border-radius: 100%;
         border: $icon-radius;
         background: radial-gradient(circle, $contact-icon-gradient-1 0%, $contact-icon-gradient-2 100%);
-        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
     }
 
     &__dot{
@@ -40,14 +40,10 @@
 
     &__contact {
         color: $white;
-        width:  13.5px;
-        height: 15px;
         
     }
 
     &__chatbot {
         color: radial-gradient(circle, $profile-active 0%, $chatbot-gradient-1 100%);
-        width:  20px;
-        height: 20px;
     }
 }

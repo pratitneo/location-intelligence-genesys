@@ -85,7 +85,7 @@ const DemoSpectra = () => {
           </div>
 
           <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending"]}`}>
-            <DrpdwnHead icon={Images?.walletMoney} heading={"Customers Spending on clothing"} isFull={true}/>
+            <DrpdwnHead icon={Images?.walletMoney} heading={"Customers Spending on clothing"}/>
             <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending__box"]}`}>
               {spendingSegments.map((segment, index) => (
               <ClothingSpendLevel

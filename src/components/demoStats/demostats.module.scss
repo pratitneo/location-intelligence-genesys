@@ -28,7 +28,6 @@
     }
 
     &__value{
-        font-family: 'Urbanist', sans-serif;
         font-weight: 500;
         font-size: 20px;
         line-height: 18px;
@@ -45,18 +44,8 @@
         text-transform: capitalize;
     }
 
-    &__label-first{
-        font-family: 'Urbanist', sans-serif;
+    &__label-text{
         font-weight: 600;
-        font-size: 16px;
-        line-height: 18px;
-        letter-spacing: 0px;
-    }
-
-    &__label-rest{
-        font-family: 'Urbanist', sans-serif;
-        font-weight: 600;
-        font-size: 16px;
         line-height: 18px;
         letter-spacing: 0px;
     }

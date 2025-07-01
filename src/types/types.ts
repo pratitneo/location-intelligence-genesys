@@ -98,9 +98,8 @@ export type SalaryBracket = {
 };
 
 export type DropdownHeadType = {
-    icon: string;
+    icon?: string;
     heading: string;
-    isFull?: boolean;
 };
 
 export type SpendingSegmentType = {

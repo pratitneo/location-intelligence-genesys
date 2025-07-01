@@ -3,32 +3,22 @@
 
 
 .lip-ageDist{
-    // &__wrap{
-    //     border-radius: 8px;
-    //     padding: 4px;
-    //     display: flex;
-    //     flex-direction: column;
-    //     gap: 10px;
-    // }
 
     &__container{
         border-radius: 6px;
-        padding: 0.5rem 1rem;
+        padding: 4px 8px;
         display: flex;
         flex-direction: row;
-        // flex: 1;
         align-items: center;
         gap: clamp(8px, 1vw, 16px);
         justify-content: space-between;
         background-color: $secondary-violet;
         min-width: 0;
         width: 100%;
-        // max-width: 100%;
         box-sizing: border-box;
     }
 
     &__range{
-        font-family: 'Urbanist', sans-serif;
         font-weight: 500;
         font-size: clamp(12px, 2vw, 16px);
         line-height: 100%; 
@@ -39,7 +29,6 @@
     }
 
     &__total{
-        font-family: Urbanist;
         font-weight: 500;
         font-size: clamp(10px, 1.5vw, 14px);
         line-height: 100%;
@@ -53,13 +42,12 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 0.25rem; 
+        padding: 4px; 
         gap: clamp(2px, 0.5vw, 6px);
         flex-shrink: 0;
     }
 
     &__value{
-        font-family: Urbanist;
         font-weight: 500;
         font-size: clamp(10px, 1.5vw, 14px);
         line-height: 100%;

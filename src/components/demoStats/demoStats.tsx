@@ -15,9 +15,9 @@ const DemoStats = ({ icon, value, label }: DemoStatsType) => {
                 <p className={`${demoStatsCss['lip-demoStats__value']}`}>{value}</p>
             </div>
             <div className={`${demoStatsCss['lip-demoStats__label']}`}>
-                <span className={`${demoStatsCss['lip-demoStats__label-first']}`}>{firstWord}</span>
+                <span className={`${demoStatsCss['lip-demoStats__label-text']}`}>{firstWord}</span>
                 {remainingWords && (
-                    <span className={`${demoStatsCss['lip-demoStats__label-rest']}`}>{remainingWords}</span>
+                    <span className={`${demoStatsCss['lip-demoStats__label-text']}`}>{remainingWords}</span>
                 )}
             </div>
         </div>

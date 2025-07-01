@@ -19,7 +19,7 @@ const SavedWork = ({ userName }: ProfileType) => {
     const pointersData = [{ icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' },]
     const scoreBtns = [{ icon: Images?.demographics }, { icon: Images?.footfall }, { icon: Images?.accessibility }, { icon: Images?.retail },]
     const drpDwns = [{ id: 1, icon: Images?.demographics, label: 'demographics' }, { id: 1, icon: Images?.footfall, label: 'footfall' }, { id: 1, icon: Images?.accessibility, label: 'accessibility' }, { id: 1, icon: Images?.retail, label: 'retail' },]
-    const pieData = [{ name: 'React', value: 40 }, { name: 'Vue', value: 30 }, { name: 'React', value: 40 }, { name: 'Vue', value: 30 }, { name: 'React', value: 40 }, { name: 'Vue', value: 30 }];
+    const pieData = [{ name: 'others', value: 40 }, { name: 'bandra', value: 30 }, { name: 'khar', value: 40 }, { name: 'dharavi', value: 30 }, { name: 'mahim', value: 40 }, { name: 'kurla', value: 30 }];
     const colorValues = ['#0088FE', '#00C49F',];
     const peakVisitorData = [{ time: '12pm', avgVisitor: 1200, status: 'low' }, { time: '12pm', avgVisitor: 1200, status: 'high' }, { time: '12pm', avgVisitor: 1200, status: 'high' },]
     const nonPeakVisitorData = [{ time: '12pm', avgVisitor: 1200 }, { time: '12pm', avgVisitor: 1200 }, { time: '12pm', avgVisitor: 1200 },]

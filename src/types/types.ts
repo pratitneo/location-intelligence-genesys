@@ -207,7 +207,7 @@ export type PeakNonPeakType = {
 export type SidePanelType = {
     visible: boolean;
     onClose: () => void;
-    title: React.ReactNode;
+    title?: React.ReactNode;
     content: React.ReactNode;
 };
 

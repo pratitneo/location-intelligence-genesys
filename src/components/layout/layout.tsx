@@ -6,6 +6,7 @@ import RightSideBar from "../rightSideBar/rightSideBar";
 import SidePanel from "../sidePanel/sidePanel";
 import Sidebar from "../sidebar/sidebar";
 import type { IconKey } from "../../types/types";
+import SiteSelection from "../siteSelection/siteSelection";
 
 const Layout = () => {
   const location = useLocation();
@@ -37,7 +38,7 @@ const Layout = () => {
       case "dataset":
         return <div>Dataset Content</div>;
       case "siteSelection":
-        return <div>Site Selection Content</div>;
+        return <><SiteSelection /></>;
       default:
         return <div>No Content</div>;
     }
@@ -57,7 +58,7 @@ const Layout = () => {
           {/* Right Sidebar */}
           <RightSideBar isPanelOpen={!!activePanel} onIconClick={handleIconClick} activeKey={activePanel} />
           {/* Side Panel */}
-          <SidePanel visible={!!activePanel} onClose={() => setActivePanel(null)} title={activePanel ? getPanelTitle(activePanel) : ""} content={activePanel ? (<div>Data for {getPanelTitle(activePanel)}</div>) : null} />
+          <SidePanel visible={!!activePanel} onClose={() => setActivePanel(null)} content={activePanel ? getPanelTitle(activePanel) : ''} />
         </>
       )}
       {(isProfilePage || isSavedWork) && (

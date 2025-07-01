@@ -1,4 +1,4 @@
-type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo";
+export type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo" | 'dataset' | 'siteSelection';
 
 export type HeadingType = {
     head: string;
@@ -155,7 +155,7 @@ export type IconWithTooltipType = {
     icon: string;
     tooltipText?: string;
     position?: "top" | "bottom" | "left" | "right";
-    className?: string;
+    customCls?: string;
     onClick?: () => void;
 };
 
@@ -208,7 +208,7 @@ export type PeakNonPeakType = {
 export type SidePanelType = {
     visible: boolean;
     onClose: () => void;
-    title: React.ReactNode;
+    title?: React.ReactNode;
     content: React.ReactNode;
 };
 
@@ -220,7 +220,7 @@ export type SideBtnType = {
     sideBtnText?: string
     sideBtnIcon?: any
     sideBarText?: boolean
-    getActionFn: (siteBtn: any) => void
+    getActionFn?: (siteBtn: any) => void
 }
 export type AffluenceType = { range: string; count: string; };
 
@@ -229,3 +229,7 @@ export type AvrageDriveTimeType = {value:number; label: string};
 export type AccessibilityHeadType = {value1: number, value2:number, label:string}
 
 export type TransportConnectivityType = {icon?:string, type:string, location:string}
+export type SidebarType = {
+    onIconClick: (key: IconKey) => void
+}
+

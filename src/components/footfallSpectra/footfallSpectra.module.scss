@@ -1,0 +1,34 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-ftflSpect {
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__pie__visitors {
+        @extend %flex-between-start;
+        gap: 10px;
+    }
+
+    &__pie {
+        width: 100%;
+        max-width: 270px;
+        padding: 10px;
+        @extend %flex-column-center;
+        border: 1px solid $muted-indigo;
+        border-radius: $radius-input;
+        background: $white;
+    }
+
+    &__visitors {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        border: 1px solid $muted-indigo;
+        border-radius: $radius-input;
+        background: $white;
+    }
+}

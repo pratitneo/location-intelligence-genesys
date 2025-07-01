@@ -1,14 +1,13 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/utilities" as *;
 
-.lip-demoSpectra{
-    &__wrap{
+.lip-demoSpectra {
+    &__wrap {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        padding-top: 10px;
     }
-    
+
     &__statAffluence {
         gap: 8px;
         display: flex;
@@ -16,13 +15,13 @@
         justify-content: space-between;
     }
 
-    &__demoStats{
+    &__demoStats {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        grid-template-rows: repeat(2, 1fr);   
-        gap: 8px; 
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 8px;
     }
-    
+
 
     &__customerSpending {
         display: flex;
@@ -49,7 +48,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        border-radius: 6px;
+        border-radius: 10px;
         background-color: $white;
         border: 1px solid $muted-indigo;
     }

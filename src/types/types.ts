@@ -1,4 +1,4 @@
-type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo";
+export type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo" | 'dataset' | 'siteSelection';
 
 export type HeadingType = {
     head: string;
@@ -154,7 +154,7 @@ export type IconWithTooltipType = {
     icon: string;
     tooltipText?: string;
     position?: "top" | "bottom" | "left" | "right";
-    className?: string;
+    customCls?: string;
     onClick?: () => void;
 };
 
@@ -219,7 +219,11 @@ export type SideBtnType = {
     sideBtnText?: string
     sideBtnIcon?: any
     sideBarText?: boolean
-    getActionFn: (siteBtn: any) => void
+    getActionFn?: (siteBtn: any) => void
 }
 export type AffluenceType = { range: string; count: string; };
+
+export type SidebarType = {
+    onIconClick: (key: IconKey) => void
+}
 

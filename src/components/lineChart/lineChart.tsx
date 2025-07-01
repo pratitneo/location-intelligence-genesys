@@ -17,7 +17,7 @@ const LineChartGraph = () => {
                 </div>
             </div>
             {/* line chart */}
-            <ResponsiveContainer height={300}>
+            <ResponsiveContainer height={230}>
                 <LineChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#734199" />
                     <XAxis dataKey="day" stroke="white" />

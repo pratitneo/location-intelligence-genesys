@@ -5,15 +5,19 @@ import styles from "./layout.module.scss";
 import RightSideBar from "../rightSideBar/rightSideBar";
 import SidePanel from "../sidePanel/sidePanel";
 import Sidebar from "../sidebar/sidebar";
-
-type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo";
+import type { IconKey } from "../../types/types";
 
 const Layout = () => {
   const location = useLocation();
   const [activePanel, setActivePanel] = useState<IconKey | null>(null);
 
   const handleIconClick = (key: IconKey) => {
-    setActivePanel((prev) => (prev === key ? null : key));
+    if (key === 'dataset') {
+      setActivePanel(null)
+    }
+    else {
+      setActivePanel((prev) => (prev === key ? null : key));
+    }
   };
 
   const getPanelTitle = (key: IconKey) => {
@@ -30,6 +34,10 @@ const Layout = () => {
         return <div>Maps Content</div>;
       case "geo":
         return <div>Geo Analysis Content</div>;
+      case "dataset":
+        return <div>Dataset Content</div>;
+      case "siteSelection":
+        return <div>Site Selection Content</div>;
       default:
         return <div>No Content</div>;
     }
@@ -45,7 +53,7 @@ const Layout = () => {
       {isLandingPage && (
         <>
           {/* Left Sidebar */}
-          <Sidebar />
+          <Sidebar onIconClick={handleIconClick} />
           {/* Right Sidebar */}
           <RightSideBar isPanelOpen={!!activePanel} onIconClick={handleIconClick} activeKey={activePanel} />
           {/* Side Panel */}
@@ -53,7 +61,7 @@ const Layout = () => {
         </>
       )}
       {(isProfilePage || isSavedWork) && (
-        < Sidebar />
+        <Sidebar onIconClick={handleIconClick} />
       )}
 
     </div>

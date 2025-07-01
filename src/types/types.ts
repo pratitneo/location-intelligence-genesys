@@ -215,5 +215,11 @@ export type SpendingLevel = "High" | "Moderate" | "Low";
 
 export type spendingSegmentType = { spendLevel: SpendingLevel; percentage: string; approxCount: string }[];
 
-export type AffluenceType = {range: string; count: string;};
+export type SideBtnType = {
+    sideBtnText?: string
+    sideBtnIcon?: any
+    sideBarText?: boolean
+    getActionFn: (siteBtn: any) => void
+}
+export type AffluenceType = { range: string; count: string; };
 

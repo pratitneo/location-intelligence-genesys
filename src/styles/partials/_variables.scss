@@ -44,6 +44,9 @@ $drpdwn-border-gradient-2: #25D7FF;
 $drpdwn-border-gradient-3: #FF00C8;
 $drpdwn-border-gradient-4: #FFEA00;
 
+$sidebar-btn-gradient-1: #9966FF;
+$sidebar-btn-gradient-2: #C777FF;
+
 // borders
 $input-disable-border: 1px solid $border-disable-grey;
 $input-active-border: 1px solid $border-active-grey;
@@ -57,12 +60,13 @@ $radius-drpdwn: 0 0 10px 10px;
 $eye-icon: 20px;
 $edit-icon: 30px;
 $sidebar-icon: 24px;
-$sidebar-box: 30px;
+$sidebar-box: 50px;
 
 // z-index
 $map-component: -1;
 $searchBox: 0;
-$sidebar: 1;
+$sidebar: 2;
+$right-sidebar: 0;
 
 // shadows
 $site-score-shadow: 0 4px 10px 0;

@@ -5,9 +5,10 @@
     &__wrap {
         display: flex;
         flex-direction: column;
-        position: fixed;
+        position: absolute;
+        top: 0;
         left: 0;
-        z-index: 1;
+        z-index: $sidebar;
         height: 100%;
         padding: 20px;
         // width: 100%;
@@ -47,6 +48,21 @@
         // transition: 0.3s all;
     }
 
+    &__text {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 23px;
+        opacity: 0;
+        display: none;
+        text-transform: capitalize;
+        // white-space: nowrap;
+
+        &--active {
+            opacity: 1;
+            display: flex;
+        }
+    }
+
     &--active {
         // width: 100%;
         width: 240px;
@@ -68,60 +84,6 @@
         flex-direction: column;
         gap: 40px 0;
         flex: 1;
-    }
-
-    &__item {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 0 10px;
-        // padding: 5px 10px;
-        color: $white;
-        cursor: pointer;
-        transition: 0.3s all;
-
-        // &:hover {
-        //     background: $white;
-        //     border-radius: $radius-input;
-        // }
-    }
-
-    &__icon {
-        width: $sidebar-box;
-        height: $sidebar-box;
-        @extend %flex-center;
-
-        // &:hover {
-        //     color: $text-violet;
-        //     background: $white;
-        //     border-radius: $radius-input;
-
-        //     svg {
-        //         color: $text-violet;
-        //     }
-        // }
-
-        svg {
-            color: $white;
-            width: $sidebar-icon;
-            height: $sidebar-icon;
-            transition: 0.3s all;
-        }
-    }
-
-    &__text {
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 23px;
-        opacity: 0;
-        display: none;
-        text-transform: capitalize;
-        // white-space: nowrap;
-
-        &--active {
-            opacity: 1;
-            display: flex;
-        }
     }
 
     &__saved {

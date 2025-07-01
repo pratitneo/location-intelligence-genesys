@@ -6,7 +6,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 1003;
+    z-index: $right-sidebar;
     height: 100vh;
     width: 80px;
     background-color: transparent;
@@ -75,8 +75,7 @@
       }
 
       img {
-        filter: brightness(0) saturate(100%) invert(93%) sepia(5%)
-          saturate(208%) hue-rotate(215deg) brightness(108%) contrast(101%);
+        filter: brightness(0) saturate(100%) invert(93%) sepia(5%) saturate(208%) hue-rotate(215deg) brightness(108%) contrast(101%);
       }
 
       .right-sidebar__tooltip {

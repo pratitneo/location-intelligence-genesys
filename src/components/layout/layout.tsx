@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./layout.module.scss";
 import RightSideBar from "../rightSideBar/rightSideBar";
 import SidePanel from "../sidePanel/sidePanel";
+import Sidebar from "../sidebar/sidebar";
 
 type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo";
 
@@ -34,33 +35,27 @@ const Layout = () => {
     }
   };
   const isLandingPage = location.pathname === "/landingPage";
+  const isProfilePage = location.pathname === "/profile";
+  const isSavedWork = location.pathname === "/saved-work";
 
   return (
     <div className={styles.layout}>
       {/* Main content */}
       <Outlet />
-
       {isLandingPage && (
         <>
+          {/* Left Sidebar */}
+          <Sidebar />
           {/* Right Sidebar */}
-          <RightSideBar
-            isPanelOpen={!!activePanel}
-            onIconClick={handleIconClick}
-            activeKey={activePanel}
-          />
+          <RightSideBar isPanelOpen={!!activePanel} onIconClick={handleIconClick} activeKey={activePanel} />
           {/* Side Panel */}
-          <SidePanel
-            visible={!!activePanel}
-            onClose={() => setActivePanel(null)}
-            title={activePanel ? getPanelTitle(activePanel) : ""}
-            content={
-              activePanel ? (
-                <div>Data for {getPanelTitle(activePanel)}</div>
-              ) : null
-            }
-          />
+          <SidePanel visible={!!activePanel} onClose={() => setActivePanel(null)} title={activePanel ? getPanelTitle(activePanel) : ""} content={activePanel ? (<div>Data for {getPanelTitle(activePanel)}</div>) : null} />
         </>
       )}
+      {(isProfilePage || isSavedWork) && (
+        < Sidebar />
+      )}
+
     </div>
   );
 };

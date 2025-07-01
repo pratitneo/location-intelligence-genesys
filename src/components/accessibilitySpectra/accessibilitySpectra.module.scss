@@ -4,7 +4,123 @@
 .lip-accspe{
     &__wrap{
         display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
+        width: 100%;
+    }
+    &__box{
+        display: flex;
+        width: 100%;
         flex-direction: row;
         gap: 10px;
+        padding: 8px;
+    }
+    &__container{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        gap: 8px;
+    }
+    &__index-time{
+        display: flex;
+        flex:1;
+        flex-direction: column;
+        gap: 12px;
+    }
+    &__pointer-index{
+        border: 1px solid $muted-indigo;
+        background-color: $white;
+        padding: 12px 12px 12px 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+        border-radius: 8px;
+    }
+
+    &__pthead{
+        background-color: $white;
+        padding: 12px 12px 12px 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        border-radius: 8px;
+    }
+    &__pointer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 18px;
+        letter-spacing: 0px;
+        color: $text-accent;
+    }
+    &__value{
+        color: $sky-teal;
+    }
+
+    &__indicator{
+        color: $accent-purple;
+    }
+
+    &__index{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: $text-accent;
+    }
+
+    &__time{
+        background-color: $white;
+        border: 1px solid $muted-indigo;
+        border-radius: 8px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__time-heading{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 18px;
+        letter-spacing: 0px;
+        text-align: center;
+        color: $text-accent;
+    }
+
+    &__hours{
+        display: flex;
+        flex-direction: row;
+        // justify-content: center;
+        gap: 4px;
+        width: 100%;
+    }
+
+    &__public-transport{
+        flex:1;
+        border: 1px solid $muted-indigo;
+        padding: 8px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background-color: $white    ;
+    }
+
+    &__headwrap{
+        padding: 12px 12px 12px 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        align-items: center;
     }
 }

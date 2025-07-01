@@ -223,3 +223,8 @@ export type SideBtnType = {
 }
 export type AffluenceType = { range: string; count: string; };
 
+export type AvrageDriveTimeType = {value:number; label: string};
+
+export type AccessibilityHeadType = {value1: number, value2:number, label:string}
+
+export type TransportConnectivityType = {icon?:string, type:string, location:string}

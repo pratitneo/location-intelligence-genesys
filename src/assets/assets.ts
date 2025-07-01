@@ -33,6 +33,10 @@ import Footfall from './footfall.svg'
 import Accessibility from './accessibility.svg'
 import Retail from './retail.svg'
 import DrpDownArrow from './drpdwn-arrow.svg'
+import TablerRoute from './tabler-route.svg'
+import Railway from './railway.svg'
+import Metro from './metro.svg'
+import Bus from './bus.svg'
 
 
 
@@ -72,6 +76,10 @@ const Images = {
     accessibility: Accessibility,
     retail: Retail,
     drpDwnArr: DrpDownArrow,
+    tablerRoute: TablerRoute,
+    railway: Railway,
+    metro: Metro,
+    bus: Bus
 }
 
 export { Images }

@@ -98,9 +98,8 @@ export type SalaryBracket = {
 };
 
 export type DropdownHeadType = {
-    icon: string;
+    icon?: string;
     heading: string;
-    isFull?: boolean;
 };
 
 export type SpendingSegmentType = {
@@ -222,4 +221,5 @@ export type SideBtnType = {
     sideBarText?: boolean
     getActionFn: (siteBtn: any) => void
 }
+export type AffluenceType = { range: string; count: string; };
 

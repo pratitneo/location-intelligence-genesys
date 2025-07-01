@@ -85,7 +85,7 @@ const DemoSpectra = () => {
           </div>
 
           <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending"]}`}>
-            <DrpdwnHead icon={Images?.walletMoney} heading={"Customers Spending on clothing"} isFull={true}/>
+            <DrpdwnHead icon={Images?.walletMoney} heading={"Customers Spending on clothing"}/>
             <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending__box"]}`}>
               {spendingSegments.map((segment, index) => (
               <ClothingSpendLevel
@@ -99,7 +99,7 @@ const DemoSpectra = () => {
           </div>
 
           <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution"]}`}>
-            <DrpdwnHead icon={Images?.ageGroup} heading={"Age Distribution"} isFull={true}/>
+            <DrpdwnHead icon={Images?.ageGroup} heading={"Age Distribution"} />
             <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution__box"]}`}>
               <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution__insideBox"]}`}>
               {ageDistributionData.map((item, index) => (

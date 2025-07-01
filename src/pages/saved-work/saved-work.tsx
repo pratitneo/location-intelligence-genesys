@@ -13,6 +13,7 @@ import Visitors from "../../components/visitors/visitors";
 import FootfallVisitors from "../../components/footfallVisitors/footfallVisitors";
 import LineChartGraph from "../../components/lineChart/lineChart";
 import DemoSpectra from "../../components/demoSpectra/demoSpectra";
+import AccessibilitySpectra from "../../components/accessibilitySpectra/accessibilitySpectra";
 
 const SavedWork = ({ userName }: ProfileType) => {
     const savedData = [{ location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' }, { location: 'bandra east', attributes: ['bandra east', 'fashion', 'draft'], date: '25-06-2025' },]
@@ -43,7 +44,7 @@ const SavedWork = ({ userName }: ProfileType) => {
                     <div className={`${savedCss['lip-saved__drpdwnsWrap']}`}>
                         <SiteScoreDrpDwn drpDwnData={drpDwns[0]} children={<DemoSpectra />} />
                         <SiteScoreDrpDwn drpDwnData={drpDwns[1]} />
-                        <SiteScoreDrpDwn drpDwnData={drpDwns[2]} />
+                        <SiteScoreDrpDwn drpDwnData={drpDwns[2]} children = {<AccessibilitySpectra />}/>
                         <SiteScoreDrpDwn drpDwnData={drpDwns[3]} />
                     </div>
                     {/* pie & visitors */}

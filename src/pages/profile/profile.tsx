@@ -33,7 +33,6 @@ const Profile = ({ userName, fullName }: ProfileType) => {
 
   return (
     <>
-      <Sidebar />
       <div className={`${profileCss["lip-profile__wrap"]}`}>
         <p className={`${profileCss["lip-profile__greet"]}`}>
           Hello, {userName}

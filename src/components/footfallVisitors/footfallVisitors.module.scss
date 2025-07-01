@@ -4,6 +4,7 @@
 .lip-footVisit {
     &__wrap {
         @extend %flex-between-center;
+        gap: 0 10px;
     }
 
     &__average {

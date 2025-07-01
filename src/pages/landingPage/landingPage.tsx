@@ -21,13 +21,9 @@ const LandingPage = () => {
 
   return (
     <div className={landingCss["lip-landing__wrap"]}>
-        <Sidebar />
-        <SearchBar onPositionChange={onPositionChange} onZoomChange={onZoomChange}/>
-        <ButtonIcon />
-        <MapComponent 
-          position={position} 
-          zoom={zoom}
-        />
+      <SearchBar onPositionChange={onPositionChange} onZoomChange={onZoomChange} />
+      <ButtonIcon />
+      <MapComponent position={position} zoom={zoom} />
     </div>
   )
 }

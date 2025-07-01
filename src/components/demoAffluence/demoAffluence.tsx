@@ -1,8 +1,8 @@
 import DrpdwnHead from '../drpdwnHead/drpdwnHead';
 import demoAffluenceCSS from './demoAffluence.module.scss';
 import { Images } from '../../assets/assets';
-import AffluenceRange from '../affluence/affluence';
 import type { SalaryBracket } from '../../types/types';
+import Affluence from '../affluence/affluence';
 
 
 const salaryData: SalaryBracket[] = [
@@ -20,7 +20,7 @@ const DemoAffluence = () => {
       <div className={`${demoAffluenceCSS["lip-demoAffluence__content"]}`}>
         {
           salaryData.map((item, index) => (
-              <AffluenceRange key={index}  range={item?.range} count={item?.count}/>
+              <Affluence key={index}  range={item?.range} count={item?.count}/>
           ))
         }
       </div>

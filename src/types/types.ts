@@ -98,9 +98,8 @@ export type SalaryBracket = {
 };
 
 export type DropdownHeadType = {
-    icon: string;
+    icon?: string;
     heading: string;
-    isFull?: boolean;
 };
 
 export type SpendingSegmentType = {
@@ -215,4 +214,6 @@ export type SidePanelType = {
 export type SpendingLevel = "High" | "Moderate" | "Low";
 
 export type spendingSegmentType = { spendLevel: SpendingLevel; percentage: string; approxCount: string }[];
+
+export type AffluenceType = {range: string; count: string;};
 

@@ -4,11 +4,11 @@
 
 .lip-cltspnd {
     &__customerSpending {
+        width: 100%;
         border-radius: 8px;
-        padding: 4px;
+        padding: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         gap: 4px;
         align-items: center;
         background-color: $white;

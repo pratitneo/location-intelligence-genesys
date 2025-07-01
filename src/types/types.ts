@@ -100,6 +100,7 @@ export type SalaryBracket = {
 export type DropdownHeadType = {
     icon?: string;
     heading: string;
+    customCls?: string;
 };
 
 export type SpendingSegmentType = {

@@ -53,10 +53,7 @@ const Layout = () => {
         </>
       )}
       {(isProfilePage || isSavedWork) && (
-        <>
-          {/* Left Sidebar */}
-          <Sidebar />
-        </>
+        < Sidebar />
       )}
 
     </div>

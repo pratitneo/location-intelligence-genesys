@@ -1,0 +1,62 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-sidebtn {
+    &__item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0 10px;
+        // padding: 5px 10px;
+        color: $white;
+        cursor: pointer;
+        transition: 0.3s all;
+    }
+
+    &__icon {
+        @extend %flex-center;
+        width: $sidebar-box;
+        height: $sidebar-box;
+        padding: 10px;
+        border-radius: $radius-input;
+        transition: 0.3s all;
+
+        &:hover {
+            background: linear-gradient(to right, $sidebar-btn-gradient-1, $sidebar-btn-gradient-2);
+
+            svg {
+                color: $text-violet;
+            }
+        }
+
+        svg {
+            color: $white;
+            width: $sidebar-icon;
+            height: $sidebar-icon;
+            transition: 0.3s all;
+        }
+    }
+
+    &__text {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 23px;
+        opacity: 0;
+        display: none;
+        text-transform: capitalize;
+
+        &--active {
+            opacity: 1;
+            display: flex;
+        }
+    }
+
+    &--active {
+        width: 240px;
+
+        .lip-sidebar__toggle {
+            right: 0;
+            transform: rotate(0deg);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+.lip-trpcon{
+    &__wrap{
+        background-color: $secondary-violet;
+        padding: 2px 4px;
+        border-radius: $radius-input;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0px;
+    }
+
+    &__container{
+        display: flex;
+        gap: 6px;
+    }
+
+    &__type{
+        color: $text-accent;
+    }
+    &__location{
+        color: $black;
+    }
+}

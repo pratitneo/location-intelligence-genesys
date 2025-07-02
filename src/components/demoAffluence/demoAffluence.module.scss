@@ -10,13 +10,13 @@
         justify-content: space-between;
         border: 1px solid $muted-indigo;
         padding: 6px;
-        border-radius: 10px ;
+        border-radius: $radius-input ;
         background-color: $white;
     }
 
     &__content{
         border: 0.5px solid $muted-indigo;
-        border-radius: 6px;
+        border-radius: $radius-input;
         background-color: $secondary-violet;
         padding: 4px;
         display: flex;

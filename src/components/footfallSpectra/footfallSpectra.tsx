@@ -26,7 +26,7 @@ const FootfallSpectra = () => {
                     </div>
                 </div>
                 {/* line chart */}
-                <LineChartGraph />
+                <LineChartGraph chartHeight={230} dataKeyName='value' fallbackStrokeColor='#734199' legendHorizontalPlace='center' legendIconType='cricle' legendName='Footfall (Predicted)' legendVerticalPlace='bottom' lineStyle='step' lineWidth={2} spacedStroke={'3 3'} xDataColor='white' xDataKey='day' yDataColor='white' tickValue={6} yAxisRange={[0, 20000]} lineColor='#93C5FD' highValueColor='#059669' normalValueColor='#93C5FD' />
             </div>
         </>
     )

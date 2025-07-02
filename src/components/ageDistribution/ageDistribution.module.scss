@@ -5,13 +5,10 @@
 .lip-ageDist{
 
     &__container{
-        border-radius: 6px;
+        border-radius: $radius-input;
         padding: 4px 8px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        @extend %flex-between-center;
         gap: clamp(8px, 1vw, 16px);
-        justify-content: space-between;
         background-color: $secondary-violet;
         min-width: 0;
         width: 100%;
@@ -40,7 +37,6 @@
 
     &__gender{
         display: flex;
-        flex-direction: row;
         align-items: center;
         padding: 4px; 
         gap: clamp(2px, 0.5vw, 6px);

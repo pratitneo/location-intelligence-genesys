@@ -78,13 +78,15 @@ const Login = () => {
         <img src={Images?.loginLogo} alt="" />
         <p className={`${loginCss["lip-login__head"]} login-head`}>welcome back</p>
         <p className={`${loginCss["lip-login__subHead"]} login-subHead`}>log in to your account</p>
-        <LoginInput inputLabel="email" inputType="text" inputName="userEmail" inputId="email" inputValue={loginData?.userEmail} getInputValue={(e: any) => handleInput} />
+        <LoginInput inputLabel="email" inputType="text" inputName="userEmail" inputId="email" inputValue={loginData?.userEmail} getInputValue={handleInput} />
+        {/* <LoginInput inputLabel="email" inputType="text" inputName="userEmail" inputId="email" inputValue={loginData?.userEmail} getInputValue={(e: any) => handleInput} /> */}
         {errors.userEmail && (
           <p className={`${loginCss["lip-login__error-text"]}`}>
             {errors.userEmail}
           </p>
         )}
-        <LoginInput inputLabel="password" inputType="password" inputName="userPassword" inputId="password" icon="passwordEye" customCls="lip-input__password" inputValue={loginData?.userPassword} getInputValue={(e: any) => handleInput} getInputToggle={(e: any) => handleTogglePassword} />
+        <LoginInput inputLabel="password" inputType="password" inputName="userPassword" inputId="password" icon="passwordEye" customCls="lip-input__password" inputValue={loginData?.userPassword} getInputValue={handleInput} getInputToggle={(e: any) => handleTogglePassword} />
+        {/* <LoginInput inputLabel="password" inputType="password" inputName="userPassword" inputId="password" icon="passwordEye" customCls="lip-input__password" inputValue={loginData?.userPassword} getInputValue={(e: any) => handleInput} getInputToggle={(e: any) => handleTogglePassword} /> */}
         {errors.userPassword && (
           <p className={`${loginCss["lip-login__error-text"]}`}>
             {errors.userPassword}

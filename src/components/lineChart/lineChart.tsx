@@ -2,10 +2,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContai
 import lineChartCss from './lineChart.module.scss'
 import type { LineChartType } from '../../types/types';
 
-const data = [{ day: 'Mon', value: 10200 }, { day: 'Tue', value: 9300 }, { day: 'Wed', value: 9600 }, { day: 'Thu', value: 9800 }, { day: 'Fri', value: 11500 }, { day: 'Sat', value: 13900 }, { day: 'Sun', value: 12700 }];
-const maxValue = Math.max(...data.map(d => d.value));
-
-const LineChartGraph = ({ chartHeight, spacedStroke, fallbackStrokeColor, xDataKey, xDataColor, yDataColor, yAxisRange, tickValue, lineStyle, dataKeyName, lineColor, lineWidth, legendName, highValueColor, normalValueColor, legendVerticalPlace, legendHorizontalPlace, legendIconType }: LineChartType) => {
+const LineChartGraph = ({ data, maxValue, chartHeight, spacedStroke, fallbackStrokeColor, xDataKey, xDataColor, yDataColor, yAxisRange, tickValue, lineStyle, dataKeyName, lineColor, lineWidth, legendName, highValueColor, normalValueColor, legendVerticalPlace, legendHorizontalPlace, legendIconType }: LineChartType) => {
     return (
         <div className={`${lineChartCss['lip-lineChart__wrap']}`}>
             {/* line chart header */}

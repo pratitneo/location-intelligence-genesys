@@ -234,6 +234,8 @@ export type SidebarType = {
     onIconClick: (key: IconKey) => void
 }
 export type LineChartType = {
+    data: any[]
+    maxValue: string | number
     chartHeight: number
     spacedStroke: number | string
     fallbackStrokeColor: string

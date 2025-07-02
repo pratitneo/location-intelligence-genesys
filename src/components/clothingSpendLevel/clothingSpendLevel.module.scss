@@ -5,12 +5,13 @@
 .lip-cltspnd {
     &__customerSpending {
         width: 100%;
-        border-radius: 8px;
+        border-radius: $radius-input;
         padding: 10px;
         display: flex;
         flex-direction: column;
-        gap: 4px;
         align-items: center;
+        gap: 4px;
+        
         background-color: $white;
         &--high{
             border: 1px solid $sky-teal;

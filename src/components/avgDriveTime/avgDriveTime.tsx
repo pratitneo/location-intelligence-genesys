@@ -1,7 +1,7 @@
-import type { AvrageDriveTimeType } from '../../types/types'
-import drvtimCss from './avrageDriveTime.module.scss'
+import type { AvgDriveTimeType } from '../../types/types'
+import drvtimCss from './avgDriveTime.module.scss'
 
-const AvrageDriveTime = ({value, label}: AvrageDriveTimeType) => {
+const AvgDriveTime = ({value, label}: AvgDriveTimeType) => {
   return (
     <div className={`${drvtimCss['lip-avgdrvtim__wrap']}`}>
         <span className={`${drvtimCss['lip-avgdrvtim__value']}`}>{value}</span>
@@ -11,4 +11,4 @@ const AvrageDriveTime = ({value, label}: AvrageDriveTimeType) => {
   )
 }
 
-export default AvrageDriveTime
+export default AvgDriveTime

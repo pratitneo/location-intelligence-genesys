@@ -11,7 +11,6 @@
     &__statAffluence {
         gap: 8px;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
     }
 
@@ -26,7 +25,7 @@
     &__customerSpending {
         display: flex;
         flex-direction: column;
-        border-radius: 6px;
+        border-radius: $radius-input;
         border: 1px solid $muted-indigo;
         gap: 8px;
         padding: 6px;
@@ -34,11 +33,10 @@
     }
 
     &__customerSpending__box {
-        border-radius: 10px;
+        border-radius: $radius-input;
         padding: 8px;
         gap: 20px;
         display: flex;
-        flex-direction: row;
         align-items: center;
         background-color: $secondary-violet;
     }
@@ -48,16 +46,15 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        border-radius: 10px;
+        border-radius: $radius-input;
         background-color: $white;
         border: 1px solid $muted-indigo;
     }
 
     &__ageDistribution__box {
         display: flex;
-        flex-direction: row;
         justify-content: center;
-        border-radius: 8px;
+        border-radius: $radius-input;
         gap: 4px;
     }
 

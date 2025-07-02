@@ -7,10 +7,7 @@
         top: 0;
         right: 10px;
         z-index: 1000;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        @extend %flex-between-center;
         gap: 10px;
     }
 
@@ -22,9 +19,7 @@
         border-radius: 100%;
         border: $icon-radius;
         background: radial-gradient(circle, $contact-icon-gradient-1 0%, $contact-icon-gradient-2 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @extend %flex-center;
         cursor: pointer;
     }
 

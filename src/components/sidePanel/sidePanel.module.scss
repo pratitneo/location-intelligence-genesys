@@ -7,7 +7,7 @@
   overflow: hidden auto;
   max-width: 640px;
   background: #fff;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+  box-shadow: $shadow-sidepanel;
   transition: right 0.3s ease;
   z-index: 1002;
 

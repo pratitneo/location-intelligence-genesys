@@ -7,9 +7,9 @@
         align-items: center;
         padding: 4px;
         gap: 6px;
-        border-radius: 6px;
+        border-radius: $radius-input;
         background-color: white;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+        box-shadow: $shadow-drpdwnhead;
     }
 
     &__heading {

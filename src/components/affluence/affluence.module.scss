@@ -4,25 +4,19 @@
 .lip-affluence{
     &__wrap{
         padding: 4px;
-        border-radius: 6px;
-        display: flex; 
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        border-radius: $radius-input;
+        @extend %flex-between-center;
         background-color: #FFFFFF;
-    }
-
-    &__range{
         font-weight: 500;
         line-height: 100%;
         letter-spacing: 0px;
+    }
+
+    &__range{
         color: #8E44F7;
     }
 
     &__count{
-        font-weight: 500;
-        line-height: 100%;
-        letter-spacing: 0px;
         color: #555555;
     }
 }

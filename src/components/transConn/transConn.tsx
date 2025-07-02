@@ -1,7 +1,7 @@
-import type { TransportConnectivityType } from '../../types/types'
-import connectCss from './transportConnectivity.module.scss'
+import type { TransConnType } from '../../types/types'
+import connectCss from './TransConn.module.scss'
 
-const TransportConnectivity = ({icon, type, location}: TransportConnectivityType) => {
+const TransConn = ({icon, type, location}: TransConnType) => {
   return (
     <div className={`${connectCss['lip-trpcon__wrap']}`}>
         <div className={`${connectCss['lip-trpcon__container']}`}>
@@ -13,4 +13,4 @@ const TransportConnectivity = ({icon, type, location}: TransportConnectivityType
   )
 }
 
-export default TransportConnectivity
+export default TransConn

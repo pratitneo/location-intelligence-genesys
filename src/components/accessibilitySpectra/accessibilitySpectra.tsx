@@ -1,10 +1,10 @@
-import AvrageDriveTime from '../avrageDriveTime/avrageDriveTime'
 import acspCss from './accessibilitySpectra.module.scss'
 import DropownDesc from '../dropdownDesc/dropdownDesc'
 import { Images } from "../../assets/assets"
-import TransportConnectivity from '../transportConnectivity/transportConnectivity'
+import AvgDriveTime from '../avgDriveTime/avgDriveTime'
+import TransConn from '../transConn/TransConn'
 
-const transportConnectivityData = [
+const TransConnData = [
   {
     icon: Images?.railway,
     type: "2 Train stations",
@@ -43,8 +43,8 @@ const AccessibilitySpectra = () => {
             <div className={`${acspCss['lip-accspe__time']}`}>
               <p className={`${acspCss['lip-accspe__time-heading']}`}>Average Drive Time</p>
               <div className={`${acspCss['lip-accspe__hours']}`}>
-                <AvrageDriveTime value={28} label={"Non-Peak hours"}/>
-                <AvrageDriveTime value={16} label={"Peak hours"}/>
+                <AvgDriveTime value={28} label={"Non-Peak hours"}/>
+                <AvgDriveTime value={16} label={"Peak hours"}/>
               </div>
             </div>
           </div>
@@ -59,8 +59,8 @@ const AccessibilitySpectra = () => {
               </p>
             </div>
             
-            {transportConnectivityData.map((item, index) => (
-              <TransportConnectivity key={index} icon={item.icon} type={item.type} location={item.locations}/>
+            {TransConnData.map((item, index) => (
+              <TransConn key={index} icon={item.icon} type={item.type} location={item.locations}/>
             ))}
             
           </div>

@@ -9,10 +9,10 @@ import type {AgeDistributionDataType, spendingSegmentType } from "../../types/ty
 import demoSpectraCss from "./demoSpectra.module.scss";
 
 const demoStatsData = [
-  { icon: Images?.totalPopulation, value: "82,400", label: "total population" },
-  { icon: Images?.households, value: "18,500", label: "Number of households" },
-  { icon: Images?.male, value: "~42,000", label: "Number of males" },
-  { icon: Images?.female, value: "~40,000", label: "Number of females" },
+  { icon: Images?.totalPopulation, value: 82400, label: "total population" },
+  { icon: Images?.households, value: 18500, label: "Number of households" },
+  { icon: Images?.male, value: 42000, label: "Number of males" },
+  { icon: Images?.female, value: 40000, label: "Number of females" },
 ];
 
 const spendingSegments: spendingSegmentType = [

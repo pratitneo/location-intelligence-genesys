@@ -6,10 +6,10 @@ import Affluence from '../affluence/affluence';
 
 
 const salaryData: SalaryBracket[] = [
-  { range: "< ₹5 LPA", count: "14,000" },
-  { range: "₹6 – ₹10 LPA", count: "22,000" },
-  { range: "₹11 – ₹15 LPA", count: "13,000" },
-  { range: "₹15>", count: "7,400" },
+  { range: "< 5 LPA", count: "14,000" },
+  { range: "6 – 10 LPA", count: "22,000" },
+  { range: "11 – 15 LPA", count: "13,000" },
+  { range: "15>", count: "7,400" },
 ];
 
 

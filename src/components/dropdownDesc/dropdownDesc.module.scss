@@ -4,6 +4,7 @@
 .lip-drpDesc {
   &__wrap {
     @extend %flex-center;
+    margin: 10px 0;
     padding: 10px;
     border-radius: $radius-input;
     border: 2px solid transparent;

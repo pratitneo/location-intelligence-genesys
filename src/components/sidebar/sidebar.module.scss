@@ -3,8 +3,7 @@
 
 .lip-sidebar {
     &__wrap {
-        display: flex;
-        flex-direction: column;
+        @extend %flex-column;
         position: absolute;
         top: 0;
         left: 0;
@@ -14,16 +13,15 @@
         // width: 100%;
         width: 80px;
         border-radius: 0 10px 10px 0;
-        background: linear-gradient(90deg, $sidebar-color1, $sidebar-color2);
+        background: linear-gradient(90deg, $sidebar-gradient-color1, $sidebar-gradient-color2);
         transition: 0.5s all;
         overflow: hidden;
     }
 
     &__logo {
         position: relative;
-        display: flex;
+        @extend %flex-start-center;
         color: white;
-        align-items: center;
         margin-bottom: 60px;
 
         &-text {
@@ -80,8 +78,7 @@
     }
 
     &__items {
-        display: flex;
-        flex-direction: column;
+        @extend %flex-column;
         gap: 40px 0;
         flex: 1;
     }

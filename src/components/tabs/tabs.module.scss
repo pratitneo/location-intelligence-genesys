@@ -1,4 +1,5 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
 
 .lip-tabs {
     &__wrap {
@@ -12,8 +13,7 @@
     }
 
     &__profile {
-        display: flex;
-        align-items: center;
+        @extend %flex-start-center;
         text-transform: capitalize;
         font-size: 22px;
         line-height: 22px;

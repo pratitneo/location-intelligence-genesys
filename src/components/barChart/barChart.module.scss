@@ -1,0 +1,11 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/utilities' as *;
+
+.lip-bar {
+    &__wrap {
+        flex: 1;
+        padding: 10px;
+        border-radius: $radius-input;
+        background: linear-gradient(180deg, $sidebar-gradient-color2, $retail-gradient-2);
+    }
+}

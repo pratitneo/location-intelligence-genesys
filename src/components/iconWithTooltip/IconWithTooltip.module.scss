@@ -4,9 +4,7 @@
 .lip-tooltip {
   &__wrap {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @extend %flex-center;
     cursor: pointer;
     transition: 0.3s;
     border-radius: $radius-input;
@@ -16,7 +14,7 @@
     box-shadow: $shadow-tooltip;
 
     &:hover {
-      background-color: #3B0C76;
+      background: linear-gradient(0deg, $sidebar-btn-gradient-1, $sidebar-btn-gradient-2);
       border-color: #3B0C76;
 
       .iconImage {

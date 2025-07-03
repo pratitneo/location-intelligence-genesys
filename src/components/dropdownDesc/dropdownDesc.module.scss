@@ -4,12 +4,13 @@
 .lip-drpDesc {
   &__wrap {
     @extend %flex-center;
+    margin: 10px 0;
     padding: 10px;
     border-radius: $radius-input;
     border: 2px solid transparent;
     background:
       linear-gradient(90deg, $drpdwn-gradient-1 0%, $drpdwn-gradient-2 100%) padding-box,
-      linear-gradient(90deg, $drpdwn-border-gradient-1, $drpdwn-border-gradient-2, $drpdwn-border-gradient-3, $drpdwn-border-gradient-4) border-box;
+      linear-gradient(90deg, $drpdwn-desc-border-gradient-1, $drpdwn-desc-border-gradient-2, $drpdwn-desc-border-gradient-3, $drpdwn-desc-border-gradient-4) border-box;
     color: $white;
   }
 

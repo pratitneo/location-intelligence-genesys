@@ -28,16 +28,16 @@ const AccessibilitySpectra = () => {
       <DropownDesc
         desc = {"Daily footfall peaks at 1,350 around noon and rebounds post 6 PM, driven by office workers and leisure shoppers"}
       />
-      <div className={`${acspCss['lip-accspe__box']}`}>
         <div className={`${acspCss['lip-accspe__container']}`}>
           <div className={`${acspCss['lip-accspe__index-time']}`}>
             <div className={`${acspCss['lip-accspe__pointer-index']}`}>
               <p className={`${acspCss['lip-accspe__pointer']}`}>
-                <span className={`${acspCss['lip-accspe__value']}`}>8.2</span> <span>/ 10</span>
+                <span className={`${acspCss['lip-accspe__value']}`}>8.2</span> 
+                <span>/ 10</span>
               </p>
 
               <p className={`${acspCss['lip-accspe__index']}`}>
-                Excellent <br />Accessibility Index
+                Excellent Accessibility Index
               </p>
             </div>
             <div className={`${acspCss['lip-accspe__time']}`}>
@@ -66,7 +66,6 @@ const AccessibilitySpectra = () => {
           </div>
         </div>
     </div>
-  </div>
   )
 }
 

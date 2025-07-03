@@ -103,11 +103,6 @@ export type DropdownHeadType = {
     customCls?: string;
 };
 
-export type SpendingSegmentType = {
-    spendLevel: "High" | "Moderate" | "Low";
-    percentage: string;
-    approxCount: string;
-};
 
 export type AgeDistributionType = {
     ageRange: string;
@@ -215,6 +210,7 @@ export type SidePanelType = {
 export type SpendingLevel = "High" | "Moderate" | "Low";
 
 export type spendingSegmentType = { spendLevel: SpendingLevel; percentage: string; approxCount: string }[];
+
 
 export type SideBtnType = {
     sideBtnText?: string

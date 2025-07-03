@@ -220,7 +220,10 @@ export type SideBtnType = {
 }
 export type AffluenceType = { range: string; count: string; };
 
-export type AvgDriveTimeType = {value:number; label: string};
+export type DriveTimeType = {
+    value:number;
+    label: string
+};
 
 export type AccessibilityHeadType = {value1: number, value2:number, label:string}
 
@@ -229,3 +232,8 @@ export type SidebarType = {
     onIconClick: (key: IconKey) => void
 }
 
+export interface ButtonIconInterface {
+  isPanelOpen?: boolean;
+}
+
+export type AccessIndexType = {value: number, accessLabel: string};

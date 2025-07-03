@@ -1,0 +1,41 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+.lip-transcon{
+    &__public-transport{
+        border: 1px solid $muted-indigo;
+        padding: 8px;
+        border-radius: $radius-input;
+        display: flex;
+        flex-direction: column;
+        flex:1;
+        gap: 6px;
+        background-color: $white;
+    }
+
+    &__pthead{
+        background-color: $white;
+        padding:20px;
+        @extend %flex-center;
+        gap: 16px;
+    }
+
+    &__pointer{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 18px;
+        letter-spacing: 0px;
+        color: $text-accent;
+    }
+
+    &__index{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: $text-accent;
+    }
+}

@@ -1,10 +1,7 @@
 import MapComponent from "../../components/map/map";
 import landingCss from "./landingPage.module.scss";
 import { useState } from "react";
-import ButtonIcon from "../../components/buttonIcon/buttonIcon";
 import SearchBar from "../../components/search/searchBar";
-
-import Sidebar from "../../components/sidebar/sidebar";
 const defaultPosition = { lat: 19.0760, lng: 72.8777 };
 
 const LandingPage = () => {
@@ -22,7 +19,6 @@ const LandingPage = () => {
   return (
     <div className={landingCss["lip-landing__wrap"]}>
       <SearchBar onPositionChange={onPositionChange} onZoomChange={onZoomChange} />
-      <ButtonIcon />
       <MapComponent position={position} zoom={zoom} />
     </div>
   )

@@ -1,0 +1,36 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+.lip-accindex{
+    &__pointer-index{
+        border: 1px solid $muted-indigo;
+        background-color: $white;
+        padding: 20px;
+        @extend %flex-center;
+        gap: 16px;
+        border-radius: $radius-input;
+    }
+
+    &__pointer{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 18px;
+        letter-spacing: 0px;
+        color: $text-accent;
+    }
+    
+    &__value{
+        color: $sky-teal;
+    }
+
+    &__index{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: $text-accent;
+    }
+}

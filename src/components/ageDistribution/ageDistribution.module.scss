@@ -6,7 +6,7 @@
 
     &__container{
         max-width: 272px;
-        // overflow: auto hidden;
+        overflow: auto hidden;
         border-radius: $radius-input;
         padding: 4px 4px;
         display: flex;
@@ -16,6 +16,11 @@
         min-width: 0;
         width: 100%;
         box-sizing: border-box;
+                &::-webkit-scrollbar {
+            display: none;
+        }
+        // Hide scrollbar (Firefox)
+        scrollbar-width: none;
     }
 
     &__range{
@@ -39,10 +44,8 @@
     }
 
     &__gender{
-        display: flex;
-        align-items: center;
+        @extend %flex-between-center;
         padding: 2px 3px; 
-        justify-content: space-between;
         flex-shrink: 0;
     }
 

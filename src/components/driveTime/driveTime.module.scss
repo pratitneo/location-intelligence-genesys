@@ -1,7 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/utilities" as *;
 
-.lip-avgdrvtim{
+.lip-drvtim{
     &__wrap{
         display: flex;
         flex-direction: column;
@@ -13,21 +13,22 @@
         background-color: $white;
         box-shadow: $shadow-avgdrivetime;
         font-weight: 500;
-        font-size: 20px;
         line-height: 18px;
         letter-spacing: 0px;
     }
 
     &__value{
+        font-size: 20px;
         color: $sky-teal;
     }
 
     &__minutes{
+        font-size: 20px;
         color: $accent-purple;
     }
 
     &__label{
-
+        font-size: 14px;
         color: $text-accent;
     }
 }

@@ -2,6 +2,7 @@ import styles from "./rightSidebar.module.scss";
 import { Images } from "../../assets/assets";
 import IconWithTooltip from "../iconWithTooltip/IconWithTooltip";
 import type { IconItem, IconKey, SubIconItem } from "../../types/types";
+import ButtonIcon from "../buttonIcon/buttonIcon";
 
 const RightSideBar = ({ isPanelOpen, onIconClick, activeKey }: { isPanelOpen: boolean; onIconClick: (key: IconKey) => void; activeKey: IconKey | null }) => {
   // primary icons
@@ -21,6 +22,8 @@ const RightSideBar = ({ isPanelOpen, onIconClick, activeKey }: { isPanelOpen: bo
   ];
 
   return (
+    <>
+    <ButtonIcon isPanelOpen={isPanelOpen}/>
     <div className={`${styles["lip-right-sidebar__wrap"]} ${isPanelOpen ? styles["lip-right-sidebar__wrap--shifted"] : ""}`}>
       <div className={styles["lip-right-sidebar__wrap"]}>
         <div className={styles["lip-right-sidebar__icons"]}>
@@ -40,6 +43,7 @@ const RightSideBar = ({ isPanelOpen, onIconClick, activeKey }: { isPanelOpen: bo
         </div>
       </div>
     </div>
+    </>
   );
 };
 

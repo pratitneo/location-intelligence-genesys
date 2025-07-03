@@ -4,6 +4,8 @@
 .lip-trpcon{
     &__wrap{
         background-color: $secondary-violet;
+        max-width: 280px;
+        overflow: auto hidden;
         padding: 2px 4px;
         border-radius: $radius-input;
         display: flex;

@@ -103,11 +103,6 @@ export type DropdownHeadType = {
     customCls?: string;
 };
 
-export type SpendingSegmentType = {
-    spendLevel: "High" | "Moderate" | "Low";
-    percentage: string;
-    approxCount: string;
-};
 
 export type AgeDistributionType = {
     ageRange: string;
@@ -231,7 +226,7 @@ export type AffluenceType = {
     count: string;
 };
 
-export type AvgDriveTimeType = {
+export type DriveTimeType = {
     value: number;
     label: string
 };
@@ -276,3 +271,8 @@ export type TotalAddMarkType = {
     tamNum: string | number
 }
 
+export interface ButtonIconInterface {
+    isPanelOpen?: boolean;
+}
+
+export type AccessIndexType = { value: number, accessLabel: string };

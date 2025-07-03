@@ -3,11 +3,9 @@
 
 .lip-drpDesc {
   &__wrap {
-    @extend %flex-start-center;
+    @extend %flex-center;
     padding: 10px;
-    margin: 10px 0;
     border-radius: $radius-input;
-    gap: 10px;
     border: 2px solid transparent;
     background:
       linear-gradient(90deg, $drpdwn-gradient-1 0%, $drpdwn-gradient-2 100%) padding-box,

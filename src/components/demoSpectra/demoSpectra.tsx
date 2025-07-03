@@ -101,11 +101,9 @@ const DemoSpectra = () => {
       <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution"]}`}>
         <DrpdwnHead icon={Images?.ageGroup} heading={"Age Distribution"} />
         <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution__box"]}`}>
-          <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution__insideBox"]}`}>
-            {ageDistributionData.map((item, index) => (
-              <AgeDistribution key={index} ageRange={item?.ageRange} total={item.total} male={item.male} female={item.female} />
-            ))}
-          </div>
+          {ageDistributionData.map((item, index) => (
+            <AgeDistribution key={index} ageRange={item?.ageRange} total={item.total} male={item.male} female={item.female} />
+          ))}
         </div>
       </div>
     </div>

@@ -9,8 +9,7 @@
         z-index: $searchBox;
         width: 252px;
         height: 40px;
-        display: flex;
-        align-items: center;
+        @extend %flex-start-center;
         transition: width 0.3s ease;
     }
 
@@ -23,7 +22,7 @@
         height: 50px;
         width: 100%;
         font-size: 14px;
-        color: $searchbar-color;
+        color: $black;
         padding-left: 15px;
         font-weight: 400;
         border-radius: 50px;
@@ -47,7 +46,7 @@
         right: 5px;
         border-radius: 100px;
         border: $icon-radius;
-        background: radial-gradient(circle, $search-icon-gradient-1 0%, $search-icon-gradient-2 100%);
+        background: radial-gradient(circle, $contact-icon-gradient-1 0%, $contact-icon-gradient-2 100%);
         color: $white;
         cursor: pointer;
         @extend %flex-center;

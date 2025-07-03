@@ -19,9 +19,7 @@
   }
 
   &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @extend %flex-between-center;
     padding: 16px;
     background: #f5f5f5;
     border-bottom: 1px solid #ddd;

@@ -1,0 +1,22 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+.lip-tam {
+    &__wrap {
+        @extend %flex-column;
+        padding: 8px;
+        width: 100%;
+        max-width: 230px;
+        border-radius: $radius-input;
+        background: linear-gradient(to bottom, $sidebar-gradient-color2, $retail-gradient-2);
+    }
+
+    &__num {
+        font-size: 32px;
+        font-weight: 600;
+        margin: 8px 50px 50px 50px;
+        color: $retail-blue;
+        text-transform: capitalize;
+        text-align: center;
+    }
+}

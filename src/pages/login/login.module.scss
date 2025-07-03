@@ -4,7 +4,7 @@
 .lip-login {
   &__wrap {
     min-height: 100vh;
-    @extend %flex-end;
+    @extend %flex-end-end;
     background: linear-gradient(to right, #320a55, #6b07c1);
   }
 
@@ -27,6 +27,7 @@
     margin-bottom: 18px;
     text-transform: capitalize;
   }
+
   &__error-text {
     display: block;
     font-size: 1rem;

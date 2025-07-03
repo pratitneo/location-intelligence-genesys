@@ -1,0 +1,12 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+.lip-retail {
+    &__tam__bar {
+        @extend %flex-between-start;
+    }
+
+    &__donutCharts {
+        @extend %flex-between-center;
+    }
+}

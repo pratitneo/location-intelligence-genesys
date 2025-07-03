@@ -3,8 +3,7 @@
 
 .lip-demoSpectra {
     &__wrap {
-        display: flex;
-        flex-direction: column;
+        @extend %flex-column;
         gap: 10px;
     }
 
@@ -23,8 +22,7 @@
 
 
     &__customerSpending {
-        display: flex;
-        flex-direction: column;
+        @extend %flex-column;
         border-radius: $radius-input;
         border: 1px solid $muted-indigo;
         gap: 8px;
@@ -36,15 +34,13 @@
         border-radius: $radius-input;
         padding: 8px;
         gap: 20px;
-        display: flex;
-        align-items: center;
+        @extend %flex-start-center;
         background-color: $secondary-violet;
     }
 
     &__ageDistribution {
         padding: 6px;
-        display: flex;
-        flex-direction: column;
+        @extend %flex-column;
         gap: 10px;
         border-radius: $radius-input;
         background-color: $white;

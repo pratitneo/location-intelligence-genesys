@@ -2,9 +2,9 @@
 @use "../../styles/partials/utilities" as *;
 
 
-.lip-ageDist{
+.lip-ageDist {
 
-    &__container{
+    &__container {
         border-radius: $radius-input;
         padding: 4px 8px;
         @extend %flex-between-center;
@@ -15,17 +15,17 @@
         box-sizing: border-box;
     }
 
-    &__range{
+    &__range {
         font-weight: 500;
         font-size: clamp(12px, 2vw, 16px);
-        line-height: 100%; 
+        line-height: 100%;
         letter-spacing: 0px;
         color: $accent-purple;
         white-space: nowrap;
         flex-shrink: 0;
     }
 
-    &__total{
+    &__total {
         font-weight: 500;
         font-size: clamp(10px, 1.5vw, 14px);
         line-height: 100%;
@@ -35,15 +35,14 @@
         flex-shrink: 0;
     }
 
-    &__gender{
-        display: flex;
-        align-items: center;
-        padding: 4px; 
+    &__gender {
+        @extend %flex-start-center;
+        padding: 4px;
         gap: clamp(2px, 0.5vw, 6px);
         flex-shrink: 0;
     }
 
-    &__value{
+    &__value {
         font-weight: 500;
         font-size: clamp(10px, 1.5vw, 14px);
         line-height: 100%;
@@ -58,15 +57,15 @@
             padding: 0.25rem 0.5rem;
             gap: 6px;
         }
-        
+
         &__range {
             font-size: 12px;
         }
-        
+
         &__total {
             font-size: 10px;
         }
-        
+
         &__value {
             font-size: 10px;
         }
@@ -77,15 +76,15 @@
             padding: 0.25rem;
             gap: 4px;
         }
-        
+
         &__range {
             font-size: 11px;
         }
-        
+
         &__total {
             font-size: 9px;
         }
-        
+
         &__value {
             font-size: 9px;
         }
@@ -97,7 +96,7 @@
             gap: 2px;
             padding: 0.5rem;
         }
-        
+
         &__gender {
             padding: 0.125rem;
         }

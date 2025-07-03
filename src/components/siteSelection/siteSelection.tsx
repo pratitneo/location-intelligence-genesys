@@ -2,6 +2,7 @@ import { Images } from '../../assets/assets'
 import AccessibilitySpectra from '../accessibilitySpectra/accessibilitySpectra'
 import DemoSpectra from '../demoSpectra/demoSpectra'
 import FootfallSpectra from '../footfallSpectra/footfallSpectra'
+import RetailSpectra from '../retailSpectra/retailSpectra'
 import SitePointers from '../sitePointers/sitePointers'
 import SiteScore from '../siteScore/siteScore'
 import SiteScoreBtns from '../siteScoreBtns/siteScoreBtns'
@@ -23,7 +24,7 @@ const SiteSelection = () => {
                 <SiteScoreDrpDwn drpDwnData={drpDwns[0]} children={<DemoSpectra />} />
                 <SiteScoreDrpDwn drpDwnData={drpDwns[1]} children={<FootfallSpectra />} />
                 <SiteScoreDrpDwn drpDwnData={drpDwns[2]} children={<AccessibilitySpectra />} />
-                <SiteScoreDrpDwn drpDwnData={drpDwns[3]} />
+                <SiteScoreDrpDwn drpDwnData={drpDwns[3]} children={<RetailSpectra />} />
             </div>
         </>
     )

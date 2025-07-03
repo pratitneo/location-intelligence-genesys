@@ -2,31 +2,31 @@
 @use "../../styles/partials/utilities" as *;
 
 
-.lip-demoAffluence{
-    &__wrap{
+.lip-demoAffluence {
+    &__wrap {
         display: flex;
-        flex:auto;
         flex-direction: column;
         justify-content: space-between;
+        flex: auto;
         border: 1px solid $muted-indigo;
         padding: 6px;
         border-radius: $radius-input ;
         background-color: $white;
     }
 
-    &__content{
+    &__content {
         border: 0.5px solid $muted-indigo;
         border-radius: $radius-input;
         background-color: $secondary-violet;
         padding: 4px;
-        display: flex;
-        flex-direction: column;
+        @extend %flex-column;
         gap: 10px;
         overflow-y: auto;
 
         &::-webkit-scrollbar {
             display: none;
         }
+
         // Hide scrollbar (Firefox)
         scrollbar-width: none;
     }

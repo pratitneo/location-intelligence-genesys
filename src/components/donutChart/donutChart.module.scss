@@ -1,0 +1,9 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+.lip-donut {
+    &__wrap {
+        flex: 1;
+        background: linear-gradient(180deg, $sidebar-gradient-color2, $retail-gradient-2);
+    }
+}

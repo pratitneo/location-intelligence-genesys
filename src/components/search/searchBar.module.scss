@@ -46,7 +46,7 @@
         right: 5px;
         border-radius: 100%;
         border: $icon-radius;
-        background: radial-gradient(circle, $search-icon-gradient-1 0%, $search-icon-gradient-2 100%);
+        background: radial-gradient(circle, $contact-icon-gradient-1 0%, $contact-icon-gradient-2 100%);
         color: $white;
         cursor: pointer;
         @extend %flex-center;

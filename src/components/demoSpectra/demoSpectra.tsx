@@ -5,7 +5,7 @@ import DemoAffluence from "../../components/demoAffluence/demoAffluence";
 import DrpdwnHead from "../../components/drpdwnHead/drpdwnHead";
 import AgeDistribution from "../../components/ageDistribution/ageDistribution";
 import ClothingSpendLevel from "../../components/clothingSpendLevel/clothingSpendLevel";
-import type {AgeDistributionDataType, spendingSegmentType } from "../../types/types";
+import type { AgeDistributionDataType, spendingSegmentType } from "../../types/types";
 import demoSpectraCss from "./demoSpectra.module.scss";
 
 const demoStatsData = [
@@ -33,7 +33,7 @@ const spendingSegments: spendingSegmentType = [
   }
 ];
 
-const ageDistributionData : AgeDistributionDataType = [
+const ageDistributionData: AgeDistributionDataType = [
   {
     ageRange: "0–15 Years",
     total: "12,700",
@@ -65,47 +65,47 @@ const ageDistributionData : AgeDistributionDataType = [
 const DemoSpectra = () => {
   return (
     <div className={`${demoSpectraCss["lip-demoSpectra__wrap"]}`}>
-          <DropdownDesc 
-            desc = {"Bandra East scores 7/10 for site suitability, driven by strong youth presence, high footfall, and affluent population pockets"}
-          />
+      <DropdownDesc
+        desc={"Bandra East scores 7/10 for site suitability, driven by strong youth presence, high footfall, and affluent population pockets"}
+      />
 
-          <div className={`${demoSpectraCss["lip-demoSpectra__statAffluence"]}`}>
-            <div className={`${demoSpectraCss["lip-demoSpectra__demoStats"]}`}>
-              {demoStatsData.map((item, index) => (
-                <DemoStats
-                  key={index}
-                  icon={item.icon}
-                  value={item.value}
-                  label={item.label}
-                />
-              ))}
-            </div>
+      <div className={`${demoSpectraCss["lip-demoSpectra__statAffluence"]}`}>
+        <div className={`${demoSpectraCss["lip-demoSpectra__demoStats"]}`}>
+          {demoStatsData.map((item, index) => (
+            <DemoStats
+              key={index}
+              icon={item.icon}
+              value={item.value}
+              label={item.label}
+            />
+          ))}
+        </div>
 
-            <DemoAffluence />
-          </div>
+        <DemoAffluence />
+      </div>
 
-          <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending"]}`}>
-            <DrpdwnHead icon={Images?.walletMoney} heading={"Customers Spending on clothing"}/>
-            <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending__box"]}`}>
-              {spendingSegments.map((segment, index) => (
-              <ClothingSpendLevel
-                key={index}
-                spendLevel={segment.spendLevel}
-                percentage={segment.percentage}
-                approxCount={segment.approxCount}
-                />
-              ))}
-            </div>
-          </div>
+      <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending"]}`}>
+        <DrpdwnHead icon={Images?.walletMoney} heading={"Customers Spending on clothing"} />
+        <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending__box"]}`}>
+          {spendingSegments.map((segment, index) => (
+            <ClothingSpendLevel
+              key={index}
+              spendLevel={segment.spendLevel}
+              percentage={segment.percentage}
+              approxCount={segment.approxCount}
+            />
+          ))}
+        </div>
+      </div>
 
-          <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution"]}`}>
-            <DrpdwnHead icon={Images?.ageGroup} heading={"Age Distribution"} />
-            <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution__box"]}`}>
-              {ageDistributionData.map((item, index) => (
-               <AgeDistribution key={index} ageRange={item?.ageRange} total={item.total} male={item.male} female={item.female} />
-              ))}
-            </div>
-          </div>
+      <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution"]}`}>
+        <DrpdwnHead icon={Images?.ageGroup} heading={"Age Distribution"} />
+        <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution__box"]}`}>
+          {ageDistributionData.map((item, index) => (
+            <AgeDistribution key={index} ageRange={item?.ageRange} total={item.total} male={item.male} female={item.female} />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

@@ -209,8 +209,11 @@ export type SidePanelType = {
 
 export type SpendingLevel = "High" | "Moderate" | "Low";
 
-export type spendingSegmentType = { spendLevel: SpendingLevel; percentage: string; approxCount: string }[];
-
+export type spendingSegmentType = {
+    spendLevel: SpendingLevel;
+    percentage: string;
+    approxCount: string
+}[];
 
 export type SideBtnType = {
     sideBtnText?: string
@@ -218,22 +221,58 @@ export type SideBtnType = {
     sideBarText?: boolean
     getActionFn?: (siteBtn: any) => void
 }
-export type AffluenceType = { range: string; count: string; };
+export type AffluenceType = {
+    range: string;
+    count: string;
+};
 
 export type DriveTimeType = {
-    value:number;
+    value: number;
     label: string
 };
 
-export type AccessibilityHeadType = {value1: number, value2:number, label:string}
+export type AccessibilityHeadType = {
+    value1: number,
+    value2: number,
+    label: string
+}
 
-export type TransConnType = {icon?:string, type:string, location:string}
+export type TransConnType = {
+    icon?: string,
+    type: string,
+    location: string
+}
 export type SidebarType = {
     onIconClick: (key: IconKey) => void
 }
-
-export interface ButtonIconInterface {
-  isPanelOpen?: boolean;
+export type LineChartType = {
+    data: any[]
+    maxValue: string | number
+    chartHeight: number
+    spacedStroke: number | string
+    fallbackStrokeColor: string
+    xDataKey: string
+    xDataColor: string
+    yDataColor: string
+    yAxisRange: any[]
+    tickValue: number
+    lineStyle: string
+    dataKeyName: string
+    lineColor: string
+    lineWidth: number
+    legendName: string
+    legendVerticalPlace: string
+    legendHorizontalPlace: string
+    legendIconType: string
+    highValueColor: string
+    normalValueColor: string
+}
+export type TotalAddMarkType = {
+    tamNum: string | number
 }
 
-export type AccessIndexType = {value: number, accessLabel: string};
+export interface ButtonIconInterface {
+    isPanelOpen?: boolean;
+}
+
+export type AccessIndexType = { value: number, accessLabel: string };

@@ -3,8 +3,7 @@
 
 .lip-drpdwnHead {
     &__wrap {
-        display: flex;
-        align-items: center;
+        @extend %flex-start-center;
         padding: 4px;
         gap: 6px;
         border-radius: $radius-input;
@@ -18,5 +17,15 @@
         letter-spacing: 0px;
         color: $purple;
         text-transform: capitalize;
+        text-align: center;
+    }
+
+    &__radar-chart {
+        padding: 8px 10px;
+        background: $dark-violet;
+
+        .lip-drpdwnHead__heading {
+            color: $white;
+        }
     }
 }

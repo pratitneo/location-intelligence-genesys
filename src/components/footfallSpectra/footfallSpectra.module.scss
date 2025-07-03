@@ -3,8 +3,7 @@
 
 .lip-ftflSpect {
     &__wrap {
-        display: flex;
-        flex-direction: column;
+        @extend %flex-column;
         gap: 20px;
     }
 

@@ -2,9 +2,9 @@
 @use "../../styles/partials/utilities" as *;
 
 
-.lip-ageDist{
+.lip-ageDist {
 
-    &__container{
+    &__container {
         max-width: 272px;
         overflow: auto hidden;
         border-radius: $radius-input;
@@ -16,24 +16,26 @@
         min-width: 0;
         width: 100%;
         box-sizing: border-box;
-                &::-webkit-scrollbar {
+
+        &::-webkit-scrollbar {
             display: none;
         }
+
         // Hide scrollbar (Firefox)
         scrollbar-width: none;
     }
 
-    &__range{
+    &__range {
         font-weight: 500;
         font-size: 14px;
-        line-height: 100%; 
+        line-height: 100%;
         letter-spacing: 0px;
         color: $accent-purple;
         white-space: nowrap;
         flex-shrink: 0;
     }
 
-    &__total{
+    &__total {
         font-weight: 500;
         font-size: 12px;
         line-height: 100%;
@@ -43,13 +45,13 @@
         flex-shrink: 0;
     }
 
-    &__gender{
+    &__gender {
         @extend %flex-between-center;
-        padding: 2px 3px; 
+        padding: 2px 3px;
         flex-shrink: 0;
     }
 
-    &__value{
+    &__value {
         font-weight: 500;
         font-size: 12px;
         line-height: 100%;

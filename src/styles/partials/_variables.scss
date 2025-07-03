@@ -1,50 +1,52 @@
 // colors
-$purple: #641698;
-$accent-purple: #8E44F7;
 $sky-teal: #21C6B2;
 $amber-gold: #F5B942;
 $soft-coral: #FF6F61;
-$muted-indigo: #A093D4;
-$text-accent: #555555;
-$grass-green: #16D26B;
 
-$white: #FFFFFF;
+$primary-violet: #672C90;
+$dark-violet: #3B0C76;
+$text-violet: #734199;
+$muted-indigo: #A093D4;
+$accent-purple: #8E44F7;
+$purple: #641698;
+
+$retail-blue: #25FFFF;
+$visitor-blue: #0DC5E5;
+
+$visitor-green: #00C458;
+$grass-green: #16D26B;
+$profile-active: #00FBAC;
+
+$secondary-violet: #FBF0FF;
 $demostat-box-hover: #FCF4FF;
+
 $black: #000000;
 $searchbox-shadow: #00000033;
-$text-color: #333;
-$label-disable: #bebebe;
-$label-active: #424242;
-$border-disable-grey: #bdbdbd;
-$border-active-grey: #424242;
-$primary-violet: #672C90;
-$secondary-violet: #FBF0FF;
-$dark-violet: #3b0c76;
-$text-violet: #734199;
-$separator-line-color: #e0e0e0;
 $separator-text-color: #212121;
-$sidebar-color1: #410D6E;
-$sidebar-color2: #6B07C1;
+$text-color: #333333;
+$label-active: #424242;
+$border-active-grey: #424242;
+$text-accent: #555555;
+$label-disable: #bebebe;
+$border-disable-grey: #bdbdbd;
+$separator-line-color: #e0e0e0;
+$white: #FFFFFF;
 
-$visitor-blue: #0DC5E5;
-$visitor-green: #00C458;
-$visitor-lilac: #FBF0FF;
-
-$search-icon-gradient-1: #9C07C1;
-$search-icon-gradient-2: #550973;
+// gradients
+$sidebar-gradient-color1: #410D6E;
 $contact-icon-gradient-1: #45166E;
-$contact-icon-gradient-2: #852AD4;
-$profile-active: #00FBAC;
-$chatbot-gradient-1: #00CCFF;
 $drpdwn-gradient-1: #2F0B62;
+$sidebar-gradient-color2: #6B07C1;
 $drpdwn-gradient-2: #590A9E;
-$drpdwn-border-gradient-1: #C412FF;
-$drpdwn-border-gradient-2: #25D7FF;
-$drpdwn-border-gradient-3: #FF00C8;
-$drpdwn-border-gradient-4: #FFEA00;
-
+$contact-icon-gradient-2: #852AD4;
 $sidebar-btn-gradient-1: #9966FF;
 $sidebar-btn-gradient-2: #C777FF;
+$drpdwn-desc-border-gradient-1: #C412FF;
+$drpdwn-desc-border-gradient-3: #FF00C8;
+$drpdwn-desc-border-gradient-4: #FFEA00;
+$retail-gradient-2: #32045B;
+$chatbot-gradient-1: #00CCFF;
+$drpdwn-desc-border-gradient-2: #25D7FF;
 
 // borders
 $input-disable-border: 1px solid $border-disable-grey;
@@ -75,4 +77,3 @@ $shadow-drpdwnhead: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 $shadow-tooltip: 0 4px 10px 0 rgba(100, 22, 152, 0.2);
 $shadow-seachinput: 0px 4px 8px $searchbox-shadow;
 $shadow-sidepanel: -2px 0 10px rgba(0, 0, 0, 0.15);
-

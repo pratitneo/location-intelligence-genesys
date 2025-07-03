@@ -3,7 +3,7 @@
 
 .lip-affluence{
     &__wrap{
-        padding: 4px;
+        padding: 2px 4px;
         border-radius: $radius-input;
         @extend %flex-between-center;
         background-color: #FFFFFF;

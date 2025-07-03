@@ -5,19 +5,27 @@
 .lip-ageDist{
 
     &__container{
+        max-width: 272px;
+        overflow: auto hidden;
         border-radius: $radius-input;
-        padding: 4px 8px;
-        @extend %flex-between-center;
-        gap: clamp(8px, 1vw, 16px);
+        padding: 4px 4px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
         background-color: $secondary-violet;
         min-width: 0;
         width: 100%;
         box-sizing: border-box;
+                &::-webkit-scrollbar {
+            display: none;
+        }
+        // Hide scrollbar (Firefox)
+        scrollbar-width: none;
     }
 
     &__range{
         font-weight: 500;
-        font-size: clamp(12px, 2vw, 16px);
+        font-size: 14px;
         line-height: 100%; 
         letter-spacing: 0px;
         color: $accent-purple;
@@ -27,7 +35,7 @@
 
     &__total{
         font-weight: 500;
-        font-size: clamp(10px, 1.5vw, 14px);
+        font-size: 12px;
         line-height: 100%;
         letter-spacing: 0px;
         color: $text-accent;
@@ -36,70 +44,17 @@
     }
 
     &__gender{
-        display: flex;
-        align-items: center;
-        padding: 4px; 
-        gap: clamp(2px, 0.5vw, 6px);
+        @extend %flex-between-center;
+        padding: 2px 3px; 
         flex-shrink: 0;
     }
 
     &__value{
         font-weight: 500;
-        font-size: clamp(10px, 1.5vw, 14px);
+        font-size: 12px;
         line-height: 100%;
         letter-spacing: 0px;
         color: $black;
         white-space: nowrap;
-    }
-
-    // Responsive breakpoints
-    @media (max-width: 768px) {
-        &__container {
-            padding: 0.25rem 0.5rem;
-            gap: 6px;
-        }
-        
-        &__range {
-            font-size: 12px;
-        }
-        
-        &__total {
-            font-size: 10px;
-        }
-        
-        &__value {
-            font-size: 10px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        &__container {
-            padding: 0.25rem;
-            gap: 4px;
-        }
-        
-        &__range {
-            font-size: 11px;
-        }
-        
-        &__total {
-            font-size: 9px;
-        }
-        
-        &__value {
-            font-size: 9px;
-        }
-    }
-
-    @media (max-width: 320px) {
-        &__container {
-            flex-direction: column;
-            gap: 2px;
-            padding: 0.5rem;
-        }
-        
-        &__gender {
-            padding: 0.125rem;
-        }
     }
 }

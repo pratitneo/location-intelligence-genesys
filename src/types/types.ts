@@ -103,11 +103,6 @@ export type DropdownHeadType = {
     customCls?: string;
 };
 
-export type SpendingSegmentType = {
-    spendLevel: "High" | "Moderate" | "Low";
-    percentage: string;
-    approxCount: string;
-};
 
 export type AgeDistributionType = {
     ageRange: string;
@@ -216,6 +211,7 @@ export type SpendingLevel = "High" | "Moderate" | "Low";
 
 export type spendingSegmentType = { spendLevel: SpendingLevel; percentage: string; approxCount: string }[];
 
+
 export type SideBtnType = {
     sideBtnText?: string
     sideBtnIcon?: any
@@ -224,7 +220,10 @@ export type SideBtnType = {
 }
 export type AffluenceType = { range: string; count: string; };
 
-export type AvgDriveTimeType = {value:number; label: string};
+export type DriveTimeType = {
+    value:number;
+    label: string
+};
 
 export type AccessibilityHeadType = {value1: number, value2:number, label:string}
 
@@ -233,3 +232,8 @@ export type SidebarType = {
     onIconClick: (key: IconKey) => void
 }
 
+export interface ButtonIconInterface {
+  isPanelOpen?: boolean;
+}
+
+export type AccessIndexType = {value: number, accessLabel: string};

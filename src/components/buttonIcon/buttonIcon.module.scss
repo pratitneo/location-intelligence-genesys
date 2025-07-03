@@ -6,9 +6,14 @@
         position: absolute;
         top: 0;
         right: 10px;
-        z-index: 1000;
+        z-index: $sidebar;
         @extend %flex-between-center;
         gap: 10px;
+        transition: right 0.3s ease;
+        
+        &--panel-open {
+            right: 650px; 
+        }
     }
 
     &__button {

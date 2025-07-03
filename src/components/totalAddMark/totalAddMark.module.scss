@@ -4,9 +4,11 @@
 .lip-tam {
     &__wrap {
         @extend %flex-column;
+        flex: 1;
         padding: 8px;
         width: 100%;
         max-width: 230px;
+        min-height: 260px;
         border-radius: $radius-input;
         background: linear-gradient(to bottom, $sidebar-gradient-color2, $retail-gradient-2);
     }

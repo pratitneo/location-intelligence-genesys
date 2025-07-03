@@ -1,4 +1,5 @@
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
+import donutCss from './donutChart.module.scss'
 
 const data = [
     { name: 'Commercial', value: 65 },
@@ -9,7 +10,7 @@ const COLORS = ['#6FFFE9', '#FB7185'];
 
 const DonutChart = () => {
     return (
-        <div style={{ backgroundColor: '#6B21A8', padding: 20, borderRadius: 12, width: 240 }}>
+        <div className={`${donutCss['lip-donut__wrap']}`} style={{ backgroundColor: '#6B21A8', padding: 20, borderRadius: 12, }}>
             <ResponsiveContainer width="100%" height={220}>
                 <PieChart>
                     <Pie

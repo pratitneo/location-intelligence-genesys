@@ -2,11 +2,21 @@
 @use "../../styles/partials/utilities" as *;
 
 .lip-retail {
+    &__wrap {
+        @extend %flex-column;
+        align-items: center;
+        gap: 10px
+    }
+
     &__tam__bar {
+        width: 100%;
         @extend %flex-between-start;
+        gap: 10px;
     }
 
     &__donutCharts {
+        width: 100%;
         @extend %flex-between-center;
+        gap: 10px;
     }
 }

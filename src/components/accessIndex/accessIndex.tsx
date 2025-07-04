@@ -6,7 +6,7 @@ const AccessIndex = ({value, accessLabel} : AccessIndexType) => {
     <div className={`${acsindexCss['lip-accindex__pointer-index']}`}>
               <p className={`${acsindexCss['lip-accindex__pointer']}`}>
                 <span className={`${acsindexCss['lip-accindex__value']}`}>{value}</span> 
-                <span>/ 10</span>
+                <span>/</span> <span>10</span>
               </p>
 
               <p className={`${acsindexCss['lip-accindex__index']}`}>

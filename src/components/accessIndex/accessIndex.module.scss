@@ -9,6 +9,7 @@
         @extend %flex-center;
         gap: 16px;
         border-radius: $radius-input;
+
     }
 
     &__pointer{
@@ -20,6 +21,7 @@
         line-height: 18px;
         letter-spacing: 0px;
         color: $text-accent;
+        // white-space: nowrap;
     }
     
     &__value{

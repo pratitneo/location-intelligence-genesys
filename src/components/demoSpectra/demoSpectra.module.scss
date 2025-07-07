@@ -5,13 +5,13 @@
     &__wrap {
         @extend %flex-column;
         gap: 10px;
-        padding-top: 10px;
+        // padding-top: 10px;
     }
 
     &__statAffluence {
         display: flex;
         justify-content: space-between;
-        gap: 2px;
+        gap: 16px;
     }
 
     &__demoStats {
@@ -42,6 +42,7 @@
     &__ageDistribution {
         padding: 6px;
         @extend %flex-column;
+        align-items: center;
         gap: 10px;
         border-radius: $radius-input;
         background-color: $white;
@@ -55,10 +56,7 @@
         grid-auto-flow: column;
         row-gap: 14px;
         column-gap: 12px;
-        justify-content: stretch;
-        width: 100%;
-        padding: 4px 15px;
+        width: auto;
+        margin: 0 auto;
     }
-
-
 }

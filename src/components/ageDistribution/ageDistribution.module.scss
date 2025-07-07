@@ -5,16 +5,11 @@
 .lip-ageDist {
 
     &__container {
-        max-width: 272px;
-        overflow: auto hidden;
-        border-radius: $radius-input;
-        padding: 4px 4px;
-        display: flex;
-        align-items: center;
+        border-radius: 6px;
+        padding:2px 4px;
+        @extend %flex-between-center;
         gap: 10px;
         background-color: $secondary-violet;
-        min-width: 0;
-        width: 100%;
         box-sizing: border-box;
 
         &::-webkit-scrollbar {
@@ -31,8 +26,6 @@
         line-height: 100%;
         letter-spacing: 0px;
         color: $accent-purple;
-        white-space: nowrap;
-        flex-shrink: 0;
     }
 
     &__total {
@@ -41,14 +34,12 @@
         line-height: 100%;
         letter-spacing: 0px;
         color: $text-accent;
-        white-space: nowrap;
-        flex-shrink: 0;
     }
 
     &__gender {
         @extend %flex-between-center;
+        gap: 4px;
         padding: 2px 3px;
-        flex-shrink: 0;
     }
 
     &__value {
@@ -57,6 +48,6 @@
         line-height: 100%;
         letter-spacing: 0px;
         color: $black;
-        white-space: nowrap;
+        color: $black;
     }
 }

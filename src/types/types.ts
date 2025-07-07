@@ -266,6 +266,8 @@ export type LineChartType = {
     legendIconType: string
     highValueColor: string
     normalValueColor: string
+    btnData?: any[]
+    setNewBtnData?: any
 }
 export type TotalAddMarkType = {
     tamNum: string | number
@@ -275,4 +277,16 @@ export interface ButtonIconInterface {
     isPanelOpen?: boolean;
 }
 
-export type AccessIndexType = { value: number, accessLabel: string };
+export type AccessIndexType = {
+    value: number,
+    accessLabel: string
+}
+export type LineBtnsType = {
+    getBtnNames?: any[]
+    getActivateBtnFn: (id: number) => void
+}
+export type LineBtnType = {
+    id: number,
+    label: string
+    active: boolean
+}

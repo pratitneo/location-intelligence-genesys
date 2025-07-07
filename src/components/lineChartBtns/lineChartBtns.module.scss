@@ -1,0 +1,35 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/utilities" as *;
+
+.lip-lineBtns {
+    &__header {
+        @extend %flex-between-center;
+        padding: 8px 10px;
+        margin-bottom: 10px;
+        border-radius: $radius-input;
+        background: $dark-violet;
+    }
+
+    &__head {
+        font-weight: 700;
+        color: $white;
+        text-transform: capitalize;
+    }
+
+    &__btn {
+        // background: #059669 : '#6B21A8',
+        background: #6B21A8;
+        font-weight: 700;
+        padding: 6px 12px;
+        margin-left: 8px;
+        border-radius: 6px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        text-transform: capitalize;
+    }
+
+    &--active {
+        background: #059669;
+    }
+}

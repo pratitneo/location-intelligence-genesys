@@ -12,17 +12,14 @@
   background: #fff;
   box-shadow: $shadow-sidepanel;
   transition: right 0.3s ease;
-  z-index: 1002;
-  scrollbar-gutter: stable overlay; 
+  z-index: $searchBox;
   border: 1px solid $purple;
   border-top-left-radius: $radius-input;
   border-bottom-left-radius: $radius-input;
 
 
   &::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    background: transparent;
+    @extend %scroll-hide;
   }
 
   &--visible {

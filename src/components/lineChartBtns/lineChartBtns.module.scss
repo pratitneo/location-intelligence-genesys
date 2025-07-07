@@ -18,7 +18,7 @@
 
     &__btn {
         // background: #059669 : '#6B21A8',
-        background: #6B21A8;
+        background: $purple;
         font-weight: 700;
         padding: 6px 12px;
         margin-left: 8px;
@@ -30,6 +30,6 @@
     }
 
     &--active {
-        background: #059669;
+        background: $visitor-green;
     }
 }

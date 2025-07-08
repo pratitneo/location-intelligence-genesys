@@ -1,19 +1,24 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Dot, Legend } from 'recharts';
 import lineChartCss from './lineChart.module.scss'
-import type { LineChartType } from '../../types/types';
+import type { LineBtnType, LineChartType } from '../../types/types';
+import LineChartBtns from '../lineChartBtns/lineChartBtns';
+import { useState } from 'react';
 
-const LineChartGraph = ({ data, maxValue, chartHeight, spacedStroke, fallbackStrokeColor, xDataKey, xDataColor, yDataColor, yAxisRange, tickValue, lineStyle, dataKeyName, lineColor, lineWidth, legendName, highValueColor, normalValueColor, legendVerticalPlace, legendHorizontalPlace, legendIconType }: LineChartType) => {
+const LineChartGraph = ({ data, maxValue, chartHeight, spacedStroke, fallbackStrokeColor, xDataKey, xDataColor, yDataColor, yAxisRange, tickValue, lineStyle, dataKeyName, lineColor, lineWidth, legendName, highValueColor, normalValueColor, legendVerticalPlace, legendHorizontalPlace, legendIconType, btnData, setNewBtnData }: LineChartType) => {
+    const [updLineBtns, setUpdLineBtns] = useState<LineBtnType[]>(btnData ?? [])
+    const handleBtnClick = (id: number) => {
+        const newBtnData = updLineBtns?.map((btn, index) => {
+            return {
+                ...btn,
+                active: index === id
+            }
+        })
+        setUpdLineBtns(newBtnData)
+        setNewBtnData(newBtnData);
+    }
     return (
         <div className={`${lineChartCss['lip-lineChart__wrap']}`}>
-            {/* line chart header */}
-            <div className={`${lineChartCss['lip-lineChart__header']}`}>
-                <p className={`${lineChartCss['lip-lineChart__head']}`}>Footfall Prediction</p>
-                <div>
-                    <button style={tabStyle('green')}>Daily</button>
-                    <button style={tabStyle()}>Weekly</button>
-                    <button style={tabStyle()}>Monthly</button>
-                </div>
-            </div>
+            {btnData ? <LineChartBtns getBtnNames={updLineBtns} getActivateBtnFn={handleBtnClick} /> : ''}
             {/* line chart */}
             <ResponsiveContainer height={chartHeight}>
                 <LineChart data={data}>
@@ -30,18 +35,6 @@ const LineChartGraph = ({ data, maxValue, chartHeight, spacedStroke, fallbackStr
 }
 
 export default LineChartGraph
-
-// Button style helper
-const tabStyle = (activeColor = '') => ({
-    background: activeColor ? '#059669' : '#6B21A8',
-    border: 'none',
-    padding: '6px 12px',
-    borderRadius: 6,
-    color: 'white',
-    marginLeft: 8,
-    cursor: 'pointer',
-    fontWeight: 'bold',
-});
 
 // Custom tooltip
 function CustomTooltip({ active, payload, label }: any) {

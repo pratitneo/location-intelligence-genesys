@@ -13,6 +13,7 @@
         width: 100%;
         max-width: 270px;
         padding: 10px;
+        min-height: 289px;
         @extend %flex-column-center;
         border: 1px solid $muted-indigo;
         border-radius: $radius-input;

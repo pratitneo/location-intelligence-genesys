@@ -1,40 +1,42 @@
-import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import mapCss from './map.module.scss';
-
-import iconUrl from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import { useState, useEffect } from 'react';
+import Map, { Marker, type ViewState } from 'react-map-gl/mapbox';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import type { MapComponentType } from '../../types/types';
 
-const DefaultIcon = L.icon({
-  iconUrl,
-  shadowUrl: iconShadow,
-  iconAnchor: [12, 41],
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
-
-function ChangeMapView({ center, zoom }: { center: [number, number]; zoom: number }) {
-  const map = useMap();
-  map.setView(center, zoom);
-  return null;
-}
-
+const MAPBOX_TOKEN = 'pk.eyJ1IjoibWpzdGFyIiwiYSI6ImNtY3VlOWZ0ZTAwYW8ya3NkcGFwYmoxbTcifQ.hQAIfkTxUIHetl6NQmCcew'; // Replace with your Mapbox token
 
 const MapComponent = ({ position, zoom }: MapComponentType) => {
-  return (
-    <div>
-        <MapContainer center={position} zoom={zoom} className={mapCss['lip-map__wrap']}>
-        <ChangeMapView center={position} zoom={zoom} />
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={position} />
-      </MapContainer>
-    </div>
-  )
-}
+  const [viewState, setViewState] = useState<ViewState>({
+    longitude: position[1],
+    latitude: position[0],
+    zoom: zoom,
+    bearing: 0,
+    pitch: 0,
+    padding: { top: 0, bottom: 0, left: 0, right: 0 },
+  });
 
-export default MapComponent
+  useEffect(() => {
+    setViewState(vs => ({
+      ...vs,
+      longitude: position[1],
+      latitude: position[0],
+      zoom: zoom,
+    }));
+  }, [position, zoom]);
+
+  return (
+    <div style={{ width: '100%', height: '100%' }}>
+      <Map
+        {...viewState}
+        onMove={evt => setViewState(evt.viewState)}
+        style={{ width: '100%', height: '100%' }}
+        mapStyle="mapbox://styles/mapbox/streets-v11"
+        mapboxAccessToken={MAPBOX_TOKEN}
+      >
+        <Marker longitude={position[1]} latitude={position[0]} />
+      </Map>
+    </div>
+  );
+};
+
+export default MapComponent;

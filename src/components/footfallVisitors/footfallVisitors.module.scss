@@ -1,6 +1,3 @@
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/utilities' as *;
-
 .lip-footVisit {
     &__wrap {
         @extend %flex-between-center;

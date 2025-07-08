@@ -1,6 +1,3 @@
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/utilities' as *;
-
 .lip-separator {
     &__wrap {
         @extend %flex-start-center;

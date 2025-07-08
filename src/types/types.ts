@@ -311,3 +311,26 @@ export type CustomBarType = {
     getNumColor: string
     barBgColor: string
 }
+export type RadarType = {
+    chartHeight: number
+    chartRadialSize: string
+    internalLineColor: string
+    labelKey: string
+    outsideLineColor: string
+    radarItemTextSize: number
+    markLineAngle: number
+    valueRangeArr: any[]
+    markLineColor: string
+    mainLineTextColor: string
+    mainLineTextSize: number
+    labelName: string
+    dataNumKey: string
+    internalBorderColor: string
+    internalFillColor: string
+    fillColorOpacity: number
+    internalBorderValKey: string
+    internalValPos: string
+    internalValColor: string
+    internalValSize: number
+    legendHorizontalAlign: string
+}

@@ -290,3 +290,47 @@ export type LineBtnType = {
     label: string
     active: boolean
 }
+export type DonutItemType = {
+    name: string,
+    value: number | string
+    colorName: string
+}
+export type DonutType = {
+    boxHeight: number
+    donutData: DonutItemType[]
+    inRadiusVal: number
+    outRadiusVal: number
+    numberDataKey: string | number
+    colors: any[]
+    pieCenterTextColor: string
+    chartTextOne?: string
+    chartTextTwo?: string
+}
+export type CustomBarType = {
+    getBarColor: string
+    getNumColor: string
+    barBgColor: string
+}
+export type RadarType = {
+    chartHeight: number
+    chartRadialSize: string
+    internalLineColor: string
+    labelKey: string
+    outsideLineColor: string
+    radarItemTextSize: number
+    markLineAngle: number
+    valueRangeArr: any[]
+    markLineColor: string
+    mainLineTextColor: string
+    mainLineTextSize: number
+    labelName: string
+    dataNumKey: string
+    internalBorderColor: string
+    internalFillColor: string
+    fillColorOpacity: number
+    internalBorderValKey: string
+    internalValPos: string
+    internalValColor: string
+    internalValSize: number
+    legendHorizontalAlign: string
+}

@@ -23,7 +23,7 @@ const RetailSpectra = () => {
             <div className={`${retailCss['lip-retail__wrap']}`}>
                 <div className={`${retailCss['lip-retail__tam__bar']}`}>
                     <TotalAddMark tamNum={22} />
-                    <BarChartGraph />
+                    <BarChartGraph barBgColor='#334155' getBarColor='#99F6E4' getNumColor='#14B8A6' />
                 </div>
                 <div className={`${retailCss['lip-retail__donutCharts']}`}>
                     <DonutChart boxHeight={200} donutData={data} inRadiusVal={60} outRadiusVal={90} colors={COLORS} numberDataKey={'value'} pieCenterTextColor={'white'} chartTextOne='commercial' chartTextTwo='ratio' />

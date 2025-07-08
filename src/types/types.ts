@@ -306,3 +306,8 @@ export type DonutType = {
     chartTextOne?: string
     chartTextTwo?: string
 }
+export type CustomBarType = {
+    getBarColor: string
+    getNumColor: string
+    barBgColor: string
+}

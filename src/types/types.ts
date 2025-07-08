@@ -290,3 +290,19 @@ export type LineBtnType = {
     label: string
     active: boolean
 }
+export type DonutItemType = {
+    name: string,
+    value: number | string
+    colorName: string
+}
+export type DonutType = {
+    boxHeight: number
+    donutData: DonutItemType[]
+    inRadiusVal: number
+    outRadiusVal: number
+    numberDataKey: string | number
+    colors: any[]
+    pieCenterTextColor: string
+    chartTextOne?: string
+    chartTextTwo?: string
+}

@@ -1,6 +1,31 @@
 .lip-donut {
     &__wrap {
         flex: 1;
+        padding: 20px;
+        border-radius: $radius-input;
         background: linear-gradient(180deg, $sidebar-gradient-color2, $retail-gradient-2);
+    }
+
+    &__chartText {
+        text-transform: capitalize;
+    }
+
+    &__legendWrap {
+        max-width: 200px;
+        margin: 0 auto;
+        overflow: auto;
+        margin-top: 10px;
+        @extend %flex-start-center;
+        gap: 10px;
+
+        &::-webkit-scrollbar {
+            @extend %scroll-hide;
+        }
+    }
+
+    &__legend {
+        @extend %flex-start-center;
+        gap: 10px;
+        text-transform: capitalize;
     }
 }

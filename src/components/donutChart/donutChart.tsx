@@ -1,63 +1,36 @@
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
 import donutCss from './donutChart.module.scss'
+import type { DonutItemType, DonutType } from '../../types/types';
 
-const data = [
-    { name: 'Commercial', value: 65 },
-    { name: 'Residential', value: 35 },
-];
 
-const COLORS = ['#6FFFE9', '#FB7185'];
-
-const DonutChart = () => {
+const DonutChart = ({ boxHeight, donutData, inRadiusVal, outRadiusVal, numberDataKey, colors, pieCenterTextColor, chartTextOne, chartTextTwo }: DonutType) => {
     return (
-        <div className={`${donutCss['lip-donut__wrap']}`} style={{ backgroundColor: '#6B21A8', padding: 20, borderRadius: 12, }}>
-            <ResponsiveContainer width="100%" height={220}>
+        <div className={`${donutCss['lip-donut__wrap']}`}>
+            <ResponsiveContainer width="100%" height={boxHeight}>
                 <PieChart>
-                    <Pie
-                        data={data}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={80}
-                        dataKey="value"
-                    >
-                        {data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    <Pie data={donutData} cx="50%" cy="50%" innerRadius={inRadiusVal} outerRadius={outRadiusVal} dataKey={numberDataKey}>
+                        {donutData?.map((entry: DonutItemType, index) => (
+                            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
                         ))}
                     </Pie>
 
                     {/* Center Label */}
-                    <text
-                        x="50%"
-                        y="50%"
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        fill="white"
-                        fontSize={13}
-                        fontWeight="bold"
-                        fontFamily="Inter, sans-serif"
-                    >
-                        Neighborhood
-                        <tspan x="50%" dy="1.2em">Commercial</tspan>
-                        <tspan x="50%" dy="1.2em">Ratio</tspan>
+                    <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className={donutCss['lip-donut__chartText']} fill={pieCenterTextColor}>
+                        <tspan x="50%" dy="-0.6em">{chartTextOne}</tspan>
+                        <tspan x="50%" dy="1.2em">{chartTextTwo}</tspan>
                     </text>
                 </PieChart>
             </ResponsiveContainer>
 
             {/* Legend below */}
-            <div style={{ marginTop: 12, color: 'white', fontSize: 13, textAlign: 'center' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                    <div>
-                        <span style={{ color: '#6FFFE9' }}>●</span> Commercial
-                        <br />
-                        <strong>65%</strong>
-                    </div>
-                    <div>
-                        <span style={{ color: '#FB7185' }}>●</span> Residential
-                        <br />
-                        <strong>35%</strong>
-                    </div>
-                </div>
+            <div className={`${donutCss['lip-donut__legendWrap']}`}>
+                {donutData?.map((data, index) => {
+                    return (
+                        <div className={`${donutCss['lip-donut__legend']}`}>
+                            <span style={{ color: data?.colorName }}>●</span><span style={{ color: data?.colorName }}>{data?.name}</span><span style={{ color: data?.colorName }}>{data?.value}%</span>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );

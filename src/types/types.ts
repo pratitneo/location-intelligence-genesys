@@ -153,7 +153,7 @@ export type IconWithTooltipType = {
     tooltipText?: string;
     position?: "top" | "bottom" | "left" | "right";
     customCls?: string;
-    onClick?: () => void;
+    getActionFn?: () => void;
 };
 
 export type UserCredentials = {
@@ -247,7 +247,8 @@ export type TransConnType = {
 export type SidebarType = {
     onIconClick: (key: IconKey) => void
     sidebarOpen: boolean
-    toggleSidebar: () => void
+    getToggleFn: () => void
+    sideText?: boolean
 
 }
 export type LineChartType = {
@@ -338,4 +339,10 @@ export type RadarType = {
     internalValColor: string
     internalValSize: number
     legendHorizontalAlign: string
+}
+export type RightBarType = {
+    isPanelOpen: boolean;
+    onIconClick: (key: IconKey) => void;
+    activeKey: IconKey | null
+    handleIconClick: (id: string) => void
 }

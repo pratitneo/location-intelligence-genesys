@@ -1,42 +1,54 @@
-import { useState, useEffect } from 'react';
-import Map, { Marker, type ViewState } from 'react-map-gl/mapbox';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import { MapContainer, TileLayer, Marker, Circle, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import mapCss from './map.module.scss';
+
+import iconUrl from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import type { MapComponentType } from '../../types/types';
 
-const MAPBOX_TOKEN = 'pk.eyJ1IjoibWpzdGFyIiwiYSI6ImNtY3VlOWZ0ZTAwYW8ya3NkcGFwYmoxbTcifQ.hQAIfkTxUIHetl6NQmCcew'; // Replace with your Mapbox token
+const DefaultIcon = L.icon({
+  iconUrl,
+  shadowUrl: iconShadow,
+  iconAnchor: [12, 41],
+});
 
-const MapComponent = ({ position, zoom }: MapComponentType) => {
-  const [viewState, setViewState] = useState<ViewState>({
-    longitude: position[1],
-    latitude: position[0],
-    zoom: zoom,
-    bearing: 0,
-    pitch: 0,
-    padding: { top: 0, bottom: 0, left: 0, right: 0 },
-  });
+L.Marker.prototype.options.icon = DefaultIcon;
 
-  useEffect(() => {
-    setViewState(vs => ({
-      ...vs,
-      longitude: position[1],
-      latitude: position[0],
-      zoom: zoom,
-    }));
-  }, [position, zoom]);
+function ChangeMapView({ center, zoom }: { center: [number, number]; zoom: number }) {
+  const map = useMap();
+  map.setView(center, zoom);
+  return null;
+}
 
+// Extend MapComponentType to accept hasSearched
+
+
+const MapComponent = ({ position, zoom, hasSearched }: MapComponentType) => {
   return (
-    <div style={{ width: '100%', height: '100%' }}>
-      <Map
-        {...viewState}
-        onMove={evt => setViewState(evt.viewState)}
-        style={{ width: '100%', height: '100%' }}
-        mapStyle="mapbox://styles/mapbox/streets-v11"
-        mapboxAccessToken={MAPBOX_TOKEN}
-      >
-        <Marker longitude={position[1]} latitude={position[0]} />
-      </Map>
+    <div>
+        <MapContainer center={position} zoom={zoom} className={mapCss['lip-map__wrap']}>
+        <ChangeMapView center={position} zoom={zoom} />
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position} />
+        {hasSearched && (
+          <Circle
+            center={position}
+            radius={500} // 1km in meters
+            pathOptions={{
+              color: '#2563eb',      // Border color (blue)
+              fillColor: '#2563eb',  // Fill color (blue)
+              fillOpacity: 0.3,      // Fill opacity (30%)
+              weight: 2              // Border thickness
+            }}
+          />
+        )}
+      </MapContainer>
     </div>
-  );
-};
+  )
+}
 
 export default MapComponent;

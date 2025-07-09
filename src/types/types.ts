@@ -83,6 +83,7 @@ export type SearchComponentType = {
 export type MapComponentType = {
     position: [number, number];
     zoom: number;
+    hasSearched: boolean;
 };
 
 

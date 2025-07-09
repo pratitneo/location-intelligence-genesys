@@ -6,20 +6,26 @@ import type { IconItem, SidebarType } from '../../types/types'
 // import IconWithTooltip from '../iconWithTooltip/IconWithTooltip'
 import SidebarBtn from '../sidebarBtn/sidebarBtn'
 
-const Sidebar = ({ onIconClick }: SidebarType) => {
-    const [sidebar, setSidebar] = useState(false)
+const Sidebar = ({ onIconClick, sidebarOpen, toggleSidebar }: SidebarType & { sidebarOpen?: boolean, toggleSidebar?: () => void }) => {
     const [sideBarText, setSideBarText] = useState(false)
     const iconList: IconItem[] = [
         { id: 1, icon: Images?.dataset, tooltip: "add dataset", key: "dataset" },
         { id: 2, icon: Images?.siteSelect, tooltip: "site selection", key: "siteSelection" },
     ];
     const getToggleFn = () => {
-        sidebar ? setTimeout(() => { setSidebar(prevSidebar => !prevSidebar) }, 500) : setSidebar(prevSidebar => !prevSidebar)
-        !sidebar ? setTimeout(() => { setSideBarText(prevSideBarText => !prevSideBarText) }, 500) : setSideBarText(prevSideBarText => !prevSideBarText)
+        if (toggleSidebar) toggleSidebar();
+        if(!sidebarOpen)
+        { 
+            setTimeout(() => { setSideBarText(prevSideBarText => !prevSideBarText) }, 500)
+        }
+        else{
+            setSideBarText(prevSideBarText => !prevSideBarText);
+        }
+
     }
     return (
         <>
-            <div className={`${sideBarCss['lip-sidebar__wrap']} ${sidebar ? sideBarCss['lip-sidebar--active'] : ''}`}>
+            <div className={`${sideBarCss['lip-sidebar__wrap']} ${sidebarOpen ? sideBarCss['lip-sidebar--active'] : ''}`}>
                 {/* product logo */}
                 <div className={`${sideBarCss['lip-sidebar__logo']}`}>
                     <img src={Images?.sidebarLogo} alt="Spectra logo" />

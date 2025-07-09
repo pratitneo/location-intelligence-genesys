@@ -4,7 +4,7 @@ import { Images } from '../../assets/assets'
 import type { SiteDrpDwnType } from '../../types/types'
 
 const SiteScoreDrpDwn = ({ drpDwnData, children }: SiteDrpDwnType) => {
-    const [drpDwn, setDrpDwn] = useState<number | null>(null)
+    const [drpDwn, setDrpDwn] = useState<number | null>(0)
     const handleDrpDwn = (index: string | number | undefined) => {
         setDrpDwn((prevDrpDwn) => prevDrpDwn === index ? null : index)
     }

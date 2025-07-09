@@ -37,6 +37,8 @@ import TablerRoute from './tabler-route.svg'
 import Railway from './railway.svg'
 import Metro from './metro.svg'
 import Bus from './bus.svg'
+import BufferAnalysis from './buffer-analysis.svg'
+import OverlayAnalysis from './overlay-analysis.svg'
 
 
 
@@ -79,7 +81,9 @@ const Images = {
     tablerRoute: TablerRoute,
     railway: Railway,
     metro: Metro,
-    bus: Bus
+    bus: Bus,
+    bufferAnalysis: BufferAnalysis,
+    overlayAnalysis: OverlayAnalysis
 }
 
 export { Images }

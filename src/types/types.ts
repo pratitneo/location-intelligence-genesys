@@ -245,6 +245,9 @@ export type TransConnType = {
 }
 export type SidebarType = {
     onIconClick: (key: IconKey) => void
+    sidebarOpen: boolean
+    toggleSidebar: () => void
+
 }
 export type LineChartType = {
     data: any[]

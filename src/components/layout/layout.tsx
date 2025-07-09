@@ -51,13 +51,12 @@ const Layout = () => {
 
   // Sidebar toggle handler
   const toggleSidebar = () => {
-    // setSidebarOpen((prev) => !prev);
-    if(sidebarOpen){
-      setTimeout(() => { setSidebarOpen(prevSidebar => !prevSidebar) }, 500)
-    } else{
-      setSidebarOpen(prevSidebar => !prevSidebar);
-    } 
+  if (sidebarOpen) {
+    setTimeout(() => { setSidebarOpen(prevSidebar => !prevSidebar) }, 500);
+  } else {
+    setSidebarOpen(prevSidebar => !prevSidebar);
   }
+}
 
   return (
     <div className={styles.layout}>

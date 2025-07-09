@@ -132,6 +132,7 @@ export type SitePointerType = {
 }
 export type ScoreBtnType = {
     icon?: any
+    label: string
 }
 export type SiteScoreBtnsType = {
     btnsData: ScoreBtnType[]

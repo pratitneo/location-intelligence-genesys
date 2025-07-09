@@ -45,6 +45,7 @@
     opacity: 0;
     visibility: hidden;
     transition: 0.3s ease;
+    text-transform: capitalize;
     z-index: 100;
 
     &--top {

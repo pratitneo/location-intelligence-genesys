@@ -9,17 +9,19 @@ import SiteScoreBtns from '../siteScoreBtns/siteScoreBtns'
 import SiteScoreDrpDwn from '../siteScoreDrpDwn/siteScoreDrpDwn'
 import siteSelCss from './siteSelection.module.scss'
 const SiteSelection = () => {
-    const pointersData = [{ icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' },]
-    const scoreBtns = [{ icon: Images?.demographics }, { icon: Images?.footfall }, { icon: Images?.accessibility }, { icon: Images?.retail },]
-    const drpDwns = [{ id: 1, icon: Images?.demographics, label: 'demographics' }, { id: 1, icon: Images?.footfall, label: 'footfall' }, { id: 1, icon: Images?.accessibility, label: 'accessibility' }, { id: 1, icon: Images?.retail, label: 'retail' },]
+    const pointersData = [{ icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' },]
+    const scoreBtns = [{ label: 'demographics', icon: Images?.demographics }, { label: 'footfall', icon: Images?.footfall }, { label: 'accessibility', icon: Images?.accessibility }, { label: 'retail', icon: Images?.retail },]
+    const drpDwns = [{ id: 0, icon: Images?.demographics, label: 'demographics' }, { id: 1, icon: Images?.footfall, label: 'footfall' }, { id: 2, icon: Images?.accessibility, label: 'accessibility' }, { id: 3, icon: Images?.retail, label: 'retail' },]
 
     return (
         <>
-            <SiteScore score={7} location={'bandra (e), mumbai'} />
-            <div className={`${siteSelCss['lip-siteSel__pointersWrap']}`}>
-                <SitePointers pointersData={pointersData} />
+            <div className={`${siteSelCss['lip-siteSel__scorePointers']}`}>
+                <SiteScore score={7} location={'bandra (e), mumbai'} />
+                <div className={`${siteSelCss['lip-siteSel__pointersWrap']}`}>
+                    <SitePointers pointersData={pointersData} />
+                </div>
+                <SiteScoreBtns btnsData={scoreBtns} />
             </div>
-            <SiteScoreBtns btnsData={scoreBtns} />
             <div className={`${siteSelCss['lip-siteSel__drpdwnsWrap']}`}>
                 <SiteScoreDrpDwn drpDwnData={drpDwns[0]} children={<DemoSpectra />} />
                 <SiteScoreDrpDwn drpDwnData={drpDwns[1]} children={<FootfallSpectra />} />

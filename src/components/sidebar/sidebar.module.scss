@@ -83,6 +83,12 @@
         flex: 1;
     }
 
+    &__item {
+        @extend %flex-start-center;
+        gap: 0 20px;
+        color: $white;
+    }
+
     &__saved {
         cursor: pointer;
     }

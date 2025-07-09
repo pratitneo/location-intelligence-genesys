@@ -21,6 +21,11 @@ const RightSideBar = ({ isPanelOpen, onIconClick, activeKey }: { isPanelOpen: bo
     { id: "polygon", icon: Images.polygon, tooltip: "Polygon" },
   ];
 
+  const subGeoIconList: SubIconItem[] = [
+    { id: "buffer", icon: Images.bufferAnalysis, tooltip: "Buffer Analysis" },
+    { id: "overlay", icon: Images.overlayAnalysis, tooltip: "Overlay Analysis" },
+  ];
+
   return (
     <>
     <ButtonIcon isPanelOpen={isPanelOpen}/>
@@ -36,6 +41,12 @@ const RightSideBar = ({ isPanelOpen, onIconClick, activeKey }: { isPanelOpen: bo
               {item.key === "draw" && activeKey === "draw" && (
                 <div className={styles["lip-right-sidebar__sub-icons"]}>
                   {subIconList.map((subItem) => (<IconWithTooltip key={subItem.id} icon={subItem.icon} tooltipText={subItem.tooltip} position="left" customCls={styles["lip-right-sidebar__sub-icon"]} />))}
+                </div>
+              )}
+
+              {item.key === "geo" && activeKey === "geo" && (
+                <div className={`${styles["lip-right-sidebar__sub-icons"]} ${styles["lip-right-sidebar__sub-geoicons"]}`} >
+                  {subGeoIconList.map((subItem) => (<IconWithTooltip key={subItem.id} icon={subItem.icon} tooltipText={subItem.tooltip} position="left" customCls={styles["lip-right-sidebar__sub-icon"]} />))}
                 </div>
               )}
             </div>

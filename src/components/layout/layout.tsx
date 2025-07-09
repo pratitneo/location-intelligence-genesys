@@ -7,10 +7,12 @@ import SidePanel from "../sidePanel/sidePanel";
 import Sidebar from "../sidebar/sidebar";
 import type { IconKey } from "../../types/types";
 import SiteSelection from "../siteSelection/siteSelection";
+import LandingPage from '../../pages/landingPage/landingPage';
 
 const Layout = () => {
   const location = useLocation();
   const [activePanel, setActivePanel] = useState<IconKey | null>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleIconClick = (key: IconKey) => {
     if (key === 'dataset') {
@@ -47,14 +49,27 @@ const Layout = () => {
   const isProfilePage = location.pathname === "/profile";
   const isSavedWork = location.pathname === "/saved-work";
 
+  // Sidebar toggle handler
+  const toggleSidebar = () => {
+  if (sidebarOpen) {
+    setTimeout(() => { setSidebarOpen(prevSidebar => !prevSidebar) }, 500);
+  } else {
+    setSidebarOpen(prevSidebar => !prevSidebar);
+  }
+}
+
   return (
     <div className={styles.layout}>
       {/* Main content */}
-      <Outlet />
+      {isLandingPage ? (
+        <LandingPage sidebarOpen={sidebarOpen} />
+      ) : (
+        <Outlet />
+      )}
       {isLandingPage && (
         <>
           {/* Left Sidebar */}
-          <Sidebar onIconClick={handleIconClick} />
+          <Sidebar onIconClick={handleIconClick} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
           {/* Right Sidebar */}
           <RightSideBar isPanelOpen={!!activePanel} onIconClick={handleIconClick} activeKey={activePanel} />
           {/* Side Panel */}
@@ -62,7 +77,7 @@ const Layout = () => {
         </>
       )}
       {(isProfilePage || isSavedWork) && (
-        <Sidebar onIconClick={handleIconClick} />
+        <Sidebar onIconClick={handleIconClick} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       )}
 
     </div>

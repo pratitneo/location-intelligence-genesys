@@ -83,6 +83,7 @@ export type SearchComponentType = {
 export type MapComponentType = {
     position: [number, number];
     zoom: number;
+    hasSearched: boolean;
 };
 
 
@@ -244,6 +245,9 @@ export type TransConnType = {
 }
 export type SidebarType = {
     onIconClick: (key: IconKey) => void
+    sidebarOpen: boolean
+    toggleSidebar: () => void
+
 }
 export type LineChartType = {
     data: any[]

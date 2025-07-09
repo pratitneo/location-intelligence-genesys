@@ -1,18 +1,18 @@
-  import { useEffect, useRef, useState } from "react";
+  import { useRef, useState } from "react";
   import searchCss from "./searchBar.module.scss";
   import { Images } from "../../assets/assets"
 import type { SearchComponentType } from "../../types/types";
 
 
-  const SearchBar = ({onPositionChange, onZoomChange} : SearchComponentType) => {
+  const SearchBar = ({onPositionChange, onZoomChange, sidebarOpen} : SearchComponentType & { sidebarOpen?: boolean }) => {
       const [search, setSearch] = useState('');
       const [error, setError] = useState('');
       const [isFocused, setIsFocused] = useState(false);
       const inputRef = useRef<HTMLInputElement>(null);
 
-      useEffect(() => {
-        inputRef.current?.focus();
-      }, []);
+      // useEffect(() => {
+      //   inputRef.current?.focus();
+      // }, []);
 
       const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -64,7 +64,7 @@ import type { SearchComponentType } from "../../types/types";
       <div>
           <form
               onSubmit={handleSearch}
-              className={`${searchCss["lip-search__form"]} ${isFocused ? searchCss["lip-search__form--focused"] : ''}`}
+              className={`${searchCss["lip-search__form"]} ${isFocused ? searchCss["lip-search__form--focused"] : ''} ${sidebarOpen ? searchCss["lip-search__form--sidebar-open"] : ''}`}
           >
               <input 
                   ref={inputRef}

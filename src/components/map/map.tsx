@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Circle, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import mapCss from './map.module.scss';
@@ -21,8 +21,10 @@ function ChangeMapView({ center, zoom }: { center: [number, number]; zoom: numbe
   return null;
 }
 
+// Extend MapComponentType to accept hasSearched
 
-const MapComponent = ({ position, zoom }: MapComponentType) => {
+
+const MapComponent = ({ position, zoom, hasSearched }: MapComponentType) => {
   return (
     <div>
         <MapContainer center={position} zoom={zoom} className={mapCss['lip-map__wrap']}>
@@ -32,9 +34,21 @@ const MapComponent = ({ position, zoom }: MapComponentType) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={position} />
+        {hasSearched && (
+          <Circle
+            center={position}
+            radius={500} // 1km in meters
+            pathOptions={{
+              color: '#2563eb',      // Border color (blue)
+              fillColor: '#2563eb',  // Fill color (blue)
+              fillOpacity: 0.3,      // Fill opacity (30%)
+              weight: 2              // Border thickness
+            }}
+          />
+        )}
       </MapContainer>
     </div>
   )
 }
 
-export default MapComponent
+export default MapComponent;

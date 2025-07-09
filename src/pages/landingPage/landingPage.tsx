@@ -4,12 +4,14 @@ import { useState } from "react";
 import SearchBar from "../../components/search/searchBar";
 const defaultPosition = { lat: 19.0760, lng: 72.8777 };
 
-const LandingPage = () => {
+const LandingPage = ({ sidebarOpen }: { sidebarOpen?: boolean }) => {
   const [position, setPosition] = useState<[number, number]>([defaultPosition.lat, defaultPosition.lng]);
   const [zoom, setZoom] = useState(13);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const onPositionChange = (newPosition: [number, number]) => {
     setPosition(newPosition);
+    setHasSearched(true); // Mark that a search has occurred
   }
 
   const onZoomChange = (newZoom: number) => {
@@ -18,8 +20,8 @@ const LandingPage = () => {
 
   return (
     <div className={landingCss["lip-landing__wrap"]}>
-      <SearchBar onPositionChange={onPositionChange} onZoomChange={onZoomChange} />
-      <MapComponent position={position} zoom={zoom} />
+      <SearchBar onPositionChange={onPositionChange} onZoomChange={onZoomChange} sidebarOpen={sidebarOpen} />
+      <MapComponent position={position} zoom={zoom} hasSearched={hasSearched} />
     </div>
   )
 }

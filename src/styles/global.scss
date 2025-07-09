@@ -1,7 +1,9 @@
-@use './partials/reset';
-@use './partials/variables';
-@use './partials/typography';
-@use './partials/utilities';
+@use './partials/reset' as *;
+@use './partials/variables' as *;
+@use './partials/typography' as *;
+@use './partials/utilities' as *;
+
+
 
 body {
     font-family: "Urbanist", sans-serif;

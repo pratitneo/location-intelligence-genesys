@@ -21,6 +21,11 @@ const RightSideBar = ({ isPanelOpen, onIconClick, activeKey, handleIconClick }: 
     { id: "polygon", icon: Images.polygon, tooltip: "Polygon" },
   ];
 
+  const subGeoIconList: SubIconItem[] = [
+    { id: "buffer", icon: Images.bufferAnalysis, tooltip: "Buffer Analysis" },
+    { id: "overlay", icon: Images.overlayAnalysis, tooltip: "Overlay Analysis" },
+  ];
+
   return (
     <>
       <ButtonIcon isPanelOpen={isPanelOpen} />
@@ -32,9 +37,16 @@ const RightSideBar = ({ isPanelOpen, onIconClick, activeKey, handleIconClick }: 
                 <div key={item.id} className={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} onClick={() => onIconClick(item.key)}>
                   <IconWithTooltip icon={item.icon} tooltipText={item.tooltip} position="left" customCls={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} />
                 </div>
+
                 {item.key === "draw" && activeKey === "draw" && (
                   <div className={styles["lip-right-sidebar__sub-icons"]}>
                     {subIconList.map((subItem) => (<IconWithTooltip key={subItem.id} icon={subItem.icon} tooltipText={subItem.tooltip} position="left" customCls={styles["lip-right-sidebar__sub-icon"]} getActionFn={() => handleIconClick(subItem?.id)} />))}
+                  </div>
+                )}
+
+                {item.key === "geo" && activeKey === "geo" && (
+                  <div className={`${styles["lip-right-sidebar__sub-icons"]} ${styles["lip-right-sidebar__sub-geoicons"]}`} >
+                    {subGeoIconList.map((subItem) => (<IconWithTooltip key={subItem.id} icon={subItem.icon} tooltipText={subItem.tooltip} position="left" customCls={styles["lip-right-sidebar__sub-icon"]} />))}
                   </div>
                 )}
               </div>

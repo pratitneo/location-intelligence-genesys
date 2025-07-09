@@ -45,6 +45,10 @@
     z-index: 2;
   }
 
+  &__sub-geoicons{
+    @extend %flex-center;
+  }
+
   &__sub-icon {
     position: relative;
     width: 32px;

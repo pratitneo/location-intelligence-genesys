@@ -16,12 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Login />} />
-
             <Route element={<ProtectedRoute />}>
-              <Route
-                path="/profile"
-                element={<Profile userName="aditya" fullName="aditya shah" />}
-              />
+              <Route path="/profile" element={<Profile userName="aditya" fullName="aditya shah" />} />
               <Route path="/landingPage" element={<LandingPage />} />
               <Route path='/saved-work' element={<SavedWork userName='aditya' fullName='aditya shah' />} />
             </Route>

@@ -14,6 +14,7 @@ const Layout = () => {
   const location = useLocation();
   const [activePanel, setActivePanel] = useState<IconKey | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sideBarText, setSideBarText] = useState(false)
 
   const handleIconClick = (key: IconKey) => {
     if (key === 'dataset') {
@@ -46,18 +47,35 @@ const Layout = () => {
         return <div>No Content</div>;
     }
   };
+
+  // Left sidebar expand collapse
+  const getToggleFn = () => {
+    if (toggleSidebar) toggleSidebar();
+    if (!sidebarOpen) {
+      setTimeout(() => { setSideBarText(prevSideBarText => !prevSideBarText) }, 500)
+    }
+    else {
+      setSideBarText(prevSideBarText => !prevSideBarText);
+    }
+
+  }
   const isLandingPage = location.pathname === "/landingPage";
   const isProfilePage = location.pathname === "/profile";
   const isSavedWork = location.pathname === "/saved-work";
 
   // Sidebar toggle handler
   const toggleSidebar = () => {
-  if (sidebarOpen) {
-    setTimeout(() => { setSidebarOpen(prevSidebar => !prevSidebar) }, 500);
-  } else {
-    setSidebarOpen(prevSidebar => !prevSidebar);
+    if (sidebarOpen) {
+      setTimeout(() => { setSidebarOpen(prevSidebar => !prevSidebar) }, 500);
+    } else {
+      setSidebarOpen(prevSidebar => !prevSidebar);
+    }
   }
-}
+  const openSideBar = (id: string) => {
+    if (id === 'select') {
+      getToggleFn()
+    }
+  }
 
   return (
     <div className={styles.layout}>
@@ -70,15 +88,15 @@ const Layout = () => {
       {isLandingPage && (
         <>
           {/* Left Sidebar */}
-          <Sidebar onIconClick={handleIconClick} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+          <Sidebar getToggleFn={getToggleFn} onIconClick={handleIconClick} sidebarOpen={sidebarOpen} sideText={sideBarText} />
           {/* Right Sidebar */}
-          <RightSideBar isPanelOpen={!!activePanel} onIconClick={handleIconClick} activeKey={activePanel} />
+          <RightSideBar handleIconClick={openSideBar} isPanelOpen={!!activePanel} onIconClick={handleIconClick} activeKey={activePanel} />
           {/* Side Panel */}
           <SidePanel visible={!!activePanel} onClose={() => setActivePanel(null)} content={activePanel ? getPanelTitle(activePanel) : ''} />
         </>
       )}
       {(isProfilePage || isSavedWork) && (
-        <Sidebar onIconClick={handleIconClick} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+        <Sidebar getToggleFn={getToggleFn} onIconClick={handleIconClick} sidebarOpen={sidebarOpen} sideText={sideBarText} />
       )}
 
     </div>

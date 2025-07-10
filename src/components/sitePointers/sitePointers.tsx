@@ -1,4 +1,3 @@
-import { point } from "leaflet"
 import type { PointerType, SitePointerType } from "../../types/types"
 import pointerCss from './sitePointers.module.scss'
 import { Images } from "../../assets/assets"

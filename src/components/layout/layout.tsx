@@ -8,6 +8,7 @@ import Sidebar from "../sidebar/sidebar";
 import type { IconKey } from "../../types/types";
 import SiteSelection from "../siteSelection/siteSelection";
 import LandingPage from '../../pages/landingPage/landingPage';
+import GeoAnalysisContent from "../geoAnalysisContent/geoAnalysisContent";
 
 const Layout = () => {
   const location = useLocation();
@@ -36,7 +37,7 @@ const Layout = () => {
       case "maps":
         return <div>Maps Content</div>;
       case "geo":
-        return <div>Geo Analysis Content</div>;
+        return <div><GeoAnalysisContent/></div>;
       case "dataset":
         return <div>Dataset Content</div>;
       case "siteSelection":

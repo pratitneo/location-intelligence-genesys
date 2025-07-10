@@ -76,8 +76,14 @@ export type CategoryBoxType = {
 }
 
 export type SearchComponentType = {
-    onPositionChange: (newPosition: [number, number]) => void;
-    onZoomChange: (newZoom: number) => void;
+  sidebarOpen?: boolean;
+  onSearch: (search: string) => void | Promise<void>;
+  placeHolder?: string;
+  customClsform?: string;
+  customClsfocus?: string;
+  customClsinput?: string;
+  customClsbutton?: string;
+  icon?: string;
 };
 
 export type MapComponentType = {
@@ -337,4 +343,9 @@ export type RadarType = {
     internalValColor: string
     internalValSize: number
     legendHorizontalAlign: string
+}
+
+export type DataLayerHeadType  = {
+    icon?: string;
+    heading: string;
 }

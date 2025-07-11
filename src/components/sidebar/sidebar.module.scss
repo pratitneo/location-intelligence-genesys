@@ -92,4 +92,29 @@
     &__saved {
         cursor: pointer;
     }
+
+    &__upload-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        color: $white;
+        background: rgba(255,255,255,0.08);
+        border-radius: 6px;
+        padding: 8px 16px;
+        margin-top: 16px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+        &:hover {
+            background: rgba(255,255,255,0.16);
+        }
+    }
+    &__upload-filename {
+        margin-top: 4px;
+        font-size: 13px;
+        color: #ffe;
+        opacity: 0.8;
+        word-break: break-all;
+    }
 }

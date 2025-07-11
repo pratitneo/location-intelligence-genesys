@@ -3,7 +3,7 @@ import DonutChart from '../donutChart/donutChart'
 import DropownDesc from '../dropdownDesc/dropdownDesc'
 import TotalAddMark from '../totalAddMark/totalAddMark'
 import retailCss from './retailSpectra.module.scss'
-const RetailSpectra = () => {
+const RetailSpectra = ({ hexData }: { hexData?: any }) => {
 
     const COLORS = ['#6FFFE9', '#F5B942', '#FB7185'];
     const data = [

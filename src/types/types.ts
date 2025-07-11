@@ -357,3 +357,22 @@ export type RightBarType = {
     activeKey: IconKey | null
     handleIconClick: (id: string) => void
 }
+
+export type SelectSubdataType = {
+    head: string;
+    dragIcon: string;
+    arrowIcon: string;
+    eyeIcon: string;
+    isDropdownOpen?: boolean;
+    onArrowClick?: () => void;
+}
+
+export type SelectSubdataItemType = {
+    id: number;
+    head: string;
+    dragIcon: string;
+    arrowIcon: string;
+    eyeIcon: string;
+}
+
+export type CsvRow = Record<string, string>;

@@ -1,0 +1,40 @@
+.lip-geo-content{
+    &__container{
+        @extend %flex-column;
+        gap: 10px;
+        padding-top:  10px;
+    }
+
+    &__wrap{
+        @extend %flex-center;
+        gap: 16px;
+        flex-wrap: wrap;
+        max-width: 253px;
+        padding: 0px 33px;
+    }
+
+    &__hrline{
+        width: 280px;
+        border: 1px solid #EEBEFF;
+    }
+}
+
+// Drag and drop styles
+.lip-subdata-draggable {
+    cursor: grab;
+    transition: all 0.2s ease;
+    
+    &:active {
+        cursor: grabbing;
+    }
+    
+    &:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.lip-subdata-dragging {
+    opacity: 0.5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}

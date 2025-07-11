@@ -1,0 +1,66 @@
+
+.lip-subdata{
+    &__wrap{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0px 2px;
+        @extend %flex-between-center;
+        background-color: $white;
+        &:hover{
+            box-shadow: 0px 4px 4px 0px #00000014;
+            cursor: pointer;
+        }
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    &__container{
+        font-weight: 500;
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: #555555;
+        @extend %flex-center;
+        gap: 4px;
+    }
+
+    &__dragIcon {
+        cursor: grab;
+        transition: transform 0.2s ease;
+        
+        &:hover {
+            transform: scale(1.1);
+        }
+        
+        &:active {
+            cursor: grabbing;
+            transform: scale(1.05);
+        }
+    }
+
+    &__arrowIcon,
+    &__eyeIcon {
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+        
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &__dropdown {
+        width: 100%;
+        margin-top: 8px;
+        padding: 8px 12px;
+        background: #f7f7f7;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        font-size: 14px;
+        color: #333;
+    }
+}

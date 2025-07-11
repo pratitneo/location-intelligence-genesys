@@ -69,8 +69,13 @@ const Layout = () => {
       // set subicon key state 
       setSubIconKey(prev => prev === key ? null : key)
     }
+    else if (key === 'siteSelection') {
+      setRightIconKey('siteSelection')
+      updatePanelName('rightPanel')
+    }
     else {
       updatePanelName('rightPanel')
+      setRightIconKey(prev => prev === key ? null : key)
       setSubIconKey(null)
 
       // hide menusidebar text

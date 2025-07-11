@@ -23,7 +23,7 @@ const Sidebar = ({ onIconClick, sidebarOpen, getToggleFn, sideText }: SidebarTyp
                 <div className={`${sideBarCss['lip-sidebar__items']}`}>
                     {iconList?.map((item) => {
                         return (
-                            <div key={item?.id} onClick={() => onIconClick(item.key)}>
+                            <div key={item?.id} onClick={() => onIconClick(item?.key)}>
                                 {/* <IconWithTooltip icon={item?.icon} tooltipText={item?.tooltip} position="right" customCls='sidebarBtn' /> */}
                                 <SidebarBtn sideBarText={sideText} sideBtnText={item?.tooltip} sideBtnIcon={item?.icon} />
                             </div>

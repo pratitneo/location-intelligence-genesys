@@ -5,7 +5,7 @@ const SidebarContext = createContext<SidebarValueType | undefined>(undefined)
 export const SidebarProvider = ({ children }: ContextType) => {
     const [panelName, setPanel] = useState('')
     const updatePanelName = (value: string) => {
-        setPanel(prev => prev === value ? '' : value)
+        setPanel(value)
     }
 
     return (

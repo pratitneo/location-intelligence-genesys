@@ -1,11 +1,11 @@
 import sideBarCss from './sidebar.module.scss'
-import { useState } from "react"
 import { Images } from "../../assets/assets"
 import { Link } from "react-router-dom"
 import type { IconItem, SidebarType } from '../../types/types'
 import SidebarBtn from '../sidebarBtn/sidebarBtn'
 import { useCsvData } from '../csvDataContext/CsvDataContext'
 import Papa from 'papaparse'
+import { useState } from 'react'
 
 const Sidebar = ({ onIconClick, sidebarOpen, getToggleFn, sideText }: SidebarType & { sidebarOpen?: boolean, toggleSidebar?: () => void }) => {
     const iconList: IconItem[] = [
@@ -52,7 +52,8 @@ const Sidebar = ({ onIconClick, sidebarOpen, getToggleFn, sideText }: SidebarTyp
                 <div className={`${sideBarCss['lip-sidebar__items']}`}>
                     {iconList?.map((item) => {
                         return (
-                            <div key={item?.id} onClick={() => onIconClick(item.key)}>
+                            <div key={item?.id} onClick={() => onIconClick(item?.key)}>
+                                {/* <IconWithTooltip icon={item?.icon} tooltipText={item?.tooltip} position="right" customCls='sidebarBtn' /> */}
                                 <SidebarBtn sideBarText={sideText} sideBtnText={item?.tooltip} sideBtnIcon={item?.icon} />
                             </div>
                         )

@@ -209,9 +209,9 @@ export type PeakNonPeakType = {
     bgClass?: string
 }
 export type SidePanelType = {
+    customCls: string
     visible: boolean;
-    onClose: () => void;
-    title?: React.ReactNode;
+    visibleCls: string
     content: React.ReactNode;
 };
 
@@ -376,3 +376,11 @@ export type SelectSubdataItemType = {
 }
 
 export type CsvRow = Record<string, string>;
+export type ContextType = {
+    children: React.ReactNode
+}
+export type SidebarValueType = {
+    panelName: string
+    setPanel: React.Dispatch<React.SetStateAction<string>>
+    updatePanelName: (value: string) => void
+}

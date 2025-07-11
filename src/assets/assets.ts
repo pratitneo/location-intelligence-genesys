@@ -39,6 +39,14 @@ import Metro from './metro.svg'
 import Bus from './bus.svg'
 import BufferAnalysis from './buffer-analysis.svg'
 import OverlayAnalysis from './overlay-analysis.svg'
+import LayerSearch from './layer-search.png'
+import PoiIcon from './poi-icon.svg'
+import LandUse from './land-use.svg'
+import RoadNetwork from './road-network.svg'
+import Drag from './drag.svg'
+import Eye from './eye.svg'
+import Arrow from './arrow.svg'
+import Plus from './plus.svg'
 
 
 
@@ -83,7 +91,15 @@ const Images = {
     metro: Metro,
     bus: Bus,
     bufferAnalysis: BufferAnalysis,
-    overlayAnalysis: OverlayAnalysis
+    overlayAnalysis: OverlayAnalysis,
+    layerSearch: LayerSearch,
+    poiIcon: PoiIcon,
+    landUse: LandUse,
+    roadNetwork: RoadNetwork,
+    drag: Drag,
+    eye: Eye,
+    arrow: Arrow,
+    plus: Plus
 }
 
 export { Images }

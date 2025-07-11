@@ -1,0 +1,16 @@
+.lip-dlh{
+    &__wrap{
+        padding: 0px 4px;
+        @extend %flex-between-center;
+    }
+
+    &__head{
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 14px;
+        line-height: 22.53px;
+        letter-spacing: 0px;
+        color: #641698;
+        text-align: center;
+    }
+}

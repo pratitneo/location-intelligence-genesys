@@ -6,7 +6,7 @@ import PubTransConn from '../pubtransconn/pubtransconn'
 import RadarChartGraph from '../radarChart/radarChart'
 
 
-const AccessibilitySpectra = () => {
+const AccessibilitySpectra = ({ hexData }: { hexData?: any }) => {
   const value = 8.2;
   const accessLabel = 'Excellent';
   return (

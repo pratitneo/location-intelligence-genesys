@@ -6,7 +6,7 @@ import LineChartGraph from '../lineChart/lineChart';
 import PieChartGraph from '../pieChart/pieChart'
 import ftflSpectCss from './footfallSpectra.module.scss'
 import type { LineBtnType } from '../../types/types';
-const FootfallSpectra = () => {
+const FootfallSpectra = ({ hexData }: { hexData?: any }) => {
     const [newBtnData, setNewBtnData] = useState<LineBtnType[]>([])
     const [activeBtn, setActiveBtn] = useState(0)
 

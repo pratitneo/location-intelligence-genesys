@@ -70,8 +70,8 @@ const Layout = () => {
       setSubIconKey(prev => prev === key ? null : key)
     }
     else if (key === 'siteSelection') {
-      setRightIconKey('siteSelection')
-      updatePanelName('rightPanel')
+      updatePanelName(panelName === 'rightPanel' ? '' : 'rightPanel')
+      setRightIconKey(prev => prev === key ? null : key)
     }
     else {
       updatePanelName('rightPanel')

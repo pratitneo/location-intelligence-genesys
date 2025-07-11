@@ -61,14 +61,23 @@ const ageDistributionData: AgeDistributionDataType = [
 ];
 
 
+// Accept hexData as a prop
+const DemoSpectra = ({ hexData }: { hexData?: any }) => {
+  console.log(hexData);
 
-const DemoSpectra = () => {
   return (
     <div className={`${demoSpectraCss["lip-demoSpectra__wrap"]}`}>
       <DropdownDesc
         desc={"Bandra East scores 7/10 for site suitability, driven by strong youth presence, high footfall, and affluent population pockets"}
       />
-
+      {/* Show selected hex data for demo */}
+      {hexData && (
+        <div style={{ background: '#f7f7f7', padding: 8, borderRadius: 4, margin: '8px 0' }}>
+          <strong>Selected Hex Data:</strong>
+          <pre style={{ fontSize: 12 }}>{JSON.stringify(hexData, null, 2)}</pre>
+        </div>
+      )}
+      
       <div className={`${demoSpectraCss["lip-demoSpectra__statAffluence"]}`}>
         <div className={`${demoSpectraCss["lip-demoSpectra__demoStats"]}`}>
           {demoStatsData.map((item, index) => (
@@ -80,10 +89,8 @@ const DemoSpectra = () => {
             />
           ))}
         </div>
-
         <DemoAffluence />
       </div>
-
       <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending"]}`}>
         <DrpdwnHead icon={Images?.walletMoney} heading={"Customers Spending on clothing"} />
         <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending__box"]}`}>
@@ -97,7 +104,6 @@ const DemoSpectra = () => {
           ))}
         </div>
       </div>
-
       <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution"]}`}>
         <DrpdwnHead icon={Images?.ageGroup} heading={"Age Distribution"} />
         <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution__box"]}`}>
@@ -110,4 +116,4 @@ const DemoSpectra = () => {
   )
 }
 
-export default DemoSpectra;
+export default DemoSpectra

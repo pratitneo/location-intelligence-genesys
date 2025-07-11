@@ -4,11 +4,11 @@ import { useState } from "react";
 import styles from "./layout.module.scss";
 import RightSideBar from "../rightSideBar/rightSideBar";
 import SidePanel from "../sidePanel/sidePanel";
-import Sidebar from "../sidebar/sidebar";
 import type { IconKey } from "../../types/types";
 import SiteSelection from "../siteSelection/siteSelection";
 import LandingPage from '../../pages/landingPage/landingPage';
 import { useSidebar } from "../../context/sidebarContex";
+import Sidebar from "../sidebar/sidebar";
 
 const Layout = () => {
   const location = useLocation();

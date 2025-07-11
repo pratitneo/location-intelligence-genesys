@@ -2,6 +2,16 @@
 @use '../../styles/partials/utilities' as *;
 
 .lip-tooltip {
+
+  &__datalayer-icon{
+    width: 50px;
+    height: 50px;
+  }
+
+  &__dl-icon{
+    width: 25px;
+    height: 25px;
+  }
   &__wrap {
     position: relative;
     @extend %flex-center;

@@ -11,7 +11,7 @@ const IconWithTooltip: React.FC<IconWithTooltipType> = ({
   getActionFn
 }) => {
   return (
-    <div className={`${styles['lip-tooltip__wrap']} ${styles[`lip-tooltip__${customCls}`]}`} onClick={getActionFn}>
+    <div className={` ${styles[`lip-tooltip__${customCls}`]} ${styles['lip-tooltip__wrap']}`} onClick={getActionFn}>
       {tooltipText ? <span className={`${styles['lip-tooltip__text']} ${styles[`lip-tooltip__text--${position}`]}`}>{tooltipText}</span> : ''}
       <img src={icon} alt={tooltipText} className={styles['lip-tooltip__iconImage']} />
     </div>

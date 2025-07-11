@@ -76,8 +76,14 @@ export type CategoryBoxType = {
 }
 
 export type SearchComponentType = {
-    onPositionChange: (newPosition: [number, number]) => void;
-    onZoomChange: (newZoom: number) => void;
+  sidebarOpen?: boolean;
+  onSearch: (search: string) => void | Promise<void>;
+  placeHolder?: string;
+  customClsform?: string;
+  customClsfocus?: string;
+  customClsinput?: string;
+  customClsbutton?: string;
+  icon?: string;
 };
 
 export type MapComponentType = {
@@ -340,12 +346,36 @@ export type RadarType = {
     internalValSize: number
     legendHorizontalAlign: string
 }
+
+export type DataLayerHeadType  = {
+    icon?: string;
+    heading: string;
+}
 export type RightBarType = {
     isPanelOpen: boolean;
     onIconClick: (key: IconKey) => void;
     activeKey: IconKey | null
     handleIconClick: (id: string) => void
 }
+
+export type SelectSubdataType = {
+    head: string;
+    dragIcon: string;
+    arrowIcon: string;
+    eyeIcon: string;
+    isDropdownOpen?: boolean;
+    onArrowClick?: () => void;
+}
+
+export type SelectSubdataItemType = {
+    id: number;
+    head: string;
+    dragIcon: string;
+    arrowIcon: string;
+    eyeIcon: string;
+}
+
+export type CsvRow = Record<string, string>;
 export type ContextType = {
     children: React.ReactNode
 }

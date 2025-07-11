@@ -7,12 +7,7 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import type { MapComponentType } from '../../types/types';
 
-const DefaultIcon = L.icon({
-  iconUrl,
-  shadowUrl: iconShadow,
-  iconAnchor: [12, 41],
-});
-
+const DefaultIcon = L.icon({ iconUrl, shadowUrl: iconShadow, iconAnchor: [12, 41] });
 L.Marker.prototype.options.icon = DefaultIcon;
 
 function ChangeMapView({ center, zoom }: { center: [number, number]; zoom: number }) {

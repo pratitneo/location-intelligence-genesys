@@ -1,5 +1,4 @@
 import sideBarCss from './sidebar.module.scss'
-import { useState } from "react"
 import { Images } from "../../assets/assets"
 import { Link } from "react-router-dom"
 import type { IconItem, SidebarType } from '../../types/types'

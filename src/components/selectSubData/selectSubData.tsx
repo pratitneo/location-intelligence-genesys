@@ -7,7 +7,7 @@ const SelectSubData = ({head, dragIcon, arrowIcon, eyeIcon, isDropdownOpen, onAr
       <div className={subdataCss['lip-subdata__row']}>
         <div className={subdataCss['lip-subdata__container']}>
           <img className={subdataCss['lip-subdata__dragIcon']} src={dragIcon} alt='DragIcon' />
-          <p>{head}</p>
+            <p>{head}</p>
         </div>
         <div className={subdataCss['lip-subdata__container']}>
           <img

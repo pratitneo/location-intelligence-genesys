@@ -16,10 +16,16 @@ const SiteSelection = () => {
     const drpDwns = [{ id: 0, icon: Images?.demographics, label: 'demographics' }, { id: 1, icon: Images?.footfall, label: 'footfall' }, { id: 2, icon: Images?.accessibility, label: 'accessibility' }, { id: 3, icon: Images?.retail, label: 'retail' },]
     const { selectedHex } = useSelectedHex();
 
+    // check if decimal less than 5 or greater
+    const roundIfLessThanPointFive = (num: number) => num % 1 < 0.5 ? Math.floor(num) : Math.round(num);
+    const getScore = roundIfLessThanPointFive(selectedHex?.properties?.['AHP Output'])
+
+
+
     return (
         <>
             <div className={`${siteSelCss['lip-siteSel__scorePointers']}`}>
-                <SiteScore score={7} location={'bandra (e), mumbai'} />
+                <SiteScore score={getScore ? getScore * 2 : 0} location={'bandra (e), mumbai'} />
                 <div className={`${siteSelCss['lip-siteSel__pointersWrap']}`}>
                     <SitePointers pointersData={pointersData} />
                 </div>

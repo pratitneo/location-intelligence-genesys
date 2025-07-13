@@ -9,12 +9,7 @@ import { useCsvData } from '../csvDataContext/CsvDataContext';
 import { reprojectGeoJson } from '../../utils/reprojectGeoJson';
 import { useSelectedHex } from '../selectedHexContext/SelectedHexContext';
 
-const DefaultIcon = L.icon({
-  iconUrl,
-  shadowUrl: iconShadow,
-  iconAnchor: [12, 41],
-});
-
+const DefaultIcon = L.icon({ iconUrl, shadowUrl: iconShadow, iconAnchor: [12, 41] });
 L.Marker.prototype.options.icon = DefaultIcon;
 
 function ChangeMapView({ center, zoom }: { center: [number, number]; zoom: number }) {

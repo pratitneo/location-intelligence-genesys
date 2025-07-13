@@ -8,83 +8,136 @@ import ClothingSpendLevel from "../../components/clothingSpendLevel/clothingSpen
 import type { AgeDistributionDataType, spendingSegmentType } from "../../types/types";
 import demoSpectraCss from "./demoSpectra.module.scss";
 
-const demoStatsData = [
-  { icon: Images?.totalPopulation, value: 82400, label: "total population" },
-  { icon: Images?.households, value: 18500, label: "Number of households" },
-  { icon: Images?.male, value: 42000, label: "Number of males" },
-  { icon: Images?.female, value: 40000, label: "Number of females" },
-];
+// const demoStatsData = [
+//   { icon: Images?.totalPopulation, value: 82400, label: "total population" },
+//   { icon: Images?.households, value: 18500, label: "Number of households" },
+//   { icon: Images?.male, value: 42000, label: "Number of males" },
+//   { icon: Images?.female, value: 40000, label: "Number of females" },
+// ];
 
+// const spendingSegments: spendingSegmentType = [
+//   {
+//     spendLevel: "High",
+//     percentage: "22%",
+//     approxCount: "18,100"
+//   },
+//   {
+//     spendLevel: "Moderate",
+//     percentage: "44%",
+//     approxCount: "36,250"
+//   },
+//   {
+//     spendLevel: 'Low',
+//     percentage: "34%",
+//     approxCount: "28,050"
+//   }
+// ];
 const spendingSegments: spendingSegmentType = [
   {
     spendLevel: "High",
-    percentage: "22%",
-    approxCount: "18,100"
+    percentage: "-%",
+    approxCount: "-"
   },
   {
     spendLevel: "Moderate",
-    percentage: "44%",
-    approxCount: "36,250"
+    percentage: "-%",
+    approxCount: "-"
   },
   {
     spendLevel: 'Low',
-    percentage: "34%",
-    approxCount: "28,050"
+    percentage: "-%",
+    approxCount: "-"
   }
 ];
 
+// const ageDistributionData: AgeDistributionDataType = [
+//   {
+//     ageRange: "0–15 Years",
+//     total: "12,700",
+//     male: "6,500",
+//     female: "6,200",
+//   },
+//   {
+//     ageRange: "16–30 Years",
+//     total: "9,200",
+//     male: "8,800",
+//     female: "18,000",
+//   },
+//   {
+//     ageRange: "31–50 Years",
+//     total: "14,000",
+//     male: "17,800",
+//     female: "27,800",
+//   },
+//   {
+//     ageRange: ">50 Years",
+//     total: "7,800",
+//     male: "8,400",
+//     female: "16,200",
+//   },
+// ];
+
 const ageDistributionData: AgeDistributionDataType = [
   {
-    ageRange: "0–15 Years",
-    total: "12,700",
-    male: "6,500",
-    female: "6,200",
+    ageRange: "0-15 Years",
+    total: "-",
+    male: "-",
+    female: "-",
   },
   {
-    ageRange: "16–30 Years",
-    total: "9,200",
-    male: "8,800",
-    female: "18,000",
+    ageRange: "16-30 Years",
+    total: "-",
+    male: "-",
+    female: "-",
   },
   {
-    ageRange: "31–50 Years",
-    total: "14,000",
-    male: "17,800",
-    female: "27,800",
+    ageRange: "31-50 Years",
+    total: "-",
+    male: "-",
+    female: "-",
   },
   {
     ageRange: ">50 Years",
-    total: "7,800",
-    male: "8,400",
-    female: "16,200",
+    total: "-",
+    male: "-",
+    female: "-",
   },
 ];
 
 
 // Accept hexData as a prop
 const DemoSpectra = ({ hexData }: { hexData?: any }) => {
-  console.log(hexData);
+  console.log(hexData, 'hexData')
+  console.log(hexData?.total_population, 'hexData?.total_population')
+  const getHexData = hexData?.properties
+
+  const demoStatsData = [
+    { icon: Images?.totalPopulation, value: getHexData?.total_population, label: "total population" },
+    { icon: Images?.households, value: getHexData?.total_housholds, label: "Number of households" },
+    { icon: Images?.male, value: getHexData?.males_population, label: "Number of males" },
+    { icon: Images?.female, value: getHexData?.females_population, label: "Number of females" },
+  ];
 
   return (
     <div className={`${demoSpectraCss["lip-demoSpectra__wrap"]}`}>
       <DropdownDesc
-        desc={"Bandra East scores 7/10 for site suitability, driven by strong youth presence, high footfall, and affluent population pockets"}
+        desc={"<location name from api> scores -/10 for site suitability, driven by strong <insights>"}
       />
       {/* Show selected hex data for demo */}
       {hexData && (
-        <div style={{ background: '#f7f7f7', padding: 8, borderRadius: 4, margin: '8px 0' }}>
+        <div style={{ background: '#f7f7f7', padding: 8, borderRadius: 4, margin: '8px 0', maxHeight: 200, overflow: 'auto' }}>
           <strong>Selected Hex Data:</strong>
           <pre style={{ fontSize: 12 }}>{JSON.stringify(hexData, null, 2)}</pre>
         </div>
       )}
-      
+
       <div className={`${demoSpectraCss["lip-demoSpectra__statAffluence"]}`}>
         <div className={`${demoSpectraCss["lip-demoSpectra__demoStats"]}`}>
           {demoStatsData.map((item, index) => (
             <DemoStats
               key={index}
               icon={item.icon}
-              value={item.value}
+              value={item?.value ?? 0}
               label={item.label}
             />
           ))}

@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState } from 'react';
 
-export type SelectedHexType = Record<string, any> | null;
+export type SelectedHexType = {
+  properties: Record<string, any>;
+  center: [number, number];
+} | null;
 
 const SelectedHexContext = createContext<{
   selectedHex: SelectedHexType;

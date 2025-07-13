@@ -18,6 +18,16 @@ function ChangeMapView({ center, zoom }: { center: [number, number]; zoom: numbe
   return null;
 }
 
+// Function to get color based on AHP Output value
+const getAHPColor = (ahpValue: number): string => {
+  if (ahpValue >= 0 && ahpValue < 1) return '#b3d1ff'; // Light blue
+  if (ahpValue >= 1 && ahpValue < 2) return '#66a3ff'; // Medium-light blue
+  if (ahpValue >= 2 && ahpValue < 3) return '#3385ff'; // Medium blue
+  if (ahpValue >= 3 && ahpValue < 4) return '#0066ff'; // Blue
+  if (ahpValue >= 4 && ahpValue <= 5) return '#003399'; // Deep blue
+  return '#3388ff'; // Default color
+};
+
 const MapComponent = ({ position, zoom, hasSearched }: MapComponentType) => {
   const { csvData } = useCsvData();
   const { selectedHex, setSelectedHex } = useSelectedHex();
@@ -25,15 +35,18 @@ const MapComponent = ({ position, zoom, hasSearched }: MapComponentType) => {
   // Check if uploaded data is a FeatureCollection (GeoJSON)
   let geoJsonData = null;
   let center = position;
-  if (csvData && csvData.type === 'FeatureCollection') {
+  const csvDataAny: any = csvData;
+  if (csvDataAny && !Array.isArray(csvDataAny) && csvDataAny.type === 'FeatureCollection') {
     // Only reproject if not CRS84
-    if (csvData.crs && csvData.crs.properties && csvData.crs.properties.name && csvData.crs.properties.name.includes('3857')) {
-      geoJsonData = reprojectGeoJson(csvData);
+    if (csvDataAny.crs && csvDataAny.crs.properties && csvDataAny.crs.properties.name && csvDataAny.crs.properties.name.includes('3857')) {
+      geoJsonData = reprojectGeoJson(csvDataAny);
     } else {
-      geoJsonData = csvData;
+      geoJsonData = csvDataAny;
     }
-    // Try to center map on first polygon if available
-    if (
+    // Try to center map on selected hex or first polygon if available
+    if (selectedHex && selectedHex.center) {
+      center = selectedHex.center;
+    } else if (
       geoJsonData.features &&
       geoJsonData.features.length > 0 &&
       geoJsonData.features[0].geometry &&
@@ -48,17 +61,33 @@ const MapComponent = ({ position, zoom, hasSearched }: MapComponentType) => {
   const onEachFeature = (feature: any, layer: any) => {
     layer.on({
       click: () => {
-        setSelectedHex(feature.properties);
+        // Get the first coordinate of the hex
+        const coords = feature.geometry.coordinates[0][0][0];
+        setSelectedHex({
+          properties: feature.properties,
+          center: [coords[1], coords[0]], // [lat, lng]
+        });
       }
     });
   };
 
   // Style function for GeoJSON
   const style = (feature: any) => {
-    if (selectedHex && feature.properties.hex_id === selectedHex.hex_id) {
-      return { color: 'red', weight: 2, fillColor: 'red', fillOpacity: 0.5 };
+    // If this hex is selected, make it red
+    if (selectedHex && feature.properties.hex_id === selectedHex.properties.hex_id) {
+      return { color: 'red', weight: 3, fillColor: 'red', fillOpacity: 0.7 };
     }
-    return { color: '#3388ff', weight: 2, fillColor: '#3388ff', fillOpacity: 0.2 };
+    
+    // Otherwise, color based on AHP Output value
+    const ahpValue = feature.properties['AHP Output'];
+    const fillColor = getAHPColor(ahpValue);
+    
+    return { 
+      color: fillColor, 
+      weight: 2, 
+      fillColor: fillColor, 
+      fillOpacity: 0.6 
+    };
   };
 
   return (

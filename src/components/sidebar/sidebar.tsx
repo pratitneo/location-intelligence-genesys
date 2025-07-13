@@ -66,7 +66,7 @@ const Sidebar = ({ onIconClick, sidebarOpen, getToggleFn, sideText }: SidebarTyp
                             style={{ display: 'none' }}
                             onChange={handleFileUpload}
                         />
-                        <span>Upload CSV/GeoJSON</span>
+                        <span>Upload File</span>
                         {csvFileName && (
                             <span className={sideBarCss['lip-sidebar__upload-filename']}>{csvFileName}</span>
                         )}

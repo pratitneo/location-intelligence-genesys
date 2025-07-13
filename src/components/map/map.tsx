@@ -25,11 +25,11 @@ function ChangeMapView({ center, zoom }: { center: [number, number]; zoom: numbe
 
 // Function to get color based on AHP Output value
 const getAHPColor = (ahpValue: number): string => {
-  if (ahpValue >= 0 && ahpValue < 1) return '#cce5ff'; // Very light blue
-  if (ahpValue >= 1 && ahpValue < 2) return '#99ccff'; // Light blue
-  if (ahpValue >= 2 && ahpValue < 3) return '#66b2ff'; // Sky blue
-  if (ahpValue >= 3 && ahpValue < 4) return '#3388ff'; // Base color
-  if (ahpValue >= 4 && ahpValue <= 5) return '#0066cc'; // Deep blue
+  if (ahpValue >= 0 && ahpValue < 1) return '#b3d1ff'; // Light blue
+  if (ahpValue >= 1 && ahpValue < 2) return '#66a3ff'; // Medium-light blue
+  if (ahpValue >= 2 && ahpValue < 3) return '#3385ff'; // Medium blue
+  if (ahpValue >= 3 && ahpValue < 4) return '#0066ff'; // Blue
+  if (ahpValue >= 4 && ahpValue <= 5) return '#003399'; // Deep blue
   return '#3388ff'; // Default color
 };
 

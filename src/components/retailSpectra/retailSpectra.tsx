@@ -22,7 +22,7 @@ const RetailSpectra = ({ hexData }: { hexData?: any }) => {
             <DropownDesc desc='Surrounded by brands like Westside and Max, and 38% retail mix in fashion, the area balances competition with high shopper density' />
             <div className={`${retailCss['lip-retail__wrap']}`}>
                 <div className={`${retailCss['lip-retail__tam__bar']}`}>
-                    <TotalAddMark tamNum={22} />
+                    <TotalAddMark tamNum={hexData?.properties?.tam ?? '-'} />
                     <BarChartGraph barBgColor='#334155' getBarColor='#99F6E4' getNumColor='#14B8A6' />
                 </div>
                 <div className={`${retailCss['lip-retail__donutCharts']}`}>

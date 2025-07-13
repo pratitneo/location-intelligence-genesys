@@ -7,16 +7,18 @@ import RadarChartGraph from '../radarChart/radarChart'
 
 
 const AccessibilitySpectra = ({ hexData }: { hexData?: any }) => {
+  const getHexData = hexData?.properties
+  const getAccessScore = getHexData?.['Overall Insights about Accessibilty']
   const value = 8.2;
   const accessLabel = 'Excellent';
   return (
     <div className={`${acspCss['lip-accspe__wrap']}`}>
       <DropownDesc
-        desc={"Daily footfall peaks at 1,350 around noon and rebounds post 6 PM, driven by office workers and leisure shoppers"}
+        desc={`Accessibility score of ${getAccessScore ?? 0}  driven by - railway stations, - metro lines, and average drive time of just - from key zones.`}
       />
       <div className={`${acspCss['lip-accspe__container']}`}>
         <div className={`${acspCss['lip-accspe__index-time']}`}>
-          <AccessIndex value={value} accessLabel={accessLabel} />
+          <AccessIndex value={hexData?.properties?.accessIndex ?? '-'} accessLabel={accessLabel} />
           <AvgDrvTime />
         </div>
         <PubTransConn />

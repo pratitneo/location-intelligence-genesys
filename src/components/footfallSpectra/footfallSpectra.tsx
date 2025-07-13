@@ -9,6 +9,7 @@ import type { LineBtnType } from '../../types/types';
 const FootfallSpectra = ({ hexData }: { hexData?: any }) => {
     const [newBtnData, setNewBtnData] = useState<LineBtnType[]>([])
     const [activeBtn, setActiveBtn] = useState(0)
+    const getHexData = hexData?.properties
 
     const colorValues = ['#0088FE', '#00C49F',];
     const pieData = [{ name: 'others', value: 40 }, { name: 'bandra', value: 30 }, { name: 'khar', value: 40 }, { name: 'dharavi', value: 30 }, { name: 'mahim', value: 40 }, { name: 'kurla', value: 30 }];
@@ -32,13 +33,13 @@ const FootfallSpectra = ({ hexData }: { hexData?: any }) => {
 
     return (
         <>
-            <DropownDesc desc='Daily footfall peaks at 1,350 around noon and rebounds post 6 PM, driven by office workers and leisure shoppers' />
+            <DropownDesc desc={`Daily footfall peaks at ${getHexData?.total_visitors_tushar ?? 0} around - and rebounds post -, driven by - and -`} />
             {/* pie & visitors */}
             <div className={`${ftflSpectCss['lip-ftflSpect__wrap']}`}>
                 <div className={`${ftflSpectCss['lip-ftflSpect__pie__visitors']}`}>
                     <div className={`${ftflSpectCss['lip-ftflSpect__pie']}`}>
                         <DrpdwnHead heading='where are people coming from' />
-                        <PieChartGraph pieRadiusSize={50} colorsArr={colorValues} pieData={pieData} containerWidth={270} containerHeight={210} />
+                        <PieChartGraph pieRadiusSize={50} colorsArr={colorValues} pieData={pieData ?? ''} containerWidth={270} containerHeight={210} />
                     </div>
                     <div className={`${ftflSpectCss['lip-ftflSpect__visitors']}`}>
                         <FootfallVisitors peakHourData={peakVisitorData} nonPeakHourData={nonPeakVisitorData} />

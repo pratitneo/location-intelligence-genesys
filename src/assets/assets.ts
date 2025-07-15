@@ -47,6 +47,7 @@ import Drag from './drag.svg'
 import Eye from './eye.svg'
 import Arrow from './arrow.svg'
 import Plus from './plus.svg'
+import EyeClosed from './eye-closed.svg'
 
 
 
@@ -99,7 +100,8 @@ const Images = {
     drag: Drag,
     eye: Eye,
     arrow: Arrow,
-    plus: Plus
+    plus: Plus,
+    eyeClosed: EyeClosed
 }
 
 export { Images }

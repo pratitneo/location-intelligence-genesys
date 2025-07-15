@@ -22,6 +22,7 @@ const GeoAnalysisContent = () => {
   const [subDataItems, setSubDataItems] = useState(initialSubDataItems)
   const [draggedItem, setDraggedItem] = useState<number | null>(null)
   const [openDropdownId, setOpenDropdownId] = useState<number | null>(null)
+  const [hiddenRows, setHiddenRows] = useState<{ [key: number]: boolean }>({});
 
   const onSearch = (value: string) => {
     // Handle search logic here
@@ -66,6 +67,13 @@ const GeoAnalysisContent = () => {
     setOpenDropdownId(prev => (prev === id ? null : id))
   }
 
+  const handleEyeClick = (id: number) => {
+    setHiddenRows(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
   return (
     <div className={`${geoScss['lip-geo-content__container']}`}>
       <SearchBar onSearch={onSearch} placeHolder={'Search Data Layer'} customClsform={'dl-form'} customClsinput={'dl-input'} customClsbutton={'dl-button'} icon={Images?.layerSearch}/>
@@ -85,28 +93,36 @@ const GeoAnalysisContent = () => {
       </div>
       <hr className={`${geoScss['lip-geo-content__hrline']}`}/>
 
-      <DataLayerHead heading={'Select Sub Data'}/>
+      <div className={`${geoScss['lip-geo-content__subdata']}`}>
+        <DataLayerHead heading={'Select Sub Data'}/>
 
-      {subDataItems.map((item, index) => (
-        <div
-          key={item.id}
-          draggable
-          onDragStart={(e) => handleDragStart(e, index)}
-          onDragOver={handleDragOver}
-          onDrop={(e) => handleDrop(e, index)}
-          onDragEnd={handleDragEnd}
-          className={`${geoScss['lip-subdata-draggable']} ${draggedItem === index ? geoScss['lip-subdata-dragging'] : ''}`}
-        >
-          <SelectSubData 
-            head={item.head} 
-            dragIcon={item.dragIcon} 
-            arrowIcon={item.arrowIcon} 
-            eyeIcon={item.eyeIcon}
-            isDropdownOpen={openDropdownId === item.id}
-            onArrowClick={() => handleArrowClick(item.id)}
-          />
-        </div>
-      ))}
+        {subDataItems.map((item, index) => (
+          <div
+            key={item.id}
+            draggable
+            onDragStart={(e) => handleDragStart(e, index)}
+            onDragOver={handleDragOver}
+            onDrop={(e) => handleDrop(e, index)}
+            onDragEnd={handleDragEnd}
+            className={`${geoScss['lip-subdata-draggable']} ${draggedItem === index ? geoScss['lip-subdata-dragging'] : ''}`}
+          >
+            <SelectSubData
+              head={item.head} 
+              dragIcon={item.dragIcon} 
+              arrowIcon={item.arrowIcon} 
+              eyeIcon={hiddenRows[item.id] ? Images.eyeClosed :item.eyeIcon}
+              isDropdownOpen={openDropdownId === item.id}
+              onArrowClick={() => handleArrowClick(item.id)}
+              isHidden={!!hiddenRows[item.id]}
+              onEyeClick={() => handleEyeClick(item.id)}
+              
+            />
+          </div>
+        ))}
+      </div>
+
+      <hr className={`${geoScss['lip-geo-content__hrline']}`}/>
+
 
       <DataLayerHead heading={'My Dataset'} icon={Images?.plus}/>
 

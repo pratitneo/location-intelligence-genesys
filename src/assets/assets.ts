@@ -50,6 +50,7 @@ import Plus from './plus.svg'
 import CompLandscape from './comp-landscape.svg'
 import AddCompetitor from './add-competitor.svg'
 import BrandDeSelect from './brand-deselect.svg'
+import EyeClosed from './eye-closed.svg'
 
 
 
@@ -106,6 +107,7 @@ const Images = {
     compLandscape: CompLandscape,
     addCompetitor: AddCompetitor,
     brandDeSelect: BrandDeSelect,
+    eyeClosed: EyeClosed
 }
 
 export { Images }

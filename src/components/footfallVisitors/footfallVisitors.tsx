@@ -10,7 +10,7 @@ const FootfallVisitors = ({ peakHourData, nonPeakHourData }: FootfallVisitorType
                 <DrpdwnHead heading='Average Footfall in Peak Hour' />
                 {peakHourData?.map((peak: PeakNonPeakType, index: number) => {
                     return (
-                        <Visitors time={peak?.time} avgVisitor={peak?.avgVisitor} status={peak?.status} />
+                        <Visitors key={index} time={peak?.time} avgVisitor={peak?.avgVisitor} status={peak?.status} />
                     )
                 })}
             </div>
@@ -18,7 +18,7 @@ const FootfallVisitors = ({ peakHourData, nonPeakHourData }: FootfallVisitorType
                 <DrpdwnHead heading='Average Footfall in Non-Peak Hour' />
                 {nonPeakHourData?.map((nonPeak: PeakNonPeakType, index: number) => {
                     return (
-                        <Visitors time={nonPeak?.time} avgVisitor={nonPeak?.avgVisitor} status={nonPeak?.status} />
+                        <Visitors key={index} time={nonPeak?.time} avgVisitor={nonPeak?.avgVisitor} status={nonPeak?.status} />
                     )
                 })}
             </div>

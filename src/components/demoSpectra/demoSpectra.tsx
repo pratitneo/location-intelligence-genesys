@@ -107,8 +107,6 @@ const ageDistributionData: AgeDistributionDataType = [
 
 // Accept hexData as a prop
 const DemoSpectra = ({ hexData }: { hexData?: any }) => {
-  console.log(hexData, 'hexData')
-  console.log(hexData?.total_population, 'hexData?.total_population')
   const getHexData = hexData?.properties
 
   const demoStatsData = [

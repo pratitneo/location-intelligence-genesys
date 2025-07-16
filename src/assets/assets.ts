@@ -47,6 +47,9 @@ import Drag from './drag.svg'
 import Eye from './eye.svg'
 import Arrow from './arrow.svg'
 import Plus from './plus.svg'
+import CompLandscape from './comp-landscape.svg'
+import AddCompetitor from './add-competitor.svg'
+import BrandDeSelect from './brand-deselect.svg'
 
 
 
@@ -74,7 +77,7 @@ const Images = {
     pointerHigh: PointerHigh,
     totalPopulation: TotlePopolation,
     households: HouseHolds,
-    male : Male,
+    male: Male,
     female: Female,
     affluenceIcon: AffluenceIcon,
     walletMoney: WalletMoney,
@@ -99,7 +102,10 @@ const Images = {
     drag: Drag,
     eye: Eye,
     arrow: Arrow,
-    plus: Plus
+    plus: Plus,
+    compLandscape: CompLandscape,
+    addCompetitor: AddCompetitor,
+    brandDeSelect: BrandDeSelect,
 }
 
 export { Images }

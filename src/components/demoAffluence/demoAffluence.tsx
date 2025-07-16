@@ -3,6 +3,7 @@ import demoAffluenceCSS from './demoAffluence.module.scss';
 import { Images } from '../../assets/assets';
 import type { SalaryBracket } from '../../types/types';
 import Affluence from '../affluence/affluence';
+import { useSelectedHex } from '../selectedHexContext/SelectedHexContext';
 
 
 // const salaryData: SalaryBracket[] = [
@@ -14,11 +15,13 @@ import Affluence from '../affluence/affluence';
 
 
 const DemoAffluence = () => {
+  const { selectedHex } = useSelectedHex()
+  const getHexData = selectedHex?.properties
   const salaryData: SalaryBracket[] = [
-    { range: "< ₹- LPA", count: "0" },
-    { range: "₹- – ₹- LPA", count: "0" },
-    { range: "₹- – ₹- LPA", count: "0" },
-    { range: "₹- >", count: "0" },
+    { range: getHexData?.affluence, count: getHexData?.affluence_percent },
+    // { range: "₹- – ₹- LPA", count: "<count>" },
+    // { range: "₹- – ₹- LPA", count: "<count>" },
+    // { range: "₹- >", count: "<count>" },
   ];
   return (
     <div className={`${demoAffluenceCSS["lip-demoAffluence__wrap"]}`}>
@@ -26,7 +29,7 @@ const DemoAffluence = () => {
       <div className={`${demoAffluenceCSS["lip-demoAffluence__content"]}`}>
         {
           salaryData.map((item, index) => (
-            <Affluence key={index} range={item?.range} count={item?.count} />
+            <Affluence key={index} range={item?.range} count={`${item?.count}%`} />
           ))
         }
       </div>

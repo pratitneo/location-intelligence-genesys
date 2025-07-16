@@ -120,7 +120,6 @@ export type AgeDistributionType = {
 
 export type AgeDistributionDataType = {
     ageRange: string;
-    total: string;
     male: string;
     female: string;
 }[];
@@ -222,6 +221,11 @@ export type spendingSegmentType = {
     percentage: string;
     approxCount: string
 }[];
+export type SpendingSegmentType = {
+    spendLevel: SpendingLevel;
+    percentage: string;
+    approxCount: string
+}[];
 
 export type SideBtnType = {
     sideBtnText?: string
@@ -235,7 +239,7 @@ export type AffluenceType = {
 };
 
 export type DriveTimeType = {
-    value: number;
+    value: number | string;
     label: string
 };
 

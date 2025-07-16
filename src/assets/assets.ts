@@ -19,6 +19,7 @@ import SearchIcon from './Search.svg'
 import Chatbot from './Chatbot.svg'
 import Contact from './Contact.svg'
 import PointerHigh from './pointer-high.svg'
+import PointerLow from './pointer-low.svg'
 import TotlePopolation from './total-popolations.svg'
 import HouseHolds from './House_Holds.svg'
 import Male from './male.svg'
@@ -76,6 +77,7 @@ const Images = {
     contact: Contact,
     chatbot: Chatbot,
     pointerHigh: PointerHigh,
+    pointerLow: PointerLow,
     totalPopulation: TotlePopolation,
     households: HouseHolds,
     male: Male,

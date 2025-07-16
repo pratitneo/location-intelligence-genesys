@@ -55,12 +55,11 @@
 
     &__dropdown {
         width: 100%;
-        margin-top: 8px;
-        padding: 8px 12px;
-        background: #f7f7f7;
-        border-radius: 4px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        font-size: 14px;
-        color: #333;
+        margin-top: 4px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 36px;
+        padding: 4px;
+        
     }
 }

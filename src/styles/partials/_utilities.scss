@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
 }
+
 %flex-center {
     display: flex;
     justify-content: center;
@@ -41,7 +42,7 @@
     justify-content: center;
 }
 
-%scroll-hide{
+%scroll-hide {
     display: none;
     width: 0;
 }
@@ -50,4 +51,3 @@
     background: $white !important;
     border: 1px solid $text-violet !important;
 }
-

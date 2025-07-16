@@ -76,14 +76,14 @@ export type CategoryBoxType = {
 }
 
 export type SearchComponentType = {
-  sidebarOpen?: boolean;
-  onSearch: (search: string) => void | Promise<void>;
-  placeHolder?: string;
-  customClsform?: string;
-  customClsfocus?: string;
-  customClsinput?: string;
-  customClsbutton?: string;
-  icon?: string;
+    sidebarOpen?: boolean;
+    onSearch: (search: string) => void | Promise<void>;
+    placeHolder?: string;
+    customClsform?: string;
+    customClsfocus?: string;
+    customClsinput?: string;
+    customClsbutton?: string;
+    icon?: string;
 };
 
 export type MapComponentType = {
@@ -120,7 +120,6 @@ export type AgeDistributionType = {
 
 export type AgeDistributionDataType = {
     ageRange: string;
-    total: string;
     male: string;
     female: string;
 }[];
@@ -222,6 +221,11 @@ export type spendingSegmentType = {
     percentage: string;
     approxCount: string
 }[];
+export type SpendingSegmentType = {
+    spendLevel: SpendingLevel;
+    percentage: string;
+    approxCount: string
+}[];
 
 export type SideBtnType = {
     sideBtnText?: string
@@ -235,7 +239,7 @@ export type AffluenceType = {
 };
 
 export type DriveTimeType = {
-    value: number;
+    value: number | string;
     label: string
 };
 
@@ -347,7 +351,7 @@ export type RadarType = {
     legendHorizontalAlign: string
 }
 
-export type DataLayerHeadType  = {
+export type DataLayerHeadType = {
     icon?: string;
     heading: string;
 }
@@ -383,4 +387,12 @@ export type SidebarValueType = {
     panelName: string
     setPanel: React.Dispatch<React.SetStateAction<string>>
     updatePanelName: (value: string) => void
+}
+export type CompetitiveType = {
+    getCompetetiveData?: CompetetiveItem[]
+    // getActionFn: (brand: string) => void
+}
+export type CompetetiveItem = {
+    head?: string
+    brands?: any[]
 }

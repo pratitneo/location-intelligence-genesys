@@ -11,21 +11,27 @@ import siteSelCss from './siteSelection.module.scss'
 import { useSelectedHex } from '../selectedHexContext/SelectedHexContext'
 
 const SiteSelection = () => {
-    const pointersData = [{ icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' },]
+    const { selectedHex } = useSelectedHex();
+    const getHexData = selectedHex?.properties
+    // const pointersData = [{ icon: '', value: getHexData?.target_population_presence, label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' },]
+    const getHouseHoldIncome = getHexData?.['Household Income'] ? `₹${getHexData?.['Household Income'].toLocaleString('en-IN', { maximumFractionDigits: 2, minimumFractionDigits: 2, })}` : undefined;
+    const pointersData = [{ value: getHexData?.target_population_presence, label: 'target population presence' }, { value: getHexData?.footfall_daily_visitors, label: 'footfall daily visitors' }]
+    if (getHouseHoldIncome) {
+        pointersData.push({ value: getHouseHoldIncome, label: 'household income' })
+    }
     const scoreBtns = [{ label: 'demographics', icon: Images?.demographics }, { label: 'footfall', icon: Images?.footfall }, { label: 'accessibility', icon: Images?.accessibility }, { label: 'retail', icon: Images?.retail },]
     const drpDwns = [{ id: 0, icon: Images?.demographics, label: 'demographics' }, { id: 1, icon: Images?.footfall, label: 'footfall' }, { id: 2, icon: Images?.accessibility, label: 'accessibility' }, { id: 3, icon: Images?.retail, label: 'retail' },]
-    const { selectedHex } = useSelectedHex();
 
     // check if decimal less than 5 or greater
     const roundIfLessThanPointFive = (num: number) => num % 1 < 0.5 ? Math.floor(num) : Math.round(num);
-    const getScore = roundIfLessThanPointFive(selectedHex?.properties?.['AHP Output'])
+    const getScore = roundIfLessThanPointFive(selectedHex?.properties?.ahp_output_scaled)
 
 
 
     return (
         <>
             <div className={`${siteSelCss['lip-siteSel__scorePointers']}`}>
-                <SiteScore score={getScore ? getScore * 2 : 0} location={'bandra (e), mumbai'} />
+                <SiteScore score={getScore ?? 0} location={'bandra (e), mumbai'} />
                 <div className={`${siteSelCss['lip-siteSel__pointersWrap']}`}>
                     <SitePointers pointersData={pointersData} />
                 </div>

@@ -124,12 +124,12 @@ const DemoSpectra = ({ hexData }: { hexData?: any }) => {
         desc={"<location name from api> scores -/10 for site suitability, driven by strong <insights>"}
       />
       {/* Show selected hex data for demo */}
-      {hexData && (
+      {/* {hexData && (
         <div style={{ background: '#f7f7f7', padding: 8, borderRadius: 4, margin: '8px 0', maxHeight: 200, overflow: 'auto' }}>
           <strong>Selected Hex Data:</strong>
           <pre style={{ fontSize: 12 }}>{JSON.stringify(hexData, null, 2)}</pre>
         </div>
-      )}
+      )} */}
 
       <div className={`${demoSpectraCss["lip-demoSpectra__statAffluence"]}`}>
         <div className={`${demoSpectraCss["lip-demoSpectra__demoStats"]}`}>

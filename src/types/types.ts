@@ -383,4 +383,6 @@ export type SidebarValueType = {
     panelName: string
     setPanel: React.Dispatch<React.SetStateAction<string>>
     updatePanelName: (value: string) => void
+    rightIconKey: IconKey | null
+    setRightIconKey: React.Dispatch<React.SetStateAction<IconKey | null>>
 }

@@ -11,7 +11,7 @@ const icons = [{ label: 'POI', icon: Images?.poiIcon }, { label: 'Demographics',
 
 // Initial data for SelectSubData items
 const initialSubDataItems: SelectSubdataItemType[] = [
-  { id: 1, head: "Hospitals", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
+  { id: 1, head: "Populations", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
   { id: 2, head: "Schools", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
   { id: 3, head: "Malls", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
   { id: 4, head: "Local Market", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
@@ -119,10 +119,9 @@ const GeoAnalysisContent = () => {
             />
           </div>
         ))}
+
+        <hr className={`${geoScss['lip-geo-content__hrline']}`}/>
       </div>
-
-      <hr className={`${geoScss['lip-geo-content__hrline']}`}/>
-
 
       <DataLayerHead heading={'My Dataset'} icon={Images?.plus}/>
 

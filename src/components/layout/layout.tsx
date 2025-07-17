@@ -21,10 +21,7 @@ const Layout = () => {
   const [sideTextVisibility, setSideTextVisibility] = useState(false)
 
   // for current open panelName: menu, left, right
-  const { panelName, updatePanelName } = useSidebar();
-
-  // for right side icons
-  const [rightIconKey, setRightIconKey] = useState<IconKey | null>(null);
+  const { panelName, updatePanelName, rightIconKey, setRightIconKey } = useSidebar();
 
   // for right side sub icons
   const [subIconKey, setSubIconKey] = useState<IconKey | null>(null)

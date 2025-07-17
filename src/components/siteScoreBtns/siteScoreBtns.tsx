@@ -7,7 +7,7 @@ const SiteScoreBtns = ({ btnsData }: SiteScoreBtnsType) => {
         <div className={`${scoreBtnCss['lip-scoreBtns__wrap']}`}>
             {btnsData?.map((btn: ScoreBtnType, index: number) => {
                 return (
-                    <IconWithTooltip tooltipText={btn?.label} position='top' icon={btn?.icon} />
+                    <IconWithTooltip key={index} tooltipText={btn?.label} position='top' icon={btn?.icon} />
                 )
             })}
         </div>

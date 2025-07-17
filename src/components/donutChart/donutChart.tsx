@@ -26,7 +26,7 @@ const DonutChart = ({ boxHeight, donutData, inRadiusVal, outRadiusVal, numberDat
             <div className={`${donutCss['lip-donut__legendWrap']}`}>
                 {donutData?.map((data, index) => {
                     return (
-                        <div className={`${donutCss['lip-donut__legend']}`}>
+                        <div key={index} className={`${donutCss['lip-donut__legend']}`}>
                             <span style={{ color: data?.colorName }}>●</span><span style={{ color: data?.colorName }}>{data?.name}</span><span style={{ color: data?.colorName }}>{data?.value}%</span>
                         </div>
                     )

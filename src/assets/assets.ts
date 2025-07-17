@@ -19,6 +19,7 @@ import SearchIcon from './Search.svg'
 import Chatbot from './Chatbot.svg'
 import Contact from './Contact.svg'
 import PointerHigh from './pointer-high.svg'
+import PointerLow from './pointer-low.svg'
 import TotlePopolation from './total-popolations.svg'
 import HouseHolds from './House_Holds.svg'
 import Male from './male.svg'
@@ -47,6 +48,9 @@ import Drag from './drag.svg'
 import Eye from './eye.svg'
 import Arrow from './arrow.svg'
 import Plus from './plus.svg'
+import CompLandscape from './comp-landscape.svg'
+import AddCompetitor from './add-competitor.svg'
+import BrandDeSelect from './brand-deselect.svg'
 import EyeClosed from './eye-closed.svg'
 
 
@@ -73,9 +77,10 @@ const Images = {
     contact: Contact,
     chatbot: Chatbot,
     pointerHigh: PointerHigh,
+    pointerLow: PointerLow,
     totalPopulation: TotlePopolation,
     households: HouseHolds,
-    male : Male,
+    male: Male,
     female: Female,
     affluenceIcon: AffluenceIcon,
     walletMoney: WalletMoney,
@@ -101,6 +106,9 @@ const Images = {
     eye: Eye,
     arrow: Arrow,
     plus: Plus,
+    compLandscape: CompLandscape,
+    addCompetitor: AddCompetitor,
+    brandDeSelect: BrandDeSelect,
     eyeClosed: EyeClosed
 }
 

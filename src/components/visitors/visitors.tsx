@@ -16,7 +16,7 @@ const Visitors = ({ time, avgVisitor, status, bgClass }: PeakNonPeakType) => {
     return (
         <div className={`${visitCss['lip-visit__wrap']} ${visitCss[`lip-visit--${bgClass}`]}`}>
             <p className={`${visitCss['lip-visit__time']}`}>{time}</p>
-            <p className={`${visitCss['lip-visit__visitors']}`}>{avgVisitor} Avg. Visitors</p>
+            <p className={`${visitCss['lip-visit__visitors']}`}>{avgVisitor ?? '-'} Avg. Visitors</p>
         </div>
     )
 }

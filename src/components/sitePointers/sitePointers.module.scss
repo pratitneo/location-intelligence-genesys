@@ -14,8 +14,17 @@
     &__value {
         font-weight: 600;
         font-size: 24px;
-        color: $grass-green;
         text-transform: capitalize;
+    }
+
+    &--green {
+        color: $grass-green;
+        border: 1px solid $grass-green;
+    }
+
+    &--red {
+        color: $soft-coral;
+        border: 1px solid $soft-coral;
     }
 
     &__label {

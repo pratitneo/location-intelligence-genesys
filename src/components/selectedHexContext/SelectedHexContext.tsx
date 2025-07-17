@@ -1,15 +1,12 @@
 import React, { createContext, useContext, useState } from 'react';
 
-export type SelectedHexType = {
-  properties: Record<string, any>;
-  center: [number, number];
-} | null;
+// type
+export type SelectedHexType = { properties: Record<string, any>; center: [number, number] } | null;
 
-const SelectedHexContext = createContext<{
-  selectedHex: SelectedHexType;
-  setSelectedHex: (hex: SelectedHexType) => void;
-} | undefined>(undefined);
+// create context
+const SelectedHexContext = createContext<{ selectedHex: SelectedHexType; setSelectedHex: (hex: SelectedHexType) => void; } | undefined>(undefined);
 
+// provider action function
 export const SelectedHexProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [selectedHex, setSelectedHex] = useState<SelectedHexType>(null);
   return (
@@ -19,6 +16,7 @@ export const SelectedHexProvider: React.FC<{ children: React.ReactNode }> = ({ c
   );
 };
 
+// use context
 export const useSelectedHex = () => {
   const context = useContext(SelectedHexContext);
   if (!context) throw new Error('useSelectedHex must be used within a SelectedHexProvider');

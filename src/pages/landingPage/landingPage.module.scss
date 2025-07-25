@@ -1,6 +1,54 @@
-.lip-landing{
-    &__wrap{
-       width: 100vw;
-       height: 100vh;
+.lip-landing {
+    &__wrap {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    &__explore {
+        position: absolute;
+        top: 20px;
+        left: 412px;
+        z-index: $searchBox;
+        width: 260px;
+        height: 50px;
+        @extend %flex-center;
+        @include gradientBorder(3px, solid, 30px, #42B6E9, #F06CA8, #F68C1E, #F8EC20);
+        // animation: exploreRecos 0.7s ease 0s infinite;
+
+        @keyframes exploreRecos {
+
+            0%,
+            100% {
+                background: linear-gradient(90deg, #42B6E9, #F06CA8, #F68C1E, #F8EC20);
+            }
+
+            25% {
+                background: linear-gradient(90deg, #F06CA8, #F68C1E, #F8EC20, #42B6E9);
+            }
+
+            50% {
+                background: linear-gradient(90deg, #F68C1E, #F8EC20, #42B6E9, #F06CA8);
+            }
+
+            75% {
+                background: linear-gradient(90deg, #F8EC20, #42B6E9, #F06CA8, #F68C1E);
+            }
+        }
+
+        &-text {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            font-size: 14px;
+            padding: 5px 5px 5px 10px;
+            @extend %flex-between-center;
+            color: $black;
+            background: $white;
+            text-transform: capitalize;
+        }
+
+        &-icon {
+            height: 40px;
+        }
     }
 }

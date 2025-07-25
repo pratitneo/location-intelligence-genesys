@@ -47,8 +47,8 @@ function getPolygonCentroid(coords: number[][]): [number, number] {
   y /= (6 * area);
   return [x, y]; // [lng, lat]
 }
- 
- 
+
+
 const MapComponent = ({ position, zoom, hasSearched }: MapComponentType) => {
   const { csvData } = useCsvData();
   const { selectedHex, setSelectedHex } = useSelectedHex();
@@ -105,21 +105,21 @@ const MapComponent = ({ position, zoom, hasSearched }: MapComponentType) => {
     if (selectedHex && feature.properties.hex_id === selectedHex.properties.hex_id) {
       return { color: 'red', weight: 3, fillColor: 'red', fillOpacity: 0.7 };
     }
-    
+
     // Otherwise, color based on AHP Output value
     const ahpValue = feature.properties['AHP Output'];
     const fillColor = getAHPColor(ahpValue);
-    
-    return { 
-      color: fillColor, 
-      weight: 2, 
-      fillColor: fillColor, 
-      fillOpacity: 0.6 
+
+    return {
+      color: fillColor,
+      weight: 2,
+      fillColor: fillColor,
+      fillOpacity: 0.6
     };
   };
 
   return (
-    <div>
+    <>
       <MapContainer center={center} zoom={mapZoom} className={mapCss['lip-map__wrap']}>
         <ChangeMapView center={center} zoom={mapZoom} />
         <TileLayer
@@ -143,7 +143,7 @@ const MapComponent = ({ position, zoom, hasSearched }: MapComponentType) => {
           />
         )}
       </MapContainer>
-    </div>
+    </>
   )
 }
 

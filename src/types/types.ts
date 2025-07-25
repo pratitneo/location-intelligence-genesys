@@ -77,7 +77,7 @@ export type CategoryBoxType = {
 
 export type SearchComponentType = {
     sidebarOpen?: boolean;
-    onSearch: (search: string) => void | Promise<void>;
+    onSearch?: (search: string) => void | Promise<void>;
     placeHolder?: string;
     customClsform?: string;
     customClsfocus?: string;

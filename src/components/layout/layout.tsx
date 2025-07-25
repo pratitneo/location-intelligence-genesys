@@ -10,6 +10,7 @@ import LandingPage from '../../pages/landingPage/landingPage';
 import { useSidebar } from "../../context/sidebarContex";
 import Sidebar from "../sidebar/sidebar";
 import GeoAnalysisContent from "../geoAnalysisContent/geoAnalysisContent";
+import SiteRecomm from "../siteRecomm/siteRecomm";
 
 const Layout = () => {
   const location = useLocation();
@@ -21,10 +22,7 @@ const Layout = () => {
   const [sideTextVisibility, setSideTextVisibility] = useState(false)
 
   // for current open panelName: menu, left, right
-  const { panelName, updatePanelName } = useSidebar();
-
-  // for right side icons
-  const [rightIconKey, setRightIconKey] = useState<IconKey | null>(null);
+  const { panelName, updatePanelName, rightIconKey, setRightIconKey } = useSidebar();
 
   // for right side sub icons
   const [subIconKey, setSubIconKey] = useState<IconKey | null>(null)
@@ -40,6 +38,7 @@ const Layout = () => {
       case "geo": return <div>Geo Analysis Content</div>;
       case "dataset": return <div>Dataset Content</div>;
       case "siteSelection": return <><SiteSelection /></>;
+      case "siteRecos": return <><SiteRecomm /></>;
       default: return <div>No Content</div>;
     }
   };
@@ -90,7 +89,6 @@ const Layout = () => {
       updatePanelName('leftPanel')
     }
   }
-
 
   return (
     <div className={styles.layout}>

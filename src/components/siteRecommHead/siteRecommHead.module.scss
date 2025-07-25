@@ -1,0 +1,17 @@
+.lip-siteReco {
+    &__head {
+        // width: 100%;
+        display: inline-block;
+        font-size: 30px;
+        font-weight: 700;
+        text-transform: capitalize;
+        text-align: center;
+        background: linear-gradient(60deg, $ai-recos-blue 0%, $ai-recos-pink 45%, $ai-recos-orange 70%, $ai-recos-yellow 95%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        /* Optional for other browsers */
+        background-clip: text;
+        color: transparent;
+    }
+}

@@ -53,6 +53,7 @@ import AddCompetitor from './add-competitor.svg'
 import BrandDeSelect from './brand-deselect.svg'
 import EyeClosed from './eye-closed.svg'
 import ExploreRecos from './explore-recos.svg'
+import ShowRecos from './show-recos.svg'
 
 
 
@@ -112,6 +113,7 @@ const Images = {
     brandDeSelect: BrandDeSelect,
     eyeClosed: EyeClosed,
     exploreRecos: ExploreRecos,
+    showRecos: ShowRecos,
 }
 
 export { Images }

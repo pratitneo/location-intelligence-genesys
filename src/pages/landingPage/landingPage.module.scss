@@ -12,28 +12,11 @@
         width: 260px;
         height: 50px;
         @extend %flex-center;
-        @include gradientBorder(3px, solid, 30px, #42B6E9, #F06CA8, #F68C1E, #F8EC20);
+        @include gradientBorder(3px, solid, 30px, $ai-recos-blue, $ai-recos-pink, $ai-recos-orange, $ai-recos-yellow);
         // animation: exploreRecos 0.7s ease 0s infinite;
 
-        @keyframes exploreRecos {
 
-            0%,
-            100% {
-                background: linear-gradient(90deg, #42B6E9, #F06CA8, #F68C1E, #F8EC20);
-            }
 
-            25% {
-                background: linear-gradient(90deg, #F06CA8, #F68C1E, #F8EC20, #42B6E9);
-            }
-
-            50% {
-                background: linear-gradient(90deg, #F68C1E, #F8EC20, #42B6E9, #F06CA8);
-            }
-
-            75% {
-                background: linear-gradient(90deg, #F8EC20, #42B6E9, #F06CA8, #F68C1E);
-            }
-        }
 
         &-text {
             width: 100%;

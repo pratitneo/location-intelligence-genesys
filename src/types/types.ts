@@ -1,4 +1,4 @@
-export type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo" | 'dataset' | 'siteSelection';
+export type IconKey = "3dmap" | "legend" | "charts" | "draw" | "maps" | "geo" | 'dataset' | 'siteSelection' | 'siteRecos';
 
 export type HeadingType = {
     head: string;
@@ -387,6 +387,8 @@ export type SidebarValueType = {
     panelName: string
     setPanel: React.Dispatch<React.SetStateAction<string>>
     updatePanelName: (value: string) => void
+    rightIconKey: IconKey | null
+    setRightIconKey: React.Dispatch<React.SetStateAction<IconKey | null>>
 }
 export type CompetitiveType = {
     getCompetetiveData?: CompetetiveItem[]

@@ -11,7 +11,7 @@ const LandingPage = ({ sidebarOpen }: { sidebarOpen?: boolean }) => {
   const [zoom, setZoom] = useState(13);
   const [hasSearched, setHasSearched] = useState(false);
   const [result, setResult] = useState([]);
-  const { updatePanelName, panelName } = useSidebar()
+  const { updatePanelName, panelName, rightIconKey, setRightIconKey } = useSidebar()
 
   const onSearch = async (search: string) => {
     try {
@@ -36,6 +36,7 @@ const LandingPage = ({ sidebarOpen }: { sidebarOpen?: boolean }) => {
 
   const updateRightPanel = () => {
     panelName ? updatePanelName('') : updatePanelName('rightPanel')
+    setRightIconKey('siteRecos')
   }
 
   return (

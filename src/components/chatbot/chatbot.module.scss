@@ -1,0 +1,118 @@
+.chatBot {
+  background-color: $chatbot_white;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px; // for scrollbar
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.messageContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  &.user {
+    justify-content: flex-end;
+  }
+  &.bot {
+    justify-content: flex-start;
+  }
+}
+
+.icon {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &.userIcon {
+    background-color: #6a0dad;
+  }
+  &.botIcon {
+    background-color: $white;
+    border: 1px solid #eee;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.message {
+  padding: 15px;
+  border-radius: 20px;
+  line-height: 1.4;
+
+  &.user {
+    background-color: #6a0dad;
+    color: white;
+    border-top-right-radius: 5px;
+  }
+
+  &.bot {
+    background: linear-gradient(to bottom right, #ffefba, #ffffff);
+    color: #333;
+    border: 1px solid #fdeeb7;
+    border-top-left-radius: 5px;
+  }
+}
+
+.inputArea {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #ede7f6;
+  border-radius: 30px;
+  padding: 5px;
+
+  input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  button {
+    background-color: #6a0dad;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #5a0bad;
+    }
+    
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}

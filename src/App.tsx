@@ -9,13 +9,10 @@ import SavedWork from './pages/saved-work/saved-work'
 import ProtectedRoute from "./routes/protectedRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { CsvDataProvider } from './components/csvDataContext/CsvDataContext';
-import { SelectedHexProvider } from './components/selectedHexContext/SelectedHexContext';
 
 function App() {
   return (
-    <CsvDataProvider>
-      <SelectedHexProvider>
+    
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -27,10 +24,9 @@ function App() {
               </Route>
             </Route>
           </Routes>
+          <ToastContainer />
         </BrowserRouter>
-        <ToastContainer />
-      </SelectedHexProvider>
-    </CsvDataProvider>
+        
   );
 }
 

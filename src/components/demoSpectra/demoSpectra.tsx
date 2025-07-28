@@ -129,7 +129,7 @@ const DemoSpectra = ({ hexData }: { hexData?: any }) => {
         <DemoAffluence />
       </div>
       <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending"]}`}>
-        <DrpdwnHead icon={Images?.walletMoney} heading={"Customers Spending on clothing"} />
+        <DrpdwnHead icon={Images?.walletMoney} heading={"Customers Spending"} />
         <div className={`${demoSpectraCss["lip-demoSpectra__customerSpending__box"]}`}>
           {spendingSegments.map((segment, index) => (
             <ClothingSpendLevel

@@ -1,0 +1,50 @@
+.lip-distinfo{
+    &__wrap__row{
+        padding: 10px 20px 10px 10px;
+        @extend %flex-between-center;
+        border-radius: 6px;
+        background-color: $white;
+        box-shadow: 0px 4px 4.4px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    &__wrap__col{
+        padding: 10px;
+        @extend %flex-column-center;
+        gap:10px;
+        box-shadow: 0px 4px 4.4px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    &__number{
+        color: $distinfo_number;
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 48px;
+        margin: 0px 71px;
+        line-height: 100%;
+        letter-spacing: 0px;
+    }
+
+    &__container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        color: $purple;
+        
+    }
+
+    &__category{
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 28px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        @extend %flex-center
+    }
+
+    &__distance{
+        font-weight: 500;
+        font-style: Medium;
+                line-height: 100%;
+        letter-spacing: 0px;
+    }
+}

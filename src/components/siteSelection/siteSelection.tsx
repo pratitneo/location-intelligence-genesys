@@ -1,4 +1,5 @@
 import { Images } from '../../assets/assets'
+import { useSelectedHex } from '../../context/SelectedHexContext'
 import AccessibilitySpectra from '../accessibilitySpectra/accessibilitySpectra'
 import DemoSpectra from '../demoSpectra/demoSpectra'
 import FootfallSpectra from '../footfallSpectra/footfallSpectra'
@@ -8,7 +9,6 @@ import SiteScore from '../siteScore/siteScore'
 import SiteScoreBtns from '../siteScoreBtns/siteScoreBtns'
 import SiteScoreDrpDwn from '../siteScoreDrpDwn/siteScoreDrpDwn'
 import siteSelCss from './siteSelection.module.scss'
-import { useSelectedHex } from '../selectedHexContext/SelectedHexContext'
 
 const SiteSelection = () => {
     const { selectedHex } = useSelectedHex();
@@ -24,14 +24,14 @@ const SiteSelection = () => {
 
     // check if decimal less than 5 or greater
     const roundIfLessThanPointFive = (num: number) => num % 1 < 0.5 ? Math.floor(num) : Math.round(num);
-    const getScore = roundIfLessThanPointFive(selectedHex?.properties?.ahp_output_scaled)
-
+    const ahpScore = selectedHex?.properties?.ahp_scores;
+    const getScore = (ahpScore == null || isNaN(ahpScore)) ? 0 : roundIfLessThanPointFive(ahpScore);
 
 
     return (
         <>
             <div className={`${siteSelCss['lip-siteSel__scorePointers']}`}>
-                <SiteScore score={getScore ?? 0} location={'bandra (e), mumbai'} />
+                <SiteScore score={getScore ?? 0} location={'Dadar (e), mumbai'} />
                 <div className={`${siteSelCss['lip-siteSel__pointersWrap']}`}>
                     <SitePointers pointersData={pointersData} />
                 </div>

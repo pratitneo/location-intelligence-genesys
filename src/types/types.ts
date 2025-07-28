@@ -407,32 +407,34 @@ export type POIdistInfoTypes = {
     number: string;
     category: string;
     distance?: string;
+    customClswrap?: string
+    direction?: string
 }
 
 // Hexagon types for map and API
 export type HexBoundary = { hexId: string; boundary: [number, number][]; ahpOutput?: number };
 export type HexDetailsResponse = {
-  average_footfall_10: number | null;
-  average_footfall_12: number | null;
-  average_footfall_14: number | null;
-  average_footfall_17: number | null;
-  average_footfall_19: number | null;
-  average_footfall_21: number | null;
-  spending_purchasing_class: string;
-  spending_purchasing_class_pct: number;
-  crowed_puller_name: string;
-  commercial_percentage: number;
-  residential_percentage: number;
-  hybrid_percentage: number;
-  industrial_percentage: number;
-  total_population: number;
-  male_population: number;
-  female_population: number;
-  total_households: number;
-  footfall_daily_visitors: number;
-  affluence: string;
-  affluence_percent: number;
-  target_population_presence: string;
-  household_income: number;
-  ahp_output_scaled?: number; // Add this if present in your API
+    average_footfall_10: number | null;
+    average_footfall_12: number | null;
+    average_footfall_14: number | null;
+    average_footfall_17: number | null;
+    average_footfall_19: number | null;
+    average_footfall_21: number | null;
+    spending_purchasing_class: string;
+    spending_purchasing_class_pct: number;
+    crowed_puller_name: string;
+    commercial_percentage: number;
+    residential_percentage: number;
+    hybrid_percentage: number;
+    industrial_percentage: number;
+    total_population: number;
+    male_population: number;
+    female_population: number;
+    total_households: number;
+    footfall_daily_visitors: number;
+    affluence: string;
+    affluence_percent: number;
+    target_population_presence: string;
+    household_income: number;
+    ahp_output_scaled?: number; // Add this if present in your API
 };

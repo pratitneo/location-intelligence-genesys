@@ -10,6 +10,7 @@ import { useBufferAnalysis } from '../../context/BufferAnalysisContext';
 import { useSelectedHex } from '../../context/SelectedHexContext';
 import * as h3 from 'h3-js';
 import wellknown from 'wellknown'; // Add this import at the top
+import { useSidebar } from "../../context/sidebarContex"
 
 const icons = [{ label: 'POI', icon: Images?.poiIcon }, { label: 'Demographics', icon: Images?.demographics }, { label: 'Land use / cover', icon: Images?.landUse }, { label: 'Footfall', icon: Images?.footfall }, { label: 'Road Network', icon: Images?.roadNetwork }]
 
@@ -19,11 +20,11 @@ const subDataMap: { [key: string]: SelectSubdataItemType[] } = {
     { id: 1, head: "Schools", dragIcon: Images?.drag, eyeIcon: Images?.eye },
     { id: 2, head: "Malls", dragIcon: Images?.drag, eyeIcon: Images?.eye },
     { id: 3, head: "Local Market", dragIcon: Images?.drag, eyeIcon: Images?.eye },
-    { id: 4, head: "Bus Stops", dragIcon: Images?.drag,  eyeIcon: Images?.eye }
+    { id: 4, head: "Bus Stops", dragIcon: Images?.drag, eyeIcon: Images?.eye }
   ],
   Demographics: [
     { id: 1, head: "Populations", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
-    { id: 2, head: "Age Groups", dragIcon: Images?.drag,  arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
+    { id: 2, head: "Age Groups", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
     { id: 3, head: "Households", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye }
   ],
   "Land use / cover": [
@@ -55,10 +56,11 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
   const { bufferType, setBufferType, analysisValue, setAnalysisValue, setBufferCenter, setBufferRadius, bufferCenter, bufferRadius } = useBufferAnalysis();
   const { setHexes, setSelectedHex, hexes } = useSelectedHex();
   const [loadingCity, setLoadingCity] = useState(false);
+  const { panelName, updatePanelName } = useSidebar()
 
   const onSearch = (value: string) => {
     // Handle search logic here
-   console.log(`Search value: ${value}`)
+    console.log(`Search value: ${value}`)
   }
 
   // Drag and drop handlers
@@ -74,18 +76,18 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
 
   const handleDrop = (e: React.DragEvent, dropIndex: number) => {
     e.preventDefault()
-    
+
     if (draggedItem === null) return
 
     const newItems = [...subDataMap[selectedIcon || '']] // Use subDataMap[selectedIcon]
     const draggedItemData = newItems[draggedItem]
-    
+
     // Remove the dragged item from its original position
     newItems.splice(draggedItem, 1)
-    
+
     // Insert the dragged item at the new position
     newItems.splice(dropIndex, 0, draggedItemData)
-    
+
     // setSubDataItems(newItems) // REMOVE this
     setDraggedItem(null)
   }
@@ -234,94 +236,55 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
     }
   };
 
+  const handleRightPanel = () => {
+    updatePanelName('rightPanel')
+  }
+
   return (
     <div className={`${geoScss['lip-geo-content__container']}`}>
-      <SearchBar onSearch={onSearch} placeHolder={'Search Data Layer'} customClsform={'dl-form'} customClsinput={'dl-input'} customClsbutton={'dl-button'} icon={Images?.layerSearch}/>
-      <hr className={`${geoScss['lip-geo-content__hrline']}`}/>
-      <DataLayerHead heading={'Genesys Data Layers '}/>
+      <SearchBar onSearch={onSearch} placeHolder={'Search Data Layer'} customClsform={'dl-form'} customClsinput={'dl-input'} customClsbutton={'dl-button'} icon={Images?.layerSearch} />
+      <hr className={`${geoScss['lip-geo-content__hrline']}`} />
+      <DataLayerHead heading={'Genesys Data Layers '} />
       <div className={`${geoScss['lip-geo-content__wrap']}`}>
         {icons.map((item, index) => (
-          <IconWithTooltip  
-            customCls={'datalayer-icon'}
-            key={index}
-            icon={item.icon}
-            tooltipText={item.label}
-            position={'top'}
-            getActionFn={() => setSelectedIcon(selectedIcon === item.label ? null : item.label)} // toggle
-          />
+          <IconWithTooltip customCls={'datalayer-icon'} key={index} icon={item.icon} tooltipText={item.label} position={'top'} getActionFn={() => setSelectedIcon(selectedIcon === item.label ? null : item.label)} />
         ))}
       </div>
-      <hr className={`${geoScss['lip-geo-content__hrline']}`}/>
+      <hr className={`${geoScss['lip-geo-content__hrline']}`} />
 
       {selectedIcon && (
         <div className={`${geoScss['lip-geo-content__subdata']}`}>
-          <DataLayerHead heading={'Select Sub Data'}/>
+          <DataLayerHead heading={'Select Sub Data'} />
           {(subDataMap[selectedIcon] || []).map((item, index) => (
-            <div
-              key={item.id}
-              draggable
-              onDragStart={(e) => handleDragStart(e, index)}
-              onDragOver={handleDragOver}
-              onDrop={(e) => handleDrop(e, index)}
-              onDragEnd={handleDragEnd}
-              className={`${geoScss['lip-subdata-draggable']} ${draggedItem === index ? geoScss['lip-subdata-dragging'] : ''}`}
-            >
-              <SelectSubData
-                head={item.head} 
-                dragIcon={item.dragIcon} 
-                arrowIcon={item.arrowIcon} 
-                eyeIcon={hiddenRows[item.id] ? Images.eyeClosed :item.eyeIcon}
-                isDropdownOpen={openDropdownId === item.id}
-                onArrowClick={() => handleArrowClick(item.id)}
-                isHidden={!!hiddenRows[item.id]}
-                onEyeClick={() => handleEyeClick(item.id)}
-              />
+            <div key={item.id} draggable onDragStart={(e) => handleDragStart(e, index)} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, index)} onDragEnd={handleDragEnd} onClick={() => handleRightPanel()} className={`${geoScss['lip-subdata-draggable']} ${draggedItem === index ? geoScss['lip-subdata-dragging'] : ''}`}>
+              <SelectSubData head={item.head} dragIcon={item.dragIcon} arrowIcon={item.arrowIcon} eyeIcon={hiddenRows[item.id] ? Images.eyeClosed : item.eyeIcon} isDropdownOpen={openDropdownId === item.id} onArrowClick={() => handleArrowClick(item.id)} isHidden={!!hiddenRows[item.id]} onEyeClick={() => handleEyeClick(item.id)} />
             </div>
           ))}
-          <hr className={`${geoScss['lip-geo-content__hrline']}`}/>
+          <hr className={`${geoScss['lip-geo-content__hrline']}`} />
         </div>
       )}
 
-      <DataLayerHead heading={'My Dataset'} icon={Images?.plus}/>
+      <DataLayerHead heading={'My Dataset'} icon={Images?.plus} />
 
       {/* Buffer Analysis Radio Buttons */}
       <div className={geoScss['lip-geo-radio-group']}>
+        {/* buffer */}
         <label className={geoScss['lip-geo-radio-label']}>
-          <input
-            type="radio"
-            value="buffer"
-            checked={bufferType === 'buffer'}
-            onChange={() => handleBufferTypeChange('buffer')}
-          />
-          Buffer
+          <input type="radio" value="buffer" checked={bufferType === 'buffer'} onChange={() => handleBufferTypeChange('buffer')} />Buffer
         </label>
+        {/* city */}
         <label className={geoScss['lip-geo-radio-label']}>
-          <input
-            type="radio"
-            value="city"
-            checked={bufferType === 'city'}
-            onChange={() => handleBufferTypeChange('city')}
-          />
-          City
+          <input type="radio" value="city" checked={bufferType === 'city'} onChange={() => handleBufferTypeChange('city')} />City
         </label>
+        {/* pincode */}
         <label className={geoScss['lip-geo-radio-label']}>
-          <input
-            type="radio"
-            value="pincode"
-            checked={bufferType === 'pincode'}
-            onChange={() => handleBufferTypeChange('pincode')}
-          />
-          Pincode
+          <input type="radio" value="pincode" checked={bufferType === 'pincode'} onChange={() => handleBufferTypeChange('pincode')} />Pincode
         </label>
       </div>
 
       {/* Dropdown for selected buffer type */}
       {bufferType === 'buffer' && (
-        <select
-          className={geoScss['lip-geo-dropdown']}
-          value={analysisValue}
-          onChange={handleBufferRadiusChange}
-        >
+        <select className={geoScss['lip-geo-dropdown']} value={analysisValue} onChange={handleBufferRadiusChange}>
           <option value="" disabled>Select buffer</option>
           {[500, 1000, 2000].map(val => (
             <option key={val} value={val}>{val} m</option>
@@ -329,34 +292,22 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
         </select>
       )}
       {bufferType === 'pincode' && (
-        <select
-          className={geoScss['lip-geo-dropdown']}
-          value={analysisValue}
-          onChange={handlePincodeChange}
-        >
+        <select className={geoScss['lip-geo-dropdown']} value={analysisValue} onChange={handlePincodeChange}>
           <option value="" disabled>Select pincode</option>
-          {[
-            400051, 400052, 400050, 400030, 400016, 400028, 400025, 400018, 400013, 400012, 400014, 400019, 400022
-          ].map(val => (
+          {[400051, 400052, 400050, 400030, 400016, 400028, 400025, 400018, 400013, 400012, 400014, 400019, 400022].map(val => (
             <option key={val} value={val}>{val}</option>
           ))}
         </select>
       )}
       {bufferType === 'city' && (
         <>
-          <select
-            className={geoScss['lip-geo-dropdown']}
-            value={analysisValue}
-            onChange={handleCityChange}
-          >
+          <select className={geoScss['lip-geo-dropdown']} value={analysisValue} onChange={handleCityChange}>
             <option value="" disabled>Select city</option>
             <option value="mumbai">Mumbai</option>
             <option value="raipur">Raipur</option>
           </select>
           {loadingCity && (
-            <div style={{ margin: '10px 0', color: '#641698' }}>
-              Loading city hexagons, please wait...
-            </div>
+            <div style={{ margin: '10px 0', color: '#641698' }}>Loading city hexagons, please wait...</div>
           )}
         </>
       )}

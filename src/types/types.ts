@@ -385,8 +385,14 @@ export type ContextType = {
 }
 export type SidebarValueType = {
     panelName: string
-    setPanel: React.Dispatch<React.SetStateAction<string>>
     updatePanelName: (value: string) => void
+
+    leftPanel: boolean
+    updateLeftPanel: (value: boolean) => void
+
+    rightPanel: boolean
+    updateRightPanel: (value: boolean) => void
+
     rightIconKey: IconKey | null
     setRightIconKey: React.Dispatch<React.SetStateAction<IconKey | null>>
 }

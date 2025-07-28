@@ -3,14 +3,22 @@ import { useState } from "react";
 import SearchBar from "../../components/search/searchBar";
 import { Images } from "../../assets/assets";
 import MapComponent from "../../components/map/map";
+import GeoAnalysisContent from "../../components/geoAnalysisContent/geoAnalysisContent";
 const defaultPosition = { lat: 19.0760, lng: 72.8777 };
 
-const LandingPage = ({ sidebarOpen }: { sidebarOpen?: boolean }) => {
-  const [position, setPosition] = useState<[number, number]>([defaultPosition.lat, defaultPosition.lng]);
-  const [zoom, setZoom] = useState(13);
+type LandingPageProps = {
+  sidebarOpen?: boolean;
+  pincodeBoundary?: any;
+  setPincodeBoundary?: (boundary: any) => void;
+  position: [number, number];
+  setPosition: (pos: [number, number]) => void;
+  zoom: number;
+  setZoom: (zoom: number) => void;
+};
+
+const LandingPage = ({ sidebarOpen, pincodeBoundary, setPincodeBoundary, position, setPosition, zoom, setZoom }: LandingPageProps) => {
   const [hasSearched, setHasSearched] = useState(false);
   const [result, setResult] = useState([]);
-
 
 
   const onSearch = async (search : string) => {
@@ -37,7 +45,9 @@ const LandingPage = ({ sidebarOpen }: { sidebarOpen?: boolean }) => {
   return (
     <div className={landingCss["lip-landing__wrap"]}>
       <SearchBar sidebarOpen={sidebarOpen} onSearch={onSearch} placeHolder={'Search'} customClsform={'form'} customClsfocus={'focused'} customClsinput={'input'} customClsbutton={'button'} icon={Images?.searchIcon}/>
-      <MapComponent position={position} zoom={zoom} hasSearched={hasSearched} />
+      {/* Pass setPincodeBoundary to GeoAnalysisContent via SidePanel, and pincodeBoundary to MapComponent */}
+      <MapComponent position={position} zoom={zoom} hasSearched={hasSearched} pincodeBoundary={pincodeBoundary} />
+      {/* You will need to update the SidePanel/GeoAnalysisContent usage to pass setPincodeBoundary */}
     </div>
   )
 }

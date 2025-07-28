@@ -1,10 +1,14 @@
-import type { ContextType } from "../types/types"
-import { SidebarProvider } from "./sidebarContex"
+import type { ContextType } from "../types/types";
+import { SelectedHexProvider } from "./SelectedHexContext";
+import { SidebarProvider } from "./sidebarContex";
+import { BufferAnalysisProvider } from "./BufferAnalysisContext";
 
 export const GlobalContext = ({ children }: ContextType) => {
-    return (
-        <SidebarProvider>
-            {children}
-        </SidebarProvider>
-    )
-}
+  return (
+    <SelectedHexProvider>
+      <SidebarProvider>
+        <BufferAnalysisProvider>{children}</BufferAnalysisProvider>
+      </SidebarProvider>
+    </SelectedHexProvider>
+  );
+};

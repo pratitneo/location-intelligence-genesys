@@ -1,0 +1,13 @@
+.lip-charthead{
+    &__wrap{
+        background-color: $secondary-violet;
+        padding: 10px;
+        @extend %flex-center;
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 28px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: $purple;
+    }
+}

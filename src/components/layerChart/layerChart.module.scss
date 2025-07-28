@@ -1,0 +1,7 @@
+.lip-layerChart{
+    &__wrap{
+        padding: 10px;
+        @extend %flex-column;
+        gap:10px;
+    }
+}

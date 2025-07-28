@@ -10,6 +10,8 @@ import LandingPage from '../../pages/landingPage/landingPage';
 import { useSidebar } from "../../context/sidebarContex";
 import Sidebar from "../sidebar/sidebar";
 import GeoAnalysisContent from "../geoAnalysisContent/geoAnalysisContent";
+import LayerChart from "../layerChart/layerChart";
+import ChatBot from "../chatbot/chatBot";
 
 const Layout = () => {
   const location = useLocation();
@@ -26,14 +28,21 @@ const Layout = () => {
   // for right side sub icons
   const [subIconKey, setSubIconKey] = useState<IconKey | null>(null)
 
+  // Lift pincodeBoundary state up to Layout
+  const [pincodeBoundary, setPincodeBoundary] = useState<any>(null);
+  // Lift map position and zoom up to Layout
+  const defaultPosition = { lat: 19.0760, lng: 72.8777 };
+  const [position, setPosition] = useState<[number, number]>([defaultPosition.lat, defaultPosition.lng]);
+  const [zoom, setZoom] = useState(13);
+
   // side panelName content
   const getPanelTitle = (key: IconKey) => {
     switch (key) {
-      case "3dmap": return <div>3D Map Content</div>;
+      case "3dmap": return <div><ChatBot /></div>;
       case "charts": return <div>Charts Content</div>;
       case "legend": return <div>Legend Content</div>;
       case "draw": return <div>Draw on Map Content</div>;
-      case "maps": return <div>Maps Content</div>;
+      case "maps": return <div><LayerChart /></div>;
       case "geo": return <div>Geo Analysis Content</div>;
       case "dataset": return <div>Dataset Content</div>;
       case "siteSelection": return <><SiteSelection /></>;
@@ -92,13 +101,23 @@ const Layout = () => {
   return (
     <div className={styles.layout}>
       {/* MAIN CONTENT */}
-      {isLandingPage ? (<LandingPage sidebarOpen={panelName === 'menubar'} />) : (<Outlet />)}
+      {isLandingPage ? (
+        <LandingPage
+          sidebarOpen={panelName === 'menubar'}
+          pincodeBoundary={pincodeBoundary}
+          setPincodeBoundary={setPincodeBoundary}
+          position={position}
+          setPosition={setPosition}
+          zoom={zoom}
+          setZoom={setZoom}
+        />
+      ) : (<Outlet />)}
       {isLandingPage && (
         <>
           {/* Left Sidebar */}
           <Sidebar getToggleFn={toggleSidebar} onIconClick={handleIconClick} sidebarOpen={panelName === 'menubar'} sideText={sideTextVisibility} />
           {/* Left SidepanelName */}
-          <SidePanel customCls="left" visibleCls="left" visible={panelName === 'leftPanel'} content={<GeoAnalysisContent />} />
+          <SidePanel customCls="left" visibleCls="left" visible={panelName === 'leftPanel'} content={GeoAnalysisContent} contentProps={{ setAreaBoundary: setPincodeBoundary, setPosition, setZoom }} />
           {/* Right Sidebar */}
           <RightSideBar onIconClick={handleIconClick} handleIconClick={toggleLeftPanel} isPanelOpen={panelName === 'rightPanel'} activeKey={subIconKey ? subIconKey : rightIconKey} />
           {/* Right Side Panel */}

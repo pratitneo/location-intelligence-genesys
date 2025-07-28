@@ -35,7 +35,7 @@ const RightSideBar = ({ isPanelOpen, onIconClick, activeKey, handleIconClick }: 
             {iconList.map((item) => (
               <div key={item.id} className={styles["lip-right-sidebar__icon-wrap"]}>
                 <div key={item.id} className={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} onClick={() => onIconClick(item.key)}>
-                  <IconWithTooltip icon={item.icon} tooltipText={item.tooltip} position="left" customCls={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} />
+                  <IconWithTooltip icon={item.icon} tooltipText={item.tooltip} position="bottom" customCls={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} />
                 </div>
 
                 {item.key === "draw" && activeKey === "draw" && (
@@ -46,7 +46,7 @@ const RightSideBar = ({ isPanelOpen, onIconClick, activeKey, handleIconClick }: 
 
                 {item.key === "geo" && activeKey === "geo" && (
                   <div className={`${styles["lip-right-sidebar__sub-icons"]} ${styles["lip-right-sidebar__sub-geoicons"]}`} >
-                    {subGeoIconList.map((subItem) => (<IconWithTooltip key={subItem.id} icon={subItem.icon} tooltipText={subItem.tooltip} position="left" customCls={styles["lip-right-sidebar__sub-icon"]} getActionFn={() => handleIconClick(subItem?.id)} />))}
+                    {subGeoIconList.map((subItem) => (<IconWithTooltip key={subItem.id} icon={subItem.icon} tooltipText={subItem.tooltip} position="bottom" customCls={styles["lip-right-sidebar__sub-icon"]} getActionFn={() => handleIconClick(subItem?.id)} />))}
                   </div>
                 )}
               </div>

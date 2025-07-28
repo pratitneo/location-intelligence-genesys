@@ -23,7 +23,7 @@
     }
 
     &__container {
-        @extend flex-column;
+        @extend %flex-column;
         gap: 10px;
         color: $purple;
 

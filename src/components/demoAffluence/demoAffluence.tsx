@@ -3,7 +3,7 @@ import demoAffluenceCSS from './demoAffluence.module.scss';
 import { Images } from '../../assets/assets';
 import type { SalaryBracket } from '../../types/types';
 import Affluence from '../affluence/affluence';
-import { useSelectedHex } from '../selectedHexContext/SelectedHexContext';
+import { useSelectedHex } from '../../context/SelectedHexContext';
 
 
 // const salaryData: SalaryBracket[] = [

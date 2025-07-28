@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react'
-import type { ContextType, IconKey, SidebarValueType } from '../types/types'
+import type { ContextType, SidebarValueType, IconKey } from '../types/types'
 
 const SidebarContext = createContext<SidebarValueType | undefined>(undefined)
 export const SidebarProvider = ({ children }: ContextType) => {

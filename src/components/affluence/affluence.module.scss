@@ -2,18 +2,22 @@
     &__wrap{
         padding: 2px 4px;
         border-radius: $radius-input;
-        @extend %flex-between-center;
-        background-color: #FFFFFF;
+        @extend %flex-column-center;
+        gap:12px;
+        background-color: $white;
         font-weight: 500;
         line-height: 100%;
         letter-spacing: 0px;
+        min-height: 128px;
     }
 
     &__range{
-        color: #8E44F7;
+        color: $accent-purple;
+        font-size: X-large;
     }
 
     &__count{
-        color: #555555;
+        color: $text-accent;
+        font-size: x-large;
     }
 }

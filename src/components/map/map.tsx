@@ -90,7 +90,7 @@ function HexPolygons() {
 
 
 // Point-in-polygon function
-function isPointInPolygon(point: [number, number], polygon: [number, number][]) {
+/* function isPointInPolygon(point: [number, number], polygon: [number, number][]) {
   let inside = false;
   for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
     const xi = polygon[i][0], yi = polygon[i][1];
@@ -100,10 +100,10 @@ function isPointInPolygon(point: [number, number], polygon: [number, number][]) 
     if (intersect) inside = !inside;
   }
   return inside;
-}
+} */
 
 function HexClickHandler() {
-  const { setHexes, setSelectedHex, hexes } = useSelectedHex();
+  const { setHexes, setSelectedHex } = useSelectedHex();
   const { bufferType, analysisValue, setBufferCenter, setBufferRadius, bufferCenter, bufferRadius } = useBufferAnalysis();
   useMapEvents({
     click: (e) => {

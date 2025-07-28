@@ -10,6 +10,7 @@ import LandingPage from '../../pages/landingPage/landingPage';
 import { useSidebar } from "../../context/sidebarContex";
 import Sidebar from "../sidebar/sidebar";
 import GeoAnalysisContent from "../geoAnalysisContent/geoAnalysisContent";
+import SiteRecomm from "../siteRecomm/siteRecomm";
 import LayerChart from "../layerChart/layerChart";
 import ChatBot from "../chatbot/chatBot";
 
@@ -23,7 +24,7 @@ const Layout = () => {
   const [sideTextVisibility, setSideTextVisibility] = useState(false)
 
   // for current open panelName: menu, left, right
-  const { panelName, updatePanelName, rightIconKey, setRightIconKey } = useSidebar();
+  const { panelName, updatePanelName, leftPanel, updateLeftPanel, rightPanel, updateRightPanel, rightIconKey, setRightIconKey } = useSidebar();
 
   // for right side sub icons
   const [subIconKey, setSubIconKey] = useState<IconKey | null>(null)
@@ -46,6 +47,7 @@ const Layout = () => {
       case "geo": return <div>Geo Analysis Content</div>;
       case "dataset": return <div>Dataset Content</div>;
       case "siteSelection": return <><SiteSelection /></>;
+      case "siteRecos": return <><SiteRecomm /></>;
       default: return <div>No Content</div>;
     }
   };
@@ -66,26 +68,16 @@ const Layout = () => {
   // right main icons click
   const handleIconClick = (key: IconKey) => {
     if (key === 'geo' || key === 'draw') {
-      // empty key state
       setRightIconKey(null)
-
-      // close menusidebar if open
-      updatePanelName('')
-      setSideTextVisibility(false)
-
-      // set subicon key state 
       setSubIconKey(prev => prev === key ? null : key)
+      updateRightPanel(false)
+      setSideTextVisibility(false)
     }
-    else if (key === 'siteSelection') {
-      updatePanelName(panelName === 'rightPanel' ? '' : 'rightPanel')
-      setRightIconKey(prev => prev === key ? null : key)
-    }
-    else {
-      updatePanelName('rightPanel')
-      setRightIconKey(prev => prev === key ? null : key)
-      setSubIconKey(null)
 
-      // hide menusidebar text
+    else {
+      updateRightPanel(true)
+      setRightIconKey(key)
+      setSubIconKey(null)
       setSideTextVisibility(false)
     }
   };
@@ -93,10 +85,9 @@ const Layout = () => {
   // toggle sub icons
   const toggleLeftPanel = (id: string) => {
     if (id === 'select' || id === 'buffer') {
-      updatePanelName('leftPanel')
+      updateLeftPanel(true)
     }
   }
-
 
   return (
     <div className={styles.layout}>
@@ -117,11 +108,11 @@ const Layout = () => {
           {/* Left Sidebar */}
           <Sidebar getToggleFn={toggleSidebar} onIconClick={handleIconClick} sidebarOpen={panelName === 'menubar'} sideText={sideTextVisibility} />
           {/* Left SidepanelName */}
-          <SidePanel customCls="left" visibleCls="left" visible={panelName === 'leftPanel'} content={GeoAnalysisContent} contentProps={{ setAreaBoundary: setPincodeBoundary, setPosition, setZoom }} />
+          <SidePanel customCls="left" visibleCls="left" visible={leftPanel} content={GeoAnalysisContent} contentProps={{ setAreaBoundary: setPincodeBoundary, setPosition, setZoom }} />
           {/* Right Sidebar */}
-          <RightSideBar onIconClick={handleIconClick} handleIconClick={toggleLeftPanel} isPanelOpen={panelName === 'rightPanel'} activeKey={subIconKey ? subIconKey : rightIconKey} />
+          <RightSideBar onIconClick={handleIconClick} handleIconClick={toggleLeftPanel} isPanelOpen={rightPanel} activeKey={subIconKey ? subIconKey : rightIconKey} />
           {/* Right Side Panel */}
-          <SidePanel customCls="right" visibleCls="right" visible={panelName === 'rightPanel'} content={rightIconKey ? getPanelTitle(rightIconKey) : ''} />
+          <SidePanel customCls="right" visibleCls="right" visible={rightPanel} content={rightIconKey ? getPanelTitle(rightIconKey) : ''} />
         </>
       )}
 

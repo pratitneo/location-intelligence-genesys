@@ -90,7 +90,7 @@ function HexPolygons() {
 
 
 // Point-in-polygon function
-function isPointInPolygon(point: [number, number], polygon: [number, number][]) {
+/* function isPointInPolygon(point: [number, number], polygon: [number, number][]) {
   let inside = false;
   for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
     const xi = polygon[i][0], yi = polygon[i][1];
@@ -100,10 +100,10 @@ function isPointInPolygon(point: [number, number], polygon: [number, number][]) 
     if (intersect) inside = !inside;
   }
   return inside;
-}
+} */
 
 function HexClickHandler() {
-  const { setHexes, setSelectedHex, hexes } = useSelectedHex();
+  const { setHexes, setSelectedHex } = useSelectedHex();
   const { bufferType, analysisValue, setBufferCenter, setBufferRadius, bufferCenter, bufferRadius } = useBufferAnalysis();
   useMapEvents({
     click: (e) => {
@@ -117,10 +117,10 @@ function HexClickHandler() {
         const toRad = (deg: number) => deg * Math.PI / 180;
         const dLat = toRad(lat - bufferCenter[0]);
         const dLng = toRad(lng - bufferCenter[1]);
-        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                  Math.cos(toRad(bufferCenter[0])) * Math.cos(toRad(lat)) *
-                  Math.sin(dLng/2) * Math.sin(dLng/2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(toRad(bufferCenter[0])) * Math.cos(toRad(lat)) *
+          Math.sin(dLng / 2) * Math.sin(dLng / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         const distance = R * c;
         if (distance <= bufferRadius) {
           // Click is inside buffer, do nothing (buffer circle handles hex fetch)
@@ -194,11 +194,11 @@ const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapCompo
   // Handler for Generate Report button
   const handleGenerateReport = async () => {
     if (!bufferCenter || !bufferRadius) return;
-    
+
     // Start loading state and hide popup
     setIsGeneratingReport(true);
     setShowBufferPopup(false);
-    
+
     try {
       const response = await fetch('http://127.0.0.1:8000/API/get_hexes_from_point_ahp/', {
         method: 'POST',
@@ -250,11 +250,11 @@ const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapCompo
   // Handler for city/pincode Generate Report
   const handleAreaGenerateReport = async () => {
     if (!pincodeBoundary) return;
-    
+
     // Start loading state and hide popup
     setIsGeneratingReport(true);
     setShowAreaPopup(false);
-    
+
     // Determine which API to call based on bufferType
     let url = '';
     let body: any = {};
@@ -323,7 +323,7 @@ const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapCompo
             <Marker position={bufferCenter} />
             {/* Only show popup if no hexes are displayed */}
             {showBufferPopup && hexes.length === 0 && (
-              <Popup 
+              <Popup
                 position={bufferCenter}
                 eventHandlers={{ remove: () => setShowBufferPopup(false) }}
               >
@@ -353,7 +353,7 @@ const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapCompo
               <Marker position={areaCentroid} />
             )}
             {showAreaPopup && hexes.length === 0 && areaCentroid && (
-              <Popup 
+              <Popup
                 position={areaCentroid}
                 eventHandlers={{ remove: () => setShowAreaPopup(false) }}
               >
@@ -397,7 +397,7 @@ const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapCompo
           <div className={mapCss['lip-map__legend-bar']} />
         </div>
       )}
-      
+
       {/* Loading Overlay */}
       {isGeneratingReport && (
         <div style={{

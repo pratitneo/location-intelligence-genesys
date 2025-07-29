@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import donutCss from './donutChart.module.scss'
 import type { DonutItemType, DonutType } from '../../types/types';
 
@@ -9,7 +9,7 @@ const DonutChart = ({ boxHeight, donutData, inRadiusVal, outRadiusVal, numberDat
             <ResponsiveContainer width="100%" height={boxHeight}>
                 <PieChart>
                     <Pie data={donutData} cx="50%" cy="50%" innerRadius={inRadiusVal} outerRadius={outRadiusVal} dataKey={numberDataKey}>
-                        {donutData?.map((entry: DonutItemType, index) => (
+                        {donutData?.map((_entry: DonutItemType, index) => (
                             <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
                         ))}
                     </Pie>

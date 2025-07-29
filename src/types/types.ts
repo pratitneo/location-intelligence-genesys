@@ -13,7 +13,7 @@ export type LoginInputType = {
     customCls?: string;
     inputValue?: string;
     freezeInput?: boolean;
-    getInputValue?: (inputEvent: unknown) => void;
+    getInputValue?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     getInputToggle?: (inputEvent: unknown) => void;
 };
 export type ButtonType = {
@@ -113,7 +113,7 @@ export type DropdownHeadType = {
 
 export type AgeDistributionType = {
     ageRange: string;
-    total: string;
+    // total: string;
     male: string;
     female: string;
 };
@@ -144,7 +144,7 @@ export type SiteScoreBtnsType = {
     btnsData: ScoreBtnType[]
 }
 export type SiteDrpDwnItemType = {
-    id: number | string
+    id: number | undefined
     icon?: any,
     label: string
 }
@@ -221,11 +221,11 @@ export type spendingSegmentType = {
     percentage: string;
     approxCount: string
 }[];
-export type SpendingSegmentType = {
+export type SpendingType = {
     spendLevel: SpendingLevel;
     percentage: string;
     approxCount: string
-}[];
+};
 
 export type SideBtnType = {
     sideBtnText?: string

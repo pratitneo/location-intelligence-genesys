@@ -11,10 +11,10 @@ type LandingPageProps = {
   sidebarOpen?: boolean;
   pincodeBoundary?: any;
   setPincodeBoundary?: (boundary: any) => void;
-  position: [number, number];
-  setPosition: (pos: [number, number]) => void;
-  zoom: number;
-  setZoom: (zoom: number) => void;
+  position?: [number, number] | undefined;
+  setPosition?: (pos: [number, number]) => void;
+  zoom?: number;
+  setZoom?: (zoom: number) => void;
 };
 
 const LandingPage = ({ sidebarOpen, position, setPosition, zoom, setZoom }: LandingPageProps) => {
@@ -31,8 +31,8 @@ const LandingPage = ({ sidebarOpen, position, setPosition, zoom, setZoom }: Land
       if (data && data.length > 0) {
         const lat = parseFloat(data[0].lat);
         const lon = parseFloat(data[0].lon);
-        setPosition([lat, lon]);
-        setZoom(15);
+        setPosition?.([lat, lon]);
+        setZoom?.(15);
         setHasSearched(true);
         setResult(data);
         console.log(result);
@@ -54,7 +54,7 @@ const LandingPage = ({ sidebarOpen, position, setPosition, zoom, setZoom }: Land
       <div className={`${landingCss['lip-landing__explore']}`} onClick={() => handleAIReocs()}>
         <div className={`${landingCss['lip-landing__explore-text']}`}><span>explore site recommendations</span> <span className={`${landingCss['lip-landing__explore-icon']}`}><img src={Images?.exploreRecos} alt="" /></span></div>
       </div>
-      <MapComponent position={position} zoom={zoom} hasSearched={hasSearched} />
+      <MapComponent position={position ?? [0, 0]} zoom={zoom ?? 10} hasSearched={hasSearched} />
     </div>
   )
 }

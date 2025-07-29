@@ -5,8 +5,8 @@ import type { SiteDrpDwnType } from '../../types/types'
 
 const SiteScoreDrpDwn = ({ drpDwnData, children }: SiteDrpDwnType) => {
     const [drpDwn, setDrpDwn] = useState<number | null>(0)
-    const handleDrpDwn = (index: string | number | undefined) => {
-        setDrpDwn((prevDrpDwn) => prevDrpDwn === index ? null : index)
+    const handleDrpDwn = (index: number | undefined) => {
+        setDrpDwn((prevDrpDwn) => prevDrpDwn === index ? null : index ?? null)
     }
     return (
         <div className={`${scoreDrpDwnCss['lip-siteDrpDwn__drpDwnContent']}`}>

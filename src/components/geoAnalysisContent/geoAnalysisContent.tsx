@@ -53,10 +53,10 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
   const [openDropdownId, setOpenDropdownId] = useState<number | null>(null)
   const [hiddenRows, setHiddenRows] = useState<{ [key: number]: boolean }>({});
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
-  const { bufferType, setBufferType, analysisValue, setAnalysisValue, setBufferCenter, setBufferRadius, bufferCenter, bufferRadius } = useBufferAnalysis();
+  const { bufferType, setBufferType, analysisValue, setAnalysisValue, setBufferCenter, setBufferRadius, bufferCenter } = useBufferAnalysis();
   const { setHexes, setSelectedHex, hexes } = useSelectedHex();
   const [loadingCity, setLoadingCity] = useState(false);
-  const { panelName, updatePanelName } = useSidebar()
+  const { updatePanelName } = useSidebar()
 
   const onSearch = (value: string) => {
     // Handle search logic here

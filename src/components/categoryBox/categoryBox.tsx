@@ -8,7 +8,7 @@ const CategoryBox = ({ savedLocations }: CategoryBoxType) => {
                     <p className={`${categoryCss['lip-category__head']}`}>{item?.location ?? ''} site analysis</p>
                     <div className={`${categoryCss['lip-category__names__date']}`}>
                         <div className={`${categoryCss['lip-category__names']}`}>
-                            {item?.attributes?.map((attr: string, index: number) => {
+                            {(item?.attributes as string[])?.map((attr: string, index: number) => {
                                 return (
                                     <p key={index} className={`${categoryCss['lip-category__name']}`}>{attr ? attr : ''}</p>
                                 )

@@ -85,7 +85,7 @@ const Login = () => {
             {errors.userEmail}
           </p>
         )}
-        <LoginInput inputLabel="password" inputType="password" inputName="userPassword" inputId="password" icon="passwordEye" customCls="lip-input__password" inputValue={loginData?.userPassword} getInputValue={handleInput} getInputToggle={(e: any) => handleTogglePassword} />
+        <LoginInput inputLabel="password" inputType="password" inputName="userPassword" inputId="password" icon="passwordEye" customCls="lip-input__password" inputValue={loginData?.userPassword} getInputValue={handleInput} getInputToggle={() => handleTogglePassword} />
         {/* <LoginInput inputLabel="password" inputType="password" inputName="userPassword" inputId="password" icon="passwordEye" customCls="lip-input__password" inputValue={loginData?.userPassword} getInputValue={(e: any) => handleInput} getInputToggle={(e: any) => handleTogglePassword} /> */}
         {errors.userPassword && (
           <p className={`${loginCss["lip-login__error-text"]}`}>

@@ -10,6 +10,7 @@ import * as h3 from 'h3-js';
 import { useSidebar } from '../../context/sidebarContex';
 import { useBufferAnalysis } from '../../context/BufferAnalysisContext';
 import { useState, useEffect } from 'react';
+import { LIP_BASE_URL } from '../../configs/apiConfig';
 
 const DefaultIcon = L.icon({ iconUrl, shadowUrl: iconShadow, iconAnchor: [12, 41] });
 L.Marker.prototype.options.icon = DefaultIcon;
@@ -28,7 +29,7 @@ function HexPolygons() {
 
   const handleHexClick = async (hexId: string, boundary: [number, number][]) => {
     try {
-      const response = await fetch(`http://lip.genesys.com:9080/API/get_frontend_data/?hex_id=${hexId}`);
+      const response = await fetch(`${LIP_BASE_URL}/get_frontend_data/?hex_id=${hexId}`);
       if (!response.ok) {
         if (response.status === 404) {
           alert('No data available for this hexagon.');
@@ -201,7 +202,7 @@ const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapCompo
     setShowBufferPopup(false);
 
     try {
-      const response = await fetch('http://lip.genesys.com:9080/API/get_hexes_from_buffer_ahp/', {
+      const response = await fetch(`${LIP_BASE_URL}/get_hexes_from_buffer_ahp/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ lat: bufferCenter[0], lon: bufferCenter[1], radius: bufferRadius }),
@@ -260,10 +261,10 @@ const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapCompo
     let url = '';
     let body: any = {};
     if (bufferType === 'pincode' && analysisValue) {
-      url = 'http://lip.genesys.com:9080/API/get_hexes_from_pincode_ahp/';
+      url = `${LIP_BASE_URL}/get_hexes_from_pincode_ahp/`;
       body = { pincode: analysisValue };
     } else if (bufferType === 'city' && analysisValue) {
-      url = 'http://lip.genesys.com:9080/API/get_hexes_from_city_ahp/';
+      url = `${LIP_BASE_URL}/get_hexes_from_city_ahp/`;
       body = { city_name: analysisValue };
     } else {
       return;

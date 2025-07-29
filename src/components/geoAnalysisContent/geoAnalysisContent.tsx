@@ -11,6 +11,7 @@ import { useSelectedHex } from '../../context/SelectedHexContext';
 import * as h3 from 'h3-js';
 import wellknown from 'wellknown'; // Add this import at the top
 import { useSidebar } from "../../context/sidebarContex"
+import { LIP_BASE_URL } from '../../configs/apiConfig'
 
 const icons = [{ label: 'POI', icon: Images?.poiIcon }, { label: 'Demographics', icon: Images?.demographics }, { label: 'Land use / cover', icon: Images?.landUse }, { label: 'Footfall', icon: Images?.footfall }, { label: 'Road Network', icon: Images?.roadNetwork }]
 
@@ -115,7 +116,7 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
     if (city) {
       setLoadingCity(true); // Start loading
       try {
-        const response = await fetch('http://lip.genesys.com:9080/API/get_hexes_from_city_ahp/', {
+        const response = await fetch(`${LIP_BASE_URL}/get_hexes_from_city_ahp/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ city_name: city }),
@@ -164,7 +165,7 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
     setSelectedHex(null);
     if (pincode) {
       try {
-        const response = await fetch('http://lip.genesys.com:9080/API/get_hexes_from_pincode_ahp/', {
+        const response = await fetch(`${LIP_BASE_URL}/get_hexes_from_pincode_ahp/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ pincode }),
@@ -207,7 +208,7 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
     // If buffer center is set and hexes are present, fetch new hexes for new radius
     if (bufferCenter && hexes.length > 0) {
       try {
-        const response = await fetch('http://lip.genesys.com:9080/API/get_hexes_from_buffer_ahp/', {
+        const response = await fetch(`${LIP_BASE_URL}/get_hexes_from_buffer_ahp/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ lat: bufferCenter[0], lon: bufferCenter[1], radius: newRadius }),

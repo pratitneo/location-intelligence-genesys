@@ -24,7 +24,7 @@ const getAHPColor = (ahpValue: number): string => {
 function HexPolygons() {
   const map = useMap();
   const { selectedHex, setSelectedHex, hexes } = useSelectedHex();
-  const { setRightIconKey, updatePanelName } = useSidebar();
+  const { setRightIconKey, updatePanelName, updateRightPanel } = useSidebar();
 
   const handleHexClick = async (hexId: string, boundary: [number, number][]) => {
     try {
@@ -55,6 +55,7 @@ function HexPolygons() {
         // Open the siteselection panel
         setRightIconKey('siteSelection');
         updatePanelName('rightPanel');
+        updateRightPanel(true);
       }
     } catch {
       alert('Error fetching hexagon details.');

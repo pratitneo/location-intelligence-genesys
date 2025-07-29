@@ -1,4 +1,3 @@
-import React from 'react'
 import visitCss from './visitors.module.scss'
 import type { PeakNonPeakType } from '../../types/types'
 

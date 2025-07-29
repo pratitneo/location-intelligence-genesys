@@ -1,8 +1,8 @@
-import type { SpendingSegmentType } from '../../types/types';
+import type { SpendingType } from '../../types/types';
 import cltspndCSS from './ClothingSpendLevel.module.scss'
 
 
-const ClothingSpendLevel = ({ spendLevel, percentage, approxCount }: SpendingSegmentType) => {
+const ClothingSpendLevel = ({ spendLevel, percentage, approxCount }: SpendingType) => {
   // const levelClass = spendLevel.toLowerCase();
   return (
     <div className={`

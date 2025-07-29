@@ -10,7 +10,7 @@ const data = [
     { category: 'Travel Distance', score: 7.0 },
 ];
 
-const RadarChartGraph = ({ chartHeight, chartRadialSize, internalLineColor, labelKey, outsideLineColor, radarItemTextSize, markLineAngle, valueRangeArr, markLineColor, mainLineTextColor, mainLineTextSize, labelName, dataNumKey, internalBorderColor, internalFillColor, fillColorOpacity, internalBorderValKey, internalValPos, internalValColor, internalValSize, legendHorizontalAlign }: RadarType) => {
+const RadarChartGraph = ({ chartHeight, chartRadialSize, internalLineColor, labelKey, outsideLineColor, radarItemTextSize, markLineAngle, valueRangeArr, markLineColor, mainLineTextColor, mainLineTextSize, labelName, dataNumKey, internalBorderColor, internalFillColor, fillColorOpacity, internalBorderValKey, internalValColor, internalValSize }: RadarType) => {
     return (
         <div style={{ backgroundColor: '#4C1D95', padding: 20, borderRadius: 12 }}>
             <h3 style={{ color: 'white' }}></h3>
@@ -34,10 +34,10 @@ const RadarChartGraph = ({ chartHeight, chartRadialSize, internalLineColor, labe
                     <PolarAngleAxis dataKey={labelKey} stroke={outsideLineColor} tick={{ fontSize: radarItemTextSize }} />
                     <PolarRadiusAxis angle={markLineAngle} domain={valueRangeArr} stroke={markLineColor} tick={{ fill: mainLineTextColor, fontSize: mainLineTextSize }} />
                     <Radar name={labelName} dataKey={dataNumKey} stroke={internalBorderColor} fill={internalFillColor} fillOpacity={fillColorOpacity}>
-                        <LabelList dataKey={internalBorderValKey} position={internalValPos} stroke={internalValColor} fill="#93C5FD" fontSize={internalValSize} />
+                        <LabelList dataKey={internalBorderValKey} position={'bottom'} stroke={internalValColor} fill="#93C5FD" fontSize={internalValSize} />
                     </Radar>
-                    <Tooltip contentStyle={{ backgroundColor: '#1E1B4B', border: 'none', borderRadius: '6px', color: 'white', fontSize: 13, }} formatter={(value: number, name: string) => [`${value}`, 'Score']} labelFormatter={(label: string) => `${label}`} />
-                    <Legend verticalAlign={legendHorizontalAlign} wrapperStyle={{ color: '#E0E7FF', fontSize: 12 }} />
+                    <Tooltip contentStyle={{ backgroundColor: '#1E1B4B', border: 'none', borderRadius: '6px', color: 'white', fontSize: 13, }} formatter={(value: number) => [`${value}`, 'Score']} labelFormatter={(label: string) => `${label}`} />
+                    <Legend verticalAlign={'bottom'} wrapperStyle={{ color: '#E0E7FF', fontSize: 12 }} />
                 </RadarChart>
             </ResponsiveContainer>
             <DrpdwnHead heading='Scoring 8.2 on accessibility, Bandra East offers excellent public transport (9.0) and moderate road ease with an average 16-min commute.' />

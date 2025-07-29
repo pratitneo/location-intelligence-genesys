@@ -7,7 +7,7 @@ const PersonalInfo = ({ getEditState, getSaveAction }: PersonalInfoType) => {
     const [loginData, setLoginData] = useState<PersonalDataType>({ firstName: '', lastName: '', userName: '', userEmail: '' })
     console.log(loginData, 'loginData')
     const handleInput = (inputEvent: any) => {
-        const { name, value, type } = inputEvent?.target
+        const { name, value } = inputEvent?.target
         // console.log(name, value, type, 'input')
         setLoginData((prevLoginData: PersonalDataType) => ({
             ...prevLoginData,

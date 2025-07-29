@@ -1,4 +1,3 @@
-import React from 'react'
 import recomCardCss from './siteRecommCard.module.scss'
 
 const SiteRecommCard = () => {

@@ -1,5 +1,5 @@
 import type { SpendingType } from '../../types/types';
-import cltspndCSS from './ClothingSpendLevel.module.scss'
+import cltspndCSS from './clothingSpendLevel.module.scss'
 
 
 const ClothingSpendLevel = ({ spendLevel, percentage, approxCount }: SpendingType) => {

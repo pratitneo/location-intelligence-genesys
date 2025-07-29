@@ -47,6 +47,19 @@
     width: 0;
 }
 
+@mixin gradientBorder($width: null, $style: null, $radius: null, $color1: null, $color2: null, $color3: null, $color4: null) {
+    border: $width $style transparent;
+    border-radius: $radius;
+
+    background: linear-gradient(90deg, $color1, $color2, $color3, $color4);
+    background-clip: padding-box border-box;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    box-shadow: 0 0 0 1px transparent inset;
+}
+
 .lip-profile__tab--active {
     background: $white !important;
     border: 1px solid $text-violet !important;

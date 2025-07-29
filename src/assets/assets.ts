@@ -52,6 +52,8 @@ import CompLandscape from './comp-landscape.svg'
 import AddCompetitor from './add-competitor.svg'
 import BrandDeSelect from './brand-deselect.svg'
 import EyeClosed from './eye-closed.svg'
+import ExploreRecos from './explore-recos.svg'
+import ShowRecos from './show-recos.svg'
 
 
 
@@ -109,7 +111,9 @@ const Images = {
     compLandscape: CompLandscape,
     addCompetitor: AddCompetitor,
     brandDeSelect: BrandDeSelect,
-    eyeClosed: EyeClosed
+    eyeClosed: EyeClosed,
+    exploreRecos: ExploreRecos,
+    showRecos: ShowRecos,
 }
 
 export { Images }

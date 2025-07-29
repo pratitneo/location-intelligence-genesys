@@ -1,13 +1,16 @@
+import { useSidebar } from '../../context/sidebarContex'
 import type { SelectSubdataType } from '../../types/types'
 import SubdataCheckbox from '../subdataCheckbox/subdataCheckbox'
 import subdataCss from './selectSubData.module.scss'
-const SelectSubData = ({head, dragIcon, arrowIcon, eyeIcon, isDropdownOpen, onArrowClick, isHidden, onEyeClick}: SelectSubdataType & { isHidden?: boolean, onEyeClick?: () => void }) => {
-  
-
+const SelectSubData = ({ head, dragIcon, arrowIcon, eyeIcon, isDropdownOpen, onArrowClick, isHidden, onEyeClick }: SelectSubdataType & { isHidden?: boolean, onEyeClick?: () => void }) => {
+  const { updateRightPanel, setRightIconKey } = useSidebar()
   return (
     <div className={subdataCss['lip-subdata__wrap']} style={isHidden ? { background: '#EEEEEE' } : undefined}>
       {/* Heading and icons row */}
-      <div className={subdataCss['lip-subdata__row']}>
+      <div className={subdataCss['lip-subdata__row']} onClick={() => {
+        updateRightPanel(true)
+        setRightIconKey('maps')
+      }}>
         <div className={subdataCss['lip-subdata__container']}>
           <img className={subdataCss['lip-subdata__dragIcon']} src={dragIcon} alt='DragIcon' />
           <p>{head}</p>
@@ -28,10 +31,10 @@ const SelectSubData = ({head, dragIcon, arrowIcon, eyeIcon, isDropdownOpen, onAr
       {/* Dropdown content row */}
       {arrowIcon && isDropdownOpen && (
         <div className={subdataCss['lip-subdata__dropdown']}>
-          <SubdataCheckbox name={'male'}/>
-          <SubdataCheckbox name={"female"}/>
-          <SubdataCheckbox name={'male'}/>
-          <SubdataCheckbox name={"female"}/>
+          <SubdataCheckbox name={'male'} />
+          <SubdataCheckbox name={"female"} />
+          <SubdataCheckbox name={'male'} />
+          <SubdataCheckbox name={"female"} />
         </div>
       )}
     </div>

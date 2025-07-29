@@ -34,7 +34,7 @@ const RightSideBar = ({ isPanelOpen, onIconClick, activeKey, handleIconClick }: 
           <div className={styles["lip-right-sidebar__icons"]}>
             {iconList.map((item) => (
               <div key={item.id} className={styles["lip-right-sidebar__icon-wrap"]}>
-                <div key={item.id} className={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} onClick={() => onIconClick(item.key)}>
+                <div key={item.id} className={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} onClick={() => onIconClick(item?.key)}>
                   <IconWithTooltip icon={item.icon} tooltipText={item.tooltip} position="bottom" customCls={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} />
                 </div>
 

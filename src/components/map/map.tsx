@@ -24,11 +24,11 @@ const getAHPColor = (ahpValue: number): string => {
 function HexPolygons() {
   const map = useMap();
   const { selectedHex, setSelectedHex, hexes } = useSelectedHex();
-  const { setRightIconKey, updatePanelName } = useSidebar();
+  const { setRightIconKey, updatePanelName, updateRightPanel } = useSidebar();
 
   const handleHexClick = async (hexId: string, boundary: [number, number][]) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/API/get_hexid_scores/?hex_id=${hexId}`);
+      const response = await fetch(`http://lip.genesys.com:9080/API/get_frontend_data/?hex_id=${hexId}`);
       if (!response.ok) {
         if (response.status === 404) {
           alert('No data available for this hexagon.');
@@ -55,6 +55,7 @@ function HexPolygons() {
         // Open the siteselection panel
         setRightIconKey('siteSelection');
         updatePanelName('rightPanel');
+        updateRightPanel(true);
       }
     } catch {
       alert('Error fetching hexagon details.');
@@ -200,7 +201,7 @@ const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapCompo
     setShowBufferPopup(false);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/API/get_hexes_from_point_ahp/', {
+      const response = await fetch('http://lip.genesys.com:9080/API/get_hexes_from_buffer_ahp/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ lat: bufferCenter[0], lon: bufferCenter[1], radius: bufferRadius }),
@@ -259,10 +260,10 @@ const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapCompo
     let url = '';
     let body: any = {};
     if (bufferType === 'pincode' && analysisValue) {
-      url = 'http://127.0.0.1:8000/API/get_hexes_from_pincode_ahp/';
+      url = 'http://lip.genesys.com:9080/API/get_hexes_from_pincode_ahp/';
       body = { pincode: analysisValue };
     } else if (bufferType === 'city' && analysisValue) {
-      url = 'http://127.0.0.1:8000/API/get_hexes_from_city_ahp/';
+      url = 'http://lip.genesys.com:9080/API/get_hexes_from_city_ahp/';
       body = { city_name: analysisValue };
     } else {
       return;

@@ -208,10 +208,11 @@ export type PeakNonPeakType = {
     bgClass?: string
 }
 export type SidePanelType = {
-    customCls: string
+    customCls: string;
     visible: boolean;
-    visibleCls: string
+    visibleCls: string;
     content: React.ReactNode;
+    contentProps?: any;
 };
 
 export type SpendingLevel = "High" | "Moderate" | "Low";

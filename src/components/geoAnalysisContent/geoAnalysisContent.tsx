@@ -115,7 +115,7 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
     if (city) {
       setLoadingCity(true); // Start loading
       try {
-        const response = await fetch('http://127.0.0.1:8000/API/get_hexes_from_city_ahp/', {
+        const response = await fetch('http://lip.genesys.com:9080/API/get_hexes_from_city_ahp/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ city_name: city }),
@@ -164,7 +164,7 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
     setSelectedHex(null);
     if (pincode) {
       try {
-        const response = await fetch('http://127.0.0.1:8000/API/get_hexes_from_pincode_ahp/', {
+        const response = await fetch('http://lip.genesys.com:9080/API/get_hexes_from_pincode_ahp/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ pincode }),
@@ -207,7 +207,7 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
     // If buffer center is set and hexes are present, fetch new hexes for new radius
     if (bufferCenter && hexes.length > 0) {
       try {
-        const response = await fetch('http://127.0.0.1:8000/API/get_hexes_from_point_ahp/', {
+        const response = await fetch('http://lip.genesys.com:9080/API/get_hexes_from_buffer_ahp/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ lat: bufferCenter[0], lon: bufferCenter[1], radius: newRadius }),

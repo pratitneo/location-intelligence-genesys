@@ -17,7 +17,7 @@ type LandingPageProps = {
   setZoom: (zoom: number) => void;
 };
 
-const LandingPage = ({ sidebarOpen, position, setPosition, zoom, setZoom }: LandingPageProps) => {
+const LandingPage = ({ sidebarOpen, pincodeBoundary, position, setPosition, zoom, setZoom }: LandingPageProps) => {
   const [hasSearched, setHasSearched] = useState(false);
   const [result, setResult] = useState([]);
   const { updatePanelName, panelName, setRightIconKey } = useSidebar()
@@ -55,7 +55,7 @@ const LandingPage = ({ sidebarOpen, position, setPosition, zoom, setZoom }: Land
       <div className={`${landingCss['lip-landing__explore']}`} onClick={() => updateRightPanel()}>
         <div className={`${landingCss['lip-landing__explore-text']}`}><span>explore site recommendations</span> <span className={`${landingCss['lip-landing__explore-icon']}`}><img src={Images?.exploreRecos} alt="" /></span></div>
       </div>
-      <MapComponent position={position} zoom={zoom} hasSearched={hasSearched} />
+      <MapComponent position={position} zoom={zoom} hasSearched={hasSearched} pincodeBoundary={pincodeBoundary} />
     </div>
   )
 }

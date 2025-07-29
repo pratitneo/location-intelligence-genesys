@@ -16,10 +16,70 @@ const SendIcon = () => (
     </svg>
 );
 
+// Utility function to format chatbot response
+const formatChatbotResponse = (response: string): string => {
+  // Check if response contains hex_id patterns
+  const hexIdMatches = response.match(/hex_id\s*=\s*"([^"]+)"/g);
+  
+  if (hexIdMatches) {
+    // Format the response with proper markdown
+    let formattedResponse = response
+      // Replace all hex_id = "..." patterns with bold hex IDs
+      .replace(/hex_id\s*=\s*"([^"]+)"/g, (match, hexId) => {
+        return `**Hex ID:** \`${hexId}\``;
+      })
+      // Add line breaks for better readability
+      .replace(/([.!?])\s+/g, '$1\n\n')
+      // Add line breaks before questions (no bold)
+      .replace(/(Would you like|Shall we)/g, '\n\n$1')
+      // Add emphasis to key information
+      .replace(/(high population|family-centric spending|dense footfall|ideal for|consistent footfall|strong customer base|accessibility|banking services|business demographics|commercial activity)/g, '*$1*')
+      // Add code formatting for hex IDs
+      .replace(/`([^`]+)`/g, '`$1`');
+    
+    // If there are multiple hex IDs, format them as a list
+    if (hexIdMatches.length > 1) {
+      // Extract all hex IDs
+      const hexIds = hexIdMatches.map(match => {
+        const hexId = match.match(/hex_id\s*=\s*"([^"]+)"/)?.[1];
+        return hexId;
+      }).filter(Boolean);
+      
+      // Replace the hex IDs section with a formatted list
+      const hexIdsSection = hexIds.map(hexId => `- **Hex ID:** \`${hexId}\``).join('\n');
+      
+      // Find the section with hex IDs and replace it
+      const hexSectionRegex = /hex_id\s*=\s*"[^"]+"(?:\s*,\s*hex_id\s*=\s*"[^"]+")*/;
+      formattedResponse = formattedResponse.replace(hexSectionRegex, hexIdsSection);
+    }
+    
+    return formattedResponse;
+  }
+  
+  // For other responses, just add basic formatting
+  return response
+    .replace(/([.!?])\s+/g, '$1\n\n')
+    .replace(/(Would you like|Shall we)/g, '\n\n$1');
+};
+
+// Test function to demonstrate formatting (temporary)
+const testMultipleHexIds = () => {
+  const testResponse = `Response from chatbot: Based on Mumbai's household density, consumer spending patterns, and retail foot traffic, the best zones for your bank are:
+
+hex_id = "8a608b0a62b7fff", hex_id = "8a608b0b1067fff", hex_id = "8a608b0a6adffff", hex_id = "8a608b0b115ffff", hex_id = "8a608b0a604ffff"
+
+These zones reflect high population and consistent footfall, indicating a strong customer base and accessibility for banking services.
+
+Would you like a breakdown of spending and footfall for each hex?
+Shall we rerun this with custom weights for business demographics and commercial activity?`;
+  
+  return formatChatbotResponse(testResponse);
+};
+
 const ChatBot = () => {
   const [messages, setMessages] = useState([
-    { from: 'user', text: 'Where should I open a new store  Mumbai?' },
-    { from: 'bot', text: 'Top Location: Bandra West\nAvg. weekend footfall: 12,000+\nHigh-income density: 42%\nClose to malls, cafes, and premium housing' }
+    { from: 'user', text: 'Hello' },
+    { from: 'bot', text: 'Hello! How can I assist you today with site selection or location analysis?' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -44,9 +104,12 @@ const ChatBot = () => {
         query: input,
         history_json: [], // simplified for now
       });
-
-      if (response && response.result && response.result.text) {
-        const botMessage = { from: 'bot', text: response.result.text };
+      console.log('Response from chatbot:', response);
+      if (response && response.result) {
+        console.log('Response from chatbot:', response.result);
+        // Format the response before displaying
+        const formattedResponse = formatChatbotResponse(response.result);
+        const botMessage = { from: 'bot', text: formattedResponse };
         setMessages(prev => [...prev, botMessage]);
       }
     } catch (error) {

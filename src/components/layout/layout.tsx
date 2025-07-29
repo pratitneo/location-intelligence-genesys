@@ -117,7 +117,7 @@ const Layout = () => {
           {/* Left Sidebar */}
           <Sidebar getToggleFn={toggleSidebar} onIconClick={handleIconClick} sidebarOpen={panelName === 'menubar'} sideText={sideTextVisibility} />
           {/* Left SidepanelName */}
-          <SidePanel customCls="left" visibleCls="left" visible={panelName === 'leftPanel'} content={GeoAnalysisContent} contentProps={{ setAreaBoundary: setPincodeBoundary, setPosition, setZoom }} />
+          <SidePanel customCls="left" visibleCls="left" visible={panelName === 'leftPanel'} content={<GeoAnalysisContent setAreaBoundary={setPincodeBoundary} setPosition={setPosition} setZoom={setZoom} />} />
           {/* Right Sidebar */}
           <RightSideBar onIconClick={handleIconClick} handleIconClick={toggleLeftPanel} isPanelOpen={panelName === 'rightPanel'} activeKey={subIconKey ? subIconKey : rightIconKey} />
           {/* Right Side Panel */}

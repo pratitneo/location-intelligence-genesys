@@ -12,7 +12,9 @@ const ButtonIcon = ({ isPanelOpen = false }: ButtonIconInterface) => {
     navigate('/profile');
   }
 
+
   const handleChatClick = () => {
+
 
   }
   return (

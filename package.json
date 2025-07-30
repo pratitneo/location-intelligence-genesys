@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "home": "https://Mr-Vishal-Neo.github.io/location-intelligence-genesys",
+  "home": "https://pratitneo.github.io/location-intelligence-genesys",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "lip-stable -d dist"
+    "deploy": "gh-pages -d dist -b lip-stable"
   },
   "dependencies": {
     "axios": "^1.10.0",

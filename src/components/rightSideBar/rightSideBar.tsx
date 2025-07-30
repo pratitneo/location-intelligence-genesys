@@ -1,4 +1,4 @@
-import styles from "./rightSidebar.module.scss";
+import styles from "./rightsidebar.module.scss";
 import { Images } from "../../assets/assets";
 import IconWithTooltip from "../iconWithTooltip/IconWithTooltip";
 import type { IconItem, RightBarType, SubIconItem } from "../../types/types";

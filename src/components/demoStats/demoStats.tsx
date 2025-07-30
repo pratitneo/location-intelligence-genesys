@@ -4,16 +4,16 @@ import demoStatsCss from './demostats.module.scss';
 
 const DemoStats = ({ icon, value, label }: DemoStatsType) => {
 
-  const newValue = value.toLocaleString('en-IN');
+    const newValue = value.toLocaleString('en-IN');
 
-  const words = label.split(' ');
-  const firstTwo = words.slice(0, words.length-1).join(' ');
-  const lastWord = words[words.length - 1];
+    const words = label.split(' ');
+    const firstTwo = words.slice(0, words.length - 1).join(' ');
+    const lastWord = words[words.length - 1];
 
-  return (
+    return (
         <div className={`${demoStatsCss['lip-demoStats__box']}`}>
             <div className={`${demoStatsCss['lip-demoStats__icon-value']}`}>
-                <img src={icon} alt="Contact" className={`${demoStatsCss['lip-demoStats__icon']}`}/>
+                <img src={icon} alt="Contact" className={`${demoStatsCss['lip-demoStats__icon']}`} />
                 <p className={`${demoStatsCss['lip-demoStats__value']}`}>{newValue}</p>
             </div>
             <div className={`${demoStatsCss['lip-demoStats__label']}`}>
@@ -23,7 +23,7 @@ const DemoStats = ({ icon, value, label }: DemoStatsType) => {
                 )}
             </div>
         </div>
-  )
+    )
 }
 
 export default DemoStats;

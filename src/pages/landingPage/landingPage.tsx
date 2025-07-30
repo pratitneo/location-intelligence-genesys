@@ -50,8 +50,8 @@ const LandingPage = ({ sidebarOpen, pincodeBoundary, position, setPosition, zoom
   return (
     <div className={landingCss["lip-landing__wrap"]}>
       {/* sidebarOpen boolean add a class in searchbar component. this class moves the searchbar when sidebar expands and collapses */}
-      <SearchBar sidebarOpen={sidebarOpen} onSearch={onSearch} placeHolder={'Search'} customClsform={'form'} customClsfocus={'focused'} customClsinput={'input'} customClsbutton={'button'} icon={Images?.searchIcon} />
-      <div className={`${landingCss['lip-landing__explore']}`} onClick={() => handleAIReocs()}>
+      <SearchBar searchId="global-search" sidebarOpen={sidebarOpen} onSearch={onSearch} placeHolder={'Search'} customClsform={'form'} customClsfocus={'focused'} customClsinput={'input'} customClsbutton={'button'} icon={Images?.searchIcon} />
+      <div id="site-recomms" className={`${landingCss['lip-landing__explore']}`} onClick={() => handleAIReocs()}>
         <div className={`${landingCss['lip-landing__explore-text']}`}><span>explore site recommendations</span> <span className={`${landingCss['lip-landing__explore-icon']}`}><img src={Images?.exploreRecos} alt="" /></span></div>
       </div>
       <MapComponent position={position ?? [0, 0]} zoom={zoom ?? 10} hasSearched={hasSearched} pincodeBoundary={pincodeBoundary} />

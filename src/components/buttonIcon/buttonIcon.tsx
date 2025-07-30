@@ -12,20 +12,20 @@ const ButtonIcon = ({ isPanelOpen = false }: ButtonIconInterface) => {
     navigate('/profile');
   }
 
+
   const handleChatClick = () => {
+
 
   }
   return (
     <div className={`${buttonCss['lip-buttonIcon__wrap']} ${isPanelOpen ? buttonCss['lip-buttonIcon__wrap--panel-open'] : ''}`}>
-      <button className={buttonCss['lip-buttonIcon__button']}>
+      {/* profile */}
+      <button id='profile' className={buttonCss['lip-buttonIcon__button']}>
         <span className={buttonCss['lip-buttonIcon__dot']} />
-        <img src={Images?.contact} alt="Contact" className={buttonCss['lip-buttonIcon__contact']}
-          onClick={handleProfileClick}
-        />
+        <img src={Images?.contact} alt="Contact" className={buttonCss['lip-buttonIcon__contact']} onClick={handleProfileClick} />
       </button>
-      <button className={buttonCss['lip-buttonIcon__button']}
-        onClick={handleChatClick}
-      >
+      {/* ai chat */}
+      <button id='ai-chat' className={buttonCss['lip-buttonIcon__button']} onClick={handleChatClick}>
         <img src={Images?.chatbot} className={buttonCss['lip-buttonIcon__chatbot']} />
       </button>
     </div>

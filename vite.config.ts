@@ -21,7 +21,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/API': {
-        target: 'http://lip.genesys.com:9080',
+        target: 'http://lip.genesys.com:9080/',
         changeOrigin: true,
         secure: false,
         configure: (proxy) => {

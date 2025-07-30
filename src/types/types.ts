@@ -17,6 +17,7 @@ export type LoginInputType = {
     getInputToggle?: (inputEvent: unknown) => void;
 };
 export type ButtonType = {
+    buttonId?: string
     buttonText?: string;
     getBtnState?: boolean;
     customCls?: string;
@@ -76,6 +77,7 @@ export type CategoryBoxType = {
 }
 
 export type SearchComponentType = {
+    searchId?: string
     sidebarOpen?: boolean;
     onSearch?: (search: string) => void | Promise<void>;
     placeHolder?: string;
@@ -154,6 +156,7 @@ export type SiteDrpDwnType = {
 
 }
 export type IconWithTooltipType = {
+    iconTooltipId?: string
     icon: string;
     tooltipText?: string;
     position?: "top" | "bottom" | "left" | "right";
@@ -229,6 +232,7 @@ export type SpendingType = {
 };
 
 export type SideBtnType = {
+    sidebarBtnId?: string
     sideBtnText?: string
     sideBtnIcon?: any
     sideBarText?: boolean
@@ -375,6 +379,7 @@ export type SelectSubdataType = {
 export type SelectSubdataItemType = {
     id: number;
     head: string;
+    key?: string
     dragIcon: string;
     arrowIcon?: string;
     eyeIcon: string;
@@ -445,3 +450,8 @@ export type HexDetailsResponse = {
     household_income: number;
     ahp_output_scaled?: number; // Add this if present in your API
 };
+
+export type DataSetType = {
+    label?: string
+    value?: string | number
+}

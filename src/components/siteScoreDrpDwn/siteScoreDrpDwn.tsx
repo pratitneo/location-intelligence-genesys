@@ -5,18 +5,21 @@ import type { SiteDrpDwnType } from '../../types/types'
 
 const SiteScoreDrpDwn = ({ drpDwnData, children }: SiteDrpDwnType) => {
     const [drpDwn, setDrpDwn] = useState<number | null>(0)
-    const handleDrpDwn = (index: string | number | undefined) => {
-        setDrpDwn((prevDrpDwn) => prevDrpDwn === index ? null : index)
+    const handleDrpDwn = (index: number | undefined) => {
+        setDrpDwn((prevDrpDwn) => prevDrpDwn === index ? null : index ?? null)
     }
     return (
         <div className={`${scoreDrpDwnCss['lip-siteDrpDwn__drpDwnContent']}`}>
-            <div key={drpDwnData?.id} className={`${scoreDrpDwnCss['lip-siteDrpDwn__wrap']}`} onClick={() => handleDrpDwn(drpDwnData?.id)}>
+            {/* drpdwn */}
+            <div key={drpDwnData?.id} id={drpDwnData?.label} className={`${scoreDrpDwnCss['lip-siteDrpDwn__wrap']}`} onClick={() => handleDrpDwn(drpDwnData?.id)}>
                 <div className={`${scoreDrpDwnCss['lip-siteDrpDwn__name']}`}>
                     <img src={drpDwnData?.icon} alt="" className={`${scoreDrpDwnCss['lip-siteDrpDwn__icon']}`} />
+                    {/* drpdwn head */}
                     <p className={`${scoreDrpDwnCss['lip-siteDrpDwn__label']}`}>{drpDwnData?.label} spectra</p>
                 </div>
                 <img src={Images?.drpDwnArr} alt="" className={`${scoreDrpDwnCss['lip-siteDrpDwn__arrow']} ${drpDwn === drpDwnData?.id ? scoreDrpDwnCss['lip-siteDrpDwn__arrow--open'] : ''}`} />
             </div>
+            {/* children */}
             <div className={`${scoreDrpDwnCss['lip-siteDrpDwn__content']} ${drpDwn === drpDwnData?.id ? scoreDrpDwnCss['lip-siteDrpDwn__content--show'] : ''}`}>
                 {children}
             </div>

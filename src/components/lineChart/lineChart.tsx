@@ -4,7 +4,7 @@ import type { LineBtnType, LineChartType } from '../../types/types';
 import LineChartBtns from '../lineChartBtns/lineChartBtns';
 import { useState } from 'react';
 
-const LineChartGraph = ({ data, maxValue, chartHeight, spacedStroke, fallbackStrokeColor, xDataKey, xDataColor, yDataColor, yAxisRange, tickValue, lineStyle, dataKeyName, lineColor, lineWidth, legendName, highValueColor, normalValueColor, legendVerticalPlace, legendHorizontalPlace, legendIconType, btnData, setNewBtnData }: LineChartType) => {
+const LineChartGraph = ({ data, maxValue, chartHeight, spacedStroke, fallbackStrokeColor, xDataKey, xDataColor, yDataColor, yAxisRange, tickValue, dataKeyName, lineColor, lineWidth, legendName, highValueColor, normalValueColor, btnData, setNewBtnData }: LineChartType) => {
     const [updLineBtns, setUpdLineBtns] = useState<LineBtnType[]>(btnData ?? [])
     const handleBtnClick = (id: number) => {
         const newBtnData = updLineBtns?.map((btn, index) => {
@@ -25,9 +25,9 @@ const LineChartGraph = ({ data, maxValue, chartHeight, spacedStroke, fallbackStr
                     <CartesianGrid strokeDasharray={spacedStroke} stroke={fallbackStrokeColor} />
                     <XAxis dataKey={xDataKey} stroke={xDataColor} />
                     <YAxis stroke={yDataColor} domain={yAxisRange} tickCount={tickValue} />
-                    <Line type={lineStyle} dataKey={dataKeyName} stroke={lineColor} strokeWidth={lineWidth} name={legendName} dot={({ cx, cy, payload }) => (<Dot cx={cx} cy={cy} r={6} fill={payload.value === maxValue ? highValueColor : normalValueColor} />)} />
+                    <Line type={'monotone'} dataKey={dataKeyName} stroke={lineColor} strokeWidth={lineWidth} name={legendName} dot={({ cx, cy, payload }) => (<Dot cx={cx} cy={cy} r={6} fill={payload.value === maxValue ? highValueColor : normalValueColor} />)} />
                     <Tooltip content={<CustomTooltip />} />
-                    <Legend verticalAlign={legendVerticalPlace} align={legendHorizontalPlace} iconType={legendIconType} />
+                    <Legend verticalAlign={'bottom'} align={'center'} iconType={'line'} />
                 </LineChart>
             </ResponsiveContainer>
         </div>

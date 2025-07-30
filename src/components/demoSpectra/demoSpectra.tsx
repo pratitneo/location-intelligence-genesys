@@ -145,7 +145,7 @@ const DemoSpectra = ({ hexData }: { hexData?: any }) => {
         <DrpdwnHead icon={Images?.ageGroup} heading={"Age Distribution"} />
         <div className={`${demoSpectraCss["lip-demoSpectra__ageDistribution__box"]}`}>
           {ageDistributionData.map((item, index) => (
-            <AgeDistribution key={index} ageRange={item?.ageRange} total={item.total} male={item.male} female={item.female} />
+            <AgeDistribution key={index} ageRange={item?.ageRange} male={item.male} female={item.female} />
           ))}
         </div>
       </div>

@@ -1,5 +1,5 @@
 import type { POIdistInfoTypes } from '../../types/types'
-import distInfoCss from './POIDistInfo.module.scss'
+import distInfoCss from './poiDistInfo.module.scss'
 
 const POIdistInfo = ({ number, category, distance, customClswrap, direction }: POIdistInfoTypes) => {
   return (

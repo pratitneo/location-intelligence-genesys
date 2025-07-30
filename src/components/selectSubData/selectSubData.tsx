@@ -15,6 +15,7 @@ const SelectSubData = ({ head, dragIcon, arrowIcon, eyeIcon, isDropdownOpen, onA
           <img className={subdataCss['lip-subdata__dragIcon']} src={dragIcon} alt='DragIcon' />
           <p>{head}</p>
         </div>
+        {/* eye icon */}
         <div className={subdataCss['lip-subdata__container']}>
           {arrowIcon && (
             <img

@@ -1,4 +1,3 @@
-import React from 'react'
 import siteRecoCss from './siteRecommHead.module.scss'
 
 const SiteRecommHead = () => {

@@ -40,7 +40,7 @@ const SiteSelection = () => {
             <div className={`${siteSelCss['lip-siteSel__drpdwnsWrap']}`}>
                 <SiteScoreDrpDwn drpDwnData={drpDwns[0]} children={<DemoSpectra hexData={selectedHex} />} />
                 <SiteScoreDrpDwn drpDwnData={drpDwns[1]} children={<FootfallSpectra hexData={selectedHex} />} />
-                <SiteScoreDrpDwn drpDwnData={drpDwns[2]} children={<AccessibilitySpectra hexData={selectedHex} />} />
+                <SiteScoreDrpDwn drpDwnData={drpDwns[2]} children={<AccessibilitySpectra />} />
                 <SiteScoreDrpDwn drpDwnData={drpDwns[3]} children={<RetailSpectra hexData={selectedHex} />} />
             </div>
         </>

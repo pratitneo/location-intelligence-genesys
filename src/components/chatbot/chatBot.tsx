@@ -7,15 +7,15 @@ import { useHexSelection } from '../../hooks/useHexSelection';
 import { getGlobalMapInstance } from '../../utils/mapUtils';
 
 const UserIcon = () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="white"/>
-    </svg>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="white" />
+  </svg>
 );
 
 const SendIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="white"/>
-    </svg>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="white" />
+  </svg>
 );
 
 // Utility function to format chatbot response
@@ -111,7 +111,7 @@ const formatChatbotResponse = (response: string): string => {
       .replace(/(high population|family-centric spending|dense footfall|ideal for|consistent footfall|strong customer base|accessibility|banking services|business demographics|commercial activity)/g, '*$1*')
       // Add code formatting for hex IDs
       .replace(/`([^`]+)`/g, '`$1`');
-    
+
     // If there are multiple hex IDs, format them as a list
     if (hexIdMatches.length > 1) {
       // Extract all hex IDs
@@ -119,7 +119,7 @@ const formatChatbotResponse = (response: string): string => {
         const hexId = match.match(/hex_id\s*=\s*"([^"]+)"/)?.[1];
         return hexId;
       }).filter(Boolean);
-      
+
       // Replace the hex IDs section with a formatted list
       const hexIdsSection = hexIds.map(hexId => `- **Hex ID:** [\`${hexId}\`](#hex-${hexId})`).join('\n');
       
@@ -151,7 +151,7 @@ const formatChatbotResponse = (response: string): string => {
 };
 
 // Test function to demonstrate formatting (temporary)
-const testMultipleHexIds = () => {
+/* const testMultipleHexIds = () => {
   const testResponse = `Response from chatbot: Based on Mumbai's household density, consumer spending patterns, and retail foot traffic, the best zones for your bank are:
 
 hex_id = "8a608b0a62b7fff", hex_id = "8a608b0b1067fff", hex_id = "8a608b0a6adffff", hex_id = "8a608b0b115ffff", hex_id = "8a608b0a604ffff"
@@ -162,7 +162,7 @@ Would you like a breakdown of spending and footfall for each hex?
 Shall we rerun this with custom weights for business demographics and commercial activity?`;
   
   return formatChatbotResponse(testResponse);
-};
+}; */
 
 // Test function for numbered list formatting
 const testNumberedListFormatting = () => {
@@ -318,7 +318,7 @@ const ChatBot = () => {
         {loading && (
           <div className={`${chatCss.messageContainer} ${chatCss.bot}`}>
             <div className={`${chatCss.icon} ${chatCss.botIcon}`}>
-                <img src={BotIcon} alt="Bot" />
+              <img src={BotIcon} alt="Bot" />
             </div>
             <div className={`${chatCss.message} ${chatCss.bot}`}>Thinking...</div>
           </div>

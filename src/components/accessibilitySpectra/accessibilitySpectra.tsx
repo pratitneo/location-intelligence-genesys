@@ -6,7 +6,7 @@ import PubTransConn from '../pubtransconn/pubtransconn'
 import RadarChartGraph from '../radarChart/radarChart'
 
 
-const AccessibilitySpectra = ({ hexData }: { hexData?: any }) => {
+const AccessibilitySpectra = () => {
   return (
     <div className={`${acspCss['lip-accspe__wrap']}`}>
       <DropownDesc

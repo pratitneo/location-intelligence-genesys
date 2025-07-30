@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/location-intelligence-genesys/', // 👈 important for GitHub Pages
   plugins: [react()],
   resolve: {
     alias: {
@@ -20,18 +21,15 @@ export default defineConfig({
   server: {
     proxy: {
       '/API': {
-        target: 'http://lip.genesys.com:9080',
+        target: 'http://lip.genesys.com:9080/',
         changeOrigin: true,
         secure: false,
-        configure: (proxy, _options) => {
-          proxy.on('error', (err, _req, _res) => {
-            console.log('proxy error', err);
+        configure: (proxy) => {
+          proxy.on('error', () => {
           });
-          proxy.on('proxyReq', (proxyReq, req, _res) => {
-            console.log('Sending Request to the Target:', req.method, req.url);
+          proxy.on('proxyReq', () => {
           });
-          proxy.on('proxyRes', (proxyRes, req, _res) => {
-            console.log('Received Response from the Target:', proxyRes.statusCode, req.url);
+          proxy.on('proxyRes', () => {
           });
         },
       }

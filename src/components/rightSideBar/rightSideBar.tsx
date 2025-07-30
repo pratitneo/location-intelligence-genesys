@@ -1,4 +1,4 @@
-import styles from "./rightSidebar.module.scss";
+import styles from "./rightsidebar.module.scss";
 import { Images } from "../../assets/assets";
 import IconWithTooltip from "../iconWithTooltip/IconWithTooltip";
 import type { IconItem, RightBarType, SubIconItem } from "../../types/types";
@@ -34,19 +34,22 @@ const RightSideBar = ({ isPanelOpen, onIconClick, activeKey, handleIconClick }: 
           <div className={styles["lip-right-sidebar__icons"]}>
             {iconList.map((item) => (
               <div key={item.id} className={styles["lip-right-sidebar__icon-wrap"]}>
+                {/* main icons */}
                 <div key={item.id} className={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} onClick={() => onIconClick(item?.key)}>
-                  <IconWithTooltip icon={item.icon} tooltipText={item.tooltip} position="bottom" customCls={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} />
+                  <IconWithTooltip iconTooltipId={item?.key} icon={item.icon} tooltipText={item.tooltip} position="bottom" customCls={`${styles["lip-right-sidebar__icon"]} ${activeKey === item.key ? styles["lip-right-sidebar__icon--active"] : ""}`} />
                 </div>
 
+                {/* draw sub icons */}
                 {item.key === "draw" && activeKey === "draw" && (
                   <div className={styles["lip-right-sidebar__sub-icons"]}>
-                    {subIconList.map((subItem) => (<IconWithTooltip key={subItem.id} icon={subItem.icon} tooltipText={subItem.tooltip} position="left" customCls={styles["lip-right-sidebar__sub-icon"]} getActionFn={() => handleIconClick(subItem?.id)} />))}
+                    {subIconList.map((subItem) => (<IconWithTooltip iconTooltipId={item?.key} key={subItem.id} icon={subItem.icon} tooltipText={subItem.tooltip} position="left" customCls={styles["lip-right-sidebar__sub-icon"]} getActionFn={() => handleIconClick(subItem?.id)} />))}
                   </div>
                 )}
 
+                {/* geo sub icons */}
                 {item.key === "geo" && activeKey === "geo" && (
                   <div className={`${styles["lip-right-sidebar__sub-icons"]} ${styles["lip-right-sidebar__sub-geoicons"]}`} >
-                    {subGeoIconList.map((subItem) => (<IconWithTooltip key={subItem.id} icon={subItem.icon} tooltipText={subItem.tooltip} position="bottom" customCls={styles["lip-right-sidebar__sub-icon"]} getActionFn={() => handleIconClick(subItem?.id)} />))}
+                    {subGeoIconList.map((subItem) => (<IconWithTooltip iconTooltipId={item?.key} key={subItem.id} icon={subItem.icon} tooltipText={subItem.tooltip} position="bottom" customCls={styles["lip-right-sidebar__sub-icon"]} getActionFn={() => handleIconClick(subItem?.id)} />))}
                   </div>
                 )}
               </div>

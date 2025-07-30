@@ -85,7 +85,7 @@ const Login = () => {
             {errors.userEmail}
           </p>
         )}
-        <LoginInput inputLabel="password" inputType="password" inputName="userPassword" inputId="password" icon="passwordEye" customCls="lip-input__password" inputValue={loginData?.userPassword} getInputValue={handleInput} getInputToggle={(e: any) => handleTogglePassword} />
+        <LoginInput inputLabel="password" inputType="password" inputName="userPassword" inputId="password" icon="passwordEye" customCls="lip-input__password" inputValue={loginData?.userPassword} getInputValue={handleInput} getInputToggle={() => handleTogglePassword} />
         {/* <LoginInput inputLabel="password" inputType="password" inputName="userPassword" inputId="password" icon="passwordEye" customCls="lip-input__password" inputValue={loginData?.userPassword} getInputValue={(e: any) => handleInput} getInputToggle={(e: any) => handleTogglePassword} /> */}
         {errors.userPassword && (
           <p className={`${loginCss["lip-login__error-text"]}`}>
@@ -94,13 +94,13 @@ const Login = () => {
         )}
         <div className={`${loginCss["lip-login__checkbox__forgot"]}`}>
           <LoginChecbox inputLabel="remember me" inputType="checkbox" inputName="rememberCheck" inputId="rememberbox" />
-          <Link className={`${loginCss["lip-login__forgot"]}`} to={"/forgot-password"}>Forgot password?</Link>
+          <Link id="forgot-pass" className={`${loginCss["lip-login__forgot"]}`} to={"/forgot-password"}>Forgot password?</Link>
         </div>
-        <Button buttonText="get started" customCls="lip-login__btn" type="submit" />
+        <Button buttonId="get-started" buttonText="get started" customCls="lip-login__btn" type="submit" />
         <Separator separatorText="or" />
         <div className={`${loginCss["lip-login__new__signup"]}`}>
           <p className={`${loginCss["lip-login__newUser"]}`}>new user?</p>
-          <Link to={"/sign-up"} className={`${loginCss["lip-login__signup"]}`}>sign up here</Link>
+          <Link to={"/sign-up"} id="sign-up" className={`${loginCss["lip-login__signup"]}`}>sign up here</Link>
         </div>
       </form>
     </div>

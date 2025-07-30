@@ -14,7 +14,7 @@ const ClothingSpendLevel = ({ spendLevel, percentage, approxCount }: SpendingSeg
 
       <div className={`${cltspndCSS['lip-cltspnd__valueContainer']}`}>
         <span>{percentage}</span>
-        <span>{`(~${approxCount})`}</span>
+        <span>{`(~${approxCount ? approxCount : 0})`}</span>
       </div>
     </div>
   )

@@ -16,7 +16,7 @@ const Sidebar = ({ onIconClick, sidebarOpen, getToggleFn, sideText }: SidebarTyp
                 <div className={`${sideBarCss['lip-sidebar__logo']}`}>
                     <img src={Images?.sidebarLogo} alt="Spectra logo" />
                     <p className={`${sideBarCss['lip-sidebar__logo-text']}  ${sideText ? sideBarCss['lip-sidebar__text--active'] : ''}`}>spectra</p>
-                    <img src={Images?.sidebarToggle} alt="Toggle button" className={`${sideBarCss['lip-sidebar__toggle']}`} onClick={getToggleFn} />
+                    <img src={Images?.sidebarToggle} alt="Toggle button" id='menubar-toggle' className={`${sideBarCss['lip-sidebar__toggle']}`} onClick={getToggleFn} />
                 </div>
                 {/* sidebar links */}
                 <div className={`${sideBarCss['lip-sidebar__items']}`}>
@@ -24,13 +24,13 @@ const Sidebar = ({ onIconClick, sidebarOpen, getToggleFn, sideText }: SidebarTyp
                         return (
                             <div key={item?.id} onClick={() => onIconClick(item?.key)}>
                                 {/* <IconWithTooltip icon={item?.icon} tooltipText={item?.tooltip} position="right" customCls='sidebarBtn' /> */}
-                                <SidebarBtn sideBarText={sideText} sideBtnText={item?.tooltip} sideBtnIcon={item?.icon} />
+                                <SidebarBtn sidebarBtnId={item?.key} sideBarText={sideText} sideBtnText={item?.tooltip} sideBtnIcon={item?.icon} />
                             </div>
                         )
                     })}
                 </div>
                 {/* saved work */}
-                <Link to={'/saved-work'} className={`${sideBarCss['lip-sidebar__item']} ${sideBarCss['lip-sidebar__saved']}`}>
+                <Link to={'/saved-work'} id='saved-work' className={`${sideBarCss['lip-sidebar__item']} ${sideBarCss['lip-sidebar__saved']}`}>
                     <img src={Images?.savedWork} alt="Saved Work" />
                     <p className={`${sideBarCss['lip-sidebar__text']} ${sideText ? sideBarCss['lip-sidebar__text--active'] : ''}`}>saved work</p>
                 </Link>

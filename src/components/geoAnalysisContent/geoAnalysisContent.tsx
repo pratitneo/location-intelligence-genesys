@@ -1,6 +1,6 @@
 import { Images } from "../../assets/assets"
 import { useState } from "react"
-import type { SelectSubdataItemType } from "../../types/types"
+import type { DataSetType, SelectSubdataItemType } from "../../types/types"
 import DataLayerHead from "../dataLayerHead/dataLayerHead"
 import IconWithTooltip from "../iconWithTooltip/IconWithTooltip"
 import SearchBar from "../search/searchBar"
@@ -12,35 +12,6 @@ import * as h3 from 'h3-js';
 import wellknown from 'wellknown'; // Add this import at the top
 import { useSidebar } from "../../context/sidebarContex"
 import { LIP_BASE_URL } from '../../configs/apiConfig'
-
-const icons = [{ label: 'POI', icon: Images?.poiIcon }, { label: 'Demographics', icon: Images?.demographics }, { label: 'Land use / cover', icon: Images?.landUse }, { label: 'Footfall', icon: Images?.footfall }, { label: 'Road Network', icon: Images?.roadNetwork }]
-
-// Define subData items for each icon
-const subDataMap: { [key: string]: SelectSubdataItemType[] } = {
-  POI: [
-    { id: 1, head: "Schools", dragIcon: Images?.drag, eyeIcon: Images?.eye },
-    { id: 2, head: "Malls", dragIcon: Images?.drag, eyeIcon: Images?.eye },
-    { id: 3, head: "Local Market", dragIcon: Images?.drag, eyeIcon: Images?.eye },
-    { id: 4, head: "Bus Stops", dragIcon: Images?.drag, eyeIcon: Images?.eye }
-  ],
-  Demographics: [
-    { id: 1, head: "Populations", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
-    { id: 2, head: "Age Groups", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
-    { id: 3, head: "Households", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye }
-  ],
-  "Land use / cover": [
-    { id: 1, head: "Residential", dragIcon: Images?.drag, eyeIcon: Images?.eye },
-    { id: 2, head: "Commercial", dragIcon: Images?.drag, eyeIcon: Images?.eye }
-  ],
-  Footfall: [
-    { id: 1, head: "Weekday", dragIcon: Images?.drag, eyeIcon: Images?.eye },
-    { id: 2, head: "Weekend", dragIcon: Images?.drag, eyeIcon: Images?.eye }
-  ],
-  "Road Network": [
-    { id: 1, head: "Highways", dragIcon: Images?.drag, eyeIcon: Images?.eye },
-    { id: 2, head: "Local Roads", dragIcon: Images?.drag, eyeIcon: Images?.eye }
-  ]
-};
 
 // Add setPincodeBoundary to props
 type GeoAnalysisContentProps = {
@@ -58,6 +29,38 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
   const { setHexes, setSelectedHex, hexes } = useSelectedHex();
   const [loadingCity, setLoadingCity] = useState(false);
   const { updatePanelName } = useSidebar()
+
+  const icons = [{ label: 'POI', icon: Images?.poiIcon }, { label: 'Demographics', icon: Images?.demographics }, { label: 'Land use / cover', icon: Images?.landUse }, { label: 'Footfall', icon: Images?.footfall }, { label: 'Road Network', icon: Images?.roadNetwork }]
+
+  // Define subData items for each icon
+  const subDataMap: { [key: string]: SelectSubdataItemType[] } = {
+    POI: [
+      { id: 1, head: "Schools", key: 'schools', dragIcon: Images?.drag, eyeIcon: Images?.eye },
+      { id: 2, head: "Malls", key: 'malls', dragIcon: Images?.drag, eyeIcon: Images?.eye },
+      { id: 3, head: "Local Market", key: 'local-market', dragIcon: Images?.drag, eyeIcon: Images?.eye },
+      { id: 4, head: "Bus Stops", key: 'bus-stops', dragIcon: Images?.drag, eyeIcon: Images?.eye }
+    ],
+    Demographics: [
+      { id: 1, head: "Populations", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
+      { id: 2, head: "Age Groups", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye },
+      { id: 3, head: "Households", dragIcon: Images?.drag, arrowIcon: Images?.arrow, eyeIcon: Images?.eye }
+    ],
+    "Land use / cover": [
+      { id: 1, head: "Residential", dragIcon: Images?.drag, eyeIcon: Images?.eye },
+      { id: 2, head: "Commercial", dragIcon: Images?.drag, eyeIcon: Images?.eye }
+    ],
+    Footfall: [
+      { id: 1, head: "Weekday", dragIcon: Images?.drag, eyeIcon: Images?.eye },
+      { id: 2, head: "Weekend", dragIcon: Images?.drag, eyeIcon: Images?.eye }
+    ],
+    "Road Network": [
+      { id: 1, head: "Highways", dragIcon: Images?.drag, eyeIcon: Images?.eye },
+      { id: 2, head: "Local Roads", dragIcon: Images?.drag, eyeIcon: Images?.eye }
+    ]
+  };
+  const bufferRadius: DataSetType[] = [{ label: 'five-hundred', value: 500 }, { label: 'thousand', value: 1000 }, { label: 'two-thousand', value: 2000 },]
+  const cities: DataSetType[] = [{ label: 'mumbai', value: 'mumbai' }, { label: 'raipur', value: 'raipur' },]
+  const pincodes: DataSetType[] = [{ label: '400012', value: 400012 }, { label: '400013', value: 400013 }, { label: '400014', value: 400014 }, { label: '400016', value: 400016 }, { label: '400018', value: 400018 }, { label: '400019', value: 400019 }, { label: '400022', value: 400022 }, { label: '400025', value: 400025 }, { label: '400028', value: 400028 }, { label: '400030', value: 400030 }, { label: '400050', value: 400050 }, { label: '400051', value: 400051 }, { label: '400052', value: 400052 }]
 
   const onSearch = (value: string) => {
     // Handle search logic here
@@ -243,21 +246,23 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
 
   return (
     <div className={`${geoScss['lip-geo-content__container']}`}>
-      <SearchBar onSearch={onSearch} placeHolder={'Search Data Layer'} customClsform={'dl-form'} customClsinput={'dl-input'} customClsbutton={'dl-button'} icon={Images?.layerSearch} />
+      <SearchBar searchId="data-layer-search" onSearch={onSearch} placeHolder={'Search Data Layer'} customClsform={'dl-form'} customClsinput={'dl-input'} customClsbutton={'dl-button'} icon={Images?.layerSearch} />
       <hr className={`${geoScss['lip-geo-content__hrline']}`} />
       <DataLayerHead heading={'Genesys Data Layers '} />
+      {/* data layer icons */}
       <div className={`${geoScss['lip-geo-content__wrap']}`}>
         {icons.map((item, index) => (
-          <IconWithTooltip customCls={'datalayer-icon'} key={index} icon={item.icon} tooltipText={item.label} position={'top'} getActionFn={() => setSelectedIcon(selectedIcon === item.label ? null : item.label)} />
+          <IconWithTooltip iconTooltipId={item?.label} customCls={'datalayer-icon'} key={index} icon={item.icon} tooltipText={item.label} position={'top'} getActionFn={() => setSelectedIcon(selectedIcon === item.label ? null : item.label)} />
         ))}
       </div>
+
       <hr className={`${geoScss['lip-geo-content__hrline']}`} />
 
       {selectedIcon && (
         <div className={`${geoScss['lip-geo-content__subdata']}`}>
           <DataLayerHead heading={'Select Sub Data'} />
           {(subDataMap[selectedIcon] || []).map((item, index) => (
-            <div key={item.id} draggable onDragStart={(e) => handleDragStart(e, index)} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, index)} onDragEnd={handleDragEnd} onClick={() => handleRightPanel()} className={`${geoScss['lip-subdata-draggable']} ${draggedItem === index ? geoScss['lip-subdata-dragging'] : ''}`}>
+            <div id={item?.key} key={item.id} draggable onDragStart={(e) => handleDragStart(e, index)} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, index)} onDragEnd={handleDragEnd} onClick={() => handleRightPanel()} className={`${geoScss['lip-subdata-draggable']} ${draggedItem === index ? geoScss['lip-subdata-dragging'] : ''}`}>
               <SelectSubData head={item.head} dragIcon={item.dragIcon} arrowIcon={item.arrowIcon} eyeIcon={hiddenRows[item.id] ? Images.eyeClosed : item.eyeIcon} isDropdownOpen={openDropdownId === item.id} onArrowClick={() => handleArrowClick(item.id)} isHidden={!!hiddenRows[item.id]} onEyeClick={() => handleEyeClick(item.id)} />
             </div>
           ))}
@@ -270,50 +275,49 @@ const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalys
       {/* Buffer Analysis Radio Buttons */}
       <div className={geoScss['lip-geo-radio-group']}>
         {/* buffer */}
-        <label className={geoScss['lip-geo-radio-label']}>
+        <label id="buffer-radio" className={geoScss['lip-geo-radio-label']}>
           <input type="radio" value="buffer" checked={bufferType === 'buffer'} onChange={() => handleBufferTypeChange('buffer')} />Buffer
         </label>
         {/* city */}
-        <label className={geoScss['lip-geo-radio-label']}>
+        <label id="city-radio" className={geoScss['lip-geo-radio-label']}>
           <input type="radio" value="city" checked={bufferType === 'city'} onChange={() => handleBufferTypeChange('city')} />City
         </label>
         {/* pincode */}
-        <label className={geoScss['lip-geo-radio-label']}>
+        <label id="pincode-radio" className={geoScss['lip-geo-radio-label']}>
           <input type="radio" value="pincode" checked={bufferType === 'pincode'} onChange={() => handleBufferTypeChange('pincode')} />Pincode
         </label>
       </div>
 
       {/* Dropdown for selected buffer type */}
       {bufferType === 'buffer' && (
-        <select className={geoScss['lip-geo-dropdown']} value={analysisValue} onChange={handleBufferRadiusChange}>
+        <select id="buffer-drpdwn" className={geoScss['lip-geo-dropdown']} value={analysisValue} onChange={handleBufferRadiusChange}>
           <option value="" disabled>Select buffer</option>
-          {[500, 1000, 2000].map(val => (
-            <option key={val} value={val}>{val} m</option>
-          ))}
-        </select>
-      )}
-      {bufferType === 'pincode' && (
-        <select className={geoScss['lip-geo-dropdown']} value={analysisValue} onChange={handlePincodeChange}>
-          <option value="" disabled>Select pincode</option>
-          {[400051, 400052, 400050, 400030, 400016, 400028, 400025, 400018, 400013, 400012, 400014, 400019, 400022].map(val => (
-            <option key={val} value={val}>{val}</option>
+          {bufferRadius?.map(val => (
+            <option id={val?.label} key={val?.label} value={val?.value}>{val?.value} m</option>
           ))}
         </select>
       )}
       {bufferType === 'city' && (
         <>
-          <select className={geoScss['lip-geo-dropdown']} value={analysisValue} onChange={handleCityChange}>
+          <select id="city-drpdwn" className={geoScss['lip-geo-dropdown']} value={analysisValue} onChange={handleCityChange}>
             <option value="" disabled>Select city</option>
-            <option value="mumbai">Mumbai</option>
-            <option value="raipur">Raipur</option>
+            {cities?.map(val => (
+              <option id={val?.label} key={val?.label} value={val?.value} className={`${geoScss['lip-geo__option']}`}>{val?.value}</option>
+            ))}
           </select>
           {loadingCity && (
             <div style={{ margin: '10px 0', color: '#641698' }}>Loading city hexagons, please wait...</div>
           )}
         </>
       )}
-
-
+      {bufferType === 'pincode' && (
+        <select id="pincode-drpdwn" className={geoScss['lip-geo-dropdown']} value={analysisValue} onChange={handlePincodeChange}>
+          <option value="" disabled>Select pincode</option>
+          {pincodes?.map(val => (
+            <option id={val?.label} key={val?.label} value={val?.value}>{val?.value}</option>
+          ))}
+        </select>
+      )}
     </div>
   )
 }

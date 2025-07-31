@@ -12,7 +12,7 @@ const RetailSpectra = ({ hexData }: { hexData?: any }) => {
         { name: 'commercial', value: getHexData?.commercial_percentage, colorName: '#6fffe9' },
         { name: 'residential', value: getHexData?.residential_percentage, colorName: '#F5B942' },
         { name: 'hybrid', value: getHexData?.hybrid_percentage, colorName: '#FB7185' },
-        { name: 'industrial', value: getHexData?.industrial_percentage, colorName: '##6FD195' },
+        { name: 'industrial', value: getHexData?.industrial_percentage, colorName: '#6FD195' },
     ];
     const data2 = [
         { name: 'fashion', value: 42, colorName: '#6fffe9' },

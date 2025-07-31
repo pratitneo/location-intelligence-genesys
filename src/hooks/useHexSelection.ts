@@ -1,9 +1,8 @@
 import { useSelectedHex } from '../context/SelectedHexContext';
 import { useSidebar } from '../context/sidebarContex';
-import { useMap } from 'react-leaflet';
 
 export const useHexSelection = () => {
-  const { setSelectedHex, hexes, setHexes } = useSelectedHex();
+  const { hexes, setHexes } = useSelectedHex();
   const { setRightIconKey, updatePanelName, updateRightPanel } = useSidebar();
 
   const selectHex = async (hexId: string, mapInstance?: any) => {

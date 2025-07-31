@@ -6,6 +6,8 @@ import ReactMarkdown from 'react-markdown';
 import { useHexSelection } from '../../hooks/useHexSelection';
 import { getGlobalMapInstance } from '../../utils/mapUtils';
 
+type Message = { from: 'user' | 'bot'; text: string };
+
 const UserIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="white" />
@@ -24,19 +26,16 @@ const formatChatbotResponse = (response: string): string => {
   
   // Check if response contains hex_id patterns
   const hexIdMatches = response.match(/hex_id\s*=\s*"([^"]+)"/g);
-  console.log('🔍 Hex ID matches:', hexIdMatches);
   
   // Check if response contains numbered list patterns (like previous requests)
   const numberedListMatch = response.match(/(\d+\.\s*"[^"]+")/g);
-  console.log('🔍 Numbered list matches:', numberedListMatch);
   
   // Check for standalone hex IDs (like "Hex ID **8a608b0b1067fff**:")
   const standaloneHexMatch = response.match(/Hex ID\s+\*\*([a-f0-9]{15})\*\*:/g);
-  console.log('🔍 Standalone hex matches:', standaloneHexMatch);
   
   // Helper: replace quoted text with bold, but skip hex_id patterns
   const boldQuotedText = (text: string) =>
-    text.replace(/("([^"]+)")/g, (match, p1, p2) => {
+    text.replace(/("([^"]+)")/g, (match, p2) => {
       // If this quoted text is part of a hex_id pattern, skip it
       if (/hex_id\s*=\s*"[^"]+"/.test(match)) return match;
       return `**${p2}**`;
@@ -66,7 +65,6 @@ const formatChatbotResponse = (response: string): string => {
       // Ensure proper spacing after the header
       .replace(/(\*[^*]+\*:)\n\n/, '$1\n\n');
     
-    console.log('🔍 Formatted numbered list response:', formattedResponse);
     return formattedResponse;
   }
 
@@ -75,7 +73,7 @@ const formatChatbotResponse = (response: string): string => {
     console.log('🔍 Processing standalone hex IDs');
     let formattedResponse = response
       // Replace standalone hex IDs with clickable links
-      .replace(/Hex ID\s+\*\*([a-f0-9]{15})\*\*:/g, (match, hexId) => {
+      .replace(/Hex ID\s+\*\*([a-f0-9]{15})\*\*:/g, (hexId) => {
         console.log('🔍 Converting hex ID to link:', hexId);
         return `**Hex ID** [\`${hexId}\`](#hex-${hexId}):`;
       })
@@ -89,16 +87,15 @@ const formatChatbotResponse = (response: string): string => {
   }
 
   if (hexIdMatches) {
-    console.log('🔍 Processing hex_id patterns');
     // Format the response with proper markdown
     let formattedResponse = response
       // Replace all hex_id = "..." patterns with clickable hex IDs
-      .replace(/hex_id\s*=\s*"([^"]+)"/g, (match, hexId) => {
+      .replace(/hex_id\s*=\s*"([^"]+)"/g, (hexId) => {
         console.log('🔍 Converting hex_id pattern to link:', hexId);
         return `**Hex ID:** [\`${hexId}\`](#hex-${hexId})`;
       })
       // Bold quoted text (after hex_id replacement)
-      .replace(/("([^"]+)")/g, (match, p1, p2) => {
+      .replace(/("([^"]+)")/g, (match, p2) => {
         // If this quoted text is part of a hex_id pattern, skip it
         if (/hex_id\s*=\s*\*\*Hex ID:\*\*/.test(match)) return match;
         return `**${p2}**`;
@@ -150,45 +147,10 @@ const formatChatbotResponse = (response: string): string => {
   return formattedResponse;
 };
 
-// Test function to demonstrate formatting (temporary)
-/* const testMultipleHexIds = () => {
-  const testResponse = `Response from chatbot: Based on Mumbai's household density, consumer spending patterns, and retail foot traffic, the best zones for your bank are:
 
-hex_id = "8a608b0a62b7fff", hex_id = "8a608b0b1067fff", hex_id = "8a608b0a6adffff", hex_id = "8a608b0b115ffff", hex_id = "8a608b0a604ffff"
-
-These zones reflect high population and consistent footfall, indicating a strong customer base and accessibility for banking services.
-
-Would you like a breakdown of spending and footfall for each hex?
-Shall we rerun this with custom weights for business demographics and commercial activity?`;
-  
-  return formatChatbotResponse(testResponse);
-}; */
-
-// Test function for numbered list formatting
-const testNumberedListFormatting = () => {
-  const testResponse = `Here are all your previous requests in this conversation:
-
-1. "give me list of hexes to open a bank"
-2. "what's your name"
-3. "give me last two request"
-4. "give me top 10 hexes to open a bank"`;
-  
-  return formatChatbotResponse(testResponse);
-};
-
-// Test function for hex ID formatting
-const testHexIdFormatting = () => {
-  const testResponse = `Based on your analysis, here are the top hexes for opening a bank:
-
-hex_id = "8a608b0a62b7fff", hex_id = "8a608b0b1067fff", hex_id = "8a608b0a6adffff"
-
-These hexes show high population density and strong commercial activity.`;
-  
-  return formatChatbotResponse(testResponse);
-};
 
 const ChatBot = () => {
-  const { selectHex, openSiteSelectionPanel } = useHexSelection();
+  const { selectHex } = useHexSelection();
   
   // Function to get map instance from global reference
   const getMapInstance = () => {
@@ -229,7 +191,7 @@ const ChatBot = () => {
     if (!input.trim()) return;
 
     const userMessage = { from: 'user', text: input };
-    setMessages(prev => [...prev, userMessage]);
+    setMessages((prev: Message[]) => [...prev, userMessage]);
     setInput('');
     setLoading(true);
 
@@ -246,12 +208,12 @@ const ChatBot = () => {
         console.log('Original response:', response.result);
         console.log('Formatted response:', formattedResponse);
         const botMessage = { from: 'bot', text: formattedResponse };
-        setMessages(prev => [...prev, botMessage]);
+        setMessages((prev: Message[]) => [...prev, botMessage]);
       }
     } catch (error) {
       console.error('Error fetching chatbot response:', error);
       const errorMessage = { from: 'bot', text: 'Sorry, something went wrong.' };
-      setMessages(prev => [...prev, errorMessage]);
+      setMessages((prev: Message[]) => [...prev, errorMessage]);
     } finally {
       setLoading(false);
     }
@@ -260,7 +222,7 @@ const ChatBot = () => {
   return (
     <div className={chatCss.chatBot}>
       <div className={chatCss.messages}>
-        {messages.map((msg, idx) => (
+        {messages.map((msg: Message, idx: number) => (
           <div key={idx} className={`${chatCss.messageContainer} ${chatCss[msg.from]}`}>
             <div className={`${chatCss.icon} ${msg.from === 'user' ? chatCss.userIcon : chatCss.botIcon}`}>
               {msg.from === 'user' ? <UserIcon /> : <img src={BotIcon} alt="Bot" />}

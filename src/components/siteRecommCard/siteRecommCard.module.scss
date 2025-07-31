@@ -1,0 +1,46 @@
+.lip-recomCard {
+    &__wrap {
+        width: 100%;
+        border-radius: $radius-input;
+        box-shadow: $shadow-avgdrivetime;
+    }
+
+    &__header {
+        padding: 8px 10px;
+        border-radius: $radius-login;
+        @extend %flex-between-center;
+        background: $secondary-violet;
+    }
+
+    &__location {
+        font-size: 24px;
+        font-weight: 600;
+        color: $purple;
+        text-transform: capitalize;
+    }
+
+    &__score {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    &__pinCityWrap {
+        margin: 10px;
+        @extend %flex-between-center;
+    }
+
+    &__pinCity {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 2px 10px;
+        border-radius: $radius-input;
+        color: $text-accent;
+        background: $secondary-violet;
+        text-transform: capitalize;
+    }
+
+    &__btns {
+        padding: 0 10px 10px;
+        @extend %flex-between-center;
+    }
+}

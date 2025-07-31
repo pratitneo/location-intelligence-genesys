@@ -294,7 +294,7 @@ export type TotalAddMarkType = {
     tamNum: string | number
 }
 
-export interface ButtonIconInterface {
+export interface ProfileBtnsType {
     isPanelOpen?: boolean;
 }
 
@@ -452,6 +452,31 @@ export type HexDetailsResponse = {
 };
 
 export type DataSetType = {
-    label?: string
-    value?: string | number
+    label: string
+    value: string | number
+}
+export type BtnIconType = {
+    trailIcon?: any
+    leadIcon?: any
+    btnText?: string
+    mainCls?: string
+    bgCls?: string
+}
+export type RecommsArrType = {
+    location: string
+    score: string | number
+    pincode: string | number
+    city: string
+}
+export type RecommCardType = {
+    cardData: RecommsArrType
+}
+export type OptType = {
+    label: string | number
+    value: string | number
+}
+export type DrpDwnType = {
+    optsData: OptType[]
+    mainCls: string
+    selectId: string
 }

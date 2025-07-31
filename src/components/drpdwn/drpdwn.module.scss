@@ -1,0 +1,20 @@
+.lip-drpdwn {
+    &__recomDrpDwn {
+        height: 50px;
+        width: 100%;
+        padding: 10px;
+        border-radius: $radius-input;
+        border: none;
+        background: $secondary-violet;
+        appearance: none;
+        cursor: pointer;
+
+        &:focus-visible {
+            outline: none;
+        }
+
+        option {
+            border-radius: $radius-drpdwn;
+        }
+    }
+}

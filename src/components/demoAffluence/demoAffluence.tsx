@@ -29,7 +29,7 @@ const DemoAffluence = () => {
       <div className={`${demoAffluenceCSS["lip-demoAffluence__content"]}`}>
         {
           salaryData.map((item, index) => (
-            <Affluence key={index} range={item?.range} count={`${item?.count}%`} />
+            <Affluence key={index} range={item?.range} count={`${item?.count ? item?.count : 0}%`} />
           ))
         }
       </div>

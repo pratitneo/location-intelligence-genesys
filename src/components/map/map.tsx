@@ -10,6 +10,7 @@ import * as h3 from 'h3-js';
 import { useSidebar } from '../../context/sidebarContex';
 import { useBufferAnalysis } from '../../context/BufferAnalysisContext';
 import { useState, useEffect } from 'react';
+import { setGlobalMapInstance } from '../../utils/mapUtils';
 import { LIP_BASE_URL } from '../../configs/apiConfig';
 
 const DefaultIcon = L.icon({ iconUrl, shadowUrl: iconShadow, iconAnchor: [12, 41] });
@@ -18,7 +19,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const getAHPColor = (ahpValue: number): string => {
   if (ahpValue >= 0 && ahpValue < 3) return '#16D26B'; // Dark green
   if (ahpValue >= 3 && ahpValue < 6) return '#F5B942'; // Dark yellow
-  if (ahpValue >= 6 && ahpValue < 10) return '#FF6F61'; // Dark orange
+  if (ahpValue >= 6 && ahpValue <= 10) return '#FF6F61'; // Dark orange
   return '#3388ff'; // Default color
 };
 
@@ -179,6 +180,15 @@ function FitMapToBoundary({ boundary }: { boundary: any }) {
   return null;
 }
 
+// Component to set global map instance
+function MapInstanceSetter() {
+  const map = useMap();
+  useEffect(() => {
+    setGlobalMapInstance(map);
+  }, [map]);
+  return null;
+}
+
 const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapComponentProps) => {
   const { hexes, setHexes, setSelectedHex } = useSelectedHex();
   const { bufferType, bufferCenter, bufferRadius, analysisValue } = useBufferAnalysis();
@@ -307,6 +317,7 @@ const MapComponent = ({ position, zoom, hasSearched, pincodeBoundary }: MapCompo
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <MapInstanceSetter />
         <HexClickHandler />
         {/* Draw buffer boundary if in buffer mode and bufferCenter/radius are set - moved above HexPolygons */}
         {bufferType === 'buffer' && bufferCenter && bufferRadius && (

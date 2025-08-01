@@ -13,8 +13,27 @@
         }
     }
 
+    &__showRec {
+        width: 100%;
+        height: 50px;
+        font-size: 14px;
+        margin: 10px 0 20px;
+        letter-spacing: 1px;
+        border: none;
+        border-radius: $radius-input;
+        color: $white;
+        text-transform: capitalize;
+        cursor: pointer;
+        @extend %flex-center;
+        gap: 0 10px;
+    }
+
     &--violet {
         background: linear-gradient(90deg, $show-recos-gradient-1, $show-recos-gradient-2);
+
+        &:hover {
+            background: linear-gradient(90deg, $show-recos-hover-1, $show-recos-hover-2);
+        }
     }
 
     &--red {

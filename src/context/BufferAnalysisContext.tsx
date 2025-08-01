@@ -1,18 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-
-// Types for buffer analysis
-export type BufferType = 'buffer' | 'city' | 'pincode' | '';
-
-interface BufferAnalysisContextType {
-  bufferType: BufferType;
-  setBufferType: (type: BufferType) => void;
-  analysisValue: string; // radius, city, or pincode
-  setAnalysisValue: (value: string) => void;
-  bufferCenter: [number, number] | null;
-  setBufferCenter: (center: [number, number] | null) => void;
-  bufferRadius: number | null;
-  setBufferRadius: (radius: number | null) => void;
-}
+import type { BufferType, BufferAnalysisContextType } from '../types/types';
 
 const BufferAnalysisContext = createContext<BufferAnalysisContextType | undefined>(undefined);
 

@@ -4,18 +4,9 @@ import SearchBar from "../../components/search/searchBar";
 import { Images } from "../../assets/assets";
 import MapComponent from "../../components/map/map";
 import { useSidebar } from "../../context/useContextHooks";
+import type { LandingPageProps } from "../../types/types";
 // import GeoAnalysisContent from "../../components/geoAnalysisContent/geoAnalysisContent";
 // const defaultPosition = { lat: 19.0760, lng: 72.8777 };
-
-type LandingPageProps = {
-  sidebarOpen?: boolean;
-  pincodeBoundary?: any;
-  setPincodeBoundary?: (boundary: any) => void;
-  position?: [number, number] | undefined;
-  setPosition?: (pos: [number, number]) => void;
-  zoom?: number;
-  setZoom?: (zoom: number) => void;
-};
 
 const LandingPage = ({ sidebarOpen, pincodeBoundary, position, setPosition, zoom, setZoom }: LandingPageProps) => {
   const [hasSearched, setHasSearched] = useState(false);

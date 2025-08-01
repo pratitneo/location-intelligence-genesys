@@ -1,4 +1,4 @@
-import { useSidebar } from '../../context/sidebarContex'
+import { useSidebar } from '../../context/useContextHooks'
 import type { SelectSubdataType } from '../../types/types'
 import SubdataCheckbox from '../subdataCheckbox/subdataCheckbox'
 import subdataCss from './selectSubData.module.scss'

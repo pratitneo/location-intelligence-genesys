@@ -10,8 +10,8 @@ import { useBufferAnalysis } from '../../context/BufferAnalysisContext';
 import { useSelectedHex } from '../../context/SelectedHexContext';
 import * as h3 from 'h3-js';
 import wellknown from 'wellknown'; // Add this import at the top
-import { useSidebar } from "../../context/sidebarContex"
 import { LIP_BASE_URL } from '../../configs/apiConfig'
+import { useSidebar } from "../../context/useContextHooks"
 
 // Add setPincodeBoundary to props
 type GeoAnalysisContentProps = {

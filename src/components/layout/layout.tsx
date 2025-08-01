@@ -7,12 +7,12 @@ import SidePanel from "../sidePanel/sidePanel";
 import type { IconKey } from "../../types/types";
 import SiteSelection from "../siteSelection/siteSelection";
 import LandingPage from '../../pages/landingPage/landingPage';
-import { useSidebar } from "../../context/sidebarContex";
 import Sidebar from "../sidebar/sidebar";
 import GeoAnalysisContent from "../geoAnalysisContent/geoAnalysisContent";
 import SiteRecomm from "../siteRecomm/siteRecomm";
 import LayerChart from "../layerChart/layerChart";
 import ChatBot from "../chatbot/chatBot";
+import { useSidebar } from "../../context/useContextHooks";
 
 const Layout = () => {
   const location = useLocation();

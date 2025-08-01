@@ -7,11 +7,11 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import type { MapComponentType } from '../../types/types';
 import { useSelectedHex } from '../../context/SelectedHexContext';
 import * as h3 from 'h3-js';
-import { useSidebar } from '../../context/sidebarContex';
 import { useBufferAnalysis } from '../../context/BufferAnalysisContext';
 import { useState, useEffect } from 'react';
 import { setGlobalMapInstance } from '../../utils/mapUtils';
 import { LIP_BASE_URL } from '../../configs/apiConfig';
+import { useSidebar } from '../../context/useContextHooks';
 
 const DefaultIcon = L.icon({ iconUrl, shadowUrl: iconShadow, iconAnchor: [12, 41] });
 L.Marker.prototype.options.icon = DefaultIcon;

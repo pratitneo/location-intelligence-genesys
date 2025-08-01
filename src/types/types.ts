@@ -157,11 +157,11 @@ export type SiteDrpDwnType = {
 }
 export type IconWithTooltipType = {
     iconTooltipId?: string
-    icon: string;
+    icon: string | undefined;
     tooltipText?: string;
     position?: "top" | "bottom" | "left" | "right";
     customCls?: string;
-    getActionFn?: () => void;
+    getActionFn?: (e: any) => void;
 };
 
 export type UserCredentials = {
@@ -497,4 +497,11 @@ export type DrpDwnType = {
     mainCls: string
     selectId: string
     optWrapCls?: string
+}
+export type SpectraContextType = {
+    activeSpectra?: string
+    handleSpectra?: (value: string) => void
+}
+export type ContextChildType = {
+    children?: React.ReactNode
 }

@@ -1,5 +1,5 @@
 import { useSelectedHex } from '../context/SelectedHexContext';
-import { useSidebar } from '../context/sidebarContex';
+import { useSidebar } from '../context/useContextHooks';
 
 export const useHexSelection = () => {
   const { hexes, setHexes } = useSelectedHex();
@@ -10,7 +10,7 @@ export const useHexSelection = () => {
     try {
       // Fetch hex data from API
       const response = await fetch(`http://lip.genesys.com:9080/API/get_frontend_data/?hex_id=${hexId}`);
-      
+
       if (!response.ok) {
         if (response.status === 404) {
           console.warn('No data available for this hexagon.');
@@ -20,17 +20,17 @@ export const useHexSelection = () => {
           return null;
         }
       }
-      
+
       const data = await response.json();
-      
+
       // Import h3 dynamically to avoid module issues
       const h3 = await import('h3-js');
-      
+
       // Generate hex boundary
       const boundary = h3.h3ToGeoBoundary(hexId, true)
         .filter((pt: number[]) => Array.isArray(pt) && pt.length === 2)
         .map(([lng, lat]: number[]) => [lat, lng] as [number, number]);
-      
+
       // Calculate centroid
       if (boundary.length > 0) {
         const n = boundary.length;
@@ -38,17 +38,17 @@ export const useHexSelection = () => {
           boundary.reduce((acc, [lat]) => acc + lat, 0) / n,
           boundary.reduce((acc, [, lng]) => acc + lng, 0) / n,
         ];
-        
+
         const hexData = {
           properties: data,
           center: centroid,
           hexId,
           boundary
         };
-        
+
         // Check if the hex is already in the hexes array
         const hexExists = hexes.some(hex => hex.hexId === hexId);
-        
+
         if (!hexExists) {
           // Add the hex to the hexes array so it can be displayed on the map
           const newHex = {
@@ -59,10 +59,10 @@ export const useHexSelection = () => {
           setHexes([...hexes, newHex]);
           console.log('🎯 Added hex to map:', hexId);
         }
-        
+
         // Don't set the selected hex - let user click on it to select
         // setSelectedHex(hexData);
-        
+
         // Zoom to the hex if map instance is provided
         if (mapInstance) {
           const currentZoom = mapInstance.getZoom();
@@ -74,11 +74,11 @@ export const useHexSelection = () => {
             console.log('🎯 Panned to hex:', hexId);
           }
         }
-        
+
         // Don't automatically open the site selection panel
         // Let the user see the hex on the map first
         console.log('🎯 Hex selected on map:', hexId);
-        
+
         return hexData;
       } else {
         console.warn(`Could not select hex: ${hexId}`);

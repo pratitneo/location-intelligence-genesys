@@ -1,7 +1,7 @@
-import { createContext, useContext, useState } from 'react'
-import type { ContextType, SidebarValueType, IconKey } from '../types/types'
+import { useState } from 'react'
+import type { ContextType, IconKey } from '../../types/types'
+import { SidebarContext } from './sidebarContex'
 
-const SidebarContext = createContext<SidebarValueType | undefined>(undefined)
 export const SidebarProvider = ({ children }: ContextType) => {
 
     const [panelName, setPanel] = useState('')
@@ -24,10 +24,5 @@ export const SidebarProvider = ({ children }: ContextType) => {
             {children}
         </SidebarContext.Provider>
     )
-}
-export const useSidebar = () => {
-    const context = useContext(SidebarContext)
-    if (!context) throw new Error('Please check SidebarConext')
-    return context
 }
 

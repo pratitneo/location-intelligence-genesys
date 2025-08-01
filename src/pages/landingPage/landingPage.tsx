@@ -3,7 +3,7 @@ import { useState } from "react";
 import SearchBar from "../../components/search/searchBar";
 import { Images } from "../../assets/assets";
 import MapComponent from "../../components/map/map";
-import { useSidebar } from "../../context/sidebarContex";
+import { useSidebar } from "../../context/useContextHooks";
 // import GeoAnalysisContent from "../../components/geoAnalysisContent/geoAnalysisContent";
 // const defaultPosition = { lat: 19.0760, lng: 72.8777 };
 

@@ -468,6 +468,59 @@ export type HexDetailsResponse = {
 };
 
 export type DataSetType = {
+    label?: string
+    value?: string | number
+}
+
+// Chatbot types
+export type Message = { 
+    from: 'user' | 'bot'; 
+    text: string 
+};
+
+// Component Props Types
+export type LandingPageProps = {
+  sidebarOpen?: boolean;
+  pincodeBoundary?: any;
+  setPincodeBoundary?: (boundary: any) => void;
+  position?: [number, number] | undefined;
+  setPosition?: (pos: [number, number]) => void;
+  zoom?: number;
+  setZoom?: (zoom: number) => void;
+};
+
+export type MapComponentProps = MapComponentType & {
+  pincodeBoundary?: any;
+};
+
+export type IconKeys = keyof typeof import('../assets/assets').Images;
+
+export interface LoginInputProps extends Omit<LoginInputType, "icon"> {
+  icon?: IconKeys;
+}
+
+export type GeoAnalysisContentProps = {
+  setAreaBoundary: (boundary: any) => void;
+  setPosition?: (pos: [number, number]) => void;
+  setZoom?: (zoom: number) => void;
+};
+
+// Buffer Analysis Types
+export type BufferType = 'buffer' | 'city' | 'pincode' | '';
+
+export interface BufferAnalysisContextType {
+  bufferType: BufferType;
+  setBufferType: (type: BufferType) => void;
+  analysisValue: string; // radius, city, or pincode
+  setAnalysisValue: (value: string) => void;
+  bufferCenter: [number, number] | null;
+  setBufferCenter: (center: [number, number] | null) => void;
+  bufferRadius: number | null;
+  setBufferRadius: (radius: number | null) => void;
+}
+
+export interface SubdataCheckboxProps {
+  name: string;
     label: string
     value: string | number
 }

@@ -5,8 +5,7 @@ import BotIcon from '../../assets/Chatbot.svg';
 import ReactMarkdown from 'react-markdown';
 import { useHexSelection } from '../../hooks/useHexSelection';
 import { getGlobalMapInstance } from '../../utils/mapUtils';
-
-type Message = { from: 'user' | 'bot'; text: string };
+import type { Message } from '../../types/types';
 
 const UserIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +21,6 @@ const SendIcon = () => (
 
 // Utility function to format chatbot response
 const formatChatbotResponse = (response: string): string => {
-  console.log('🔍 Formatting response:', response);
   
   // Check if response contains hex_id patterns
   const hexIdMatches = response.match(/hex_id\s*=\s*"([^"]+)"/g);
@@ -70,11 +68,9 @@ const formatChatbotResponse = (response: string): string => {
 
   // Handle standalone hex ID responses (like "Hex ID **8a608b0b1067fff**:")
   if (standaloneHexMatch) {
-    console.log('🔍 Processing standalone hex IDs');
     let formattedResponse = response
       // Replace standalone hex IDs with clickable links
       .replace(/Hex ID\s+\*\*([a-f0-9]{15})\*\*:/g, (hexId) => {
-        console.log('🔍 Converting hex ID to link:', hexId);
         return `**Hex ID** [\`${hexId}\`](#hex-${hexId}):`;
       })
       // Add line breaks for better readability
@@ -82,7 +78,6 @@ const formatChatbotResponse = (response: string): string => {
       // Add line breaks before questions (no bold)
       .replace(/(Would you like|Shall we)/g, '\n\n$1');
     
-    console.log('🔍 Formatted standalone hex response:', formattedResponse);
     return formattedResponse;
   }
 
@@ -91,7 +86,6 @@ const formatChatbotResponse = (response: string): string => {
     let formattedResponse = response
       // Replace all hex_id = "..." patterns with clickable hex IDs
       .replace(/hex_id\s*=\s*"([^"]+)"/g, (hexId) => {
-        console.log('🔍 Converting hex_id pattern to link:', hexId);
         return `**Hex ID:** [\`${hexId}\`](#hex-${hexId})`;
       })
       // Bold quoted text (after hex_id replacement)
@@ -125,7 +119,6 @@ const formatChatbotResponse = (response: string): string => {
       formattedResponse = formattedResponse.replace(hexSectionRegex, hexIdsSection);
     }
     
-    console.log('🔍 Formatted hex_id response:', formattedResponse);
     return formattedResponse;
   }
   
@@ -138,11 +131,16 @@ const formatChatbotResponse = (response: string): string => {
   formattedResponse = formattedResponse.replace(
     /`([a-f0-9]{15})`/g, 
     (match, hexId) => {
-      console.log('🔍 Converting standalone code hex ID to link:', hexId);
       return `[${match}](#hex-${hexId})`;
     }
   );
   
+  // Remove space before closing ** in bolded questions
+  formattedResponse = formattedResponse.replace(/\?\s\*\*/g, '?**');
+
+  // Move parenthesis inside bold for all items like: **question?** (for Mumbai) => **question? (for Mumbai)**
+  formattedResponse = formattedResponse.replace(/\*\*(.+?)\*\*\s*\((.*?)\)/g, '**$1 ($2)**');
+
   console.log('🔍 Final formatted response:', formattedResponse);
   return formattedResponse;
 };
@@ -200,13 +198,10 @@ const ChatBot = () => {
         query: input,
         history_json: [], // simplified for now
       });
-      console.log('Response from chatbot:', response);
       if (response && response.result) {
         console.log('Response from chatbot:', response.result);
         // Format the response before displaying
         const formattedResponse = formatChatbotResponse(response.result);
-        console.log('Original response:', response.result);
-        console.log('Formatted response:', formattedResponse);
         const botMessage = { from: 'bot', text: formattedResponse };
         setMessages((prev: Message[]) => [...prev, botMessage]);
       }
@@ -232,16 +227,13 @@ const ChatBot = () => {
                 <ReactMarkdown
                   components={{
                     a: ({ href, children }) => {
-                      console.log('🔗 Rendering link with href:', href, 'and children:', children);
                       // Check if this is a hex ID link
                       if (href && href.startsWith('#hex-')) {
                         const hexId = href.replace('#hex-', '');
-                        console.log('🔗 Creating clickable hex button for:', hexId);
                         return (
                           <button
                             className={chatCss.hexLink}
                             onClick={() => {
-                              console.log('🔗 Hex button clicked for:', hexId);
                               const mapInstance = getMapInstance();
                               selectHex(hexId, mapInstance);
                             }}
@@ -251,20 +243,16 @@ const ChatBot = () => {
                           </button>
                         );
                       }
-                      console.log('🔗 Rendering regular link');
                       return <a href={href}>{children}</a>;
                     },
                     code: ({ children, className }) => {
                       const codeContent = String(children);
-                      console.log('🔗 Rendering code with content:', codeContent, 'and className:', className);
                       // Only make standalone code blocks clickable, not code inside links
                       if (/^[a-f0-9]{15}$/.test(codeContent) && !className?.includes('language-')) {
                         // Check if this code is inside a link by looking at the parent context
                         // For now, let's just render regular code to avoid nesting issues
-                        console.log('🔗 Rendering hex code as regular code to avoid nesting');
                         return <code className={className}>{children}</code>;
                       }
-                      console.log('🔗 Rendering regular code');
                       return <code className={className}>{children}</code>;
                     }
                   }}
@@ -282,7 +270,12 @@ const ChatBot = () => {
             <div className={`${chatCss.icon} ${chatCss.botIcon}`}>
               <img src={BotIcon} alt="Bot" />
             </div>
-            <div className={`${chatCss.message} ${chatCss.bot}`}>Thinking...</div>
+            <div className={`${chatCss.message} ${chatCss.bot}`}>
+              Thinking
+              <span className={chatCss.thinkingDots}>
+                <span>.</span><span>.</span><span>.</span>
+              </span>
+            </div>
           </div>
         )}
         <div ref={messagesEndRef} />

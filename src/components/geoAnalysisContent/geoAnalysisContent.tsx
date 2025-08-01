@@ -12,13 +12,7 @@ import * as h3 from 'h3-js';
 import wellknown from 'wellknown'; // Add this import at the top
 import { useSidebar } from "../../context/sidebarContex"
 import { LIP_BASE_URL } from '../../configs/apiConfig'
-
-// Add setPincodeBoundary to props
-type GeoAnalysisContentProps = {
-  setAreaBoundary: (boundary: any) => void;
-  setPosition?: (pos: [number, number]) => void;
-  setZoom?: (zoom: number) => void;
-};
+import type { GeoAnalysisContentProps } from '../../types/types';
 
 const GeoAnalysisContent = ({ setAreaBoundary, setPosition, setZoom }: GeoAnalysisContentProps) => {
   const [draggedItem, setDraggedItem] = useState<number | null>(null)

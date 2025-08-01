@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import mapCss from './map.module.scss';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import type { MapComponentType } from '../../types/types';
+import type { MapComponentProps } from '../../types/types';
 import { useSelectedHex } from '../../context/SelectedHexContext';
 import * as h3 from 'h3-js';
 import { useSidebar } from '../../context/sidebarContex';
@@ -141,10 +141,6 @@ function HexClickHandler() {
 }
 
 // Add pincodeBoundary to props
-type MapComponentProps = MapComponentType & {
-  pincodeBoundary?: any;
-};
-
 // Helper to compute bounds from GeoJSON MultiPolygon
 function getBoundsFromMultiPolygon(multiPolygon: any): [[number, number], [number, number]] | null {
   if (!multiPolygon || multiPolygon.type !== 'MultiPolygon') return null;

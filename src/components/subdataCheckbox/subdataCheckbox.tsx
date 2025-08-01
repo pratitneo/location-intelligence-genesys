@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import checkboxCss from './subdataCheckbox.module.scss';
-
-interface SubdataCheckboxProps {
-  name: string;
-}
+import type { SubdataCheckboxProps } from '../../types/types';
 
 const SubdataCheckbox: React.FC<SubdataCheckboxProps> = ({ name }) => {
   const [isChecked, setIsChecked] = useState(false);

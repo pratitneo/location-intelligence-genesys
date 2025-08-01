@@ -6,7 +6,6 @@ export const useHexSelection = () => {
   const { setRightIconKey, updatePanelName, updateRightPanel } = useSidebar();
 
   const selectHex = async (hexId: string, mapInstance?: any) => {
-    console.log('🎯 selectHex called with hexId:', hexId);
     try {
       // Fetch hex data from API
       const response = await fetch(`http://lip.genesys.com:9080/API/get_frontend_data/?hex_id=${hexId}`);
@@ -57,28 +56,18 @@ export const useHexSelection = () => {
             ahpOutput: data.AHP_Output || 0
           };
           setHexes([...hexes, newHex]);
-          console.log('🎯 Added hex to map:', hexId);
         }
-        
-        // Don't set the selected hex - let user click on it to select
-        // setSelectedHex(hexData);
-        
+                
         // Zoom to the hex if map instance is provided
         if (mapInstance) {
           const currentZoom = mapInstance.getZoom();
           if (currentZoom < 16) {
             mapInstance.setView(centroid, 16);
-            console.log('🎯 Zoomed to hex:', hexId, 'at zoom level 16');
           } else {
             mapInstance.panTo(centroid);
-            console.log('🎯 Panned to hex:', hexId);
           }
         }
-        
-        // Don't automatically open the site selection panel
-        // Let the user see the hex on the map first
-        console.log('🎯 Hex selected on map:', hexId);
-        
+              
         return hexData;
       } else {
         console.warn(`Could not select hex: ${hexId}`);

@@ -1,13 +1,8 @@
 import { useState } from "react";
-import type { LoginInputType } from "../../types/types";
+import type { LoginInputType, IconKeys, LoginInputProps } from "../../types/types";
 import inputCss from "./loginInput.module.scss";
 import { Images } from "../../assets/assets";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-type IconKeys = keyof typeof Images;
-
-interface LoginInputProps extends Omit<LoginInputType, "icon"> {
-  icon?: IconKeys;
-}
 
 const LoginInput = ({ inputLabel, inputType, inputName, inputId, inputPlaceholder, icon, customCls, inputValue, freezeInput, getInputValue }: LoginInputProps) => {
   const [visible, setVisible] = useState(false);

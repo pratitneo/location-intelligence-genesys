@@ -1,49 +1,42 @@
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/utilities' as *;
+.lip-btnIcn {
+    &__recommCard {
+        width: 100%;
+        max-width: 110px;
+        height: 28px;
+        border-radius: $radius-input;
+        @extend %flex-center;
+        gap: 0 5px;
 
-.lip-buttonIcon {
-    &__wrap {
-        position: absolute;
-        top: 0;
-        right: 10px;
-        z-index: $sidebar;
-        @extend %flex-between-center;
-        gap: 10px;
-        transition: right 0.3s ease;
-        
-        &--panel-open {
-            right: 650px;
+        span {
+            color: $white;
+            text-transform: capitalize;
         }
     }
 
-    &__button {
-        position: relative;
-        height: 40px;
-        width: 40px;
-        top: 10px;
-        border-radius: 100%;
-        border: $icon-radius;
-        background: radial-gradient(circle, $contact-icon-gradient-1 0%, $contact-icon-gradient-2 100%);
-        @extend %flex-center;
-        cursor: pointer;
-    }
-
-    &__dot{
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        background-color: $profile-active;
-        border-radius: 100%;
-        top:3px;
-        left: 22px;
-    }
-
-    &__contact {
+    &__showRec {
+        width: 100%;
+        height: 50px;
+        font-size: 14px;
+        margin: 10px 0 20px;
+        letter-spacing: 1px;
+        border: none;
+        border-radius: $radius-input;
         color: $white;
-        
+        text-transform: capitalize;
+        cursor: pointer;
+        @extend %flex-center;
+        gap: 0 10px;
     }
 
-    &__chatbot {
-        color: radial-gradient(circle, $profile-active 0%, $chatbot-gradient-1 100%);
+    &--violet {
+        background: linear-gradient(90deg, $show-recos-gradient-1, $show-recos-gradient-2);
+
+        &:hover {
+            background: linear-gradient(90deg, $show-recos-hover-1, $show-recos-hover-2);
+        }
+    }
+
+    &--red {
+        background: linear-gradient(90deg, $reject-gradient-1, $reject-gradient-2);
     }
 }

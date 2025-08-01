@@ -54,6 +54,9 @@ import BrandDeSelect from './brand-deselect.svg'
 import EyeClosed from './eye-closed.svg'
 import ExploreRecos from './explore-recos.svg'
 import ShowRecos from './show-recos.svg'
+import Locate from './locate.svg'
+import Shortlist from './shortlist.svg'
+import Reject from './reject.svg'
 
 
 
@@ -114,6 +117,9 @@ const Images = {
     eyeClosed: EyeClosed,
     exploreRecos: ExploreRecos,
     showRecos: ShowRecos,
+    locate: Locate,
+    shortlist: Shortlist,
+    reject: Reject,
 }
 
 export { Images }

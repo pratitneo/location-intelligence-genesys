@@ -6,10 +6,12 @@
 
 
 body {
-    font-family: "Urbanist", sans-serif;
+  font-family: "Urbanist", sans-serif;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden;
+  transition: all 0.3s;
 }

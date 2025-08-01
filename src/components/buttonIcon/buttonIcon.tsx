@@ -1,35 +1,14 @@
-import buttonCss from './buttonIcon.module.scss'
-import { Images } from "../../assets/assets"
-import { useNavigate } from 'react-router-dom';
-import type { ButtonIconInterface } from '../../types/types';
 
-
-
-const ButtonIcon = ({ isPanelOpen = false }: ButtonIconInterface) => {
-  const navigate = useNavigate();
-
-  const handleProfileClick = () => {
-    navigate('/profile');
-  }
-
-
-  const handleChatClick = () => {
-
-
-  }
-  return (
-    <div className={`${buttonCss['lip-buttonIcon__wrap']} ${isPanelOpen ? buttonCss['lip-buttonIcon__wrap--panel-open'] : ''}`}>
-      {/* profile */}
-      <button id='profile' className={buttonCss['lip-buttonIcon__button']}>
-        <span className={buttonCss['lip-buttonIcon__dot']} />
-        <img src={Images?.contact} alt="Contact" className={buttonCss['lip-buttonIcon__contact']} onClick={handleProfileClick} />
-      </button>
-      {/* ai chat */}
-      <button id='ai-chat' className={buttonCss['lip-buttonIcon__button']} onClick={handleChatClick}>
-        <img src={Images?.chatbot} className={buttonCss['lip-buttonIcon__chatbot']} />
-      </button>
-    </div>
-  )
+import type { BtnIconType } from '../../types/types'
+import btnIcnCss from './buttonIcon.module.scss'
+const ButtonIcon = ({ trailIcon, btnText, leadIcon, mainCls, bgCls }: BtnIconType) => {
+    return (
+        <div className={`${mainCls ? btnIcnCss[`lip-btnIcn__${mainCls}`] : ''} ${bgCls ? btnIcnCss[`lip-btnIcn--${bgCls}`] : ''}`}>
+            {trailIcon ? <img src={trailIcon} alt='Button Icon' /> : ''}
+            <span>{btnText}</span>
+            {leadIcon ? <img src={leadIcon} alt='ButtonIcon' /> : ''}
+        </div>
+    )
 }
 
 export default ButtonIcon

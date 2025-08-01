@@ -124,7 +124,7 @@ export type AgeDistributionDataType = {
     ageRange: string;
     male: string;
     female: string;
-}[];
+};
 
 export type SiteScoreType = {
     score?: string | number
@@ -139,7 +139,7 @@ export type SitePointerType = {
     pointersData?: PointerType[]
 }
 export type ScoreBtnType = {
-    icon?: any
+    icon?: string
     label: string
 }
 export type SiteScoreBtnsType = {
@@ -147,7 +147,7 @@ export type SiteScoreBtnsType = {
 }
 export type SiteDrpDwnItemType = {
     id: number | undefined
-    icon?: any,
+    icon?: string,
     label: string
 }
 export type SiteDrpDwnType = {
@@ -196,9 +196,13 @@ export type SidePanelProps = {
 export type PieType = {
     pieRadiusSize: string | number
     colorsArr: string[]
-    pieData: any[]
+    pieData: PieDataType[]
     containerWidth: number
     containerHeight: number
+}
+export type PieDataType = {
+    name?: string
+    value?: string | number
 }
 export type FootfallVisitorType = {
     peakHourData?: PeakNonPeakType[]
@@ -215,7 +219,6 @@ export type SidePanelType = {
     visible: boolean;
     visibleCls: string;
     content: React.ReactNode;
-    contentProps?: any;
 };
 
 export type SpendingLevel = "High" | "Moderate" | "Low";
@@ -234,9 +237,8 @@ export type SpendingType = {
 export type SideBtnType = {
     sidebarBtnId?: string
     sideBtnText?: string
-    sideBtnIcon?: any
+    sideBtnIcon?: string
     sideBarText?: boolean
-    getActionFn?: (siteBtn: any) => void
 }
 export type AffluenceType = {
     range: string;
@@ -267,7 +269,7 @@ export type SidebarType = {
 
 }
 export type LineChartType = {
-    data: any[]
+    data: LineChartDataType[]
     maxValue: string | number
     chartHeight: number
     spacedStroke: number | string
@@ -275,7 +277,7 @@ export type LineChartType = {
     xDataKey: string
     xDataColor: string
     yDataColor: string
-    yAxisRange: any[]
+    yAxisRange: [number, number]
     tickValue: number
     lineStyle: string
     dataKeyName: string
@@ -287,14 +289,24 @@ export type LineChartType = {
     legendIconType: string
     highValueColor: string
     normalValueColor: string
-    btnData?: any[]
+    btnData?: BtnDataType[]
     setNewBtnData?: any
+}
+
+export type BtnDataType = {
+    id?: string | number
+    label?: string
+    active?: boolean
+}
+export type LineChartDataType = {
+    day?: string
+    value?: string | number
 }
 export type TotalAddMarkType = {
     tamNum: string | number
 }
 
-export interface ButtonIconInterface {
+export interface ProfileBtnsType {
     isPanelOpen?: boolean;
 }
 
@@ -303,8 +315,8 @@ export type AccessIndexType = {
     accessLabel: string
 }
 export type LineBtnsType = {
-    getBtnNames?: any[]
-    getActivateBtnFn: (id: number) => void
+    getBtnNames?: BtnDataType[]
+    getActivateBtnFn: (id: string | number | undefined) => void
 }
 export type LineBtnType = {
     id: number,
@@ -322,7 +334,7 @@ export type DonutType = {
     inRadiusVal: number
     outRadiusVal: number
     numberDataKey: string | number
-    colors: any[]
+    colors: string[]
     pieCenterTextColor: string
     chartTextOne?: string
     chartTextTwo?: string
@@ -340,7 +352,7 @@ export type RadarType = {
     outsideLineColor: string
     radarItemTextSize: number
     markLineAngle: number
-    valueRangeArr: any[]
+    valueRangeArr: [number, number]
     markLineColor: string
     mainLineTextColor: string
     mainLineTextSize: number
@@ -408,7 +420,11 @@ export type CompetitiveType = {
 }
 export type CompetetiveItem = {
     head?: string
-    brands?: any[]
+    brands?: BrandType[]
+}
+export type BrandType = {
+    name?: string
+    selected?: boolean
 }
 
 export type ChartHeadType = {
@@ -505,4 +521,33 @@ export interface BufferAnalysisContextType {
 
 export interface SubdataCheckboxProps {
   name: string;
+    label: string
+    value: string | number
+}
+export type BtnIconType = {
+    trailIcon?: string
+    leadIcon?: string
+    btnText?: string
+    mainCls?: string
+    bgCls?: string
+    hoverCls?: string
+}
+export type RecommsArrType = {
+    location: string
+    score: string | number
+    pincode: string | number
+    city: string
+}
+export type RecommCardType = {
+    cardData: RecommsArrType
+}
+export type OptType = {
+    label: string | number
+    value: string | number
+}
+export type DrpDwnType = {
+    optsData: OptType[]
+    mainCls: string
+    selectId: string
+    optWrapCls?: string
 }

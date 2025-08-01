@@ -75,8 +75,8 @@ const formatChatbotResponse = (response: string): string => {
       })
       // Add line breaks for better readability
       .replace(/([.!?])\s+/g, '$1\n\n')
-      // Add line breaks before questions (no bold)
-      .replace(/(Would you like|Shall we)/g, '\n\n$1');
+      // Add line breaks before questions (no bold) - preserve emoji icons
+      .replace(/(🔍\s*Would you like|⚙️\s*Shall we)/g, '\n\n$1');
     
     return formattedResponse;
   }
@@ -96,8 +96,8 @@ const formatChatbotResponse = (response: string): string => {
       })
       // Add line breaks for better readability
       .replace(/([.!?])\s+/g, '$1\n\n')
-      // Add line breaks before questions (no bold)
-      .replace(/(Would you like|Shall we)/g, '\n\n$1')
+      // Add line breaks before questions (no bold) - preserve emoji icons
+      .replace(/(🔍\s*Would you like|⚙️\s*Shall we)/g, '\n\n$1')
       // Add emphasis to key information
       .replace(/(high population|family-centric spending|dense footfall|ideal for|consistent footfall|strong customer base|accessibility|banking services|business demographics|commercial activity)/g, '*$1*')
       // Add code formatting for hex IDs
@@ -125,7 +125,7 @@ const formatChatbotResponse = (response: string): string => {
   // For other responses, just add basic formatting and bold quoted text
   let formattedResponse = boldQuotedText(response)
     .replace(/([.!?])\s+/g, '$1\n\n')
-    .replace(/(Would you like|Shall we)/g, '\n\n$1');
+    .replace(/(🔍\s*Would you like|⚙️\s*Shall we)/g, '\n\n$1');
   
   // Also detect and make standalone hex IDs clickable (those in code blocks)
   formattedResponse = formattedResponse.replace(
@@ -207,7 +207,7 @@ const ChatBot = () => {
       }
     } catch (error) {
       console.error('Error fetching chatbot response:', error);
-      const errorMessage = { from: 'bot', text: 'Sorry, something went wrong.' };
+      const errorMessage = { from: 'bot', text: 'Sorry, something went wrong. Please try again.' };
       setMessages((prev: Message[]) => [...prev, errorMessage]);
     } finally {
       setLoading(false);

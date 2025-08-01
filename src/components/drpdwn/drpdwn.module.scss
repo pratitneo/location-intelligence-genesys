@@ -1,9 +1,15 @@
 .lip-drpdwn {
+    &__selectWrap {
+        width: 100%;
+        position: relative;
+    }
+
     &__recomDrpDwn {
         height: 50px;
         width: 100%;
         padding: 10px;
-        border-radius: $radius-input;
+        font-size: 18px;
+        border-radius: $radius-login;
         border: none;
         background: $secondary-violet;
         appearance: none;
@@ -12,9 +18,21 @@
         &:focus-visible {
             outline: none;
         }
+    }
 
-        option {
-            border-radius: $radius-drpdwn;
+    &__recomOpts {
+        border-radius: $radius-drpdwn;
+    }
+
+    &__arr {
+        position: absolute;
+        right: 10px;
+        top: 12px;
+        transform: rotate(180deg);
+        transition: all 0.3s;
+
+        &--active {
+            transform: rotate(0deg);
         }
     }
 }

@@ -28,7 +28,7 @@ const FootfallSpectra = ({ hexData }: { hexData?: any }) => {
     const btnNames = [{ id: 0, label: 'daily', active: true }, { id: 1, label: 'monthly', active: false }, { id: 2, label: 'yearly', active: false },]
 
     useEffect(() => {
-        const findActiveBtn = newBtnData?.filter((newBtn, _index) => newBtn?.active)
+        const findActiveBtn = newBtnData?.filter((newBtn) => newBtn?.active)
         setActiveBtn(findActiveBtn?.[0]?.id)
     }, [newBtnData])
 

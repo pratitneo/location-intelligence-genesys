@@ -1,10 +1,11 @@
 import SiteRecommHead from '../siteRecommHead/siteRecommHead'
 import siteRecCss from './siteRecomm.module.scss'
-import Button from '../button/button'
 import SiteRecommCard from '../siteRecommCard/siteRecommCard'
 import type { DataSetType, RecommsArrType } from '../../types/types'
 import Drpdwn from '../drpdwn/drpdwn'
 import Separator from '../separator/separator'
+import ButtonIcon from '../buttonIcon/buttonIcon'
+import { Images } from '../../assets/assets'
 
 const SiteRecomm = () => {
     const recomms: RecommsArrType[] = [{ location: 'charni road', score: 7, pincode: '400004', city: 'mumbai' }, { location: 'charni road', score: 7, pincode: '400004', city: 'mumbai' }, { location: 'charni road', score: 7, pincode: '400004', city: 'mumbai' }, { location: 'charni road', score: 7, pincode: '400004', city: 'mumbai' },]
@@ -14,10 +15,10 @@ const SiteRecomm = () => {
         <div className={`${siteRecCss['lip-siteRec__wrap']}`}>
             <SiteRecommHead />
             <div className={`${siteRecCss['lip-siteRec__drpDwns']}`}>
-                <Drpdwn optsData={pincodes} mainCls='recomDrpDwn' selectId='pincode' />
-                <Drpdwn optsData={pincodes} mainCls='recomDrpDwn' selectId='cities' />
+                <Drpdwn optsData={pincodes} mainCls='recomDrpDwn' selectId='pincode' optWrapCls='recomOpts' />
+                <Drpdwn optsData={pincodes} mainCls='recomDrpDwn' selectId='cities' optWrapCls='recomOpts' />
             </div>
-            <Button buttonText='show recommendation' customCls='lip-showRec' />
+            <ButtonIcon btnText='show recommendation' mainCls='showRec' bgCls='violet' hoverCls='blue' trailIcon={Images?.showRecos} />
             <Separator separator />
             <div className={`${siteRecCss['lip-siteRec__cards']}`}>
                 {recomms?.map((item: RecommsArrType, index: number) => {

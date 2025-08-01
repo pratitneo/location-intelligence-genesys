@@ -12,7 +12,7 @@ const PieChartGraph = ({ pieRadiusSize, colorsArr, pieData, containerWidth, cont
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
         // custom color per name (overrides slice color)
-        const colorIndex = pieData.findIndex((item: any) => item?.name === name);
+        const colorIndex = pieData?.findIndex((item: any) => item?.name === name);
         const color = colorsArr[colorIndex % colorsArr.length] || '#333';
         const customCls = `${pieCss['lip-pie__text']}`;
 

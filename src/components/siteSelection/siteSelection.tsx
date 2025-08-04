@@ -1,18 +1,28 @@
+// assets
 import { Images } from '../../assets/assets'
+import siteSelCss from './siteSelection.module.scss'
+
+// context
 import { useSelectedHex } from '../../context/SelectedHexContext'
-import AccessibilitySpectra from '../accessibilitySpectra/accessibilitySpectra'
+
+// components
+// import AccessibilitySpectra from '../accessibilitySpectra/accessibilitySpectra'
 import DemoSpectra from '../demoSpectra/demoSpectra'
-import FootfallSpectra from '../footfallSpectra/footfallSpectra'
-import RetailSpectra from '../retailSpectra/retailSpectra'
+// import FootfallSpectra from '../footfallSpectra/footfallSpectra'
+// import RetailSpectra from '../retailSpectra/retailSpectra'
 import SitePointers from '../sitePointers/sitePointers'
 import SiteScore from '../siteScore/siteScore'
 import SiteScoreBtns from '../siteScoreBtns/siteScoreBtns'
 import SiteScoreDrpDwn from '../siteScoreDrpDwn/siteScoreDrpDwn'
-import siteSelCss from './siteSelection.module.scss'
+import FootfallSpectra from '../footfallSpectra/footfallSpectra'
+import AccessibilitySpectra from '../accessibilitySpectra/accessibilitySpectra'
+import RetailSpectra from '../retailSpectra/retailSpectra'
 
 const SiteSelection = () => {
     const { selectedHex } = useSelectedHex();
+    // const { activeSpectra } = useSpectraContext()
     const getHexData = selectedHex?.properties
+
     // const pointersData = [{ icon: '', value: getHexData?.target_population_presence, label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' }, { icon: '', value: 'high', label: 'target population presence' },]
     const getHouseHoldIncome = getHexData?.['Household Income'] ? `₹${getHexData?.['Household Income'].toLocaleString('en-IN', { maximumFractionDigits: 2, minimumFractionDigits: 2, })}` : undefined;
     const pointersData = [{ value: getHexData?.target_population_presence, label: 'target population presence' }, { value: getHexData?.footfall_daily_visitors, label: 'footfall daily visitors' }]
@@ -26,7 +36,6 @@ const SiteSelection = () => {
     const roundIfLessThanPointFive = (num: number) => num % 1 < 0.5 ? Math.floor(num) : Math.round(num);
     const ahpScore = selectedHex?.properties?.ahp_scores;
     const getScore = (ahpScore == null || isNaN(ahpScore)) ? 0 : roundIfLessThanPointFive(ahpScore);
-
 
     return (
         <>
